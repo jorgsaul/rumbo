@@ -10,6 +10,7 @@ const router = express.Router();
 
 router.post('/login', async (req, res) => {
   const {identificador , contraseña} = req.body;
+  if(!identificador || !contraseña) return res.status(400).json({error: 'Faltan parámetros'});
   try {
     const resultado = await iniciarSesion(identificador, contraseña);
     if(resultado.success){
