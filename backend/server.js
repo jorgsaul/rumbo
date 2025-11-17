@@ -19,12 +19,6 @@ import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
 
 dotenv.config();
 
-const allowedOrigins = [
-  'http://localhost:5173',
-  'https://rumbo-jorgsauls-projects.vercel.app',
-  'https://rumbo-iota.vercel.app'
-]
-
 cloudinary.v2.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -43,16 +37,14 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if(allowedOrigins.includes(origin)){
-      callback(null, true);
-    }else{
-      callback(new Error('Not allowed by CORS'));
-    }
-    return callback(null, true);
-  },
-  credentials: true
+  origin: [
+    'http://localhost:5173',
+    'https://rumbo-ffau3m0gd-jorgsauls-projects.vercel.app',
+    'https://rumbo-autga3imr-jorgsauls-projects.vercel.app',
+    'https://rumbo-jorgsauls-projects.vercel.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 app.use(express.json({ limit: '5mb' }));
