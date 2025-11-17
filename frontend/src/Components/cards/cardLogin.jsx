@@ -21,6 +21,11 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
     const contraseña = document.getElementById("contraseñaInputLogin").value;
 
     const inicioSesion = async () => {
+      if (!usuario || !contraseña) {
+        setError(true);
+        setMensajeError("Los campos no pueden estar vacios");
+        return;
+      }
       try {
         const respuesta = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/login`,
