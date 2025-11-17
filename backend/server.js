@@ -20,8 +20,8 @@ import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
 dotenv.config();
 
 const allowedOrigins = [
-  process.env.FRONTEND_ORIGIN,
-  'https://vercel.com/jorgsauls-projects/rumbo/CQTFvciVjVZ2ZNTZLFxd3nbnm3Zs'
+  'http://localhost:5173',
+  'https://rumbo-jorgsauls-projects.vercel.app',
 ]
 
 cloudinary.v2.config({
@@ -44,7 +44,7 @@ app.use(limiter);
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) !== -1){
+    if(allowedOrigins.includes(origin)){
       callback(null, true);
     }else{
       callback(new Error('Not allowed by CORS'));
@@ -77,7 +77,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Agrega esto a tu server.js
 app.get('/', (req, res) => {
   res.json({ 
     message: '🚀 Backend funcionando correctamente!',
