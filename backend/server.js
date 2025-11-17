@@ -64,6 +64,15 @@ app.use((req, res, next) => {
   next();
 });
 
+// Agrega esto a tu server.js
+app.get('/', (req, res) => {
+  res.json({ 
+    message: '🚀 Backend funcionando correctamente!',
+    timestamp: new Date().toISOString(),
+    status: 'active'
+  });
+});
+
 app.use('/', postsRoutes);
 app.use('/', loginRoutes);
 app.use('/', userRoutes);
