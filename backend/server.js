@@ -22,6 +22,7 @@ dotenv.config();
 const allowedOrigins = [
   'http://localhost:5173',
   'https://rumbo-jorgsauls-projects.vercel.app',
+  'https://rumbo-iota.vercel.app'
 ]
 
 cloudinary.v2.config({
