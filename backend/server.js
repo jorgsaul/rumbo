@@ -41,7 +41,8 @@ app.use(cors({
     'http://localhost:5173',
     'https://rumbo-ffau3m0gd-jorgsauls-projects.vercel.app',
     'https://rumbo-autga3imr-jorgsauls-projects.vercel.app',
-    'https://rumbo-jorgsauls-projects.vercel.app'
+    'https://rumbo-jorgsauls-projects.vercel.app',
+    'https://rumbo-iota.vercel.app'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
