@@ -9,10 +9,15 @@ const JWT_SECRET = process.env.JWT_SECRET;
 const router = express.Router();
 
 router.post('/login', async (req, res) => {
-  const {identificador , contraseña} = req.body;
-  if(!identificador || !contraseña) return res.status(400).json({error: 'Faltan parámetros'});
+  const { identificador, contrasena } = req.body;
+  
+  if(!identificador || !contrasena) {
+    return res.status(400).json({error: 'Faltan parámetros'});
+  }
+  
   try {
-    const resultado = await iniciarSesion(identificador, contraseña);
+    const resultado = await iniciarSesion(identificador, contrasena);
+    
     if(resultado.success){
       const id = resultado.user.id;
       const rol = resultado.user.role;
