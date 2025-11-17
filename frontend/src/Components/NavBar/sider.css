@@ -1,0 +1,83 @@
+.sider-rumbo {
+  padding-top: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #EEEE;
+  height: 100%;
+  width: 100%;
+  border: solid 1px rgba(216, 216, 216, 0.329);
+}
+
+.sider-perfil-usuario{
+  width: 15rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0 0.5rem 0;
+  border-radius: 1rem;
+}
+
+.sider-perfil-usuario:hover{
+  display: flex;
+  align-items: center;
+  background-color: #b1b1b1;
+  cursor: pointer;
+}
+
+.sider-perfil-usuario p{
+  margin: 0;
+  margin-left: 0.7rem;
+  font-weight: 700;
+}
+
+.sider-perfil-avatar{
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (max-width:900px) {
+  .sider-rumbo{
+    width: 5rem;
+  }
+  .contenedor-opcion-menu p, .sider-perfil-usuario p{
+    display: none;
+  }
+  .contenedor-opcion-menu{
+    max-width: 2.5rem;
+  }
+  .sider-perfil-usuario{
+    width: 3rem;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .sider-perfil-usuario:hover{
+    background-color: transparent;
+  }
+
+  @media (max-width:600px){
+    .contenedor-opcion-menu.logout{
+      position: static !important;
+      top: auto;
+      left: auto;
+    }
+    .sider-rumbo{
+      flex-direction: row;
+      display: flex;
+      justify-content: space-around;
+      height: 4.5rem;
+      width: 100%;
+      padding: 0;
+    }
+    .sider-perfil-avatar{
+      margin-top: 5px;
+    }
+    .sider-rumbo, .contenedor-menu-izquierda{
+      position: absolute;
+      border-top: solid 1px rgba(216, 216, 216, 0.329);
+      bottom: 0%;
+    }
+    .contenedor-cuerpo-principal{
+      padding-bottom: 4.5rem;
+    }
+  }
+}

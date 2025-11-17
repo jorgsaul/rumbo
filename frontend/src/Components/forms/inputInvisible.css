@@ -1,0 +1,60 @@
+.invisible-input {
+  width: 95%;
+  min-height: 1.2rem;
+  line-height: 1.2rem;
+  padding: 0;
+  height: fit-content;
+  border: none;
+  color: #4B4B4B;
+  padding-left: 0.625rem;
+  background-color: transparent;
+}
+
+.invisible-input.filled, .invisible-input.typing.filled{
+  color: #4B4B4B;
+}
+
+.invisible-input.typing, .invisible-input.typing.registro {
+  color: #4B4B4B;
+  border-color: #4B4B4B;
+}
+
+.invisible-input:focus, .invisible-input.typing.focus{
+  outline: none;
+}
+
+.invisible-input:hover {
+  border-color: #91235A;
+}
+
+.invisible-input.error {
+  border-color: #F64C4C;
+}
+
+.input-titulo{
+  font-weight: bold;
+  color: black;
+}
+
+.input-titulo-perfil{
+  font-weight: bold;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  padding: 0;
+  height: 1rem;
+  max-height: 28px;
+  padding-top: 0.2rem;
+  padding-bottom: 0;
+  border: #dedede solid 1px;
+  border-radius: 0.2rem;
+  width: fit-content;
+}
+
+.input-bio-perfil{
+  font-size: 1.3rem;
+  padding: 0;
+  border: #dedede solid 1px;
+  border-radius: 0.2rem;
+  width: 100%;
+}

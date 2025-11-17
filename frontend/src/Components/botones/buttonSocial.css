@@ -1,0 +1,52 @@
+.contenedor{
+  background-color: white;
+  border-radius: 2rem;
+  width: 20rem;
+  height: 2.7rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border: 0.1rem solid #cacaca;
+}
+
+.google:hover{
+  background-color:#4b4b4b;
+  transition: background-color 0.3s ease;
+}
+
+.google:hover .txt-button{
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.facebook:hover .txt-button{
+  color: white;
+  transition: color 0.3s ease;
+}
+
+
+.facebook:hover{
+  background-color: #0866ff;
+  transition: background-color 0.3s ease;
+}
+
+.facebook:hover .txt-button{
+  color: white;
+}
+
+
+.img-button{
+  height: 1.5rem;
+  width: 1.5rem;
+  overflow: hidden;
+  margin-right: 0.5rem;
+}
+
+.img-button img{
+  width: 100%;
+  height: 100%;
+}
+
+.txt-button{
+  color: black;
+}

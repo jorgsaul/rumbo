@@ -1,0 +1,18 @@
+.cascade-menu{
+  border: solid 1px rgb(235, 235, 235);
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  flex-direction: column;
+  gap: 2rem;
+  width: 15rem;
+  height: 20rem;
+  overflow-y: auto;
+}
+
+.contenedor-cascade-menu{
+  position: relative;
+  transform: translateZ(0);
+  z-index: 3;
+}

@@ -1,0 +1,62 @@
+.common-button-outline, .disabled-outline-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.4rem;
+  
+  width: fit-content;
+  max-width: 8rem;
+  min-width: 4.4rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  background: #ffffff81;
+  border: 0.0625rem solid #E1E1E1;
+  border-radius: 100rem;
+}
+
+.common-button-outline:hover {
+  border: 0.0625rem solid #91235A;
+  color: #91235A;
+  cursor: pointer;
+}
+
+.common-button-outline:active {
+  border: 0.0625rem solid #270415;
+  color: #270415;
+}
+
+.disabled-outline-button {
+  border: 0.0625rem solid #E1E1E1;
+  color: #E1E1E1;
+  cursor: not-allowed;
+  pointer-events: none;
+  user-select: none;
+}
+
+button.boton-etiquetas.common-button-outline{
+  border-radius: 50px;
+  font-size: 0.8rem;   
+  min-width: 1rem;
+  height: 2.3rem;
+  padding: 0.6rem;
+}
+
+button.boton-etiquetas.common-button-outline.active{
+  background-color: #91235A;
+  color: white;
+}
+
+button.boton-etiquetas.common-button-outline{
+  border-radius: 50px;
+  font-size: 0.8rem;   
+  min-width: 1rem;
+  height: 2.3rem;
+  padding: 0.6rem;
+}
+
+button.boton-etiquetas.common-button-outline.active{
+  background-color: #91235A;
+  color: white;
+}

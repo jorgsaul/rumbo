@@ -1,0 +1,34 @@
+.common-button, .disabled-button{
+  border: none;
+  padding: 0.7rem;
+  max-width: 15rem;
+  min-width: 10rem;
+  width: fit-content;
+  height: 3rem;
+  background: #5A1236;
+  border-radius: 0.25rem;
+  color: white;
+}
+
+.common-button img{
+  filter: brightness(0) invert(1);
+}
+
+.common-button:hover{
+  background-color: #91235A;
+  cursor: pointer;
+}
+
+.common-button:active{
+  background-color: #270415;
+}
+
+.disabled-button{
+  background-color: #EE68A4;
+  pointer-events: none;
+  user-select: none;
+}
+
+button:disabled{
+  cursor: not-allowed;
+}

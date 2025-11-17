@@ -1,0 +1,24 @@
+.contenedor-equis{
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.contenido{
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  padding: 0 3rem 4rem 3rem;
+}
+
+.titulo-registrate h1{
+  font-size: 2rem;
+}
+
+.pasos{
+  width: 100%;
+  height: fit-content;
+  max-height: 30.9rem;
+  border-radius: 0 0 1rem 1rem;
+}

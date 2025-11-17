@@ -1,0 +1,38 @@
+.contenedor-card-comentario{
+  border-bottom: solid 1px rgb(211, 211, 211);
+  margin-top: 1rem;
+  display: flex;
+  width: 90%;
+}
+
+.contenedor-imagen-avatar-comentario{
+  height: 2.5rem;
+  width: 2.5rem;
+  margin-right: 0.6rem;
+}
+
+.usuario-comentario{
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+}
+
+.contenedor-avatar-comentario{
+  height: 100%;
+}
+
+.usuario-comentario b{
+  font-size: 0.6rem;
+}
+
+.usuario-comentario p{
+  margin: 0;
+  margin-right: 0.2rem;
+  font-size: 0.9rem;
+}
+
+.texto-comentario{
+  text-align: justify;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}

@@ -1,0 +1,161 @@
+.contenedor-ventana-perfil{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  flex-shrink: 0;
+  max-width: 37.5rem;
+  min-width: 10rem;
+}
+
+.contenedor-perfil{
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-width: 70rem;
+  margin-top: 2rem;
+  height: fit-content;
+  margin-bottom: 2rem;
+}
+
+.contenedor-descripcion-perfil p{
+  font-size: 1.3rem;
+  text-align: start;
+  width: 100%;
+  word-wrap: break-word; 
+}
+
+.contenedor-descripcion-perfil{
+  width:100%;
+  height: auto;
+}
+
+.datos-perfil h1{
+  font-size: 1.5rem;
+}
+
+.datos-perfil p{
+  font-size: 0.8rem;
+}
+
+.datos-perfil{
+  margin-top: 3rem;
+  flex-direction: column;
+  position: relative;
+}
+
+.contenedor-navtab-perfil{
+  width: 100%;
+  overflow-x: auto;
+  min-height: 3rem;
+}
+
+.sub-ventana-perfil{
+  border: solid rgba(192, 192, 192, 0.447) 1px;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.contenedor-perfil-banner {
+  position: relative;
+  background-color: rgba(107, 18, 18, 0.117);
+  width: 100%;
+  min-height: 10rem;
+  position: relative;
+}
+
+.contenedor-perfil-banner.editar {
+  position: relative;
+  cursor: pointer;
+}
+
+.banner-editar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.contenedor-perfil-banner.editar:hover .banner-editar-overlay {
+  opacity: 1;
+}
+
+
+.contenedor-perfil-banner.editar:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.39);
+  pointer-events: none;
+}
+
+.contenedor-imagen-ventana-perfil {
+  position: absolute;
+  left: 20%;
+  bottom: -4rem;
+  transform: translateX(-50%);
+  height: 8rem;
+  width: 8rem;
+  border: 2px solid #b1b1b1;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.avatar-editar-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.contenedor-imagen-ventana-perfil.editar:hover .avatar-editar-overlay {
+  opacity: 1;
+}
+
+.contenedor-botones-perfil{
+  position: absolute;
+  right: 0;
+  top: 10%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+button.boton-editar-perfil.common-button, button.boton-editar-perfil.disabled-button {
+  border-radius: 50px;
+  font-size: 0.8rem;   
+  min-width: 1rem;
+  height: 2.2rem;
+  padding: 0.6rem;
+}

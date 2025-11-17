@@ -1,0 +1,83 @@
+{
+  "test_id": 2,
+  "test_name": "Habilidades Medicas-Biologicas", 
+  "preguntas": [
+    {
+      "pregunta": "Relacionar las leyes de la Herencia de Mendel con su descripción:",
+      "tabla": {
+        "columnas": ["Ley de Mendel", "Postulado"],
+        "filas": [
+          ["1. Ley de la uniformidad", "A. Establece que los caracteres se heredan de forma independiente unos de otros (no se mezclan), y que los alelos para diferentes rasgos se segregan de manera independiente."],
+          ["2. Ley de la segregación", "B. Postula que, al cruzar dos razas puras, la primera generación filial (F1) estará compuesta por individuos idénticos entre sí."],
+          ["3. Ley de la segregación independiente", "C. Indica que los dos alelos de un gen (uno materno y otro paterno) deben separarse (segregar) durante la formación de gametos."]
+        ]
+      },
+      "opciones": {
+        "a": "1A, 2B, 3C",
+        "b": "1B, 2C, 3A",
+        "c": "1C, 2A, 3B", 
+        "d": "1A, 2C, 3B"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Relacionar el organelo celular con su función principal:",
+      "tabla": {
+        "columnas": ["Organelo", "Función"],
+        "filas": [
+          ["1. Mitocondria", "A. Síntesis de proteínas a partir de la información genética."],
+          ["2. Ribosoma", "B. Encargada de dirigir la división celular y contener el material genético (ADN)."],
+          ["3. Núcleo", "C. Producción de energía (ATP) mediante la respiración celular."],
+          ["4. Membrana celular", "D. Regula el paso de sustancias hacia el interior y exterior de la célula."]
+        ]
+      },
+      "opciones": {
+        "a": "1A, 2B, 3C, 4D",
+        "b": "1B, 2C, 3D, 4A", 
+        "c": "1C, 2A, 3B, 4D",
+        "d": "1D, 2A, 3C, 4B"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Seleccionar la biomolécula que es la principal fuente de energía inmediata para las células del cuerpo.",
+      "opciones": {
+        "a": "Grasas",
+        "b": "Proteínas", 
+        "c": "Vitaminas",
+        "d": "Carbohidratos"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "¿Qué sucede con la imagen observada a través del microscopio óptico compuesto cuando se pasa de usar el objetivo de 10X (bajo aumento) al objetivo de 40X (alto aumento)?",
+      "opciones": {
+        "a": "La imagen se ve más borrosa, pero la profundidad de campo aumenta.",
+        "b": "El campo visual (el área circular que se ve) se hace más grande y brillante.",
+        "c": "La imagen se ve invertida y se requiere ajustar el enfoque fino.",
+        "d": "El campo visual se reduce y la imagen se ve menos brillante."
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Identificar la principal vía metabólica que ocurre en el citoplasma y que es común tanto a la respiración aeróbica como a la anaeróbica.",
+      "opciones": {
+        "a": "Fermentación",
+        "b": "Glucólisis",
+        "c": "Ciclo de Krebs", 
+        "d": "Cadena de transporte de electrones"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Identificar el síndrome que está relacionado con una trisomía de los cromosomas sexuales, específicamente el cariotipo XXY.",
+      "opciones": {
+        "a": "Patau",
+        "b": "Turner", 
+        "c": "Down",
+        "d": "Klinefelter"
+      },
+      "respuesta_correcta": "d"
+    }
+  ]
+}

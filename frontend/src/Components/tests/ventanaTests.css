@@ -1,0 +1,30 @@
+.ventana-test{
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabla-test {
+  border-collapse: collapse;
+  width: fit-content;
+  height: fit-content
+}
+
+.tabla-test, .tabla-test th, .tabla-test td {
+  border: 1px solid rgba(0, 0, 0, 0.381);
+  padding: 8px;
+  text-align: left;
+}
+
+.tabla-test th {
+  background-color: #f2f2f2;
+}
+.contenedor-opciones-tests{
+  flex-direction: column;
+  align-items: flex-start;
+  display: flex;
+  width: fit-content;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+

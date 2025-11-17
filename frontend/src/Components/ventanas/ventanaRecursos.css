@@ -1,0 +1,41 @@
+.ventana-recursos-contenedor{
+  overflow-y: auto;
+  padding-left: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.titulo-recursos{
+  font-size: 3rem;
+}
+
+.contenedor-grafica{
+  max-width: 900px;
+}
+
+@media (max-width: 600px) {
+  .ventana-recursos-contenedor{
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .contenedor-lista-cards-recursos{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contenedor-card-recurso{
+    width: 400rem;
+    background-color: blue;
+  }
+  .ventana-recursos-contenedor h1, .ventana-recursos-contenedor p{
+    text-align: center;
+  }
+  .titulo-recursos{
+    font-size: 2rem;
+  }
+}

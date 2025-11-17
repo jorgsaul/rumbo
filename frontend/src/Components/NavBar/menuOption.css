@@ -1,0 +1,39 @@
+.contenedor-opcion-menu{
+  width: 15rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem;
+  border-radius: 10px;
+}
+
+.contenedor-opcion-menu.activo{
+  background-color: #5A1236;
+  color: white;
+}
+
+.contenedor-opcion-menu.activo p {
+  color: white;
+}
+
+.contenedor-opcion-menu.activo:hover{
+  background-color: #91235A;
+}
+
+.contenedor-icono-menu{
+  margin: 0 0.5rem 0 0.3rem;
+}
+
+.contenedor-opcion-menu p{
+  margin: 0;
+}
+
+.contenedor-opcion-menu:hover{
+  background-color: #b1b1b1;
+  cursor: pointer;
+}
+
+.contenedor-opcion-menu.logout{
+  position: absolute;
+  bottom: 2rem;;
+}

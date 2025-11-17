@@ -1,0 +1,112 @@
+.card {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  background-color: #FAFAFA;
+  height: fit-content;
+  max-width: 37rem; 
+  width: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  border: 0.02rem solid #8e8e8e58;
+  position: relative;
+}
+
+.card:hover {
+  background-color: #cacaca;
+}
+
+.profile-user a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 0.7rem;
+  display: flex;
+  font-size: 0.5rem;
+  align-items: center;
+}
+
+.nombre-usuario:hover {
+  color: #CB3580;
+}
+
+.nombre-usuario{
+  margin-right: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.user-data a:hover {
+  color: #91235a;
+}
+
+.publicacion {
+  padding: 0.4rem;
+  color: white;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.info {
+  padding: 0.45rem;
+  font-size: 0.9rem;
+}
+
+.reacciones-publicacion{
+  padding: 1rem 1rem 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reaccion-like{
+  display: flex;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+.contenedor-multimedia{
+  max-height: 30rem;
+  max-width: 30rem;
+  overflow: hidden;
+  display: inline-block;
+  margin: 0.7rem 0 0;
+  border-radius: 1rem;
+}
+
+.contenedor-multimedia img{
+  height: auto;
+  max-width: 100%;
+}
+
+h4, p{
+  margin: 0.625rem 0.375rem 0.25rem 0.125rem;
+}
+
+.Usuario{
+  font-size: x-small;
+}
+
+.img-avatar-container{
+  width: 3rem;
+  height: 3rem;
+}
+
+.tags-container{
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: fit-content;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 500px) {
+  .card {
+    max-width: 90vw;
+    height: auto;
+  }
+}

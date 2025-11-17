@@ -1,0 +1,60 @@
+.contenedor-principal{
+  display: flex;
+  max-height: 100%;
+}
+
+.derecha{
+  width: 45vw;
+  height: 100vh;
+  display: flex;
+}
+
+.izquierda{
+  background-image: url('../img/Logo-blancoL.png');
+  background-color: black;
+  width: 55vw;
+  height: 100vh;
+  background-position: center;
+  background-size: 50% auto;
+  background-repeat: no-repeat;
+}
+
+@media (max-width:1500px) {
+  .izquierda{
+    display: none;
+  }
+  .contenedor-principal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .derecha{
+    width: 100%;
+    height: fit-content;
+    height: 100vh;
+  }
+}
+
+.overlay-background{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay-content{
+  background-color: #e1e1e1;
+  width: 30rem;
+  max-height: 40rem;
+  border-radius: 1rem;
+}
+
+.contenedor-equis{
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}

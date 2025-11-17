@@ -1,0 +1,53 @@
+.rumbo-header{
+  background-color: #5A1236;
+  height: 3.5rem;
+  width: 100%;
+  position: relative;
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+}
+
+.logo-image-header {
+  height: 100%;
+  margin: 0 1rem;
+  flex-shrink: 0;
+}
+
+.buscador-header input{
+  border-radius: 200px;
+  height: 2rem;
+  max-width: 35rem;
+  width: 100%;
+  border: solid 1px #b1b1b1;
+  padding-left: 2rem;
+}
+
+.buscador-header {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.buscador-contenedor {
+  position: relative;
+  width: 100%;
+  max-width: 35rem;
+}
+
+@media (max-width: 800px) {
+  .buscador-header{
+    display: none;
+  }
+}
+
+.icono-buscar-buscador {
+  position: absolute;
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

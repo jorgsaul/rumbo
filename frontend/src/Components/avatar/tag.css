@@ -1,0 +1,8 @@
+.tag-container{
+  border-radius: 2rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+  width: fit-content;
+  height: fit-content;
+  font-size: small;
+  user-select: none;
+}

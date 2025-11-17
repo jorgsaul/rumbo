@@ -1,0 +1,47 @@
+Reglas y buenas prácticas para Stored Procedures (SP)
+
+1. Nomenclatura
+   - Todos los SP deben usar el prefijo: sp
+   - Seguir el formato CamelCase: spAccionObjeto
+       Ejemplos:
+         - spLoginUser
+         - spGetUserContent
+         - spCreateUser
+         - spTogglePostLike
+
+2. Tipos de SP
+   - Get: Para consultas de lectura (SELECT)
+   - Create/Insert: Para crear registros (INSERT)
+   - Update: Para actualizar registros (UPDATE)
+   - Delete: Para eliminar registros (DELETE)
+   - Toggle: Para alternar estados como likes o favoritos
+
+3. Parámetros
+   - Usar prefijo 'p_' para parámetros de entrada opcional: p_parametro
+   - Especificar claramente el tipo y longitud de cada parámetro
+   - Evitar pasar demasiados parámetros innecesarios
+
+4. Seguridad
+   - Evitar concatenar parámetros directamente en SQL (riesgo de SQL Injection)
+   - Preferir parámetros vinculados (bind parameters) o hash de contraseñas
+
+5. Funcionalidad
+   - Cada SP debe realizar una única acción clara
+   - Usar EXISTS o COUNT para verificaciones booleanas
+   - Para SP de toggle, devolver el estado final después de la acción
+
+6. Orden y legibilidad
+   - Separar claramente bloques IF/ELSEIF/ELSE
+   - Indentar correctamente todo el código SQL
+   - Comentar secciones complejas
+
+7. Devuelve siempre algo
+   - Incluso en errores o filtros no válidos, devolver un mensaje o valor
+     Ejemplo: SELECT 'Filtro no válido' AS mensaje;
+
+8. Fechas
+   - Usar NOW() para campos de creación y actualización
+
+9. Consistencia
+   - Mantener un patrón coherente en todos los SP
+   - Evitar nombres duplicados o ambiguos

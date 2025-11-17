@@ -1,0 +1,195 @@
+{
+  "test_id": 1,
+  "test_name": "Habilidades Matemáticas",
+  "preguntas": [
+    {
+      "pregunta": "Relaciona cada enunciado con su expresión algebraica:",
+      "tabla": {
+        "columnas": ["Enunciado", "Expresión"],
+        "filas": [
+          ["1. El cuadrado de la mitad de un número", "A. $\\frac{m^2}{2}$"],
+          ["2. La mitad del cuadrado de un número", "B. $(2m)^2$"],
+          ["3. El doble del cuadrado de un número", "C. $2m^2$"],
+          ["4. El cuadrado del doble de un número", "D. $(\\frac{m}{2})^2$"]
+        ]
+      },
+      "opciones": {
+        "a": "1A, 2D, 3C, 4B",
+        "b": "1D, 2A, 3B, 4C",
+        "c": "1A, 2D, 3B, 4C",
+        "d": "1D, 2A, 3C, 4B"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Identifica cuáles de los siguientes enunciados sobre desigualdades son verdaderos:",
+      "enunciados": [
+        "1. Si $x < y$ y $y < z$, entonces $x < z$",
+        "2. Si $a < b$, entonces $a - c < b - c$", 
+        "3. Si $a > 0$ y $b < 0$, entonces $ab < 0$",
+        "4. Si $x < y$ y $c < 0$, entonces $xc < yc$"
+      ],
+      "opciones": {
+        "a": "1, 2",
+        "b": "2, 4",
+        "c": "1, 2, 3",
+        "d": "2, 3, 4"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Selecciona el orden correcto de los resultados de los siguientes logaritmos:",
+      "enunciados": [
+        "$\\log_4 24 - \\log_4 6 + \\log_4 1$",
+        "$\\frac{1}{2}\\log_3 81 + \\log_{10} 100$", 
+        "$\\log_2 48 - \\log_2 3 \\times (\\log_2 8)^{-1}$",
+        "$\\log_{\\frac{1}{3}} \\frac{1}{27}$"
+      ],
+      "opciones": {
+        "a": "1, 3, 2, 4",
+        "b": "3, 1, 4, 2", 
+        "c": "1, 4, 3, 2",
+        "d": "4, 2, 1, 3"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "El ángulo $\\theta$ pertenece al __________ cuadrante, si $\\cos\\theta < 0$ y $\\tan\\theta > 0$.",
+      "opciones": {
+        "a": "primer",
+        "b": "segundo",
+        "c": "tercero", 
+        "d": "cuarto"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "La condición necesaria y suficiente para que dos rectas, con pendientes $m_1$ y $m_2$ definidas, sean paralelas entre sí es que _______________ de sus pendientes sea igual a cero.",
+      "opciones": {
+        "a": "la suma",
+        "b": "el producto", 
+        "c": "la diferencia",
+        "d": "el cociente"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Una parábola con vértice en el origen pasa por el punto $(1, -3)$ y su eje coincide con el eje $x$. ¿Cuál es la ecuación de la parábola?",
+      "opciones": {
+        "a": "$3y^2 + x = 0$",
+        "b": "$3y^2 - x = 0$",
+        "c": "$3x^2 + y = 0$", 
+        "d": "$3x^2 - y = 0$"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Calcular el valor del límite: $\\lim_{x \\to 0}\\frac{\\tan(\\pi\\sin^2(x))}{x^2}$",
+      "opciones": {
+        "a": "0",
+        "b": "1", 
+        "c": "$\\pi$",
+        "d": "$2\\pi$"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Derivar la siguiente función: $Y = \\arccos(3x^2)$",
+      "opciones": {
+        "a": "$y' = \\frac{-6x}{\\sqrt{1-9x^4}}$",
+        "b": "$y' = \\frac{6x}{\\sqrt{1-9x^4}}$",
+        "c": "$y' = -\\frac{1}{\\sqrt{1-9x^4}}$",
+        "d": "$y' = \\frac{3x}{\\sqrt{1-9x^4}}$"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Resuelve la siguiente integral indefinida: $\\int \\frac{dx}{x^2-1}$",
+      "opciones": {
+        "a": "$\\frac{1}{2}\\ln|x-1| - \\frac{1}{2}\\ln|x+1| + C$",
+        "b": "$\\frac{1}{2}\\ln|x+1| - \\frac{1}{2}\\ln|x-1| + C$",
+        "c": "$\\frac{1}{2}\\ln|x+1| + C$",
+        "d": "$\\frac{1}{2}\\ln\\left|\\frac{x-1}{x+1}\\right| + C$"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "E y F son dos eventos independientes con probabilidades $P(E)=\\frac{1}{4}$ y $P(F)=\\frac{1}{5}$. Identificar cuál de los siguientes resultados es verdadero.",
+      "opciones": {
+        "a": "$P(E \\cap F)=\\frac{1}{20}$",
+        "b": "$P(F|E)=\\frac{1}{4}$",
+        "c": "$P(E^e)=\\frac{1}{5}$",
+        "d": "$P(E \\cup F)=\\frac{9}{20}$"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Una fuente de luz genera una intensidad $I$ a una distancia $d$. Si se mide la intensidad lumínica a la distancia $4d$, la nueva intensidad en términos de $I$ es:",
+      "opciones": {
+        "a": "$I/16$",
+        "b": "$I/4$",
+        "c": "$4I$",
+        "d": "$16I$"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Se suelta una pelota desde una altura de 20 m. ¿Cuánto tiempo tarda en caer al suelo? ($g = 10$ m/s²)",
+      "opciones": {
+        "a": "1.5 s",
+        "b": "2.0 s", 
+        "c": "3.0 s",
+        "d": "4.0 s"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Relacionar el concepto de la física con la expresión matemática que lo representa:",
+      "tabla": {
+        "columnas": ["Concepto", "Expresión matemática"],
+        "filas": [
+          ["1. Ley de Gravitación Universal", "A. $V = IR$"],
+          ["2. Fuerza centrípeta", "B. $F = G\\frac{m_1 m_2}{r^2}$"],
+          ["3. Segunda Ley de Newton", "C. $F = ma$"],
+          ["4. Ley de Ohm", "D. $F = m\\frac{v^2}{r}$"]
+        ]
+      },
+      "opciones": {
+        "a": "1B, 2D, 3C, 4A",
+        "b": "1A, 2C, 3D, 4B",
+        "c": "1C, 2A, 3B, 4D",
+        "d": "1D, 2B, 3A, 4C"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Relacionar el concepto de ondas con su definición:",
+      "tabla": {
+        "columnas": ["Concepto", "Definición"],
+        "filas": [
+          ["1. Refracción", "A. La propiedad de una onda de rodear obstáculos y desviarse después de pasar por una abertura."],
+          ["2. Reflexión", "B. El fenómeno que ocurre cuando una onda cambia de dirección y velocidad al pasar de un medio a otro."],
+          ["3. Difracción", "C. La magnitud de la energía que transporta una onda luminosa por unidad de área y por unidad de tiempo."],
+          ["4. Intensidad lumínica", "D. El cambio de dirección de una onda que, al incidir sobre la superficie de separación de dos medios, regresa al medio inicial."]
+        ]
+      },
+      "opciones": {
+        "a": "1A, 2B, 3D, 4C",
+        "b": "1B, 2D, 3A, 4C",
+        "c": "1C, 2A, 3B, 4D",
+        "d": "1D, 2C, 3A, 4B"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Identificar el coeficiente de expansión volumétrica ($\\beta$) de un gas ideal si se expande de acuerdo a la expresión $\\frac{P}{T^2} =$ constante.",
+      "opciones": {
+        "a": "$1/T$",
+        "b": "$2/T$", 
+        "c": "$3/T$",
+        "d": "$4/T$"
+      },
+      "respuesta_correcta": "c"
+    }
+  ]
+}

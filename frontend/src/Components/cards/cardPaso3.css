@@ -1,0 +1,5 @@
+.paso3-contenedor-botones{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8.15rem;
+}

@@ -1,0 +1,11 @@
+.contenedor-navTab{
+  display: flex;
+  gap: 1rem;
+  min-width: max-content;
+}
+
+@media (max-width: 600px) {
+  .contenedor-navTab {
+    gap: 0.5rem;
+  }
+}

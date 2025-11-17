@@ -1,0 +1,29 @@
+.mi-input {
+  width: 18rem;
+  height: 2rem;
+  border: 0.125rem solid #e1e1e1;
+  border-radius: 0.25rem;
+  color: #4B4B4B;
+  padding-left: 0.625rem;
+}
+
+.mi-input.filled, .mi-input.typing.filled{
+  color: #4B4B4B;
+}
+
+.mi-input.typing, .mi-input.typing.registro {
+  color: #4B4B4B;
+  border-color: #4B4B4B;
+}
+
+.mi-input:focus, .mi-input.typing.focus{
+  outline: none;
+}
+
+.mi-input:hover {
+  border-color: #91235A;
+}
+
+.mi-input.error {
+  border-color: #F64C4C;
+}
