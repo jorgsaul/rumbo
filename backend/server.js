@@ -19,6 +19,11 @@ import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
 
 dotenv.config();
 
+const allowedOrigins = [
+  process.env.FRONTEND_ORIGIN,
+  'https://vercel.com/jorgsauls-projects/rumbo/CQTFvciVjVZ2ZNTZLFxd3nbnm3Zs'
+]
+
 cloudinary.v2.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -37,7 +42,15 @@ const limiter = rateLimit({
 app.use(limiter);
 
 app.use(cors({
-  origin: process.env.FRONTEND_ORIGIN,
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) !== -1){
+      callback(null, true);
+    }else{
+      callback(new Error('Not allowed by CORS'));
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 
