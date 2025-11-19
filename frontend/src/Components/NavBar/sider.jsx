@@ -27,7 +27,7 @@ function Sider({ cambioVentana, ventana }) {
       const data = await response.json();
 
       if (data.success) {
-        window.location.reload();
+        window.location.href = "/";
       } else {
         console.error("Error del servidor:", data.message);
       }
