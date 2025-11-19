@@ -26,7 +26,7 @@ router.post('/logout', (req, res) => {
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'Strict'
   });
-  return res.json({ succes:true, message: 'Logged out successfully' });
+  return res.json({ success: true, message: 'Logged out successfully' }); // ← Aquí también
 });
 
 export default router;
