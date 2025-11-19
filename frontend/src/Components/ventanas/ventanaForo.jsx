@@ -137,16 +137,14 @@ function VentanaForo({ ventanaActual }) {
         )}
 
         {posts.length > 0 ? (
-          [...posts]
-            .reverse()
-            .map((post) => (
-              <CardPublicacion
-                recargarPublicaciones={obtenerPosts}
-                key={post.id}
-                objeto={post}
-                publicacionPropia={post.author_id === perfil.id}
-              />
-            ))
+          [...posts].map((post) => (
+            <CardPublicacion
+              recargarPublicaciones={obtenerPosts}
+              key={post.id}
+              objeto={post}
+              publicacionPropia={post.author_id === perfil.id}
+            />
+          ))
         ) : (
           <p>Sin publicaciones</p>
         )}
