@@ -4,7 +4,7 @@ async function insertarResultados(userId, testId, score) {
   try {
     const result = await pool.query('CALL spinserttestresult($1, $2, $3)', [userId, testId, score]);
     if (result.rows.length > 0) {
-      return result.rows;
+      return result.rows[0];
     } else {
       return [];
     }
