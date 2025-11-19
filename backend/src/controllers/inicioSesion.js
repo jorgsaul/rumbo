@@ -5,7 +5,7 @@ async function iniciarSesion(identificador, contraseña) {
     const result = await pool.query('SELECT * FROM sploginuser($1, $2)', [identificador, contraseña]);
     
     if (result.rows.length > 0) {
-      return { success: true, user: result.rows[0] };
+      return { success: true, user: result.rows };
     }
     return { success: false };
   } catch (error) {

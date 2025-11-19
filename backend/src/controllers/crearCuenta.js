@@ -15,14 +15,14 @@ export const validarUsuarioExistente = async (usuario, correo) => {
     usuario,
     correo,
   ]);
-  return result.rows[0];
+  return result.rows;
 };
 
 export const obtenerUsuario = async (identificador) => {
   try {
     const result = await pool.query("SELECT id FROM _users WHERE username = $1", [identificador]);
     if (result.rows.length > 0) {
-      return result.rows[0];
+      return result.rows;
     }
   } catch (error) {
     console.error("Error al obtener el usuario:", error); 
