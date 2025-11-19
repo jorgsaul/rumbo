@@ -1,7 +1,7 @@
 import { pool } from '../config/dataBase.js';
 async function obtenerDatosTest(userId) {
   try {
-    const result = await pool.query('CALL spgetusertests($1)', [userId]);
+    const result = await pool.query('SELECT * FROM spgetusertests($1)', [userId]);
     if (result.rows.length > 0) {
       return result.rows[0] || [];
     } else {

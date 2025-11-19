@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 async function obtenerDatosUsuario(userID) {
   try {
-    const result = await pool.query('CALL spgetuserdata($1)', [userID]);
+    const result = await pool.query('SELECT * FROM spgetuserdata($1)', [userID]);
     if(result.rows.length > 0) {
       return result.rows[0];
     }else{
