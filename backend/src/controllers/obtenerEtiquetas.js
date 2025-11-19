@@ -2,9 +2,9 @@ import {pool} from "../config/dataBase.js";
 
 export default async function obtenerEtiquetas() {
   try {
-    const [rows] = await pool.query("CALL spgettags()");
-    if(rows.length > 0) {
-      return rows[0];
+    const result = await pool.query("CALL spgettags()");
+    if(result.rows.length > 0) {
+      return result.rows[0];
     }
   } catch (error) {
     console.error("Error al obtener las etiquetas:", error);

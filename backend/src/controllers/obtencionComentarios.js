@@ -2,9 +2,9 @@ import { pool } from "../config/dataBase.js";
 
 export async function obtenerComentarios(postID) {
   try {
-    const [rows] = await pool.query("CALL spgetcomments(?)", [postID]);
-    if(rows && rows.length > 0) {
-      return rows[0];
+    const result = await pool.query("CALL spgetcomments($1)", [postID]);
+    if(result.rows && result.rows.length > 0) {
+      return result.rows[0];
     }else {
       return [];
     }

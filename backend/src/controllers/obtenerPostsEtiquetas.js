@@ -2,10 +2,10 @@ import {pool} from '../config/dataBase.js';
 
 export default async function obtenerPostsEtiquetas(etiquetas) {
   try {
-    const [rows] = await pool.query("CALL spgetpostsbytags(?)", [etiquetas]);
+    const result = await pool.query("CALL spgetpostsbytags($1)", [etiquetas]);
     
-    if (rows && rows.length > 0) {
-      return rows[0];
+    if (result.rows && result.rows.length > 0) {
+      return result.rows[0];
     } else {
       return [];
     }

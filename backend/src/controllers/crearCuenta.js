@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 export const crearCuenta = async (tipoUsuario, correo, usuario, password) => {
   try {
-    await pool.query("CALL spcreateuser(?, ?, ?, ?);",
+    await pool.query("CALL spcreateuser($1, $2, $3, $4);",
       [usuario, correo, password, tipoUsuario]
     );
   } catch (error) {
@@ -11,18 +11,18 @@ export const crearCuenta = async (tipoUsuario, correo, usuario, password) => {
 };
 
 export const validarUsuarioExistente = async (usuario, correo) => {
-  const [rows] = await pool.query("SELECT spcheckuserexists(?, ?);", [
+  const result = await pool.query("SELECT spcheckuserexists($1, $2);", [
     usuario,
     correo,
   ]);
-  return rows[0];
+  return result.rows[0];
 };
 
 export const obtenerUsuario = async (identificador) => {
   try {
-    const [rows] = await pool.query("SELECT id FROM users WHERE username = ?", [identificador]);
-    if (rows.length > 0) {
-      return rows[0];
+    const result = await pool.query("SELECT id FROM _users WHERE username = $1", [identificador]);
+    if (result.rows.length > 0) {
+      return result.rows[0];
     }
   } catch (error) {
     console.error("Error al obtener el usuario:", error); 

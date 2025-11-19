@@ -1,9 +1,9 @@
 import { pool } from '../config/dataBase.js';
 async function obtenerDatosTest(userId) {
   try {
-    const [rows] = await pool.query('CALL spgetusertests(?)', [userId]);
-    if (rows.length > 0) {
-      return rows[0] || [];
+    const result = await pool.query('CALL spgetusertests($1)', [userId]);
+    if (result.rows.length > 0) {
+      return result.rows[0] || [];
     } else {
       return null;
     }
