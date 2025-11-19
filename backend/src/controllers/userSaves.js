@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 async function funcionFavoritos(userID, postID){
   try {
-    const [rows] = await pool.query('CALL spTogglePostFavorite(?, ?)', [userID, postID]);
+    const [rows] = await pool.query('CALL sptogglepostfavorite(?, ?)', [userID, postID]);
     if(rows.length > 0) {
       return rows[0];
     }else{

@@ -2,7 +2,7 @@ import { pool } from '../config/dataBase.js';
 
 async function funcionLikes(usuarioID, postID) {
   try {
-    const [rows] = await pool.query(`CALL spTogglePostLike(?, ?)`, [usuarioID, postID]);
+    const [rows] = await pool.query(`SELECT sptogglepostlike(?, ?)`, [usuarioID, postID]);
     if(rows.length > 0) {
       return rows[0];
     }else{

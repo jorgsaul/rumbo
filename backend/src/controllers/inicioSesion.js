@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 async function iniciarSesion(identificador, contraseña) {
   try {
-    const [rows] = await pool.query('CALL spLoginUser(?, ?)', [identificador, contraseña]);
+    const [rows] = await pool.query('CALL sploginuser(?, ?)', [identificador, contraseña]);
     if(rows[0].length > 0){
       return { success: true, user: rows[0][0] };
     }

@@ -2,7 +2,7 @@ import { pool } from '../config/dataBase.js';
 
 async function obtenerPosts(filtro, usuarioIdPerfil, usuarioIdSesion) {
   try {
-    const [rows] = await pool.query(`CALL spGetUserContent(?, ?, ?)`, [filtro, usuarioIdPerfil, usuarioIdSesion]);
+    const [rows] = await pool.query(`CALL spgetusercontent(?, ?, ?)`, [filtro, usuarioIdPerfil, usuarioIdSesion]);
     if(rows.length > 0) {
       return rows[0];
     }else{

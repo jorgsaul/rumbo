@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 export const crearCuenta = async (tipoUsuario, correo, usuario, password) => {
   try {
-    await pool.query("CALL spCreateUser(?, ?, ?, ?);",
+    await pool.query("CALL spcreateuser(?, ?, ?, ?);",
       [usuario, correo, password, tipoUsuario]
     );
   } catch (error) {
@@ -11,7 +11,7 @@ export const crearCuenta = async (tipoUsuario, correo, usuario, password) => {
 };
 
 export const validarUsuarioExistente = async (usuario, correo) => {
-  const [rows] = await pool.query("CALL spCheckUserExists(?, ?);", [
+  const [rows] = await pool.query("SELECT spcheckuserexists(?, ?);", [
     usuario,
     correo,
   ]);
