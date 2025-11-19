@@ -93,6 +93,7 @@ function VentanaForo({ ventanaActual }) {
       if (!response.ok) throw new Error("Error en la respuesta de la red");
 
       const data = await response.json();
+      console.log(data);
       setPosts(data);
     } catch (error) {
       console.error("Error al obtener los posts:", error);
