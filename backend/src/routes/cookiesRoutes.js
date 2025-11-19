@@ -24,9 +24,9 @@ router.post('/logout', (req, res) => {
   res.clearCookie('token',{
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'Strict'
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+    path: '/'
   });
-  return res.json({ success: true, message: 'Logged out successfully' }); // ← Aquí también
+  return res.json({ success: true, message: 'Logged out successfully' });
 });
-
 export default router;
