@@ -84,7 +84,7 @@ function VentanaForo({ ventanaActual }) {
     try {
       let url = `${import.meta.env.VITE_APP_API_BASE_URL}/posts`;
       if (filtro)
-        url += `?filtro=${filtro}&usuario_id_perfil=${idUsuarioPerfil}`;
+        url += `?filtro=${filtro}&usuario_id_perfil=${idUsuarioPerfil}&usuario_id_sesion=${perfil.id}`;
 
       const response = await fetch(url, {
         method: "GET",
