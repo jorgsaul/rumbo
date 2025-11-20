@@ -15,6 +15,7 @@ function VentanaResultados() {
           }
         );
         const data = await response.json();
+        console.log(data);
         setDatos(data);
       } catch (error) {
         console.log(error);
