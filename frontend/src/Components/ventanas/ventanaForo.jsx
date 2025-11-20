@@ -37,9 +37,19 @@ function VentanaForo({ ventanaActual }) {
   }
 
   const handleCheckboxChange = (categoryId, tagId) => {
+    console.log(
+      "🎯 Checkbox cambiado - Categoría:",
+      categoryId,
+      "Etiqueta:",
+      tagId
+    );
+
     setSelectedEtiquetas((prev) => {
       const currentCategory = prev[categoryId] || [];
       const isSelected = currentCategory.includes(tagId);
+
+      console.log("📝 Estado anterior:", prev);
+      console.log("🔘 Está seleccionado?:", isSelected);
 
       if (isSelected) {
         const updatedCategory = currentCategory.filter((id) => id !== tagId);
@@ -50,12 +60,16 @@ function VentanaForo({ ventanaActual }) {
         if (updatedCategory.length === 0) {
           delete newState[categoryId];
         }
+
+        console.log("❌ Nuevo estado (quitado):", newState);
         return newState;
       } else {
-        return {
+        const newState = {
           ...prev,
           [categoryId]: [...currentCategory, tagId],
         };
+        console.log("✅ Nuevo estado (agregado):", newState);
+        return newState;
       }
     });
   };
@@ -65,12 +79,17 @@ function VentanaForo({ ventanaActual }) {
   };
 
   useEffect(() => {
+    console.log("🔄 useEffect - selectedEtiquetas cambió:", selectedEtiquetas);
+
     const ids = obtenerIdsEtiquetas();
+    console.log("🏷️ IDs de etiquetas a buscar:", ids);
 
     if (ids.length > 0) {
+      console.log("🚀 Buscando por etiquetas...");
       setBusqueda("etiquetas");
       obtenerPostsEtiquetas(ids.join(","));
     } else {
+      console.log("📋 Buscando posts normales...");
       setBusqueda("normal");
       obtenerPosts();
     }
