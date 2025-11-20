@@ -28,3 +28,14 @@ export const obtenerUsuario = async (identificador) => {
     console.error("Error al obtener el usuario:", error); 
   }
 }
+
+export const autoLogin = async (identificador) => {
+  try {
+    const result = await pool.query("SELECT * FROM spautologin($1)", [identificador]);
+    if (result.rows.length > 0) {
+      return result.rows[0];
+    }
+  } catch (error) {
+    console.error("Error en auto-login:", error); 
+  }
+}
