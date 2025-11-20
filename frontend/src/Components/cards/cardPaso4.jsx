@@ -36,7 +36,7 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
         }
       );
       const data = await usuarioExistente.json();
-      if (data[0].user_exists === 1) {
+      if (data[0].spcheckuserexists === 1) {
         return "El nombre de usuario ya existe";
       }
     } catch (error) {
