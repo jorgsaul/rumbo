@@ -36,8 +36,8 @@ function VentanaResultados() {
     datasets: [
       {
         data: [0, 0, 0, 0, 0, 0].map((valor, index) => {
-          const resultado = datos?.find((d) => d.test_id === index + 1);
-          return resultado ? resultado.score : 0;
+          const resultado = datos?.find((d) => d.result_test_id === index + 1);
+          return resultado ? parseFloat(resultado.result_score) : 0;
         }),
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
