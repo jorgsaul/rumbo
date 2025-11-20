@@ -25,6 +25,8 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+app.set('trust proxy', 1);
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 
