@@ -12,6 +12,7 @@ function VentanaForo({ ventanaActual }) {
   const [filtro, setFiltro] = useState("");
   const [toggle, setToggle] = useState(false);
   const [selectedEtiquetas, setSelectedEtiquetas] = useState({});
+  const [busqueda, setBusqueda] = useState("normal");
   const { perfil } = useObtencionUsuario();
   const { idUsuario } = useParams();
 
@@ -67,8 +68,10 @@ function VentanaForo({ ventanaActual }) {
     const ids = obtenerIdsEtiquetas();
 
     if (ids.length > 0) {
+      setBusqueda("etiquetas");
       obtenerPostsEtiquetas(ids.join(","));
     } else {
+      setBusqueda("normal");
       obtenerPosts();
     }
   }, [selectedEtiquetas]);
@@ -84,7 +87,7 @@ function VentanaForo({ ventanaActual }) {
     try {
       let url = `${import.meta.env.VITE_APP_API_BASE_URL}/posts`;
       if (filtro)
-        url += `?filtro=${filtro}&usuario_id_perfil=${idUsuarioPerfil}&usuario_id_sesion=${perfil.id}`;
+        url += `?filtro=${filtro}&usuario_id_perfil=${idUsuarioPerfil}`;
 
       const response = await fetch(url, {
         method: "GET",
@@ -121,7 +124,7 @@ function VentanaForo({ ventanaActual }) {
   };
 
   useEffect(() => {
-    obtenerPosts();
+    if (filtro === "normal") obtenerPosts();
   }, [filtro, perfil, idUsuario]);
 
   return (
