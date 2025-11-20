@@ -30,14 +30,17 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
         }/validarUsuarioExistente?usuario=${usuario}&correo=${datos.correo}`,
         {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
         }
       );
+
       const data = await usuarioExistente.json();
-      if (data[0].spcheckuserexists === 1) {
-        return "El nombre de usuario ya existe";
+      console.log("🔍 Respuesta validación:", data);
+      console.log("📊 Valor de spcheckuserexists:", data.spcheckuserexists);
+      console.log("🔢 Tipo de dato:", typeof data.spcheckuserexists);
+
+      if (data.spcheckuserexists === 1 || data.spcheckuserexists === true) {
+        return "El nombre de usuario o correo ya existe";
       }
     } catch (error) {
       console.error("Error al validar el usuario:", error);
