@@ -36,16 +36,16 @@ function VentanaForo({ ventanaActual }) {
     }
   }
 
-  const handleCheckboxChange = (categoryId, tagId) => {
+  const handleCheckboxChange = (category_id, tagId) => {
     console.log(
       "🎯 Checkbox cambiado - Categoría:",
-      categoryId,
+      category_id,
       "Etiqueta:",
       tagId
     );
 
     setSelectedEtiquetas((prev) => {
-      const currentCategory = prev[categoryId] || [];
+      const currentCategory = prev[category_id] || [];
       const isSelected = currentCategory.includes(tagId);
 
       console.log("📝 Estado anterior:", prev);
@@ -55,10 +55,10 @@ function VentanaForo({ ventanaActual }) {
         const updatedCategory = currentCategory.filter((id) => id !== tagId);
         const newState = {
           ...prev,
-          [categoryId]: updatedCategory,
+          [category_id]: updatedCategory,
         };
         if (updatedCategory.length === 0) {
-          delete newState[categoryId];
+          delete newState[category_id];
         }
 
         console.log("❌ Nuevo estado (quitado):", newState);
@@ -66,7 +66,7 @@ function VentanaForo({ ventanaActual }) {
       } else {
         const newState = {
           ...prev,
-          [categoryId]: [...currentCategory, tagId],
+          [category_id]: [...currentCategory, tagId],
         };
         console.log("✅ Nuevo estado (agregado):", newState);
         return newState;
