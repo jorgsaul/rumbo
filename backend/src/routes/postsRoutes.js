@@ -11,12 +11,19 @@ import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
 
 const router = express.Router();
 
-router.get('/posts',tokenAuthenticator, async (req, res) => {
+router.get('/posts', tokenAuthenticator, async (req, res) => {
   const filtro = req.query.filtro;
   const usuarioIdPerfil = req.query.usuario_id_perfil;
   const usuarioIdSesion = req.user.id;
+  
+  console.log('🔍 DEBUG POSTS:');
+  console.log('   usuarioIdSesion:', usuarioIdSesion);
+  console.log('   filtro:', filtro);
+  console.log('   usuarioIdPerfil:', usuarioIdPerfil);
+
   try {
     const posts = await obtenerPosts(filtro, usuarioIdPerfil, usuarioIdSesion);
+    console.log('📊 Posts obtenidos:', posts.length);
     res.json(posts);
   } catch (error) {
     console.error('Error al obtener los posts:', error);
