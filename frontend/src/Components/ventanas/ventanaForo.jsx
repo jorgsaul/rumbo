@@ -124,7 +124,7 @@ function VentanaForo({ ventanaActual }) {
   };
 
   useEffect(() => {
-    if (filtro === "normal") obtenerPosts();
+    if (busqueda === "normal") obtenerPosts();
   }, [filtro, perfil, idUsuario]);
 
   return (
