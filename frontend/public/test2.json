@@ -156,6 +156,56 @@
         "d": "1D, 2C, 3A, 4B"
       },
       "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Seleccionar el nombre del radical alquilo representado por la siguiente estructura:",
+      "imagen_secuencia": "cadena.png",
+      "opciones": {
+        "a": "n-Butil",
+        "b": "Secpropil",
+        "c": "Isobutil",
+        "d": "Secbutil"
+      },
+       "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Identificar la ecuación general que representa una reacción de doble desplazamiento (o metátesis).",
+      "opciones": {
+        "a": "A + B → AB",
+        "b": "AB → A + B",
+        "c": "A + BC → AC + B",
+        "d": "AB + CD → AD + CB"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Determinar cuál de las siguientes sustancias tiene el pH más ácido (el más bajo), basándose en su valor de pOH.",
+      "tabla": {
+        "columnas": ["Sustancia", "pOH"],
+        "filas": [
+          ["a) Leche", "7.8"],
+          ["b) Jugo de tomate", "10.1"],
+          ["c) Blanqueador doméstico", "1.5"],
+          ["d) Amoníaco", "3.3"]
+        ]
+      },
+      "opciones": {
+        "a": "Leche",
+        "b": "Jugo de tomate",
+        "c": "Blanqueador doméstico",
+        "d": "Amoníaco"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Sistema termodinámico que solo permite el intercambio de energía (calor o trabajo) pero no de materia con su entorno es:",
+      "opciones": {
+        "a": "cerrado",
+        "b": "abierto",
+        "c": "aislado",
+        "d": "mixto"
+      },
+      "respuesta_correcta": "a"
     }
   ]
 }

@@ -39,7 +39,7 @@ router.get('/validarUsernameExistente', async (req, res) => {
   }
 });
 
-// Endpoint para validar solo correo
+
 router.get('/validarCorreoExistente', async (req, res) => {
   try {
     const { correo } = req.query;
