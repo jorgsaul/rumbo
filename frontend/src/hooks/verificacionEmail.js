@@ -14,29 +14,43 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
     if (!emailRegex.test(email.trim())) {
       return 'Correo electrónico no válido';
     }
-    try {
-      const usuarioExistente = await fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/validarUsuarioExistente?usuario=${' '}&correo=${email}`, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      
-      const data = await usuarioExistente.json();
-      if (data.existe) {
-        return "El correo ya tiene una cuenta asociada";
+
+    if (esRegistro) {
+      try {
+        const usuarioExistente = await fetch(
+          `${import.meta.env.VITE_APP_API_BASE_URL}/validarUsuarioExistente?usuario=&correo=${encodeURIComponent(email)}`, 
+          {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+        
+        const data = await usuarioExistente.json();
+        console.log("📧 Validación de correo:", data);
+        
+        if (data.existe) {
+          return "El correo ya tiene una cuenta asociada";
+        }
+      } catch (error) {
+        console.error("Error en validarEmail:", error);
+        return "Error al validar el correo";
       }
-    } catch (error) {
-      return "Error al validar el correo";
     }
+    
     return "";
   };
 
   const enviarCodigo = async (email) => {
     setLoading(true);
     try {
-      const respuesta = await axios.post(`${import.meta.env.VITE_APP_API_BASE_URL}/enviarCorreo`, { correo: email });
+      const respuesta = await axios.post(
+        `${import.meta.env.VITE_APP_API_BASE_URL}/enviarCorreo`, 
+        { correo: email }
+      );
       setCodigo(respuesta.data);
       return respuesta.data;
     } catch (error) {
+      console.error("Error en enviarCodigo:", error);
       throw new Error('Error al enviar el correo');
     } finally {
       setLoading(false);
