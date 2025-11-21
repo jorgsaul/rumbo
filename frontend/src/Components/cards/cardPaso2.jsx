@@ -3,7 +3,7 @@ import Button from "../botones/buttonPrimary";
 import InputBasic from "../forms/inputBasic";
 import { useEffect } from "react";
 import { useEmailVerification } from "../../hooks/verificacionEmail";
-import './cardPaso2.css'
+import "./cardPaso2.css";
 
 function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
   const {
@@ -19,7 +19,7 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
     setCodigo,
     validarEmail,
     enviarCodigo,
-    handleEmailChange
+    handleEmailChange,
   } = useEmailVerification(datos.correo, esRegistro);
 
   useEffect(() => {
@@ -31,25 +31,25 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
   const handleContinuar = async () => {
     if (loading) return;
     setLoading(true);
-    setMensaje('');
+    setMensaje("");
 
     try {
-      const errorMsg = await validarEmail(email, true);
+      const errorMsg = await validarEmail(email);
       if (errorMsg) {
         setError(true);
         setMensaje(errorMsg);
         setLoading(false);
         return;
       }
-      
-      setDatos(prev => ({ ...prev, correo: email }));
+
+      setDatos((prev) => ({ ...prev, correo: email }));
       const codigoEnviado = await enviarCodigo(email);
       setCodigo(codigoEnviado);
-      setDatos(prev => ({ ...prev, codigo: codigoEnviado }));
-      paso('paso3');
+      setDatos((prev) => ({ ...prev, codigo: codigoEnviado }));
+      paso("paso3");
     } catch (error) {
-      console.error('Error al enviar el correo:', error);
-      setMensaje('Error al enviar el correo');
+      console.error("Error al enviar el correo:", error);
+      setMensaje("Error al enviar el correo");
     } finally {
       setLoading(false);
     }
@@ -59,8 +59,8 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
     <div>
       <p>Ingresa tu correo electronico</p>
       <InputBasic
-        type={'email'}
-        holder={'Correo electrónico'}
+        type={"email"}
+        holder={"Correo electrónico"}
         required={true}
         value={email}
         onChange={(e) => handleEmailChange(e.target.value)}
@@ -70,19 +70,18 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
       />
       <div className="paso2-button-container">
         <div>
-          {
-            esRegistro ? 
-            <ButtonGhost 
-              text={'Regresar'} 
+          {esRegistro ? (
+            <ButtonGhost
+              text={"Regresar"}
               enable={!loading}
-              action={() => paso('paso1')}
-            /> : null
-          }
+              action={() => paso("paso1")}
+            />
+          ) : null}
         </div>
         <div>
-          <Button 
-            text={loading ? 'Validando...' : 'Continuar'} 
-            enable={!!email && !loading} 
+          <Button
+            text={loading ? "Validando..." : "Continuar"}
+            enable={!!email && !loading}
             action={handleContinuar}
           />
         </div>
