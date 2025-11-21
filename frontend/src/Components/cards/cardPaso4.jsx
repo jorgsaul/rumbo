@@ -23,11 +23,12 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
       return "La contraseña tiene caracteres no validos";
     if (!/^\S+$/.test(contraseña)) return "La contraseña contiene espacios";
     if (contraseña !== confContraseña) return "Las contraseñas no coinciden";
+
     try {
       const usuarioExistente = await fetch(
         `${
           import.meta.env.VITE_APP_API_BASE_URL
-        }/validarUsuarioExistente?usuario=${usuario}&correo=${datos.correo}`,
+        }/validarUsernameExistente?usuario=${usuario}`,
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -35,14 +36,15 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
       );
 
       const data = await usuarioExistente.json();
-      console.log("🔍 Respuesta validación completa:", data);
+      console.log("🔍 Validación SOLO USUARIO - Respuesta:", data);
       console.log("📊 Valor de existe:", data.existe);
 
       if (data.existe === true) {
-        return "El nombre de usuario o correo ya existe";
+        return "El nombre de usuario ya existe";
       }
     } catch (error) {
       console.error("Error al validar el usuario:", error);
+      return "Error al validar el usuario";
     }
     return "";
   };
@@ -118,7 +120,7 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
       <p>¡Ya casi terminamos!</p>
       <div className="formulario-datos-paso4">
         <InputBasic
-          holder={"Ingresa un nombre de usuario unico"}
+          holder={"Ingresa un nombre de usuario único"}
           onChange={handleUsuario}
           value={usuario}
           error={error}

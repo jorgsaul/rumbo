@@ -10,23 +10,25 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
   
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  const validarEmail = async (email) => {
-    if (!emailRegex.test(email.trim())) {
+  const validarEmail = async (emailToValidate) => {
+    const emailToCheck = emailToValidate || email;
+    
+    if (!emailRegex.test(emailToCheck.trim())) {
       return 'Correo electrónico no válido';
     }
 
     if (esRegistro) {
       try {
-        const usuarioExistente = await fetch(
-          `${import.meta.env.VITE_APP_API_BASE_URL}/validarUsuarioExistente?usuario=&correo=${encodeURIComponent(email)}`, 
+        const correoExistente = await fetch(
+          `${import.meta.env.VITE_APP_API_BASE_URL}/validarCorreoExistente?correo=${encodeURIComponent(emailToCheck)}`, 
           {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' },
           }
         );
         
-        const data = await usuarioExistente.json();
-        console.log("📧 Validación de correo:", data);
+        const data = await correoExistente.json();
+        console.log("📧 Validación de CORREO ONLY:", data);
         
         if (data.existe) {
           return "El correo ya tiene una cuenta asociada";

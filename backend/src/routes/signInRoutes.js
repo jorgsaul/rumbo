@@ -1,5 +1,5 @@
 import express from "express";
-import { crearCuenta, validarUsuarioExistente, obtenerUsuario, autoLogin } from "../controllers/crearCuenta.js";
+import { crearCuenta, validarUsernameExistente, obtenerUsuario, autoLogin } from "../controllers/crearCuenta.js";
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
@@ -15,24 +15,26 @@ router.post("/crearCuenta", async (req, res) => {
   }
 });
 
-router.get('/validarUsuarioExistente', async (req, res) => {
+router.get('/validarUsernameExistente', async (req, res) => {
   try {
-    const { usuario, correo } = req.query;
+    const { usuario } = req.query;
     
-    if (!usuario || !correo) {
-      return res.status(400).json({ error: "Usuario y correo son requeridos" });
+    if (!usuario) {
+      return res.status(400).json({ error: "Usuario es requerido" });
     }
-    const existe = await validarUsuarioExistente(usuario, correo);
+
+    const existe = await validarUsernameExistente(usuario);
     
-    console.log("🔍 Validación - Usuario:", usuario, "Correo:", correo);
+    console.log("🔍 Validación SOLO USUARIO:", usuario);
     console.log("📊 Resultado existe:", existe);
+    
     res.json({ 
       existe: existe,
-      mensaje: existe ? "El usuario o correo ya existe" : "Disponible"
+      mensaje: existe ? "El nombre de usuario ya existe" : "Usuario disponible"
     });
     
   } catch (error) {
-    console.error("Error en endpoint validarUsuarioExistente:", error);
+    console.error("Error en endpoint validarUsernameExistente:", error);
     res.status(500).json({ error: "Error interno del servidor" });
   }
 });
