@@ -1,10 +1,3 @@
-import ButtonGhost from "../botones/buttonGhost";
-import Button from "../botones/buttonPrimary";
-import InputBasic from "../forms/inputBasic";
-import { useEffect } from "react";
-import { useEmailVerification } from "../../hooks/verificacionEmail";
-import "./cardPaso2.css";
-
 function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
   const {
     email,
@@ -31,6 +24,7 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
   const handleContinuar = async () => {
     if (loading) return;
     setLoading(true);
+    setError(false);
     setMensaje("");
 
     try {
@@ -49,6 +43,7 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
       paso("paso3");
     } catch (error) {
       console.error("Error al enviar el correo:", error);
+      setError(true);
       setMensaje("Error al enviar el correo");
     } finally {
       setLoading(false);
@@ -57,7 +52,7 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
 
   return (
     <div>
-      <p>Ingresa tu correo electronico</p>
+      <p>Ingresa tu correo electrónico</p>
       <InputBasic
         type={"email"}
         holder={"Correo electrónico"}
@@ -89,5 +84,3 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
     </div>
   );
 }
-
-export default RegistroPaso2;
