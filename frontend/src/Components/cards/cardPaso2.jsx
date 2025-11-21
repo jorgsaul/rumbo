@@ -84,3 +84,5 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
     </div>
   );
 }
+
+export default RegistroPaso2;
