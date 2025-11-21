@@ -21,14 +21,8 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
       });
       
       const data = await usuarioExistente.json();
-      if (esRegistro) {
-        if (data && data[0] && data[0].user_exists === 1) {
-          return "El correo ya tiene una cuenta asociada";
-        }
-      } else {
-        if (data && data[0] && data[0].user_exists === 0) {
-          return "El correo no está registrado";
-        }
+      if (data.existe) {
+        return "El correo ya tiene una cuenta asociada";
       }
     } catch (error) {
       return "Error al validar el correo";
