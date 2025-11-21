@@ -122,7 +122,7 @@
     {
       "pregunta": "¿Qué figura complementa la secuencia?",
       "imagen_secuencia": "secuencia.png",
-      "opciones": {
+      "opciones_imagenes": {
         "a": "opcion_a.png",
         "b": "opcion_b.png", 
         "c": "opcion_c.png",
