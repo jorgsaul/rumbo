@@ -1,3 +1,10 @@
+import { useEffect } from "react";
+import { useEmailVerification } from "../../hooks/verificacionEmail";
+import ButtonGhost from "../botones/buttonGhost";
+import Button from "../botones/buttonPrimary";
+import InputBasic from "../forms/inputBasic";
+import "./cardPaso2.css";
+
 function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
   const {
     email,
