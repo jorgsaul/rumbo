@@ -39,6 +39,31 @@ router.get('/validarUsernameExistente', async (req, res) => {
   }
 });
 
+// Endpoint para validar solo correo
+router.get('/validarCorreoExistente', async (req, res) => {
+  try {
+    const { correo } = req.query;
+    
+    if (!correo) {
+      return res.status(400).json({ error: "Correo es requerido" });
+    }
+
+    const existe = await validarCorreoExistente(correo);
+    
+    console.log("🔍 Validación SOLO CORREO:", correo);
+    console.log("📊 Resultado existe:", existe);
+    
+    res.json({ 
+      existe: existe,
+      mensaje: existe ? "El correo ya tiene una cuenta asociada" : "Correo disponible"
+    });
+    
+  } catch (error) {
+    console.error("Error en endpoint validarCorreoExistente:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
+  }
+});
+
 router.post('/signIn', async (req, res) => {
   const {identificador, rol} = req.body;
   const user = await obtenerUsuario(identificador);

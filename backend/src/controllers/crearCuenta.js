@@ -20,6 +20,16 @@ export const validarUsernameExistente = async (usuario) => {
   }
 };
 
+export const validarCorreoExistente = async (correo) => {
+  try {
+    const result = await pool.query("SELECT spcheckemailexists($1) as existe;", [correo]);
+    return result.rows[0].existe;
+  } catch (error) {
+    console.error("Error en validarCorreoExistente:", error);
+    return false;
+  }
+};
+
 export const obtenerUsuario = async (identificador) => {
   try {
     const result = await pool.query("SELECT id FROM _users WHERE username = $1", [identificador]);
