@@ -11,11 +11,17 @@ export const crearCuenta = async (tipoUsuario, correo, usuario, password) => {
 };
 
 export const validarUsuarioExistente = async (usuario, correo) => {
-  const result = await pool.query("SELECT spcheckuserexists($1, $2);", [
-    usuario,
-    correo,
-  ]);
-  return result.rows[0];
+  try {
+    const result = await pool.query("SELECT spcheckuserexists($1, $2) as existe;", [
+      usuario,
+      correo,
+    ]);
+    
+    return result.rows[0].existe;
+  } catch (error) {
+    console.error("Error en validarUsuarioExistente:", error);
+    return false;
+  }
 };
 
 export const obtenerUsuario = async (identificador) => {

@@ -35,11 +35,10 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
       );
 
       const data = await usuarioExistente.json();
-      console.log("🔍 Respuesta validación:", data);
-      console.log("📊 Valor de spcheckuserexists:", data.spcheckuserexists);
-      console.log("🔢 Tipo de dato:", typeof data.spcheckuserexists);
+      console.log("🔍 Respuesta validación completa:", data);
+      console.log("📊 Valor de existe:", data.existe);
 
-      if (data.spcheckuserexists === 1 || data.spcheckuserexists === true) {
+      if (data.existe === true) {
         return "El nombre de usuario o correo ya existe";
       }
     } catch (error) {

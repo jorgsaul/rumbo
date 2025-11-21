@@ -15,14 +15,25 @@ router.post("/crearCuenta", async (req, res) => {
   }
 });
 
-router.get("/validarUsuarioExistente", async (req, res) => {
-  const { usuario, correo } = req.query;
+router.get('/validarUsuarioExistente', async (req, res) => {
   try {
-    const result = await validarUsuarioExistente(usuario, correo);
-    res.json(result);
+    const { usuario, correo } = req.query;
+    
+    if (!usuario || !correo) {
+      return res.status(400).json({ error: "Usuario y correo son requeridos" });
+    }
+    const existe = await validarUsuarioExistente(usuario, correo);
+    
+    console.log("🔍 Validación - Usuario:", usuario, "Correo:", correo);
+    console.log("📊 Resultado existe:", existe);
+    res.json({ 
+      existe: existe,
+      mensaje: existe ? "El usuario o correo ya existe" : "Disponible"
+    });
+    
   } catch (error) {
-    console.error("Error al validar el usuario:", error);
-    res.status(500).json({ error: "Error al validar el usuario" });
+    console.error("Error en endpoint validarUsuarioExistente:", error);
+    res.status(500).json({ error: "Error interno del servidor" });
   }
 });
 
