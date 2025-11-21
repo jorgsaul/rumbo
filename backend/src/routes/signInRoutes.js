@@ -1,5 +1,5 @@
 import express from "express";
-import { crearCuenta, validarUsernameExistente, obtenerUsuario, autoLogin } from "../controllers/crearCuenta.js";
+import { crearCuenta, validarUsernameExistente, obtenerUsuario, autoLogin, validarCorreoExistente } from "../controllers/crearCuenta.js";
 import jwt from 'jsonwebtoken';
 
 const router = express.Router();
