@@ -1,0 +1,156 @@
+{
+  "test_id": 4,
+  "test_name": "Ciencias Sociales y Humanidades",
+  "preguntas": [
+    {
+      "pregunta": "Selecciona la afirmación congruente con los elementos del enunciado:<br>\"La mayoría de los atletas mexicanos, después de la competencia, regresó triunfante a su país.\"",
+      "opciones": {
+        "a": "Presenta un error de concordancia entre el sujeto y el verbo",
+        "b": "Contiene una doble negación que lo hace incoherente",
+        "c": "Presenta concordancia entre todos los elementos gramaticales",
+        "d": "Integra un pronombre personal incorrecto en la oración"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Completa la oración con las palabras correctas:<br>El astrónomo observó el cielo con un telescopio __________ y una linterna de pilas __________, a pesar de las __________ nubes y los vientos __________.",
+      "opciones": {
+        "a": "excelente - agotadas - abundantes - feroces",
+        "b": "excelentes - agotadas - abundantes - feroz",
+        "c": "excelente - agotada - abundantes - feroces",
+        "d": "excelente - agotada - abundantes - feroces"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Completa la oración con las palabras opuestas a la resaltada en negritas:<br>Los comentarios acerca de la obra de teatro eran superfluos, pues la gente consideró que el mensaje era en realidad __________, la actuación fue __________ y la producción, __________ en todos sus aspectos.",
+      "opciones": {
+        "a": "banal - mala - escasa",
+        "b": "fundamental - inmejorable - abundante",
+        "c": "esencial - excelente - abundante",
+        "d": "trivial - mediocre - excesiva"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Identifica el elemento del reporte final de investigación donde el autor expone de manera sintética y objetiva el objetivo principal, la metodología empleada, los resultados más relevantes y las conclusiones clave del trabajo.",
+      "opciones": {
+        "a": "Índice",
+        "b": "Marco Teórico",
+        "c": "Resumen (Abstract)",
+        "d": "Apéndices"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál fue la causa principal que llevó a la Revolución Mexicana de 1910?",
+      "opciones": {
+        "a": "La expropiación petrolera y la disputa con Estados Unidos por los recursos naturales",
+        "b": "La imposición de una monarquía por parte de fuerzas extranjeras y el descontento liberal",
+        "c": "La crisis económica mundial de 1907 que afectó gravemente a las clases medias y altas",
+        "d": "La prolongada dictadura de Porfirio Díaz, la falta de democracia y la profunda desigualdad social"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Filósofo griego que, a través de su método basado en la mayéutica y la ironía, buscaba que sus interlocutores alcanzaran la verdad por sí mismos, y cuya principal preocupación era la búsqueda de la virtud (areté).",
+      "opciones": {
+        "a": "Platón",
+        "b": "Aristóteles",
+        "c": "Sócrates",
+        "d": "Parménides"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Identifica el tipo de falacia que se comete en el siguiente enunciado:<br>\"No podemos confiar en las conclusiones de la bióloga sobre el cambio climático, porque ella es una ecologista radical que solo busca dañar a las empresas petroleras.\"",
+      "opciones": {
+        "a": "Ad Baculum (Apelación a la fuerza)",
+        "b": "Ad Populum (Apelación al pueblo)",
+        "c": "Ad Hominem (Ataque personal)",
+        "d": "Ad Misericordiam (Apelación a la piedad)"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Según la filosofía de Immanuel Kant, una acción se considera moralmente correcta solo si la máxima que la guía puede ser universalizada sin contradicción. Este principio es conocido como:",
+      "opciones": {
+        "a": "El imperativo hipotético",
+        "b": "El principio de utilidad",
+        "c": "El imperativo categórico",
+        "d": "La voluntad de poder"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Si un texto tiene como objetivo influir en las decisiones o el comportamiento del receptor, por ejemplo, mediante un anuncio publicitario o un ensayo que busca convencer, su principal intención comunicativa es:",
+      "opciones": {
+        "a": "Referencial o informativa",
+        "b": "Poética o estética",
+        "c": "Apelativa o conativa",
+        "d": "Metalingüística"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes elementos del proceso de comunicación se define como el sistema de signos (palabras, gestos, sonidos) que el emisor y el receptor deben compartir para que el mensaje sea comprensible?",
+      "opciones": {
+        "a": "Canal",
+        "b": "Contexto",
+        "c": "Mensaje",
+        "d": "Código"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "En el análisis de la modernidad, el concepto de \"alienación\" (desarrollado por Hegel y Marx) se refiere abstractamente a la condición en la que:",
+      "opciones": {
+        "a": "Un individuo establece relaciones de amistad con personas extranjeras",
+        "b": "Se logra la completa libertad individual y la autorrealización plena",
+        "c": "El sujeto se siente extraño o ajeno a su propia esencia, al producto de su trabajo o a la sociedad en la que vive",
+        "d": "El gobierno aplica leyes estrictas para mantener el orden social"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "El concepto platónico de \"Mundo de las Ideas\" o \"Mundo de las Formas\" es una abstracción que intenta explicar la existencia de:",
+      "opciones": {
+        "a": "La perfección artística que solo se logra a través de la técnica",
+        "b": "El conocimiento obtenido únicamente mediante la experiencia sensorial",
+        "c": "Esencias inmutables, perfectas y eternas que son la causa de las cosas sensibles y materiales",
+        "d": "La realidad práctica y política de una sociedad ideal y justa"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál es la función principal de una evaluación diagnóstica aplicada al inicio de un ciclo escolar o de una unidad temática?",
+      "opciones": {
+        "a": "Determinar la calificación final que obtendrá el estudiante",
+        "b": "Certificar si el estudiante ha logrado los aprendizajes esperados",
+        "c": "Identificar los conocimientos previos, habilidades y posibles lagunas del estudiante para adaptar la enseñanza",
+        "d": "Calificar la eficacia del docente en la aplicación de la didáctica"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En Sociología, el término estratificación social se refiere al sistema por el cual la sociedad clasifica y organiza a las personas en una jerarquía de categorías (clases, estamentos o castas), basándose principalmente en:",
+      "opciones": {
+        "a": "Diferencias biológicas o geográficas",
+        "b": "Coeficientes intelectuales",
+        "c": "La distribución desigual de recursos, poder y prestigio",
+        "d": "La afinidad religiosa o política"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "La sociología puede ser definida como:",
+      "opciones": {
+        "a": "La disciplina que estudia los procesos por los cuales los individuos ajustan sus esquemas mentales al integrar información nueva o contradictoria",
+        "b": "El estudio de la acción social cuyo principal objetivo es distinguir entre la acción racional con arreglo a fines y la acción emocional o tradicional",
+        "c": "La ciencia social que tiene como objeto el estudio sistemático de la vida social humana, los grupos y las sociedades, incluyendo sus estructuras, relaciones, instituciones y los fenómenos de socialización y estratificación",
+        "d": "La tendencia a clasificar y juzgar otras culturas con base en los estándares y valores de la propia sociedad, considerándola el único modelo de referencia válido"
+      },
+      "respuesta_correcta": "c"
+    }
+  ]
+}

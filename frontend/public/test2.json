@@ -78,6 +78,84 @@
         "d": "Klinefelter"
       },
       "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Ordenar de principio a fin los pasos clave del proceso de síntesis de proteínas (expresión génica) en una célula eucariota:",
+      "tabla": {
+        "columnas": ["Paso", "Proceso"],
+        "filas": [
+          ["1", "Traducción del ARNm a proteína en los ribosomas"],
+          ["2", "Maduración del ARNm (eliminación de intrones y empalme de exones)"],
+          ["3", "Transcripción del ADN a ARNm en el núcleo"],
+          ["4", "Plegamiento y modificación postraduccional de la proteína"],
+          ["5", "El ARNm maduro sale del núcleo hacia el citoplasma"]
+        ]
+      },
+      "opciones": {
+        "a": "3, 2, 5, 1, 4",
+        "b": "2, 3, 5, 1, 4",
+        "c": "3, 5, 2, 1, 4",
+        "d": "1, 3, 2, 5, 4"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Relacionar la hormona con su función fisiológica principal:",
+      "tabla": {
+        "columnas": ["Hormona", "Función"],
+        "filas": [
+          ["1. Adrenalina", "A. Regula el metabolismo basal, el crecimiento y la temperatura corporal"],
+          ["2. Melatonina", "B. Actúa como neurotransmisor y hormona, preparando al cuerpo para la respuesta de 'lucha o huida'"],
+          ["3. Prolactina", "C. Sincroniza el ciclo circadiano (ritmo de sueño-vigilia)"],
+          ["4. Testosterona", "D. Estimula la producción de leche en las glándulas mamarias"]
+        ]
+      },
+      "opciones": {
+        "a": "1B, 2C, 3D, 4A",
+        "b": "1A, 2C, 3B, 4D",
+        "c": "1B, 2D, 3C, 4A",
+        "d": "1D, 2C, 3B, 4A"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Determinar el porcentaje en peso de Azufre ($\\text{S}$) presente en un mol de Sulfato de Aluminio<br>(Utilizar las masas atómicas aproximadas: Al = 27.0, S = 32.1, O = 16.0)",
+      "opciones": {
+        "a": "15.8%",
+        "b": "28.1%",
+        "c": "47.0%",
+        "d": "34.5%"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Determinar la máxima cantidad de electrones que puede albergar el subnivel d",
+      "opciones": {
+        "a": "2",
+        "b": "6",
+        "c": "8",
+        "d": "10"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Relacionar el elemento con la familia a la que pertenece en la tabla periódica:",
+      "tabla": {
+        "columnas": ["Familia", "Elemento"],
+        "filas": [
+          ["1. Metales alcalinotérreos", "A. Br"],
+          ["2. Halógenos", "B. Se"],
+          ["3. Metales de transición", "C. Au"],
+          ["4. No Metales", "D. Mg"]
+        ]
+      },
+      "opciones": {
+        "a": "1D, 2A, 3C, 4B",
+        "b": "1B, 2C, 3D, 4A",
+        "c": "1A, 2B, 3C, 4D",
+        "d": "1D, 2C, 3A, 4B"
+      },
+      "respuesta_correcta": "a"
     }
   ]
 }

@@ -1,0 +1,174 @@
+{
+  "test_id": 3,
+  "test_name": "Ingeniería y Tecnología",
+  "preguntas": [
+    {
+      "pregunta": "¿Cuál de las siguientes opciones describe la característica esencial y fundamental de un algoritmo?",
+      "opciones": {
+        "a": "Un dispositivo físico que almacena grandes cantidades de datos no estructurados",
+        "b": "Una secuencia finita y ordenada de pasos o instrucciones para resolver un problema específico",
+        "c": "Un tipo de lenguaje de programación diseñado exclusivamente para la inteligencia artificial",
+        "d": "La capacidad de una computadora para ejecutar múltiples tareas al mismo tiempo (multitarea)"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Relaciona el tipo de dato fundamental en tecnología con su uso o característica principal:",
+      "tabla": {
+        "columnas": ["Tipo de Dato", "Uso o Característica Principal"],
+        "filas": [
+          ["1. Integer (Entero)", "A. Se utiliza para representar números con decimales, maneja precisión limitada por el tamaño de memoria (ej: 3.14159)"],
+          ["2. Boolean (Booleano)", "B. Se utiliza para representar texto o secuencias de caracteres alfanuméricos (ej: 'Hola Mundo')"],
+          ["3. String (Cadena)", "C. Se utiliza para representar solo dos valores posibles: verdadero (True) o falso (False)"],
+          ["4. Float (Flotante)", "D. Se utiliza para representar números sin componentes fraccionarios o decimales (ej: 5, -100, 0)"]
+        ]
+      },
+      "opciones": {
+        "a": "1-A, 2-B, 3-C, 4-D",
+        "b": "1-D, 2-C, 3-B, 4-A",
+        "c": "1-C, 2-D, 3-A, 4-B",
+        "d": "1-D, 2-A, 3-B, 4-C"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Considera tres configuraciones de circuitos C1, C2, y C3 construidas usando las mismas tres resistencias idénticas y una fuente de voltaje. C1 presenta la misma corriente a través de cada resistencia y la caída de voltaje total es la suma de las caídas de voltaje individuales. C2 presenta el mismo voltaje a través de cada resistencia y la corriente total es la suma de las corrientes individuales. C3 combina ramas con el mismo voltaje y componentes en las ramas con la misma corriente. ¿Cuál de las siguientes opciones identifica correctamente los tipos de circuitos C1, C2 y C3, respectivamente?",
+      "opciones": {
+        "a": "C1: Paralelo, C2: Serie, C3: Mixto",
+        "b": "C1: Mixto, C2: Serie, C3: Paralelo",
+        "c": "C1: Serie, C2: Paralelo, C3: Mixto",
+        "d": "C1: Paralelo, C2: Mixto, C3: Serie"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes dispositivos convierte predominantemente la energía lumínica en energía eléctrica mediante el efecto fotovoltaico?",
+      "opciones": {
+        "a": "Un motor de corriente continua (DC)",
+        "b": "Una batería recargable de iones de litio",
+        "c": "Un panel solar fotovoltaico",
+        "d": "Un generador eólico"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Qué componente de una computadora es responsable de realizar la mayoría de las operaciones lógicas, de cálculo y de control necesarias para ejecutar un programa?",
+      "opciones": {
+        "a": "El Disco Duro (HDD/SSD)",
+        "b": "La Memoria RAM (Random Access Memory)",
+        "c": "La Unidad Central de Procesamiento (CPU)",
+        "d": "La Tarjeta Madre (Motherboard)"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Qué son las normas ISO?",
+      "opciones": {
+        "a": "Documentos legales obligatorios creados por la Organización Mundial del Comercio (OMC) para regular y sancionar a las empresas que incumplen normativas de seguridad laboral",
+        "b": "Guías técnicas y estándares de gestión de aplicación voluntaria, desarrollados por la Organización Internacional de Normalización, que buscan establecer un consenso global sobre la calidad, seguridad y eficiencia en productos y servicios",
+        "c": "Un conjunto de protocolos de comunicación de redes y hardware diseñados exclusivamente por la IEEE para asegurar la compatibilidad entre todos los dispositivos electrónicos",
+        "d": "Regulaciones emitidas por las agencias de normalización de cada país miembro, con la única función de proteger el mercado interno de la competencia extranjera"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "¿Cuál es el resultado de la siguiente expresión lógica si P es Falso (F) y Q es Verdadero (V)? ¬P ∧ (Q ∨ P)",
+      "opciones": {
+        "a": "Verdadero (V)",
+        "b": "Falso (F)",
+        "c": "El resultado es Indeterminado",
+        "d": "Depende de una tercera variable"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Un transformador ideal (asumiendo 100% de eficiencia) se utiliza para elevar el voltaje de la línea primaria (Vp) de 120 V a un voltaje secundario (Vs) de 480 V. Si la corriente demandada en el circuito secundario es de 5A, ¿cuál es la corriente (lp) que debe fluir en la bobina primaria?",
+      "opciones": {
+        "a": "5 A",
+        "b": "10 A",
+        "c": "20 A",
+        "d": "40 A"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Analiza el siguiente pseudocódigo. Si la variable N se inicializa con el valor 5, ¿cuál será el valor final de la variable Resultado después de que se ejecute el bucle?\n\nN = 5\nResultado = 0\nMIENTRAS (N > 0) HACER\n  Resultado = Resultado + N\n  N = N - 2\nFIN MIENTRAS",
+      "opciones": {
+        "a": "5",
+        "b": "7",
+        "c": "9",
+        "d": "15"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Encuentra el número que falta en el siguiente patrón:",
+      "tabla": {
+        "columnas": ["Columna 1", "Columna 2", "Columna 3"],
+        "filas": [
+          ["7", "11", "4"],
+          ["15", "24", "9"],
+          ["31", "?", "15"]
+        ]
+      },
+      "opciones": {
+        "a": "46",
+        "b": "47", 
+        "c": "53",
+        "d": "35"
+      },
+      "respuesta_correcta": "A"
+    },
+    {
+      "pregunta": "¿Qué figura complementa la secuencia?",
+      "imagen_secuencia": "secuencia.png",
+      "opciones": {
+        "a": "opcion_a.png",
+        "b": "opcion_b.png", 
+        "c": "opcion_c.png",
+        "d": "opcion_d.png"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "¿Cuál es el enunciado fundamental de la Primera Ley de la Termodinámica (Principio de Conservación de la Energía)?",
+      "opciones": {
+        "a": "El calor no puede fluir espontáneamente de un cuerpo más frío a un cuerpo más caliente, lo que define la dirección de los procesos",
+        "b": "La energía interna de un sistema se mantiene constante, ya que el calor (Q) y el trabajo (W) siempre son iguales en magnitud, pero de signo contrario",
+        "c": "La energía no se crea ni se destruye, solo se transforma; por lo tanto, el cambio en la energía interna (ΔU) de un sistema es igual a la diferencia entre el calor que entra (Q) y el trabajo que sale (W) del sistema",
+        "d": "La entropía (S) de un sistema aislado siempre aumenta en los procesos irreversibles, alcanzando su valor máximo en el equilibrio térmico"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En un día de la semana, cuatro amigos (Ana, Beto, Carlos y Diana) realizaron una actividad diferente (Cine, Museo, Parque, Taller). Se sabe lo siguiente:<br>1. Ana fue al Museo un día después que Carlos.<br>2. Beto no fue al Cine y asistió antes que la persona que fue al Taller.<br>3. Diana fue al Parque y no fue la última en asistir.<br>¿Quién fue la última persona en realizar su actividad, y cuál fue esa actividad?",
+      "opciones": {
+        "a": "Carlos, y fue al Cine",
+        "b": "Ana, y fue al Taller",
+        "c": "Diana, y fue al Parque",
+        "d": "Beto, y fue al Museo"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "En una encuesta realizada a 100 estudiantes de ingeniería sobre lenguajes de programación:<br>- 45 manejan Python (P)<br>- 40 manejan Java (J)<br>- 35 manejan C++ (C)<br>- 10 manejan los tres lenguajes<br>- 5 no manejan ninguno de los tres<br>- 15 manejan exactamente Python y Java<br>- 12 manejan exactamente Java y C++<br><br>¿Cuántos estudiantes manejan solamente C++?",
+      "opciones": {
+        "a": "12",
+        "b": "13",
+        "c": "15",
+        "d": "18"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Un usuario tiene problemas de rendimiento en su computadora debido a la falta de espacio en el disco duro. Después de identificar que la carpeta de 'Descargas' contiene muchos archivos grandes que ya no necesita, ¿cuál es la secuencia de pasos más eficiente para liberar espacio en el sistema operativo (Windows o macOS)?",
+      "opciones": {
+        "a": "Seleccionar los archivos, arrastrarlos a la Papelera de Reciclaje, y luego realizar una desfragmentación del disco",
+        "b": "Seleccionar los archivos, enviarlos a la Papelera de Reciclaje (o 'Trash'), y luego vaciar la Papelera de Reciclaje",
+        "c": "Ejecutar la herramienta de Restaurar Sistema para revertir la configuración a un punto donde había más espacio disponible",
+        "d": "Ejecutar el Administrador de Tareas y finalizar el proceso del explorador de archivos que está causando la ralentización"
+      },
+      "respuesta_correcta": "b"
+    }
+  ]
+}

@@ -28,3 +28,37 @@
   margin-bottom: 1rem;
 }
 
+.contenedor-imagenes {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.imagen-secuencia {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.opcion-con-imagen {
+  margin: 10px 0;
+}
+
+.contenedor-opcion-completa {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.imagen-opcion {
+  width: 100px;
+  height: 100px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.letra-opcion {
+  font-weight: bold;
+  min-width: 25px;
+}

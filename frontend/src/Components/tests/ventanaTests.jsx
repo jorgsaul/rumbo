@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import Button from '../botones/buttonPrimary';
-import ButtonGhost from '../botones/buttonGhost';
-import RadioBtn from '../forms/radiobtn';
+import Button from "../botones/buttonPrimary";
+import ButtonGhost from "../botones/buttonGhost";
+import RadioBtn from "../forms/radiobtn";
+import "./ventanaTests.css";
 
-import './ventanaTests.css';
 export default function VentanaTests() {
   const [contenidoTest, setContenidoTest] = useState({});
   const [numeroPregunta, setNumeroPregunta] = useState(0);
@@ -13,38 +13,45 @@ export default function VentanaTests() {
 
   const { testId } = useParams();
 
-  const handleFinalizar = ()=>{
+  const getImagePath = (imageName) => {
+    return `/tests/test${testId}/${imageName}`;
+  };
+
+  const handleFinalizar = () => {
     let respuestasCorrectas = 0;
     contenidoTest.preguntas.forEach((pregunta, index) => {
       if (pregunta.respuesta_correcta === respuestas[index]) {
         respuestasCorrectas++;
       }
-    })
-    const porcentaje = ((respuestasCorrectas / contenidoTest.preguntas.length) * 100).toFixed(2);
-    console.log(porcentaje)
+    });
+    const porcentaje = (
+      (respuestasCorrectas / contenidoTest.preguntas.length) *
+      100
+    ).toFixed(2);
+
     try {
       fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/insertar-resultados`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({ score:porcentaje, testId }),
-        credentials: 'include'
-      })
+        body: JSON.stringify({ score: porcentaje, testId }),
+        credentials: "include",
+      });
 
-      window.location.href = '/recursos';
+      window.location.href = "/recursos";
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  const handleContinuar = ()=>{
+  const handleContinuar = () => {
     setNumeroPregunta(numeroPregunta + 1);
-  }
+  };
 
-  const handleRegresar = ()=>{
+  const handleRegresar = () => {
     setNumeroPregunta(numeroPregunta - 1);
-  }
+  };
 
   function TextoMatematico({ texto }) {
     const ref = useRef(null);
@@ -69,80 +76,141 @@ export default function VentanaTests() {
     } catch (error) {
       console.error("Error al obtener el contenido del test:", error);
     }
-  }
+  };
 
   useEffect(() => {
     obtenerContenidoTest();
   }, []);
 
+  const preguntaActual = contenidoTest.preguntas?.[numeroPregunta];
+
   return cargando ? (
-      <h1>Cargando...</h1>
-    ) : (
+    <h1>Cargando...</h1>
+  ) : (
     <div className="ventana-test">
       <h1 className="titulo-recursos">{contenidoTest.test_name}</h1>
-      <h2>Pregunta {numeroPregunta + 1} de {contenidoTest.preguntas.length}</h2>
-      <p><TextoMatematico texto={contenidoTest.preguntas[numeroPregunta].pregunta} /></p>
-      {contenidoTest.preguntas[numeroPregunta].tabla ? (
+      <h2>
+        Pregunta {numeroPregunta + 1} de {contenidoTest.preguntas.length}
+      </h2>
+
+      <p>
+        <TextoMatematico texto={preguntaActual.pregunta} />
+      </p>
+
+      {preguntaActual.imagen_secuencia && (
+        <div className="contenedor-imagenes">
+          <img
+            src={getImagePath(preguntaActual.imagen_secuencia)}
+            alt="Secuencia de figuras"
+            className="imagen-secuencia"
+          />
+        </div>
+      )}
+
+      {preguntaActual.tabla ? (
         <table className="tabla-test">
           <thead>
             <tr>
-              {contenidoTest.preguntas[numeroPregunta].tabla.columnas.map((columna, index) => (
-                <th key={index}><TextoMatematico texto={columna} /></th>
+              {preguntaActual.tabla.columnas.map((columna, index) => (
+                <th key={index}>
+                  <TextoMatematico texto={columna} />
+                </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {contenidoTest.preguntas[numeroPregunta].tabla.filas.map((fila, index) => (
+            {preguntaActual.tabla.filas.map((fila, index) => (
               <tr key={index}>
                 {fila.map((celda, celdaIndex) => (
                   <td key={celdaIndex}>
-                    {<TextoMatematico texto={celda} />}
+                    <TextoMatematico texto={celda} />
                   </td>
                 ))}
               </tr>
             ))}
           </tbody>
         </table>
-      ): contenidoTest.preguntas[numeroPregunta].enunciados ? (
+      ) : preguntaActual.enunciados ? (
         <div className="contenedor-enunciado">
-          {
-            contenidoTest.preguntas[numeroPregunta].enunciados.map((enunciado, index) => (
-              <p key={index}>
-                <TextoMatematico texto={enunciado} />
-              </p>
-            ))
-          }
+          {preguntaActual.enunciados.map((enunciado, index) => (
+            <p key={index}>
+              <TextoMatematico texto={enunciado} />
+            </p>
+          ))}
         </div>
-      ) : null }
+      ) : null}
+
       <div className="contenedor-opciones-tests">
-        {
-           Object.keys(contenidoTest.preguntas[numeroPregunta].opciones).map((opcion) => (
-            <RadioBtn 
-            key={opcion} 
-            input={
-              <span>
-                {opcion}. <TextoMatematico texto={contenidoTest.preguntas[numeroPregunta].opciones[opcion]} />
-              </span>
-            } 
-            name={`pregunta-${numeroPregunta}`} 
-            value={opcion} 
-            accion={(e) => {
-              const newRespuestas = [...respuestas];
-              newRespuestas[numeroPregunta] = e.target.value;
-              setRespuestas(newRespuestas);
-            }}
-            checked={respuestas[numeroPregunta] === opcion}
-            />
-          ))
-        }
+        {preguntaActual.opciones_imagenes
+          ? Object.keys(preguntaActual.opciones_imagenes).map((opcion) => (
+              <div key={opcion} className="opcion-con-imagen">
+                <RadioBtn
+                  input={
+                    <div className="contenedor-opcion-completa">
+                      <span className="letra-opcion">{opcion}.</span>
+                      <img
+                        src={getImagePath(
+                          preguntaActual.opciones_imagenes[opcion]
+                        )}
+                        alt={`Opción ${opcion}`}
+                        className="imagen-opcion"
+                      />
+                    </div>
+                  }
+                  name={`pregunta-${numeroPregunta}`}
+                  value={opcion}
+                  accion={(e) => {
+                    const newRespuestas = [...respuestas];
+                    newRespuestas[numeroPregunta] = e.target.value;
+                    setRespuestas(newRespuestas);
+                  }}
+                  checked={respuestas[numeroPregunta] === opcion}
+                />
+              </div>
+            ))
+          : Object.keys(preguntaActual.opciones).map((opcion) => (
+              <RadioBtn
+                key={opcion}
+                input={
+                  <span>
+                    {opcion}.{" "}
+                    <TextoMatematico texto={preguntaActual.opciones[opcion]} />
+                  </span>
+                }
+                name={`pregunta-${numeroPregunta}`}
+                value={opcion}
+                accion={(e) => {
+                  const newRespuestas = [...respuestas];
+                  newRespuestas[numeroPregunta] = e.target.value;
+                  setRespuestas(newRespuestas);
+                }}
+                checked={respuestas[numeroPregunta] === opcion}
+              />
+            ))}
       </div>
+
       <div className="botones-test">
-        {numeroPregunta > 0 && <ButtonGhost text={'Anterior'} action={handleRegresar} enable={true}/>}
-        <Button 
-        text={numeroPregunta === contenidoTest.preguntas.length - 1 ? 'Finalizar' : 'Siguiente'} 
-        action={numeroPregunta === contenidoTest.preguntas.length - 1 ? handleFinalizar : handleContinuar} 
-        enable={respuestas[numeroPregunta] !== undefined}
+        {numeroPregunta > 0 && (
+          <ButtonGhost
+            text={"Anterior"}
+            action={handleRegresar}
+            enable={true}
+          />
+        )}
+        <Button
+          text={
+            numeroPregunta === contenidoTest.preguntas.length - 1
+              ? "Finalizar"
+              : "Siguiente"
+          }
+          action={
+            numeroPregunta === contenidoTest.preguntas.length - 1
+              ? handleFinalizar
+              : handleContinuar
+          }
+          enable={respuestas[numeroPregunta] !== undefined}
         />
       </div>
     </div>
-)}
+  );
+}
