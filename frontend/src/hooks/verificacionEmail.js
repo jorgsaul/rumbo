@@ -36,18 +36,12 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
       console.log("🔍 data.existe:", data.existe);
       console.log("🔍 Tipo de data.existe:", typeof data.existe);
       
-      if (esRegistro) {
-        console.log("📝 MODO REGISTRO - Correo NO debe existir");
-        if (data.existe) {
-          console.log("🚫 Correo YA existe - Error para registro");
-          return "El correo ya tiene una cuenta asociada";
-        }
-      } else {
-        console.log("🔓 MODO RECUPERACIÓN - Correo SÍ debe existir");
-        if (!data.existe) {
-          console.log("🚫 Correo NO existe - Error para recuperación");
-          return "El correo no está registrado en el sistema";
-        }
+      if (!esRegistro && !data.existe) {
+        return "El correo no está registrado en el sistema";
+      }
+    
+      if (esRegistro && data.existe) {
+        return "El correo ya tiene una cuenta asociada";
       }
       
     } catch (error) {
