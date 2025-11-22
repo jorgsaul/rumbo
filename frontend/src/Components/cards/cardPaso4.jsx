@@ -36,9 +36,6 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
       );
 
       const data = await usuarioExistente.json();
-      console.log("🔍 Validación SOLO USUARIO - Respuesta:", data);
-      console.log("📊 Valor de existe:", data.existe);
-
       if (data.existe === true) {
         return "El nombre de usuario ya existe";
       }

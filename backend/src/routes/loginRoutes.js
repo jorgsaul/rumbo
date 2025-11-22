@@ -32,7 +32,6 @@ router.post('/login', async (req, res) => {
         path: '/'
       });
       
-      console.log('✅ Cookie configurada para:', id);
     }
 
     return res.json(resultado);

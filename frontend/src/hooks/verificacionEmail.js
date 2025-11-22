@@ -12,15 +12,11 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
 
   const validarEmail = async (emailToValidate) => {
     const emailToCheck = emailToValidate || email;
-    console.log("🟡🟡🟡 VALIDAR EMAIL - INICIO 🟡🟡🟡");
-    console.log("📧 Email a validar:", emailToCheck);
-    console.log("🎯 Es registro:", esRegistro);
     if (!emailRegex.test(emailToCheck.trim())) {
       return 'Correo electrónico no válido';
     }
 
     try {
-      console.log("🌐 Haciendo fetch a validarCorreoExistente...");
       const correoExistente = await fetch(
         `${import.meta.env.VITE_APP_API_BASE_URL}/validarCorreoExistente?correo=${encodeURIComponent(emailToCheck)}`, 
         {
@@ -28,13 +24,8 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
           headers: { 'Content-Type': 'application/json' },
         }
       );
-
-      console.log("📡 Status response:", correoExistente.status);
       
       const data = await correoExistente.json();
-      console.log("📊 Data completa:", data);
-      console.log("🔍 data.existe:", data.existe);
-      console.log("🔍 Tipo de data.existe:", typeof data.existe);
       
       if (!esRegistro && !data.existe) {
         return "El correo no está registrado en el sistema";

@@ -1,9 +1,7 @@
 import { enviarCodigo } from '../controllers/codeValidation.js';
 
 router.post('/enviarCorreo', async (req, res) => {
-  console.log('🔴 LLEGÓ PETICIÓN /enviarCorreo');
   const { correo } = req.body;
-  console.log('📧 Correo recibido:', correo);
 
   try {
     const resultado = await enviarCodigo(correo);

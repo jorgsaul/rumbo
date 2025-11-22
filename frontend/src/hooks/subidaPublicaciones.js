@@ -31,7 +31,6 @@ export function useNuevaPublicacion(usuario) {
       media_url: imagenSeleccionada,
       etiquetas: Object.values(selectedEtiquetas).flat(),
     };
-    console.log('📡 Datos a enviar:', datos);
     try {
       const respuesta = await fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/post_upload`, {
         method: 'POST',

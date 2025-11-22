@@ -107,8 +107,6 @@ function VentanaPerfil() {
       }
 
       const result = await response.json();
-      console.log("✅ Perfil actualizado:", result);
-
       setEditar(false);
       window.location.reload();
     } catch (error) {

@@ -25,9 +25,6 @@ router.get('/validarUsernameExistente', async (req, res) => {
 
     const existe = await validarUsernameExistente(usuario);
     
-    console.log("🔍 Validación SOLO USUARIO:", usuario);
-    console.log("📊 Resultado existe:", existe);
-    
     res.json({ 
       existe: existe,
       mensaje: existe ? "El nombre de usuario ya existe" : "Usuario disponible"
@@ -49,9 +46,6 @@ router.get('/validarCorreoExistente', async (req, res) => {
     }
 
     const existe = await validarCorreoExistente(correo);
-    
-    console.log("🔍 Validación SOLO CORREO:", correo);
-    console.log("📊 Resultado existe:", existe);
     
     res.json({ 
       existe: existe,
@@ -101,7 +95,6 @@ router.post('/auto-login', async (req, res) => {
         maxAge: 24 * 60 * 60 * 1000,
       });
 
-      console.log('✅ Auto-login exitoso para:', user.id);
       res.json({ success: true, user });
     } else {
       res.json({ success: false, error: 'Usuario no encontrado' });
