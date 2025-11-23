@@ -4,11 +4,55 @@ import logoGoogle from "./img/Google_Symbol_1.png";
 import InputBasic from "../forms/inputBasic";
 import ButtonPrimary from "../botones/buttonPrimary";
 import "./cardLogin.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CardLogin({ cambiarVista, cambiarVentana }) {
   const [error, setError] = useState(false);
   const [mensajeError, setMensajeError] = useState("");
+
+  useEffect(() => {
+    if (window.google) {
+      window.google.accounts.id.initialize({
+        client_id: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
+        callback: handleCredentialResponse,
+      });
+    }
+  }, []);
+
+  const handleGoogleLogin = async (response) => {
+    try {
+      const result = await fetch(
+        `${import.meta.env.VITE_APP_API_BASE_URL}/google-login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token: response.credential,
+          }),
+          credentials: "include",
+        }
+      );
+
+      const data = await result.json();
+      if (data.success) {
+        cambiarVentana("principal");
+        window.location.href = "/foro";
+      } else {
+        setError(true);
+        setMensajeError("Error al iniciar sesion con google");
+      }
+    } catch (error) {
+      console.error("Error al iniciar sesion con google:", error);
+    }
+  };
+
+  const handleGoogleClick = () => {
+    if (window.google) {
+      window.google.accounts.id.prompt();
+    }
+  };
   const handeChange = () => {
     if (error) {
       setError(false);
@@ -127,6 +171,7 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
             texto="Continuar con google"
             img={logoGoogle}
             identificador="google"
+            onClick={handleGoogleClick}
           ></ButtonSocial>
 
           <ButtonSocial
