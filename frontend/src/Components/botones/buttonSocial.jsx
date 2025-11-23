@@ -4,7 +4,7 @@ function ButtonSocial({ texto, img, identificador, bgcolor, onClick }) {
   return (
     <button
       className={`contenedor ${identificador}`}
-      style={{ backgroundColor: bgcolor }}
+      style={{ backgroundColor: { bgcolor } }}
       onClick={onClick}
     >
       <div className="img-button">
