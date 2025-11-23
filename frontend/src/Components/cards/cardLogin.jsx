@@ -10,13 +10,22 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
   const [error, setError] = useState(false);
   const [mensajeError, setMensajeError] = useState("");
 
+  console.log("🔍 Componente CardLogin renderizado");
+  console.log("🌐 window.google existe?:", !!window.google);
+  console.log("🔑 Client ID:", import.meta.env.VITE_APP_GOOGLE_CLIENT_ID);
+
   useEffect(() => {
+    console.log("🔄 useEffect ejecutándose");
+    console.log("🌐 window.google en useEffect:", !!window.google);
     if (window.google) {
+      console.log("Inicializando Google API...");
       window.google.accounts.id.initialize({
         client_id: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
         callback: handleGoogleLogin,
       });
+      console.log("Google API inicializada.");
     }
+    console.log("window google no exsite en useEffect");
   }, []);
 
   const handleGoogleLogin = async (response) => {
@@ -49,8 +58,17 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
   };
 
   const handleGoogleClick = () => {
+    console.log("Boton de Google clickeado");
+    console.log("🌐 window.google en click:", !!window.google);
+    console.log(
+      "🔑 Client ID en click:",
+      import.meta.env.VITE_APP_GOOGLE_CLIENT_ID
+    );
     if (window.google) {
+      console.log("Ejecutando window.google.accounts.id.prompt()");
       window.google.accounts.id.prompt();
+    } else {
+      console.log("window.google no exsite en click");
     }
   };
   const handeChange = () => {
