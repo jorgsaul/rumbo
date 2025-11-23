@@ -66,7 +66,23 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
     );
     if (window.google) {
       console.log("Ejecutando window.google.accounts.id.prompt()");
-      window.google.accounts.id.prompt();
+      window.google.accounts.id.renderButton(
+        document.getElementById("google-button-container"),
+        {
+          theme: "outline",
+          size: "large",
+          text: "continue_with",
+          shape: "pill",
+        }
+      );
+
+      const googleButton = document.querySelector(
+        '[data-testid="google-sign-in-button"]'
+      );
+
+      if (googleButton) {
+        googleButton.click();
+      }
     } else {
       console.log("window.google no exsite en click");
     }
