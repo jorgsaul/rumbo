@@ -5,9 +5,15 @@ const [perfil, setDatosPerfil] = useState({})
   
   const datosPerfil = async () => {
     try {
+      const localToken = localStorage.getItem('auth_token');
+      const headers = {};
+      if (localToken) {
+        headers['Authorization'] = `Bearer ${localToken}`;
+      }
       const response = await fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/perfil`, {
         method: 'GET',
         credentials: 'include',
+        headers: headers
       });
       if (!response.ok) {
         throw new Error('Error en la respuesta de la red');

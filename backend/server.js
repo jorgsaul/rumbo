@@ -17,6 +17,7 @@ import codigoRoutes from './src/routes/codigoRoutes.js';
 import signInRoutes from './src/routes/signInRoutes.js';
 import cambiarContrasena from './src/routes/routeCambioContraseña.js';
 import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
+import { authenticateUser } from './src/middleware/authMiddleware.js';
 import { crearOActualizarUsuarioAuth0 } from './src/middleware/authoUsers.js';
 
 dotenv.config();
@@ -93,6 +94,11 @@ app.use('/', signInRoutes);
 app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
 app.use('/', googleAuthRoutes);
+app.use('/perfil', authenticateUser)
+app.use('/posts', authenticateUser)
+app.use('/user', authenticateUser)
+app.use('/tests', authenticateUser)
+app.use('/login', authenticateUser)
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);
