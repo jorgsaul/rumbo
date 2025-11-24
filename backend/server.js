@@ -7,7 +7,6 @@ import rateLimit from 'express-rate-limit';
 import sanitizeHtml from 'sanitize-html';
 import jwt from 'jsonwebtoken';
 
-import { authMiddleware } from './src/config/auth.js';
 import postsRoutes from './src/routes/postsRoutes.js';
 import loginRoutes from './src/routes/loginRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
@@ -18,7 +17,6 @@ import codigoRoutes from './src/routes/codigoRoutes.js';
 import signInRoutes from './src/routes/signInRoutes.js';
 import cambiarContrasena from './src/routes/routeCambioContraseña.js';
 import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
-import authRoutes from './src/routes/authRoutes.js'
 import { crearOActualizarUsuarioAuth0 } from './src/middleware/authoUsers.js';
 
 dotenv.config();
@@ -55,45 +53,6 @@ app.use(cors({
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 app.use(cookieParser());
-app.use(authMiddleware);
-app.use((req, res, next) => {
-  console.log('🔍 REQUEST:', req.method, req.url);
-  console.log('🔍 AUTH0 isAuthenticated:', req.oidc?.isAuthenticated?.());
-  
-  if (req.oidc?.isAuthenticated?.() && req.url === '/') {
-    console.log('🎯 AUTH0 REDIRIGIÓ A RAÍZ - Creando cookie...');
-    console.log('👤 User:', req.oidc?.user);
-    
-    crearOActualizarUsuarioAuth0(req.oidc.user)
-      .then((user) => {
-        console.log('✅ Usuario procesado:', user.id);
-        
-        const token = jwt.sign({ 
-          id: user.id, 
-          rol: user.role 
-        }, process.env.JWT_SECRET);
-
-        res.cookie('token', token, { 
-          httpOnly: true, 
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-          maxAge: 24 * 60 * 60 * 1000,
-          path: '/'
-        });
-
-        req.oidc.logout();
-        
-        console.log('🍪 Cookie JWT creada, redirigiendo...');
-        return res.redirect('https://rumbo-iota.vercel.app/foro');
-      })
-      .catch((error) => {
-        console.error('❌ Error al crear o actualizar usuario con Auth0:', error);
-        return res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
-      });
-  } else {
-    next();
-  }
-});
 
 function sanitizeAllStrings(obj) {
   if (!obj || typeof obj !== 'object') return;
@@ -131,7 +90,6 @@ app.use('/', codigoRoutes);
 app.use('/', signInRoutes);
 app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
-app.use('/', authRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);

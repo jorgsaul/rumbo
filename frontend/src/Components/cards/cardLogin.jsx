@@ -10,12 +10,6 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
   const [error, setError] = useState(false);
   const [mensajeError, setMensajeError] = useState("");
 
-  const handleSocialLogin = (provider) => {
-    window.location.href = `${
-      import.meta.env.VITE_APP_API_BASE_URL
-    }/auth/login/`;
-  };
-
   const handeChange = () => {
     if (error) {
       setError(false);
@@ -134,7 +128,6 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
             texto="Continuar con google"
             img={logoGoogle}
             identificador="google"
-            onClick={() => handleSocialLogin("google")}
           />
 
           <ButtonSocial
@@ -142,7 +135,6 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
             img={logoFacebook}
             bgcolor={"blue"}
             identificador="facebook"
-            onClick={() => handleSocialLogin("facebook")}
           />
         </div>
       </div>
