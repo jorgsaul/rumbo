@@ -7,6 +7,7 @@ export function tokenAuthenticator(req, res, next) {
   if (!token) {
     return res.status(401).json({ error: 'No autenticado' });
   }
+  console.log(token);
   try {
     const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
