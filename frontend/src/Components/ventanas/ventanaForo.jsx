@@ -89,10 +89,13 @@ function VentanaForo({ ventanaActual }) {
       let url = `${import.meta.env.VITE_APP_API_BASE_URL}/posts`;
       if (filtro)
         url += `?filtro=${filtro}&usuario_id_perfil=${idUsuarioPerfil}`;
-
+      const localToken = localStorage.getItem("auth_token");
+      const headers = {};
+      if (localToken) headers["Authorization"] = `Bearer ${localToken}`;
       const response = await fetch(url, {
         method: "GET",
         credentials: "include",
+        headers: headers,
       });
       if (!response.ok) throw new Error("Error en la respuesta de la red");
 
