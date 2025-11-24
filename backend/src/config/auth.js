@@ -10,7 +10,6 @@ const config = {
 
   authorizationParams: {
     response_type: 'code',
-    scope: 'openid profile email',
   },
 
   routes: {
