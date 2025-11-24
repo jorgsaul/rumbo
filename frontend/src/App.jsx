@@ -7,7 +7,25 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // âœ
 
 function App() {
   const [ventana, cambiarVentana] = useState("inicio");
+  // En App.js o un archivo aparte
+  const originalFetch = window.fetch;
+  window.fetch = async function (...args) {
+    const [url, options = {}] = args;
 
+    // Agregar headers si es una request a tu API
+    if (url.includes("rumbo-jcgl.onrender.com")) {
+      const localToken = localStorage.getItem("auth_token");
+      if (localToken) {
+        options.headers = {
+          ...options.headers,
+          Authorization: `Bearer ${localToken}`,
+        };
+      }
+      options.credentials = "include";
+    }
+
+    return originalFetch(url, options);
+  };
   useEffect(() => {
     async function verificarAuth() {
       // âœ… VERIFICAR token en URL (lo que guardaste)
