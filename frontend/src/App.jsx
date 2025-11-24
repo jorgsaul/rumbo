@@ -19,15 +19,19 @@ function App() {
         );
 
         console.log("Response: desde la app", response);
-        if (!response.ok) {
-          throw new Error("Error en la respuesta de la red");
-        }
         const data = await response.json();
         console.log("Data: desde la app", data);
+
         if (data.loggedIn) {
           cambiarVentana("principal");
         } else {
-          cambiarVentana("inicio");
+          // ✅ Si viene de Google OAuth pero no detecta cookie, recargar
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.get("from") === "google") {
+            window.location.reload();
+          } else {
+            cambiarVentana("inicio");
+          }
         }
       } catch (error) {
         console.error("Error al verificar la autenticación:", error);

@@ -66,20 +66,24 @@ router.get('/auth/google/callback', async (req, res) => {
       sub: `google-${googleUser.id}`
     });
 
+    // ✅ CORREGIDO: Crear cookie y redirigir (no enviar JSON)
     const token = jwt.sign({ 
       id: user.id, 
       rol: user.role 
     }, process.env.JWT_SECRET);
 
-    const syncResponse = await fetch('https://rumbo-iota.vercel.app/api/sync-cookie', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ synced: true }),
-    })
-    res.redirect('https://rumbo-iota.vercel.app/foro?');
-    console.log('🍪 Cookie JWT creada, redirigiendo...');    
+    res.cookie('token', token, { 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      domain: '.vercel.app',
+      sameSite: 'none',
+      maxAge: 24 * 60 * 60 * 1000,
+      path: '/'
+    });
+
+    console.log('🍪 Cookie JWT creada, redirigiendo...');
+    res.redirect('https://rumbo-iota.vercel.app?from=google');
+    
   } catch (error) {
     console.error('❌ Error en Google OAuth:', error);
     res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
