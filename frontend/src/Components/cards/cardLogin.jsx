@@ -128,6 +128,11 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
             texto="Continuar con google"
             img={logoGoogle}
             identificador="google"
+            onClick={() => {
+              window.location.href = `${
+                import.meta.env.VITE_APP_API_BASE_URL
+              }/auth/google`;
+            }}
           />
 
           <ButtonSocial
