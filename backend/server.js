@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import sanitizeHtml from 'sanitize-html';
-import jwt from 'jsonwebtoken';
+import googleAuthRoutes from './src/routes/googleAuthRoutes.js';
 
 import postsRoutes from './src/routes/postsRoutes.js';
 import loginRoutes from './src/routes/loginRoutes.js';
@@ -90,6 +90,7 @@ app.use('/', codigoRoutes);
 app.use('/', signInRoutes);
 app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
+app.use('/', googleAuthRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);
