@@ -3,8 +3,19 @@ import jwt from 'jsonwebtoken';
 import { crearOActualizarUsuarioAuth0 } from '../middleware/authoUsers.js';
 
 const router = express.Router();
-
-// Endpoint para manejar el éxito de Auth0
+// En authRoutes.js - AGREGA ESTO TEMPORALMENTE
+router.get('/auth/debug-callback', (req, res) => {
+  console.log('🎯 DEBUG CALLBACK EJECUTADO');
+  console.log('📝 Query params:', req.query);
+  console.log('🔍 User:', req.oidc?.user);
+  console.log('🔍 Autenticado:', req.oidc?.isAuthenticated?.());
+  
+  res.json({
+    message: 'Debug callback executed',
+    query: req.query,
+    authenticated: req.oidc?.isAuthenticated?.()
+  });
+});
 router.get('/auth/success', async (req, res) => {
   try {
     console.log('🔄 Auth success ejecutado');

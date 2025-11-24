@@ -8,7 +8,7 @@ const config = {
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
   routes: {
-    callback: '/auth/callback',
+    callback: '/auth/debug-callback',
     login: '/auth/login',
     logout: '/auth/logout'
   }
