@@ -54,6 +54,44 @@ app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 app.use(cookieParser());
 app.use(authMiddleware);
+app.use((req, res, next) => {
+  console.log('🔍 REQUEST:', req.method, req.url);
+  console.log('🔍 AUTH0 isAuthenticated:', req.oidc?.isAuthenticated?.());
+  
+  // ✅ CAPTURAR cuando Auth0 redirige a '/' después del login
+  if (req.oidc?.isAuthenticated?.() && req.url === '/') {
+    console.log('🎯 AUTH0 REDIRIGIÓ A RAÍZ - Creando cookie...');
+    console.log('👤 User:', req.oidc?.user);
+    
+    // Usar la misma lógica que en tu endpoint
+    crearOActualizarUsuarioAuth0(req.oidc.user)
+      .then((user) => {
+        console.log('✅ Usuario procesado:', user.id);
+        
+        const token = jwt.sign({ 
+          id: user.id, 
+          rol: user.role 
+        }, process.env.JWT_SECRET);
+
+        res.cookie('token', token, { 
+          httpOnly: true, 
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          maxAge: 24 * 60 * 60 * 1000,
+          path: '/'
+        });
+
+        console.log('🍪 Cookie JWT creada, redirigiendo...');
+        return res.redirect('https://rumbo-iota.vercel.app/foro');
+      })
+      .catch((err) => {
+        console.error('❌ Error:', err);
+        return res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
+      });
+  } else {
+    next();
+  }
+});
 
 function sanitizeAllStrings(obj) {
   if (!obj || typeof obj !== 'object') return;
