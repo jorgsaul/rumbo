@@ -7,25 +7,31 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // �
 
 function App() {
   const [ventana, cambiarVentana] = useState("inicio");
-  // En App.js o un archivo aparte
-  const originalFetch = window.fetch;
-  window.fetch = async function (...args) {
-    const [url, options = {}] = args;
+  useEffect(() => {
+    const originalFetch = window.fetch;
+    window.fetch = async function (...args) {
+      const [url, options = {}] = args;
 
-    // Agregar headers si es una request a tu API
-    if (url.includes("rumbo-jcgl.onrender.com")) {
-      const localToken = localStorage.getItem("auth_token");
-      if (localToken) {
-        options.headers = {
-          ...options.headers,
-          Authorization: `Bearer ${localToken}`,
-        };
+      // Agregar headers automáticamente a todas las requests de tu API
+      if (typeof url === "string" && url.includes("rumbo-jcgl.onrender.com")) {
+        const localToken = localStorage.getItem("auth_token");
+        if (localToken) {
+          options.headers = {
+            ...options.headers,
+            Authorization: `Bearer ${localToken}`,
+          };
+        }
+        options.credentials = "include";
       }
-      options.credentials = "include";
-    }
 
-    return originalFetch(url, options);
-  };
+      return originalFetch(url, options);
+    };
+
+    // Cleanup
+    return () => {
+      window.fetch = originalFetch;
+    };
+  }, []);
   useEffect(() => {
     async function verificarAuth() {
       // ✅ VERIFICAR token en URL (lo que guardaste)
