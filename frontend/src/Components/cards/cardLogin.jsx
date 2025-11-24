@@ -10,67 +10,12 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
   const [error, setError] = useState(false);
   const [mensajeError, setMensajeError] = useState("");
 
-  console.log("🔍 Componente CardLogin renderizado");
-  console.log("🌐 window.google existe?:", !!window.google);
-  console.log("🔑 Client ID:", import.meta.env.VITE_APP_GOOGLE_CLIENT_ID);
-
-  useEffect(() => {
-    console.log("🔄 useEffect ejecutándose");
-    console.log("🌐 window.google en useEffect:", !!window.google);
-    if (window.google) {
-      console.log("Inicializando Google API...");
-      window.google.accounts.id.initialize({
-        client_id: import.meta.env.VITE_APP_GOOGLE_CLIENT_ID,
-        callback: handleGoogleLogin,
-      });
-      console.log("Google API inicializada.");
-    }
-    console.log("window google no exsite en useEffect");
-  }, []);
-
-  const handleGoogleLogin = async (response) => {
-    try {
-      const result = await fetch(
-        `${import.meta.env.VITE_APP_API_BASE_URL}/google-login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            token: response.credential,
-          }),
-          credentials: "include",
-        }
-      );
-
-      const data = await result.json();
-      if (data.success) {
-        cambiarVentana("principal");
-        window.location.href = "/foro";
-      } else {
-        setError(true);
-        setMensajeError("Error al iniciar sesion con google");
-      }
-    } catch (error) {
-      console.error("Error al iniciar sesion con google:", error);
-    }
+  const handleSocialLogin = (provider) => {
+    window.location.href = `${
+      import.meta.env.VITE_APP_API_BASE_URL
+    }/auth/login/`;
   };
 
-  const handleGoogleClick = () => {
-    console.log("Boton de Google clickeado");
-    console.log("🌐 window.google en click:", !!window.google);
-    console.log(
-      "🔑 Client ID en click:",
-      import.meta.env.VITE_APP_GOOGLE_CLIENT_ID
-    );
-    if (window.google) {
-      console.log("Ejecutando window.google.accounts.id.prompt()");
-      window.google.accounts.id.prompt();
-    } else {
-      console.log("window.google no exsite en click");
-    }
-  };
   const handeChange = () => {
     if (error) {
       setError(false);
@@ -189,15 +134,16 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
             texto="Continuar con google"
             img={logoGoogle}
             identificador="google"
-            onClick={handleGoogleClick}
-          ></ButtonSocial>
+            onClick={() => handleSocialLogin("google")}
+          />
 
           <ButtonSocial
             texto="Continuar con facebook"
             img={logoFacebook}
             bgcolor={"blue"}
             identificador="facebook"
-          ></ButtonSocial>
+            onClick={() => handleSocialLogin("facebook")}
+          />
         </div>
       </div>
     </div>

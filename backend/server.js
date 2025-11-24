@@ -6,6 +6,7 @@ import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import sanitizeHtml from 'sanitize-html';
 
+import { authMiddleware } from './src/config/auth.js';
 import postsRoutes from './src/routes/postsRoutes.js';
 import loginRoutes from './src/routes/loginRoutes.js';
 import userRoutes from './src/routes/userRoutes.js';
@@ -16,6 +17,7 @@ import codigoRoutes from './src/routes/codigoRoutes.js';
 import signInRoutes from './src/routes/signInRoutes.js';
 import cambiarContrasena from './src/routes/routeCambioContraseña.js';
 import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
+import authRoutes from './src/routes/authRoutes.js'
 
 dotenv.config();
 
@@ -51,6 +53,7 @@ app.use(cors({
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 app.use(cookieParser());
+app.use(authMiddleware);
 
 function sanitizeAllStrings(obj) {
   if (!obj || typeof obj !== 'object') return;
@@ -88,7 +91,7 @@ app.use('/', codigoRoutes);
 app.use('/', signInRoutes);
 app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
-
+app.use('/', authRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);

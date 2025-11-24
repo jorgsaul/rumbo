@@ -1,0 +1,42 @@
+import express from 'express';
+import jwt from 'jsonwebtoken';
+import { crearOActualizarUsuarioAuth0 } from '../middleware/authoUsers.js';
+
+const router = express.Router();
+
+// Endpoint para manejar el éxito de Auth0
+router.get('/auth/success', async (req, res) => {
+  try {
+    console.log('🔄 Auth success ejecutado');
+    
+    if (!req.oidc?.isAuthenticated?.()) {
+      return res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
+    }
+
+    console.log('✅ Usuario autenticado con Auth0');
+    const user = await crearOActualizarUsuarioAuth0(req.oidc.user);
+    
+    // Crear TU cookie JWT (igual que login normal)
+    const token = jwt.sign({ 
+      id: user.id, 
+      rol: user.role 
+    }, process.env.JWT_SECRET);
+
+    res.cookie('token', token, { 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      maxAge: 24 * 60 * 60 * 1000,
+      path: '/'
+    });
+
+    console.log('🍪 Cookie JWT creada, redirigiendo...');
+    res.redirect('https://rumbo-iota.vercel.app/foro');
+    
+  } catch (error) {
+    console.error('❌ Error en auth success:', error);
+    res.redirect('https://rumbo-iota.vercel.app/login?error=server_error');
+  }
+});
+
+export default router;
