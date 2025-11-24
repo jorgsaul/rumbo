@@ -8,53 +8,30 @@ function App() {
   const [ventana, cambiarVentana] = useState("inicio");
 
   useEffect(() => {
-    async function verificarCookie() {
+    async function verificarAuth() {
+      // ✅ PRIMERO verificar localStorage (Google/Facebook)
+      const localToken = localStorage.getItem("auth_token");
+      if (localToken) {
+        cambiarVentana("principal");
+        return;
+      }
+
+      // ✅ LUEGO verificar cookie (login normal)
       try {
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/authenticate`,
           {
-            method: "GET",
             credentials: "include",
           }
         );
-
-        console.log("Response: desde la app", response);
         const data = await response.json();
-        console.log("Data: desde la app", data);
-
-        if (data.loggedIn) {
-          cambiarVentana("principal");
-        } else {
-          // ✅ Si viene de Google OAuth pero no detecta cookie, recargar
-          const urlParams = new URLSearchParams(window.location.search);
-          if (urlParams.get("from") === "google") {
-            // ✅ Esperar 2 segundos y verificar de nuevo
-            setTimeout(async () => {
-              const retryResponse = await fetch(
-                `${import.meta.env.VITE_APP_API_BASE_URL}/authenticate`,
-                {
-                  credentials: "include",
-                }
-              );
-              const retryData = await retryResponse.json();
-
-              if (retryData.loggedIn) {
-                cambiarVentana("principal");
-              } else {
-                // Solo recargar si sigue sin funcionar
-                window.history.replaceState({}, "", "/");
-                window.location.reload();
-              }
-            }, 2000);
-            return; // ✅ Importante: salir de la función
-          }
-        }
+        if (data.loggedIn) cambiarVentana("principal");
+        else cambiarVentana("inicio");
       } catch (error) {
-        console.error("Error al verificar la autenticación:", error);
+        cambiarVentana("inicio");
       }
     }
-
-    verificarCookie();
+    verificarAuth();
   }, []);
 
   function cambioVentana() {
