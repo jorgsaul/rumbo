@@ -69,22 +69,14 @@ app.use((req, res, next) => {
     crearOActualizarUsuarioAuth0(req.oidc.user)
       .then((user) => {
         console.log('✅ Usuario procesado:', user.id);
-        
-        const token = jwt.sign({ 
-          id: user.id, 
-          rol: user.role 
-        }, process.env.JWT_SECRET);
 
-        res.cookie('token', token, { 
-          httpOnly: true, 
-          secure: process.env.NODE_ENV === 'production',
-          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-          maxAge: 24 * 60 * 60 * 1000,
-          path: '/'
-        });
-
-        console.log('🍪 Cookie JWT creada, redirigiendo...');
-        return res.redirect('https://rumbo-iota.vercel.app/foro');
+        try {
+          const response = fetch(`https://rumbo-jcgl.onrender.com/auto-login`, {
+            
+          })
+        } catch (error) {
+          
+        }
       })
       .catch((err) => {
         console.error('❌ Error:', err);

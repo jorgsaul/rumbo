@@ -85,7 +85,7 @@ router.post('/auto-login', async (req, res) => {
     if (user) {
       const token = jwt.sign({ 
         id: user.id, 
-        rol: user.role 
+        rol: user.role ? user.role : 'user'
       }, process.env.JWT_SECRET);
 
       res.cookie('token', token, { 
