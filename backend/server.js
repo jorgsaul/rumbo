@@ -67,11 +67,11 @@ app.use((req, res, next) => {
     
     // Usar la misma lógica que en tu endpoint
     crearOActualizarUsuarioAuth0(req.oidc.user)
-      .then((user) => {
+      .then( async(user) => {
         console.log('✅ Usuario procesado:', user.id);
 
         try {
-          const response = fetch(`https://rumbo-jcgl.onrender.com/auto-login`, {
+          const response = await fetch(`https://rumbo-jcgl.onrender.com/auto-login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
