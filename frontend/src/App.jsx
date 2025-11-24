@@ -2,21 +2,20 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import VentanaInicio from "./Components/ventanas/ventanaInicio";
 import VentanaPrincipal from "./Components/ventanas/ventanaPrincipal";
-import { BrowserRouter as Router } from "react-router-dom";
+import AuthSuccess from "./Components/ventanas/AuthSuccess"; // ✅ IMPORTAR
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // ✅ AGREGAR Routes, Route
 
 function App() {
   const [ventana, cambiarVentana] = useState("inicio");
 
   useEffect(() => {
     async function verificarAuth() {
-      // ✅ PRIMERO verificar localStorage (Google/Facebook)
       const localToken = localStorage.getItem("auth_token");
       if (localToken) {
         cambiarVentana("principal");
         return;
       }
 
-      // ✅ LUEGO verificar cookie (login normal)
       try {
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/authenticate`,
@@ -34,22 +33,27 @@ function App() {
     verificarAuth();
   }, []);
 
-  function cambioVentana() {
-    switch (ventana) {
-      case "inicio":
-        return <VentanaInicio cambiarVentana={cambiarVentana} />;
-      case "principal":
-        return <VentanaPrincipal />;
-    }
-  }
-
   return (
     <div className="App">
       <Router>
-        {ventana === "inicio" && (
-          <VentanaInicio cambiarVentana={cambiarVentana} />
-        )}
-        {ventana === "principal" && <VentanaPrincipal />}
+        <Routes>
+          {/* ✅ RUTA PARA AuthSuccess - SIEMPRE ACCESIBLE */}
+          <Route
+            path="/auth-success"
+            element={<AuthSuccess cambiarVentana={cambiarVentana} />}
+          />
+
+          {/* ✅ RUTAS CONDICIONALES */}
+          {ventana === "inicio" && (
+            <Route
+              path="*"
+              element={<VentanaInicio cambiarVentana={cambiarVentana} />}
+            />
+          )}
+          {ventana === "principal" && (
+            <Route path="*" element={<VentanaPrincipal />} />
+          )}
+        </Routes>
       </Router>
     </div>
   );
