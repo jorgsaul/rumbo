@@ -55,23 +55,6 @@ app.use(express.urlencoded({ extended: true, limit: '5mb' }));
 app.use(cookieParser());
 app.use(authMiddleware);
 
-// EN server.js - DESPUÉS de app.use(authMiddleware);
-app.use((req, res, next) => {
-  console.log('🔍 REQUEST:', req.method, req.url);
-  console.log('🔍 AUTH0 isAuthenticated:', req.oidc?.isAuthenticated?.());
-  
-  // ✅ CAPTURAR el callback de Auth0 manualmente
-  if (req.url.startsWith('/auth/callback') || (req.oidc?.isAuthenticated?.() && req.url === '/')) {
-    console.log('🎯 AUTH0 CALLBACK DETECTADO');
-    console.log('👤 User:', req.oidc?.user);
-    
-    // Aquí va tu lógica de crear usuario y cookie
-    return res.redirect('https://rumbo-iota.vercel.app/foro');
-  }
-  
-  next();
-});
-
 function sanitizeAllStrings(obj) {
   if (!obj || typeof obj !== 'object') return;
   for (const key of Object.keys(obj)) {

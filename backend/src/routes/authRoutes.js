@@ -50,7 +50,6 @@ router.get('/auth/success', async (req, res) => {
   }
 });
 
-// En authRoutes.js - AGREGA ESTO:
 router.get('/auth/callback', async (req, res) => {
   try {
     console.log('🔄 CALLBACK DE AUTH0 EJECUTADO');
