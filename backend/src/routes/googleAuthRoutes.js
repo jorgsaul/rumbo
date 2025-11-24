@@ -72,7 +72,7 @@ router.get('/auth/google/callback', async (req, res) => {
       rol: user.role 
     }, process.env.JWT_SECRET);
     console.log('🍪 Cookie JWT creada, redirigiendo...');
-    res.redirect(`https://rumbo-iota.vercel.app?from=google&token=${token}`);
+    res.redirect(`https://rumbo-iota.vercel.app/auth-success?token=${token}`);
   } catch (error) {
     console.error('❌ Error en Google OAuth:', error);
     res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
