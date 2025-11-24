@@ -18,6 +18,7 @@ import signInRoutes from './src/routes/signInRoutes.js';
 import cambiarContrasena from './src/routes/routeCambioContraseña.js';
 import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
 import authRoutes from './src/routes/authRoutes.js'
+import { crearOActualizarUsuarioAuth0 } from './src/middleware/authoUsers.js';
 
 dotenv.config();
 
