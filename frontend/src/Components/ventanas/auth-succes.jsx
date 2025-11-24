@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 function AuthSuccess() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
