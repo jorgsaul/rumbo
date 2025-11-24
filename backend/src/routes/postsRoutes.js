@@ -1,7 +1,7 @@
 import express from 'express';
 import { funcionLikes } from '../controllers/obtencionLikes.js';
 import { obtenerPosts } from '../controllers/listaForo.js';
-import { tokenAuthenticator } from '../middleware/tokenAuthenticator.js';
+import { authenticateUser } from '../middleware/authMiddleware.js';
 import { crearComentario } from '../controllers/crearComentario.js';
 import { obtenerComentarios } from '../controllers/obtencionComentarios.js';
 import funcionSubirPost from '../controllers/uploadPost.js';
@@ -11,7 +11,7 @@ import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
 
 const router = express.Router();
 
-router.get('/posts', tokenAuthenticator, async (req, res) => {
+router.get('/posts', authenticateUser, async (req, res) => {
   const filtro = req.query.filtro;
   const usuarioIdPerfil = req.query.usuario_id_perfil;
   const usuarioIdSesion = req.user.id;
@@ -23,7 +23,7 @@ router.get('/posts', tokenAuthenticator, async (req, res) => {
   }
 });
 
-router.post('/post_like', tokenAuthenticator ,async(req, res)=>{
+router.post('/post_like', authenticateUser ,async(req, res)=>{
   const userID = req.user.id;
   const postID = req.body.post_id;
 
@@ -35,7 +35,7 @@ router.post('/post_like', tokenAuthenticator ,async(req, res)=>{
   }
 })
 
-router.post('/post_save', tokenAuthenticator, async(req, res)=>{
+router.post('/post_save', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const postID = req.body.post_id;
 
@@ -47,7 +47,7 @@ router.post('/post_save', tokenAuthenticator, async(req, res)=>{
   }
 })
 
-router.post('/post_upload', tokenAuthenticator, async(req, res)=>{
+router.post('/post_upload', authenticateUser, async(req, res)=>{
   const {author_id, title, content, media_url, etiquetas} = req.body;
   try {
     const resultado = await funcionSubirPost(author_id, title, content, media_url, etiquetas);
@@ -57,7 +57,7 @@ router.post('/post_upload', tokenAuthenticator, async(req, res)=>{
   }
 })
 
-router.post('/post-comment', tokenAuthenticator, async(req, res)=>{
+router.post('/post-comment', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id, content} = req.body;
   try {
@@ -78,7 +78,7 @@ router.get('/post-comments', async(req, res)=>{
   }
 })
 
-router.delete('/delete-post', tokenAuthenticator, async(req, res)=>{
+router.delete('/delete-post', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id} = req.query;
   try {

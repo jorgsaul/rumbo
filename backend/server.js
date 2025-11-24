@@ -94,11 +94,6 @@ app.use('/', signInRoutes);
 app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
 app.use('/', googleAuthRoutes);
-app.use('/perfil', authenticateUser)
-app.use('/posts', authenticateUser)
-app.use('/user', authenticateUser)
-app.use('/tests', authenticateUser)
-app.use('/login', authenticateUser)
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);

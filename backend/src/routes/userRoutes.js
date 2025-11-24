@@ -1,5 +1,5 @@
 import express from 'express';
-import { tokenAuthenticator } from '../middleware/tokenAuthenticator.js';
+import { authenticateUser } from '../middleware/authMiddleware.js';
 import { obtenerDatosUsuario } from '../controllers/userData.js';
 import { actualizarCuenta } from '../controllers/actualizarCuenta.js';
 import { insertarResultados } from '../controllers/insertarResultados.js';
@@ -7,7 +7,7 @@ import { obtenerDatosTest } from '../controllers/obtenerDatosTest.js';
 
 const router = express.Router();
 
-router.get('/perfil', tokenAuthenticator, async (req, res) => {
+router.get('/perfil', authenticateUser, async (req, res) => {
   const userID = req.user.id;
 
   try {
@@ -31,7 +31,7 @@ router.get('/perfil-externo', async (req, res) => {
   }
 });
 
-router.put('/actualizar-perfil', tokenAuthenticator, async (req, res) => {
+router.put('/actualizar-perfil', authenticateUser, async (req, res) => {
   const userId = req.user.id;
   const { full_name, bio, avatar_url, banner_url } = req.body;
 
@@ -44,7 +44,7 @@ router.put('/actualizar-perfil', tokenAuthenticator, async (req, res) => {
   }
 })
 
-router.post('/insertar-resultados', tokenAuthenticator, async (req, res) => {
+router.post('/insertar-resultados', authenticateUser, async (req, res) => {
   const userId = req.user.id;
   const { testId, score } = req.body;
   try {
@@ -56,7 +56,7 @@ router.post('/insertar-resultados', tokenAuthenticator, async (req, res) => {
   }
 });
 
-router.get('/obtener-resultados', tokenAuthenticator, async (req, res) => {
+router.get('/obtener-resultados', authenticateUser, async (req, res) => {
   const userId = req.user.id;
   try {
     const result = await obtenerDatosTest(userId);
