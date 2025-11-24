@@ -72,10 +72,16 @@ app.use((req, res, next) => {
 
         try {
           const response = fetch(`https://rumbo-jcgl.onrender.com/auto-login`, {
-            
-          })
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: user.id })
+          });
+          console.log('Respnse del auto-login:', response);
+
         } catch (error) {
-          
+          console.error('❌ Error en la solicitud:', error);
         }
       })
       .catch((err) => {

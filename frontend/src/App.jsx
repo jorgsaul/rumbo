@@ -17,6 +17,8 @@ function App() {
             credentials: "include",
           }
         );
+
+        console.log("Response: desde la app", response);
         if (!response.ok) {
           throw new Error("Error en la respuesta de la red");
         }
