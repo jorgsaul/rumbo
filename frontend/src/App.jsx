@@ -23,8 +23,11 @@ function App() {
           throw new Error("Error en la respuesta de la red");
         }
         const data = await response.json();
+        console.log("Data: desde la app", data);
         if (data.loggedIn) {
           cambiarVentana("principal");
+        } else {
+          cambiarVentana("inicio");
         }
       } catch (error) {
         console.error("Error al verificar la autenticación:", error);

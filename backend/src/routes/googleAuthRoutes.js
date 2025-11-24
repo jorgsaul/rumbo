@@ -80,7 +80,7 @@ router.get('/auth/google/callback', async (req, res) => {
     });
 
     console.log('🍪 Cookie JWT creada, redirigiendo...');
-    res.redirect('https://rumbo-iota.vercel.app/foro');
+    res.redirect('https://rumbo-iota.vercel.app/foro?auth=success');
     
   } catch (error) {
     console.error('❌ Error en Google OAuth:', error);
