@@ -3,8 +3,7 @@ function AuthSuccess() {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get("token");
-    console.log("Auth success component mounted");
-    console.log("token from url:", token);
+
     if (token) {
       localStorage.setItem("auth_token", token);
       window.history.replaceState({}, "", "/");

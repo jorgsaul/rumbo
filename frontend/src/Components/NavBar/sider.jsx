@@ -20,6 +20,8 @@ function Sider({ cambioVentana, ventana }) {
         }
       );
 
+      localStorage.removeItem("auth_token");
+
       if (!response.ok) {
         throw new Error("Error en la respuesta de la red");
       }

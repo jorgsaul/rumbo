@@ -13,7 +13,6 @@ router.get('/auth/google', (req, res) => {
     `&access_type=offline` +
     `&prompt=consent`;
   
-  console.log('🔗 Redirigiendo a Google OAuth');
   res.redirect(authUrl);
 });
 
@@ -25,7 +24,6 @@ router.get('/auth/google/callback', async (req, res) => {
       return res.redirect('https://rumbo-iota.vercel.app/login?error=no_code');
     }
 
-    console.log('🔄 Intercambiando code por token...');
     
     const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
@@ -47,8 +45,6 @@ router.get('/auth/google/callback', async (req, res) => {
       throw new Error('No se pudo obtener access token');
     }
 
-    console.log('✅ Token obtenido, obteniendo datos de usuario...');
-    
     const userResponse = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
       headers: {
         Authorization: `Bearer ${tokenData.access_token}`,
@@ -66,12 +62,10 @@ router.get('/auth/google/callback', async (req, res) => {
       sub: `google-${googleUser.id}`
     });
 
-    // ✅ CORREGIDO: Crear cookie y redirigir (no enviar JSON)
     const token = jwt.sign({ 
       id: user.id, 
       rol: user.role 
     }, process.env.JWT_SECRET);
-    console.log('🍪 Cookie JWT creada, redirigiendo...');
     res.redirect(`https://rumbo-iota.vercel.app/auth-success?token=${token}`);
   } catch (error) {
     console.error('❌ Error en Google OAuth:', error);

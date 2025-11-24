@@ -81,7 +81,6 @@ router.post('/auto-login', async (req, res) => {
   
   try {
     const user = await autoLogin(identificador);
-    console.log('User desde auto-login:', user);
     if (user) {
       const token = jwt.sign({ 
         id: user.id, 
