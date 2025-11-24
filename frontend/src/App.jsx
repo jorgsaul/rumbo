@@ -10,18 +10,29 @@ function App() {
 
   useEffect(() => {
     async function verificarAuth() {
-      const localToken = localStorage.getItem("auth_token");
+      // ✅ VERIFICAR token en URL (lo que guardaste)
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get("token");
+
+      if (token) {
+        localStorage.setItem("auth_token", token); // ✅ Guardar como "auth_token"
+        window.history.replaceState({}, "", "/");
+        cambiarVentana("principal");
+        return;
+      }
+
+      // ✅ LUEGO verificar localStorage (buscando "auth_token")
+      const localToken = localStorage.getItem("auth_token"); // ✅ "auth_token"
       if (localToken) {
         cambiarVentana("principal");
         return;
       }
 
+      // ✅ FINALMENTE verificar cookie (login normal)
       try {
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/authenticate`,
-          {
-            credentials: "include",
-          }
+          { credentials: "include" }
         );
         const data = await response.json();
         if (data.loggedIn) cambiarVentana("principal");
