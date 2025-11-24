@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import sanitizeHtml from 'sanitize-html';
+import jwt from 'jsonwebtoken';
 
 import { authMiddleware } from './src/config/auth.js';
 import postsRoutes from './src/routes/postsRoutes.js';
