@@ -28,9 +28,25 @@ function App() {
           // ✅ Si viene de Google OAuth pero no detecta cookie, recargar
           const urlParams = new URLSearchParams(window.location.search);
           if (urlParams.get("from") === "google") {
-            window.location.reload();
-          } else {
-            cambiarVentana("inicio");
+            // ✅ Esperar 2 segundos y verificar de nuevo
+            setTimeout(async () => {
+              const retryResponse = await fetch(
+                `${import.meta.env.VITE_APP_API_BASE_URL}/authenticate`,
+                {
+                  credentials: "include",
+                }
+              );
+              const retryData = await retryResponse.json();
+
+              if (retryData.loggedIn) {
+                cambiarVentana("principal");
+              } else {
+                // Solo recargar si sigue sin funcionar
+                window.history.replaceState({}, "", "/");
+                window.location.reload();
+              }
+            }, 2000);
+            return; // ✅ Importante: salir de la función
           }
         }
       } catch (error) {
