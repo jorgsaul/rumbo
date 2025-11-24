@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import VentanaInicio from "./Components/ventanas/ventanaInicio";
 import VentanaPrincipal from "./Components/ventanas/ventanaPrincipal";
-import AuthSuccess from "./Components/ventanas/AuthSuccess"; // ✅ IMPORTAR
+import AuthSuccess from "./Components/ventanas/auth-succes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; // ✅ AGREGAR Routes, Route
 
 function App() {
