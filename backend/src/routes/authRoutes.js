@@ -61,9 +61,11 @@ router.get('/auth/callback', async (req, res) => {
     }
 
     console.log('✅ Usuario autenticado con Auth0');
-    const user = await crearOActualizarUsuarioAuth0(req.oidc.user);
+    crearOActualizarUsuarioAuth0(req.oidc.user)
+  .then((user) => {
+    console.log('✅ Usuario procesado:', user.id);
     
-    // Crear TU cookie JWT
+    // ✅ Crear cookie JWT DIRECTAMENTE aquí
     const token = jwt.sign({ 
       id: user.id, 
       rol: user.role 
@@ -77,13 +79,15 @@ router.get('/auth/callback', async (req, res) => {
       path: '/'
     });
 
-    console.log('🍪 Cookie JWT creada, redirigiendo...');
-    res.redirect('https://rumbo-iota.vercel.app/foro');
+    // ✅ Cerrar sesión de Auth0
+    req.oidc.logout();
     
-  } catch (error) {
-    console.error('❌ Error en auth callback:', error);
-    res.redirect('https://rumbo-iota.vercel.app/login?error=server_error');
-  }
-});
+    console.log('🍪 Cookie JWT creada, redirigiendo...');
+    return res.redirect('https://rumbo-iota.vercel.app/foro');
+  })
+  .catch((err) => {
+    console.error('❌ Error:', err);
+    return res.redirect('https://rumbo-iota.vercel.app/login?error=server_error');
+  });
 
 export default router;

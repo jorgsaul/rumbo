@@ -60,32 +60,34 @@ app.use((req, res, next) => {
   console.log('🔍 REQUEST:', req.method, req.url);
   console.log('🔍 AUTH0 isAuthenticated:', req.oidc?.isAuthenticated?.());
   
-  // ✅ CAPTURAR cuando Auth0 redirige a '/' después del login
   if (req.oidc?.isAuthenticated?.() && req.url === '/') {
     console.log('🎯 AUTH0 REDIRIGIÓ A RAÍZ - Creando cookie...');
     console.log('👤 User:', req.oidc?.user);
     
-    // Usar la misma lógica que en tu endpoint
     crearOActualizarUsuarioAuth0(req.oidc.user)
-      .then( async(user) => {
+      .then((user) => {
         console.log('✅ Usuario procesado:', user.id);
+        
+        const token = jwt.sign({ 
+          id: user.id, 
+          rol: user.role 
+        }, process.env.JWT_SECRET);
 
-        try {
-          const response = await fetch(`https://rumbo-jcgl.onrender.com/auto-login`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id: user.id })
-          });
-          console.log('Respnse del auto-login:', response);
+        res.cookie('token', token, { 
+          httpOnly: true, 
+          secure: process.env.NODE_ENV === 'production',
+          sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+          maxAge: 24 * 60 * 60 * 1000,
+          path: '/'
+        });
 
-        } catch (error) {
-          console.error('❌ Error en la solicitud:', error);
-        }
+        req.oidc.logout();
+        
+        console.log('🍪 Cookie JWT creada, redirigiendo...');
+        return res.redirect('https://rumbo-iota.vercel.app/foro');
       })
-      .catch((err) => {
-        console.error('❌ Error:', err);
+      .catch((error) => {
+        console.error('❌ Error al crear o actualizar usuario con Auth0:', error);
         return res.redirect('https://rumbo-iota.vercel.app/login?error=auth_failed');
       });
   } else {
