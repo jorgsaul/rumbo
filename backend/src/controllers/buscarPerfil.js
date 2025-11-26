@@ -2,7 +2,7 @@ import { pool } from "../config/dataBase.js";
 
 export const buscarPerfil = async (entrada) => {
   try {
-    const result = await pool.query("CALL sp_buscar_usuarios_relevantes($1)", [entrada]);
+    const result = await pool.query("SELECT * FROM sp_buscar_usuarios_relevantes($1)", [entrada]);
     if (result.rows.length > 0) {
       return result.rows[0];
     }
