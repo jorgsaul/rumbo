@@ -1,0 +1,232 @@
+{
+  "test_id": 6,
+  "test_name": "Ciencias Económico-Administrativas",
+  "preguntas": [
+    {
+      "pregunta": "Desde una perspectiva financiera, la principal diferencia conceptual entre el interés simple y el interés compuesto radica en:",
+      "opciones": {
+        "a": "El interés simple solo se aplica a préstamos, y el compuesto solo a inversiones.",
+        "b": "El interés compuesto utiliza una tasa nominal, mientras que el simple utiliza una tasa efectiva.",
+        "c": "El interés compuesto capitaliza los intereses ganados al principal en cada periodo, mientras que el simple no lo hace.",
+        "d": "El interés simple se calcula sobre el valor futuro, y el compuesto se calcula sobre el valor presente."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Un contador invierte $10,000 USD en un instrumento que ofrece una tasa de interés del 8% anual con capitalización semestral. ¿Cuál será el valor futuro aproximado de su inversión después de 5 años?",
+      "opciones": {
+        "a": "$14,000.00",
+        "b": "$14,693.28",
+        "c": "$14,802.44",
+        "d": "$15,106.87"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "La mediana se considera una medida de tendencia central más robusta que la media aritmética en conjuntos de datos. ¿Cuál es la razón principal de esta robustez?",
+      "opciones": {
+        "a": "Es más fácil de calcular que la media o la moda.",
+        "b": "Representa el valor más frecuente en la distribución.",
+        "c": "No es afectada por los valores atípicos o extremos de la distribución.",
+        "d": "Requiere el cálculo de la desviación estándar para su interpretación."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "La moda es la única medida de tendencia central que se puede aplicar a qué tipo de datos o variables:",
+      "opciones": {
+        "a": "Variables cuantitativas continuas (ej. peso o altura).",
+        "b": "Variables cuantitativas discretas (ej. número de hijos).",
+        "c": "Variables cualitativas nominales (ej. color favorito).",
+        "d": "Variables de razón (ej. ingresos)."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Una pequeña tienda vendió las siguientes cantidades de un producto popular durante los últimos 5 días: 12, 18, 15, 10, 20. ¿Cuál fue la venta promedio (media aritmética) diaria de ese producto?",
+      "opciones": {
+        "a": "14 unidades",
+        "b": "15.5 unidades",
+        "c": "15 unidades",
+        "d": "16 unidades"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál de los siguientes pares de elementos representa las fases cruciales y secuenciales en el proceso de Planeación?",
+      "opciones": {
+        "a": "Delegación y Liderazgo.",
+        "b": "Liderazgo y Motivación.",
+        "c": "Establecimiento de Objetivos y Desarrollo de Estrategias.",
+        "d": "Reclutamiento y Selección de personal."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "La Misión de una organización se diferencia de la Visión en que la Misión se enfoca en:",
+      "opciones": {
+        "a": "El futuro ideal y ambicioso que se desea alcanzar en el largo plazo.",
+        "b": "El análisis de la competencia y el entorno externo.",
+        "c": "La razón de ser actual de la empresa, su propósito central y a qué clientes sirve.",
+        "d": "Las utilidades financieras que se esperan generar en el siguiente año fiscal."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Relaciona cada modelo económico aplicado en México (Columna A) con la característica principal que lo definió o su consecuencia directa (Columna B):",
+      "tabla": {
+        "columnas": [
+          "Modelo Económico",
+          "Característica Principal"
+        ],
+        "filas": [
+          [
+            "1. Modelo Neoliberal (1980s - Actualidad)",
+            "A. Énfasis en la industrialización de bienes intermedios y de capital y crecimiento del gasto público mediante endeudamiento."
+          ],
+          [
+            "2. Modelo de Desarrollo Estabilizador (1950s - 1970s)",
+            "B. Inversión extranjera masiva en infraestructura (ferrocarriles) y concesiones, con fuerte desigualdad social y latifundismo."
+          ],
+          [
+            "3. Modelo de Sustitución de Importaciones (MSI) (1940s - 1970s)",
+            "C. Apertura comercial acelerada, privatización de empresas paraestatales y enfoque en la estabilidad macroeconómica (baja inflación)."
+          ],
+          [
+            "4. Modelo de Desarrollo Compartido (1970s)",
+            "D. Crecimiento del PIB sostenido con tasas de inflación bajas y estabilidad del tipo de cambio."
+          ],
+          [
+            "5. Modelo Económico del Porfiriato (1876-1911)",
+            "E. Fuerte intervención estatal, proteccionismo industrial y crecimiento basado en el mercado interno."
+          ]
+        ]
+      },
+      "opciones": {
+        "a": "1-C, 2-D, 3-E, 4-A, 5-B",
+        "b": "1-A, 2-C, 3-E, 4-D, 5-B",
+        "c": "1-C, 2-A, 3-B, 4-E, 5-D",
+        "d": "1-B, 2-D, 3-A, 4-E, 5-C"
+      },
+      "respuesta_correcta": "a"
+    },
+    {
+      "pregunta": "Relaciona cada variable económica de la Columna A con su definición más precisa en la Columna B:",
+      "tabla": {
+        "columnas": [
+          "Variable",
+          "Definición"
+        ],
+        "filas": [
+          [
+            "1. Producto Interno Bruto (PIB)",
+            "A. Indicador que mide el progreso de un país en términos de vida larga y saludable, acceso a conocimientos y nivel de vida decente."
+          ],
+          [
+            "2. Producto Nacional Bruto (PNB)",
+            "B. Aumento sostenido y generalizado del nivel de precios de bienes y servicios en una economía."
+          ],
+          [
+            "3. Índice de Desarrollo Humano (IDH)",
+            "C. Valor monetario de los bienes y servicios finales producidos por los residentes de un país, sin importar su ubicación geográfica."
+          ],
+          [
+            "4. Inflación",
+            "D. Valor total de los bienes y servicios finales producidos dentro de las fronteras geográficas de un país en un periodo determinado."
+          ]
+        ]
+      },
+      "opciones": {
+        "a": "1-C, 2-D, 3-A, 4-B",
+        "b": "1-D, 2-A, 3-C, 4-B",
+        "c": "1-D, 2-C, 3-A, 4-B",
+        "d": "1-A, 2-B, 3-D, 4-C"
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En materia fiscal, ¿cuál es el concepto que representa a la persona física o moral que tiene la obligación fundamental de contribuir al gasto público (pagar impuestos), de acuerdo con la ley?",
+      "opciones": {
+        "a": "Sujeto activo (la autoridad fiscal).",
+        "b": "Sujeto pasivo de la relación tributaria.",
+        "c": "Exención de impuestos.",
+        "d": "Gasto social."
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Relaciona cada garantía o derecho constitucional fundamental de la Columna A con su principio o aplicación clave en la Columna B:",
+      "tabla": {
+        "columnas": [
+          "Derecho Constitucional",
+          "Principio Clave"
+        ],
+        "filas": [
+          [
+            "1. Artículo 3°",
+            "A. Derecho a la libertad de imprenta, expresión y asociación, sujeto a la ley."
+          ],
+          [
+            "2. Artículo 5°",
+            "B. El derecho a una educación laica, gratuita, obligatoria y de calidad en todos los niveles."
+          ],
+          [
+            "3. Artículo 14°",
+            "C. El derecho de toda persona a dedicarse a la profesión, industria, comercio o trabajo que le acomode, siendo lícitos."
+          ],
+          [
+            "4. Artículo 6° y 7°",
+            "D. Principio de legalidad y debido proceso: Nadie puede ser privado de sus derechos sin un juicio previo seguido ante los tribunales (juicio de la ley)."
+          ]
+        ]
+      },
+      "opciones": {
+        "a": "1-A, 2-C, 3-B, 4-D",
+        "b": "1-B, 2-C, 3-D, 4-A",
+        "c": "1-D, 2-A, 3-B, 4-C",
+        "d": "1-C, 2-D, 3-A, 4-B"
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "¿Cuál es la característica principal que define el término PyME (Pequeña y Mediana Empresa) en el contexto empresarial?",
+      "opciones": {
+        "a": "Empresas que cotizan en la bolsa de valores y tienen un alto nivel de endeudamiento.",
+        "b": "Empresas cuyo objetivo principal es la expansión internacional y tienen más de 1000 empleados.",
+        "c": "Organizaciones que tienen un número limitado de empleados generalmente definidas por legislación específica.",
+        "d": "Entidades sin fines de lucro que se dedican exclusivamente a la actividad artesanal."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor el fenómeno de la Globalización en el ámbito económico y social?",
+      "opciones": {
+        "a": "El proceso de protección de las economías nacionales mediante altas barreras arancelarias.",
+        "b": "La tendencia de las empresas locales a vender productos únicamente en su mercado doméstico.",
+        "c": "Un proceso de creciente interdependencia e integración económica, tecnológica, política y cultural a escala mundial.",
+        "d": "Un acuerdo bilateral entre dos países para eliminar impuestos al comercio."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Qué significa la sigla ONG y cuál es la naturaleza fundamental de estas organizaciones en el contexto social y económico?",
+      "opciones": {
+        "a": "Organizaciones Generales de Negocios; su propósito es maximizar la rentabilidad de sus accionistas.",
+        "b": "Oficinas de Negocios Gubernamentales; son departamentos de gestión de fondos públicos.",
+        "c": "Organización No Gubernamental; entidad de la sociedad civil, sin fines de lucro, que persigue objetivos de carácter social, humanitario o ambiental.",
+        "d": "Organismos Nacionales de Garantía; su función es asegurar préstamos bancarios."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En la gestión empresarial y financiera, ¿qué se entiende por Análisis de Riesgos?",
+      "opciones": {
+        "a": "El proceso de invertir todo el capital en proyectos de alta volatilidad para maximizar las ganancias.",
+        "b": "La simple eliminación de todas las amenazas identificadas en un proyecto.",
+        "c": "El proceso sistemático de identificar las amenazas que podrían afectar negativamente los objetivos de un proyecto.",
+        "d": "Un informe de auditoría que se realiza anualmente para certificar estados financieros."
+      },
+      "respuesta_correcta": "c"
+    }
+  ]
+}

@@ -64,6 +64,17 @@ function VentanaRecursos() {
             "https://img.freepik.com/vector-premium/ilustracion-creativa-espacio-trabajo-diseno-oficina-vibrante-elementos-inspiradores_1300528-15671.jpg?semt=ais_hybrid&w=740&q=80"
           }
         />
+        <CardRecurso
+          titulo={"Test de conocimientos economicos y administrativos"}
+          id={6}
+          tiempo={"10 min"}
+          descripcion={
+            "Responda unas preguntas de conocimientos economicos y administrativos. Pon a prueba tus conocimientos economicos y administrativos."
+          }
+          imagen={
+            "https://images.unsplash.com/photo-1604594849809-dfedbc827105?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWNvbm9taWF8ZW58MHx8MHx8fDA%3D"
+          }
+        />
       </div>
       <VentanaResultados />
     </div>
