@@ -27,8 +27,8 @@ function Header() {
             onChange={handleChange}
           />
         </div>
-        {popUp && <PopUpSearch />}
       </div>
+      {popUp && <PopUpSearch />}
     </header>
   );
 }
