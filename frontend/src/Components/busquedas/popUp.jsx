@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CardOpciones from "./cardOpciones";
 import "./busquedas.css";
 function PopUpSearch({ busqueda }) {
   const [listaUsuarios, setListaUsuarios] = useState([]);
@@ -24,7 +25,7 @@ function PopUpSearch({ busqueda }) {
     <div className="contenedor-popUp">
       <h1>Perfiles</h1>
       {listaUsuarios.map((perfil) => {
-        return <CardOpciones perfil={perfil} />;
+        return <CardOpciones kety={perfil.id} perfil={perfil} />;
       }) || "No se encontraron perfiles"}
       <h1>Publicaciones</h1>
       <p>Todo para publicaciones</p>
