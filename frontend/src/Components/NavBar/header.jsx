@@ -19,7 +19,7 @@ function Header() {
     setTimeout(() => {
       setPopUp(false);
       setFocus(false);
-    });
+    }, 200);
   };
   useEffect(() => {
     if (!focus) {
