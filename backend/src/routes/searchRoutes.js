@@ -1,5 +1,5 @@
 import express from "express";
-import { buscarPerfil } from "../controllers/buscarPerfil";
+import { buscarPerfil } from "../controllers/buscarPerfil.js";
 
 const router = express.Router();
 
