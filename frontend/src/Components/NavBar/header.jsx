@@ -15,6 +15,12 @@ function Header() {
     else setPopUp(false);
   };
 
+  const handeBlur = () => {
+    setTimeout(() => {
+      setPopUp(false);
+      setFocus(false);
+    });
+  };
   useEffect(() => {
     if (!focus) {
       setPopUp(false);
@@ -35,7 +41,7 @@ function Header() {
             placeholder="Prueba buscando algo"
             onChange={handleChange}
             onFocus={() => setFocus(true)}
-            onBlur={() => setFocus(false)}
+            onBlur={handeBlur}
           />
           {popUp && focus ? <PopUpSearch busqueda={busqueda} /> : null}
         </div>
