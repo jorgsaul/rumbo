@@ -33,13 +33,15 @@ function PopUpSearch({ busqueda }) {
       <h1>Perfiles</h1>
       {listaUsuarios.length > 0 ? (
         listaUsuarios.map((perfil) => (
-          <CardOpciones key={perfil.id} perfil={perfil} /> // ✅ key correcto
+          <CardOpciones key={perfil.id} perfil={perfil} />
         ))
       ) : (
         <p>No se encontraron perfiles</p>
       )}
       <h1>Publicaciones</h1>
-      <p>Todo para publicaciones</p>
+      <Link to={`/busqueda/${busqueda}`}>
+        <p>Prueba buscando "{busqueda}" en Publicaciones</p>
+      </Link>
     </div>
   );
 }

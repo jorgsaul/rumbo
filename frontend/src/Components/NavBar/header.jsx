@@ -19,6 +19,7 @@ function Header() {
     setTimeout(() => {
       setPopUp(false);
       setFocus(false);
+      setBusqueda("");
     }, 200);
   };
   useEffect(() => {
