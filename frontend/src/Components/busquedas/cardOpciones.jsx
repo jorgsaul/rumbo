@@ -1,4 +1,5 @@
 import "./busquedas.css";
+import AvatarPublicacion from "../avatar/avatarPublicacion";
 import { Link } from "react-router-dom";
 function CardOpciones({ perfil }) {
   return (
