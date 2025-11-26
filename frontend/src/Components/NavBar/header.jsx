@@ -26,9 +26,9 @@ function Header() {
             placeholder="Prueba buscando algo"
             onChange={handleChange}
           />
+          {popUp && <PopUpSearch />}
         </div>
       </div>
-      {popUp && <PopUpSearch />}
     </header>
   );
 }
