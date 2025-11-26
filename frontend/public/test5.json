@@ -1,0 +1,180 @@
+{
+  "test_id": 3,
+  "test_name": "Arte y Diseño",
+  "preguntas": [
+    {
+      "pregunta": "A diferencia del Neoclasicismo, que enfatiza la razón, el orden y la claridad, ¿cuál de las siguientes características define mejor el enfoque del movimiento Romántico en la pintura?",
+      "opciones": {
+        "a": "El interés en la vida cotidiana y la luz instantánea.",
+        "b": "La búsqueda de la armonía y la proporción clásica.",
+        "c": "La exaltación del sentimiento, la emoción, la naturaleza salvaje y lo irracional.",
+        "d": "La estricta aplicación del color puro directamente sobre el lienzo."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En la escultura griega clásica, la creación de un 'canon' (como el de Policleto) se orientó principalmente a:",
+      "opciones": {
+        "a": "La representación del dolor y el sufrimiento humano.",
+        "b": "Establecer reglas matemáticas de proporción y simetría para alcanzar el ideal de belleza y perfección humana.",
+        "c": "Crear figuras distorsionadas para generar un impacto emocional.",
+        "d": "Representar la vida cotidiana y los defectos humanos sin idealización."
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "¿Cuál es la función principal de la Sombra Proyectada en el modelado de un objeto mediante el claroscuro?",
+      "opciones": {
+        "a": "Definir la forma tridimensional del objeto en sí mismo (Sombra propia).",
+        "b": "Anclar el objeto a la superficie, indicando su posición espacial y la dirección de la fuente de luz.",
+        "c": "Mostrar la intensidad de la luz reflejada sobre la superficie del objeto (Brillo).",
+        "d": "Separar el objeto del fondo mediante una línea de contorno oscura."
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "Si en un dibujo se utiliza una escala tonal de valores (del blanco al negro) y se desea hacer que un objeto parezca estar más cerca del observador y tenga mayor volumen, ¿qué combinación de valores es más efectiva?",
+      "opciones": {
+        "a": "Usar tonos medios uniformes y evitar el contraste.",
+        "b": "Usar solo valores claros y luminosos.",
+        "c": "Aumentar el contraste entre los valores más oscuros (sombras) y los más claros (luces y brillos).",
+        "d": "Reducir la escala de valores únicamente a los grises intermedios."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "¿Cuál es la manera más efectiva de aplicar el principio de ritmo visual progresivo en el diseño de un mural con aves volando?",
+      "opciones": {
+        "a": "Dibujar todas las aves del mismo tamaño y color, distribuidas aleatoriamente.",
+        "b": "Dibujar tres aves en la esquina superior izquierda y no más.",
+        "c": "Dibujar las aves de forma que gradualmente se hagan más pequeñas y se desvanezcan hacia el fondo, simulando distancia y velocidad.",
+        "d": "Usar solo colores complementarios sin relación entre el tamaño de las aves."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En la composición fotográfica, si se utiliza la Regla de los Tercios para posicionar el elemento principal de interés, ¿dónde debería ubicarse idealmente este elemento?",
+      "opciones": {
+        "a": "Justo en el centro geométrico del encuadre para lograr simetría.",
+        "b": "A lo largo de los bordes del marco para evitar el vacío central.",
+        "c": "Sobre una de las cuatro intersecciones de las líneas imaginarias que dividen el encuadre en nueve partes iguales.",
+        "d": "En la zona de sombra proyectada para resaltar el claroscuro."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Si una pintura abstracta utiliza colores análogos (por ejemplo, rojo, naranja y amarillo) y formas suaves y redondeadas, ¿qué tipo de efecto o sensación de armonía e impacto emocional busca transmitir la composición?",
+      "opciones": {
+        "a": "Conflicto, tensión y dramatismo, por el uso de contrastes fuertes.",
+        "b": "Caos, desorden y desequilibrio visual.",
+        "c": "Frialdad, melancolía y quietud, por la ausencia de movimiento.",
+        "d": "Calidez, tranquilidad y unidad visual, ya que los elementos comparten características estéticas."
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "Un artista digital desea crear un modelo 3D de una figura orgánica con superficies curvas y lisas. ¿Cuál de los siguientes softwares o técnicas es el más adecuado para esta tarea?",
+      "opciones": {
+        "a": "Un editor de gráficos vectoriales como Adobe Illustrator.",
+        "b": "Un programa de edición de imágenes rasterizadas como Adobe Photoshop.",
+        "c": "Un software de escultura digital (como ZBrush o Blender) basado en mallas poligonales o voxel.",
+        "d": "Una hoja de cálculo para calcular la distribución de vértices."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Si un escultor trabaja con arcilla y desea que las diferentes piezas o adiciones (como un brazo o una oreja) se unan firmemente antes de cocerlas, ¿qué dos pasos de preparación son críticos para asegurar una adhesión duradera?",
+      "opciones": {
+        "a": "Humedecer la pieza y luego aplicar barniz de sellado.",
+        "b": "Secar completamente ambas piezas y unirlas mediante presión.",
+        "c": "Hacer un rayado en las zonas de unión y usar arcilla líquida como 'pegamento'.",
+        "d": "Aplicar un pegamento de silicona industrial y esperar 24 horas."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "La capacidad para observar y usar el espacio negativo (el área alrededor o entre las formas) es clave para la sensibilidad estética. Al diseñar un logotipo, ¿cuál es el beneficio primario de integrar creativamente el espacio negativo?",
+      "opciones": {
+        "a": "Lograr que el logotipo se vea más pequeño al imprimirlo.",
+        "b": "Reducir los costos de producción al usar menos tinta.",
+        "c": "Crear una forma oculta o un segundo significado visual, añadiendo profundidad, ingenio y sorpresa a la composición.",
+        "d": "Aumentar la cantidad de líneas de contorno en la figura principal."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "En un estudio de diseño, se presenta una solución visual funcional pero convencional. Para inyectar innovación y un riesgo creativo que sorprenda al cliente, ¿qué acción debería priorizar el diseñador con sensibilidad creativa?",
+      "opciones": {
+        "a": "Mantener la propuesta original, ya que es segura y cumple los requisitos básicos.",
+        "b": "Consultar con la mayor cantidad de personas posible para validar la propuesta segura.",
+        "c": "Explorar deliberadamente soluciones que mezclen estéticas opuestas o que subviertan la función esperada del objeto.",
+        "d": "Aumentar la saturación de los colores de la propuesta original."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Relaciona cada obra literaria de la Columna A con su autor correspondiente en la Columna B:",
+      "tabla": {
+        "columnas": [
+          "Obra",
+          "Autor"
+        ],
+        "filas": [
+          [
+            "1. El Principito",
+            "A. George Orwell"
+          ],
+          [
+            "2. 1984",
+            "B. J.R.R. Tolkien"
+          ],
+          [
+            "3. Cien años de soledad",
+            "C. Antoine de Saint-Exupéry"
+          ],
+          [
+            "4. El Señor de los Anillos",
+            "D. Gabriel García Márquez"
+          ]
+        ]
+      },
+      "opciones": {
+        "a": "1-B, 2-C, 3-D, 4-A",
+        "b": "1-A, 2-D, 3-C, 4-B",
+        "c": "1-D, 2-C, 3-B, 4-A",
+        "d": "1-C, 2-A, 3-D, 4-B"
+      },
+      "respuesta_correcta": "d"
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes opciones define de manera más completa el concepto de Patrimonio Cultural según la UNESCO?",
+      "opciones": {
+        "a": "Todos los objetos de arte moderno, como pinturas y esculturas, que se encuentran en museos.",
+        "b": "Los monumentos históricos, sitios arqueológicos y paisajes naturales protegidos por el gobierno.",
+        "c": "El conjunto de bienes materiales e inmateriales, heredados del pasado, que una comunidad o grupo social reconoce como propios y valiosos.",
+        "d": "Únicamente las costumbres ancestrales, los idiomas y las tradiciones populares de una región."
+      },
+      "respuesta_correcta": "c"
+    },
+    {
+      "pregunta": "Tradicionalmente, las '7 Bellas Artes' se clasifican según la manifestación estética o sensorial. ¿Cuál es la lista correcta que agrupa estas disciplinas?",
+      "opciones": {
+        "a": "Literatura, Pintura, Fotografía, Moda, Arquitectura, Danza y Cine.",
+        "b": "Arquitectura, Escultura, Pintura, Música, Literatura, Danza y Cine.",
+        "c": "Artesanía, Dibujo, Diseño Gráfico, Poesía, Teatro, Cine y Escultura.",
+        "d": "Gastronomía, Música, Pintura, Escultura, Danza, Literatura y Teatro."
+      },
+      "respuesta_correcta": "b"
+    },
+    {
+      "pregunta": "¿Cuál de las siguientes afirmaciones describe mejor el concepto de Diseño en el contexto de la creatividad aplicada?",
+      "opciones": {
+        "a": "Es simplemente el proceso de dibujar o bocetar ideas antes de ejecutarlas.",
+        "b": "Es la producción de objetos visualmente atractivos, independientemente de su función.",
+        "c": "Una disciplina que busca solucionar problemas específicos mediante la concepción, planificación y creación de objetos.",
+        "d": "La mera decoración o el embellecimiento de un producto o espacio ya existente."
+      },
+      "respuesta_correcta": "c"
+    }
+  ]
+}

@@ -53,6 +53,17 @@ function VentanaRecursos() {
             "https://www.shutterstock.com/image-photo/manhattan-downtown-new-york-skyscrapers-600nw-2149071611.jpg"
           }
         />
+        <CardRecurso
+          titulo={"Test de conocmientos Artes y diseño"}
+          id={5}
+          tiempo={"10 min"}
+          descripcion={
+            "Responda unas preguntas de conocimientos artes y diseño. Pon a prueba tus conocimientos artes y diseño."
+          }
+          imagen={
+            "https://img.freepik.com/vector-premium/ilustracion-creativa-espacio-trabajo-diseno-oficina-vibrante-elementos-inspiradores_1300528-15671.jpg?semt=ais_hybrid&w=740&q=80"
+          }
+        />
       </div>
       <VentanaResultados />
     </div>
