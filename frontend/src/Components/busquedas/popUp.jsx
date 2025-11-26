@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CardOpciones from "./cardOpciones";
+import { Link } from "react-router-dom";
 import "./busquedas.css";
 function PopUpSearch({ busqueda }) {
   const [listaUsuarios, setListaUsuarios] = useState([]);
