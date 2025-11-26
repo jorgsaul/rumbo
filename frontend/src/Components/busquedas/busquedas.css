@@ -1,11 +1,13 @@
 .contenedor-popUp {
+  translate: -46.5%;
+  padding: 10px;
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 100%;
   width: 100%;
   max-width: 35rem;
-  height: auto;
-  max-height: 50rem;
+  max-height: 35rem;
+  min-height: 5rem;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
