@@ -1,4 +1,4 @@
-import { pool } from "../config/dataBase";
+import { pool } from "../config/dataBase.js";
 
 export const buscarPerfil = async (entrada) => {
   try {
