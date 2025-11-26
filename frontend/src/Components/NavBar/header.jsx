@@ -2,17 +2,25 @@ import "./header.css";
 import logoImageHeader from "../img/Logo-blancoL-header.png";
 import IconoBuscar from "../iconos/iconoBuscar";
 import PopUpSearch from "../busquedas/popUp";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Header() {
   const [popUp, setPopUp] = useState(false);
   const [busqueda, setBusqueda] = useState("");
+  const [focus, setFocus] = useState(false);
 
   const handleChange = (e) => {
     setBusqueda(e.target.value);
     if (busqueda.length > 0) setPopUp(true);
     else setPopUp(false);
   };
+
+  useEffect(() => {
+    if (!focus) {
+      setPopUp(false);
+      setBusqueda("");
+    }
+  }, [focus]);
 
   return (
     <header className="rumbo-header">
@@ -26,8 +34,9 @@ function Header() {
             type="text"
             placeholder="Prueba buscando algo"
             onChange={handleChange}
+            onFocus={() => setFocus(true)}
           />
-          {popUp && <PopUpSearch busqueda={busqueda} />}
+          {popUp && focus ? <PopUpSearch busqueda={busqueda} /> : null}
         </div>
       </div>
     </header>
