@@ -35,6 +35,7 @@ function Header() {
             placeholder="Prueba buscando algo"
             onChange={handleChange}
             onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
           />
           {popUp && focus ? <PopUpSearch busqueda={busqueda} /> : null}
         </div>
