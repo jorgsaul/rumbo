@@ -13,6 +13,7 @@ function Header() {
     if (busqueda.length > 0) setPopUp(true);
     else setPopUp(false);
   };
+
   return (
     <header className="rumbo-header">
       <img src={logoImageHeader} alt="" className="logo-image-header" />

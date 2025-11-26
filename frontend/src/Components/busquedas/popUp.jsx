@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "./busquedas.css";
 function PopUpSearch({ busqueda }) {
   const [listaUsuarios, setListaUsuarios] = useState([]);
-  useEffect(() => {
+  useEffect(async () => {
     try {
-      const response = fetch(
+      const response = await fetch(
         `${
           import.meta.env.VITE_APP_API_BASE_URL
         }/buscar-perfil?entrada=${busqueda}`,
@@ -14,8 +14,8 @@ function PopUpSearch({ busqueda }) {
         }
       );
 
-      const data = response.json();
-      setListaUsuarios(data);
+      const data = await response.json();
+      setListaUsuarios(data || []);
     } catch (e) {
       console.log(e);
     }
