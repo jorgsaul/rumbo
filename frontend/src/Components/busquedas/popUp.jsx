@@ -5,29 +5,39 @@ function PopUpSearch({ busqueda }) {
   const [listaUsuarios, setListaUsuarios] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUsuarios = async () => {
       try {
-        const response = await fetch(...);
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_APP_API_BASE_URL
+          }/buscar-perfil?entrada=${busqueda}`,
+          { method: "GET", credentials: "include" }
+        );
         const data = await response.json();
         setListaUsuarios(data || []);
       } catch (e) {
-        console.log(e);
+        console.log("Error:", e);
+        setListaUsuarios([]);
       }
     };
-    
+
     if (busqueda.trim() !== "") {
-      fetchData();
+      fetchUsuarios();
     } else {
       setListaUsuarios([]);
     }
   }, [busqueda]);
-  
+
   return (
     <div className="contenedor-popUp">
       <h1>Perfiles</h1>
-      {listaUsuarios.map((perfil) => {
-        return <CardOpciones key={perfil.id} perfil={perfil} />;
-      }) || "No se encontraron perfiles"}
+      {listaUsuarios.length > 0 ? (
+        listaUsuarios.map((perfil) => (
+          <CardOpciones key={perfil.id} perfil={perfil} /> // ✅ key correcto
+        ))
+      ) : (
+        <p>No se encontraron perfiles</p>
+      )}
       <h1>Publicaciones</h1>
       <p>Todo para publicaciones</p>
     </div>
