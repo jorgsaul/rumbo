@@ -40,7 +40,7 @@ function PopUpSearch({ busqueda }) {
         <p>No se encontraron perfiles</p>
       )}
       <h1>Publicaciones</h1>
-      <Link to={`/busqueda/${busqueda}`} className="card-opciones">
+      <Link to={`/busqueda/${busqueda}`} className="card-opcion-busqueda">
         <p>Prueba buscando "{busqueda}" en Publicaciones</p>
       </Link>
     </div>

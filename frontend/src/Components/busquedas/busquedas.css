@@ -78,3 +78,26 @@
   color: #666;
   font-size: 14px;
 }
+
+.card-opcion-busqueda {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: inherit;
+  border: none;
+  background: transparent;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  gap: 12px;
+}
+
+.card-opcion-busqueda:hover {
+  background-color: #f5f5f5;
+}
+
+.card-opcion-busqueda p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
