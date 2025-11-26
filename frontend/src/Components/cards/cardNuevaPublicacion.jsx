@@ -1,10 +1,10 @@
-import './cardNuevaPublicacion.css'
-import AvatarPublicacion from '../avatar/avatarPublicacion';
-import ButtonPrimary from '../botones/buttonPrimary';
-import IconoImagen from '../iconos/iconoImagen';
-import InputInvisible from '../forms/inputInvisible';
-import CascadeMenu from '../forms/cascadeMenu';
-import { useNuevaPublicacion } from '../../hooks/subidaPublicaciones';
+import "./cardNuevaPublicacion.css";
+import AvatarPublicacion from "../avatar/avatarPublicacion";
+import ButtonPrimary from "../botones/buttonPrimary";
+import IconoImagen from "../iconos/iconoImagen";
+import InputInvisible from "../forms/inputInvisible";
+import CascadeMenu from "../forms/cascadeMenu";
+import { useNuevaPublicacion } from "../../hooks/subidaPublicaciones";
 
 function CardNuevaPublicacion({ usuario, onPostSuccess }) {
   const {
@@ -22,68 +22,72 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
     canPost,
     limpiarCampos,
     selectedEtiquetas,
-    handleCheckboxChange
+    handleCheckboxChange,
   } = useNuevaPublicacion(usuario);
 
-  const handeClickPublicar = async ()=>{
+  const handeClickPublicar = async () => {
     const exito = await handlePostClick();
-    if(exito){
+    if (exito) {
       limpiarCampos();
-      onPostSuccess?.()
+      onPostSuccess?.();
     }
-  }
+    console.log(selectedEtiquetas);
+  };
   return (
-    <div className='card'>
-      <div className='avatar-container'>
-        <div className='img-avatar-container'>
+    <div className="card">
+      <div className="avatar-container">
+        <div className="img-avatar-container">
           <AvatarPublicacion urlImagen={usuario.avatar_url} />
         </div>
       </div>
 
-      <div className='publicacion'>
+      <div className="publicacion">
         <InputInvisible
-          holder='Escribe el título de tu publicación'
-          type='text'
+          holder="Escribe el título de tu publicación"
+          type="text"
           maxLength={45}
-          className='input-titulo'
-          id='postTitulo'
+          className="input-titulo"
+          id="postTitulo"
           onChange={(e) => setTitulo(e.target.value)}
           value={titulo}
         />
 
         <InputInvisible
-          holder='Escribe aqui tu duda o tema'
-          type='text'
+          holder="Escribe aqui tu duda o tema"
+          type="text"
           maxLength={1000}
-          id='postContenido'
+          id="postContenido"
           onChange={(e) => setContenido(e.target.value)}
           value={contenido}
         />
 
-        <div className='contenedor-multimedia'>
-          {preview && <img src={preview} alt='preview' />}
+        <div className="contenedor-multimedia">
+          {preview && <img src={preview} alt="preview" />}
         </div>
 
-        <div className='contenedor-opciones'>
-          <div className='contenedor-recursos-extra'>
-            <div className='contenedor-icono-imagen'>
+        <div className="contenedor-opciones">
+          <div className="contenedor-recursos-extra">
+            <div className="contenedor-icono-imagen">
               <IconoImagen funcion={abrirSelectorImagen} />
               <input
-                type='file'
-                accept='image/*'
+                type="file"
+                accept="image/*"
                 ref={fileInputRef}
-                style={{ display: 'none' }}
+                style={{ display: "none" }}
                 onChange={manejarCambioImagen}
-                id='postMultimedia'
+                id="postMultimedia"
               />
             </div>
-            <CascadeMenu selectedEtiquetas={selectedEtiquetas} handleCheckboxChange={handleCheckboxChange}/>
+            <CascadeMenu
+              selectedEtiquetas={selectedEtiquetas}
+              handleCheckboxChange={handleCheckboxChange}
+            />
           </div>
           <div>
             <ButtonPrimary
-              text='Publicar'
+              text="Publicar"
               enable={canPost}
-              className='boton-publicar'
+              className="boton-publicar"
               action={handeClickPublicar}
             />
           </div>
