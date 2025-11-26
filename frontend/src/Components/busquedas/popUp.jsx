@@ -1,3 +1,4 @@
+import "./busquedas.css";
 function PopUpSearch() {
   return (
     <div className="contenedor-popUp">
