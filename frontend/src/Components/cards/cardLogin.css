@@ -32,12 +32,19 @@ body{
   margin-bottom: 1rem;
 }
 
-/* TÍTULO IGUAL QUE TENÍAS */
+/* TÍTULO MÁS ELEGANTE */
 .encabezado h1{
-  color: black;
-  font-size: 4.5rem;
-  margin: 2rem 0 0 0;
-  font-weight: bold;
+  color: #5A1236; /* Usando tu color primary-600 */
+  font-size: 3rem; /* Un poco más pequeño pero elegante */
+  margin: 2rem 0 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.encabezado p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
 }
 
 .Usuario, .Contraseña{
@@ -64,7 +71,6 @@ body{
   margin: 1rem;
 }
 
-/* BOTÓN CON TU ESTILO ORIGINAL */
 .container-button .common-button {
   background: #5A1236 !important;
   border-radius: 0.25rem !important;
@@ -90,9 +96,13 @@ body{
   color: #91235a;
 }
 
+/* HR DENTRO DEL CONTENEDOR */
 hr{
-  width: 20rem;
-  margin-bottom: 2rem;
+  width: 80%; /* Más estrecho y centrado */
+  margin: 1rem auto 2rem auto; /* Centrado */
+  border: none;
+  height: 1px;
+  background: #ccc;
 }
 
 a{
@@ -101,14 +111,11 @@ a{
 
 @media (max-width:600px){
   .encabezado h1{
-    font-size: 2rem;
+    font-size: 2.5rem; /* Ajustado para mobile */
   }
-}
-
-.izquierda {
-  background-image: url('../img/Logo-blancoL.png');
-  background-color: #1a1a1a;
-  background-position: center;
-  background-size: 40% auto;
-  background-repeat: no-repeat;
+  
+  .container-opciones {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
