@@ -81,6 +81,8 @@ router.get('/post-comments', async(req, res)=>{
 router.delete('/delete-post', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id} = req.query;
+  if(!post_id) res.status(400).json({error: 'Falta el post_id'});
+  
   try {
     const resultado = await borrarPublicacion( post_id, userID);
     res.json(resultado);

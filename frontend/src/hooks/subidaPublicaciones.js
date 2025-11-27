@@ -14,7 +14,7 @@ export function useNuevaPublicacion(usuario) {
 
   const [titulo, setTitulo] = useState('');
   const [contenido, setContenido] = useState('');
-  const [selectedEtiquetas, setSelectedEtiquetas] = useState([]);
+  const [selectedEtiquetas, setSelectedEtiquetas] = useState({});
 
   const handlePostClick = async () => {
     if (!titulo.trim() || !contenido.trim()) return;
@@ -50,33 +50,18 @@ export function useNuevaPublicacion(usuario) {
     return datos;
   };
 
-const handleCheckboxChange = (categoriaId, etiquetaId, limite = 4) => {
-  setSelectedEtiquetas(prev => {
-    const todasEtiquetas = Object.values(prev).flat();
-    
-    // Si ya está seleccionada, quitarla
-    if (todasEtiquetas.includes(etiquetaId)) {
-      const nuevasEtiquetas = { ...prev };
-      Object.keys(nuevasEtiquetas).forEach(catId => {
-        nuevasEtiquetas[catId] = nuevasEtiquetas[catId].filter(id => id !== etiquetaId);
-        if (nuevasEtiquetas[catId].length === 0) {
-          delete nuevasEtiquetas[catId];
-        }
-      });
-      return nuevasEtiquetas;
-    } 
-    // Si no está seleccionada y hay espacio, agregarla
-    else if (todasEtiquetas.length < limite) {
+  const handleCheckboxChange = (categoriaId, etiquetaId, limite = 4) => {
+    setSelectedEtiquetas(prev => {
       const actuales = prev[categoriaId] || [];
-      return { 
-        ...prev, 
-        [categoriaId]: [...actuales, etiquetaId] 
-      };
-    }
-    // Si ya se alcanzó el límite
-    return prev;
-  });
-};
+
+      if (actuales.includes(etiquetaId)) {
+        return { ...prev, [categoriaId]: actuales.filter(id => id !== etiquetaId) };
+      } else {
+        if (actuales.length >= limite) return prev;
+        return { ...prev, [categoriaId]: [...actuales, etiquetaId] };
+      }
+    });
+  };
 
   const totalEtiquetasSeleccionadas = Object.values(selectedEtiquetas).reduce(
     (total, etiquetas) => total + etiquetas.length,
