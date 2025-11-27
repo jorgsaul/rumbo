@@ -1,6 +1,6 @@
-/* Manteniendo tu estilo original con mejoras sutiles */
+/* Manteniendo tu estilo original con las correcciones */
 .card-nueva-publicacion {
-  /* Tus estilos originales se mantienen igual */
+  /* Tus estilos originales se mantienen */
 }
 
 .input-publicacion-nueva{
@@ -10,17 +10,15 @@
   border: none;
   background-color: transparent;
   padding-left: 0.625rem;
-  /* Mejora sutil: focus state */
-  transition: all 0.2s ease;
 }
 
+/* QUITÉ el fondo en focus */
 .input-publicacion-nueva:focus {
   outline: none;
-  background-color: rgba(238, 104, 164, 0.05);
-  border-radius: 4px;
+  /* Sin background-color */
 }
 
-/* Botones EXACTAMENTE como los tenías pero con tus colores específicos */
+/* Botones */
 button.boton-publicar.common-button, 
 button.boton-publicar.disabled-button {
   border-radius: 50px;
@@ -32,7 +30,7 @@ button.boton-publicar.disabled-button {
   transition: all 0.2s ease;
 }
 
-/* Botón ACTIVADO - primary-600 como pediste */
+/* Botón ACTIVADO */
 button.boton-publicar.common-button {
   background: var(--primary-600) !important; /* #5A1236 */
   color: white !important;
@@ -43,17 +41,17 @@ button.boton-publicar.common-button:hover {
   transform: scale(1.02);
 }
 
-/* Botón DESACTIVADO - primary-300 como pediste */
+/* Botón DESACTIVADO - TRANSPARENTE como pediste */
 button.boton-publicar.disabled-button {
-  background: var(--primary-300) !important; /* #EE68A4 */
-  color: var(--primary-100) !important; /* #FADEE8 */
+  background: transparent !important;
+  color: var(--primary-300) !important; /* #EE68A4 */
+  border: 1px solid var(--primary-300) !important;
   cursor: not-allowed !important;
 }
 
 .contenedor-icono-imagen{
   height: 1.4rem;
   width: 1.4rem;
-  /* Mejora sutil: hover más suave */
   transition: transform 0.2s ease;
 }
 
@@ -66,7 +64,6 @@ button.boton-publicar.disabled-button {
   gap: 0.5rem;
   align-items: center;
   justify-content: space-between;
-  /* Manteniendo tu espaciado exacto */
 }
 
 svg {
@@ -82,10 +79,26 @@ svg:hover {
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* Todo igual a tu versión */
 }
 
-/* Solo agregué esto para el preview de imagen */
+/* Botón de etiquetas mejorado */
+.contenedor-recursos-extra .cascade-menu-button {
+  background: transparent;
+  border: 1px solid var(--neutral-500);
+  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.contenedor-recursos-extra .cascade-menu-button:hover {
+  background: var(--neutral-200);
+  border-color: var(--primary-300);
+  color: var(--primary-500);
+}
+
 .contenedor-multimedia {
   margin: 0.5rem 0;
 }
