@@ -5,6 +5,7 @@
   border-radius: 0.25rem;
   color: #4B4B4B;
   padding-left: 0.625rem;
+  padding: 0.375rem 0.625rem;
 }
 
 .mi-input.filled, .mi-input.typing.filled{

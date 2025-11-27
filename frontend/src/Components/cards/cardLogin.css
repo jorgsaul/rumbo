@@ -32,13 +32,13 @@ body{
   margin-bottom: 1rem;
 }
 
-/* TÍTULO MÁS ELEGANTE */
 .encabezado h1{
-  color: #5A1236; /* Usando tu color primary-600 */
-  font-size: 3rem; /* Un poco más pequeño pero elegante */
+  color: #1F1F1F;
+  font-size: 3rem;
   margin: 2rem 0 0.5rem 0;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+  letter-spacing: -1px;
 }
 
 .encabezado p {
