@@ -82,7 +82,7 @@ router.delete('/delete-post', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id} = req.query;
   if(!post_id) res.status(400).json({error: 'Falta el post_id'});
-  
+
   try {
     const resultado = await borrarPublicacion( post_id, userID);
     res.json(resultado);
@@ -100,5 +100,22 @@ router.get('/posts-etiquetas', async(req, res)=>{
     res.status(500).json({error: 'Error al subir el post'})
   }
 })
+
+router.get('/buscar-posts', authenticateUser, async (req, res) => {
+  const { q, usuario_id } = req.query;
+  const usuarioIdSesion = req.user.id;
+
+  if (!q) {
+    return res.status(400).json({ error: 'Término de búsqueda requerido' });
+  }
+
+  try {
+    const resultado = await buscarPublicaciones(q, usuario_id || usuarioIdSesion);
+    res.json(resultado);
+  } catch (error) {
+    console.error('Error en búsqueda:', error);
+    res.status(500).json({ error: 'Error al buscar publicaciones' });
+  }
+});
 
 export default router;

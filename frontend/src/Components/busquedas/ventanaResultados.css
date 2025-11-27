@@ -1,0 +1,221 @@
+.ventana-resultados {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background-color: var(--fondo-principal);
+}
+
+.cabecera-resultados {
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--borde-suave);
+}
+
+.titulo-resultados {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--texto-principal);
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--acento-primario), var(--acento-secundario));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.info-busqueda {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.termino-busqueda {
+  background-color: var(--fondo-destacado);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  color: var(--acento-primario);
+  border: 2px solid var(--acento-primario);
+  font-size: 0.9rem;
+}
+
+.contador-resultados {
+  color: var(--texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* Estados de carga */
+.cargando {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--borde-suave);
+  border-left: 4px solid var(--acento-primario);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.cargando p {
+  color: var(--texto-secundario);
+  font-size: 1.1rem;
+}
+
+/* Error */
+.error-busqueda {
+  background-color: var(--error-fondo);
+  border: 1px solid var(--error-borde);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.error-busqueda p {
+  color: var(--error-texto);
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.btn-reintentar {
+  background-color: var(--acento-primario);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-reintentar:hover {
+  background-color: var(--acento-primario-hover);
+  transform: translateY(-1px);
+}
+
+/* Sin resultados */
+.sin-resultados {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--fondo-destacado);
+  border-radius: 16px;
+  margin: 40px 0;
+}
+
+.icono-sin-resultados {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.sin-resultados h2 {
+  color: var(--texto-principal);
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.sin-resultados p {
+  color: var(--texto-secundario);
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.sugerencias {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  text-align: left;
+}
+
+.sugerencias li {
+  color: var(--texto-secundario);
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.sugerencias li::before {
+  content: "•";
+  color: var(--acento-primario);
+  position: absolute;
+  left: 0;
+}
+
+/* Lista de resultados */
+.lista-resultados {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Efectos de hover para las cards */
+.lista-resultados .card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.lista-resultados .card:hover {
+  transform: translateY(-2px);
+  border-color: var(--acento-primario);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ventana-resultados {
+    padding: 15px;
+  }
+  
+  .titulo-resultados {
+    font-size: 1.6rem;
+  }
+  
+  .info-busqueda {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .cabecera-resultados {
+    margin-bottom: 20px;
+  }
+  
+  .sin-resultados {
+    padding: 40px 15px;
+  }
+  
+  .icono-sin-resultados {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ventana-resultados {
+    padding: 10px;
+  }
+  
+  .titulo-resultados {
+    font-size: 1.4rem;
+  }
+  
+  .error-busqueda,
+  .sin-resultados {
+    margin: 20px 0;
+    padding: 20px 15px;
+  }
+}

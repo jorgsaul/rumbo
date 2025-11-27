@@ -134,13 +134,6 @@ function CardLogin({ cambiarVista, cambiarVentana }) {
               }/auth/google`;
             }}
           />
-
-          <ButtonSocial
-            texto="Continuar con facebook"
-            img={logoFacebook}
-            bgcolor={"blue"}
-            identificador="facebook"
-          />
         </div>
       </div>
     </div>
