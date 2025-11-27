@@ -34,28 +34,29 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
     console.log(selectedEtiquetas);
   };
   return (
-    <div className="card">
+    <div className="card card-nueva-publicacion">
+      {" "}
       <div className="avatar-container">
         <div className="img-avatar-container">
           <AvatarPublicacion urlImagen={usuario.avatar_url} />
         </div>
       </div>
-
       <div className="publicacion">
         <InputInvisible
-          holder="Escribe el título de tu publicación"
+          holder="Escribe el título de tu publicación"
           type="text"
           maxLength={45}
-          className="input-titulo"
+          className="input-titulo input-publicacion-nueva"
           id="postTitulo"
           onChange={(e) => setTitulo(e.target.value)}
           value={titulo}
         />
 
         <InputInvisible
-          holder="Escribe aqui tu duda o tema"
+          holder="Escribe aquí tu duda o tema"
           type="text"
           maxLength={1000}
+          className="input-publicacion-nueva"
           id="postContenido"
           onChange={(e) => setContenido(e.target.value)}
           value={contenido}
@@ -96,5 +97,4 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
     </div>
   );
 }
-
 export default CardNuevaPublicacion;
