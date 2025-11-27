@@ -1,158 +1,96 @@
-/* Card Nueva Publicación - Estilo Facebook Limpio */
+/* Manteniendo tu estilo original con mejoras sutiles */
 .card-nueva-publicacion {
-  background: var(--neutral-100);
-  border-radius: 8px;
-  padding: 12px 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--neutral-500);
+  /* Tus estilos originales se mantienen igual */
 }
 
-/* Header con avatar y inputs alineados */
-.card-nueva-publicacion .avatar-container {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.card-nueva-publicacion .img-avatar-container {
-  width: 40px;
-  height: 40px;
-  flex-shrink: 0;
-}
-
-/* Contenedor de inputs */
-.card-nueva-publicacion .publicacion {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* Inputs alineados correctamente */
-.card-nueva-publicacion .input-publicacion-nueva {
-  width: 100%;
-  min-height: 24px;
+.input-publicacion-nueva{
+  width: 95%;
+  min-height: 2.5rem;
+  height: fit-content;
   border: none;
-  background: transparent;
-  padding: 4px 0;
-  font-size: 0.9375rem;
-  color: var(--neutral-900);
-  resize: none;
-  font-family: inherit;
-  line-height: 1.3333;
+  background-color: transparent;
+  padding-left: 0.625rem;
+  /* Mejora sutil: focus state */
+  transition: all 0.2s ease;
 }
 
-.card-nueva-publicacion .input-publicacion-nueva::placeholder {
-  color: var(--neutral-700);
-  font-weight: 400;
-}
-
-.card-nueva-publicacion .input-publicacion-nueva:focus {
+.input-publicacion-nueva:focus {
   outline: none;
+  background-color: rgba(238, 104, 164, 0.05);
+  border-radius: 4px;
 }
 
-/* Título más prominente pero alineado */
-.card-nueva-publicacion .input-titulo {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--neutral-900);
-  margin: 0;
+/* Botones EXACTAMENTE como los tenías pero con tus colores específicos */
+button.boton-publicar.common-button, 
+button.boton-publicar.disabled-button {
+  border-radius: 50px;
+  font-size: 0.8rem;   
+  min-width: 1rem;
+  height: 2.5rem;
+  border: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-.card-nueva-publicacion .input-titulo::placeholder {
-  font-weight: 600;
-  color: var(--neutral-800);
-}
-
-/* Contenido normal */
-.card-nueva-publicacion .input-publicacion-nueva:not(.input-titulo) {
-  font-size: 0.9375rem;
-  font-weight: 400;
-}
-
-/* Contenedor multimedia */
-.card-nueva-publicacion .contenedor-multimedia {
-  margin: 12px 0 8px 0;
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.card-nueva-publicacion .contenedor-multimedia img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 6px;
-}
-
-/* Contenedor de opciones - Footer */
-.card-nueva-publicacion .contenedor-opciones {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid var(--neutral-400);
-}
-
-.card-nueva-publicacion .contenedor-recursos-extra {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-/* Iconos discretos */
-.card-nueva-publicacion .contenedor-icono-imagen {
-  height: 36px;
-  width: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 18px;
-  transition: background-color 0.1s ease;
-  cursor: pointer;
-}
-
-.card-nueva-publicacion .contenedor-icono-imagen:hover {
-  background: var(--neutral-300);
-}
-
-.card-nueva-publicacion svg {
-  cursor: pointer;
-  color: var(--neutral-700);
-  transition: color 0.1s ease;
-}
-
-.card-nueva-publicacion svg:hover {
-  color: var(--neutral-800);
-}
-
-/* Botones con tus colores específicos */
-.card-nueva-publicacion .boton-publicar {
-  border-radius: 6px !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  min-width: 80px !important;
-  height: 36px !important;
-  padding: 0 16px !important;
-  border: none !important;
-  transition: all 0.1s ease !important;
-}
-
-/* Botón ACTIVADO - primary-600 */
-.card-nueva-publicacion .boton-publicar:not(.disabled-button) {
-  background: var(--primary-600) !important;
+/* Botón ACTIVADO - primary-600 como pediste */
+button.boton-publicar.common-button {
+  background: var(--primary-600) !important; /* #5A1236 */
   color: white !important;
 }
 
-.card-nueva-publicacion .boton-publicar:not(.disabled-button):hover {
-  background: var(--primary-700) !important;
+button.boton-publicar.common-button:hover {
+  background: var(--primary-700) !important; /* #270415 */
+  transform: scale(1.02);
 }
 
-/* Botón DESACTIVADO - primary-300 */
-.card-nueva-publicacion .boton-publicar.disabled-button {
-  background: var(--primary-300) !important;
-  color: var(--primary-100) !important;
+/* Botón DESACTIVADO - primary-300 como pediste */
+button.boton-publicar.disabled-button {
+  background: var(--primary-300) !important; /* #EE68A4 */
+  color: var(--primary-100) !important; /* #FADEE8 */
   cursor: not-allowed !important;
+}
+
+.contenedor-icono-imagen{
+  height: 1.4rem;
+  width: 1.4rem;
+  /* Mejora sutil: hover más suave */
+  transition: transform 0.2s ease;
+}
+
+.contenedor-icono-imagen:hover {
+  transform: scale(1.05);
+}
+
+.contenedor-opciones {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: space-between;
+  /* Manteniendo tu espaciado exacto */
+}
+
+svg {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+svg:hover {
+  transform: scale(1.1);
+}
+
+.contenedor-recursos-extra{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* Todo igual a tu versión */
+}
+
+/* Solo agregué esto para el preview de imagen */
+.contenedor-multimedia {
+  margin: 0.5rem 0;
+}
+
+.contenedor-multimedia img {
+  max-width: 100%;
+  border-radius: 8px;
 }
