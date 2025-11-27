@@ -1,26 +1,38 @@
-.ventana-resultados {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  min-height: 100vh;
-  background-color: var(--fondo-principal);
+/* Usa el mismo contenedor principal que VentanaForo */
+.contenedor-ventana-foro {
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  width: 100%;
 }
 
+.contenedor-lista-foros {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Cabecera de resultados */
 .cabecera-resultados {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--borde-suave);
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e5e9;
 }
 
 .titulo-resultados {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--texto-principal);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2d3748;
   margin-bottom: 10px;
-  background: linear-gradient(135deg, var(--acento-primario), var(--acento-secundario));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .info-busqueda {
@@ -31,35 +43,36 @@
 }
 
 .termino-busqueda {
-  background-color: var(--fondo-destacado);
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  color: var(--acento-primario);
-  border: 2px solid var(--acento-primario);
+  background-color: #ebf8ff;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-weight: 500;
+  color: #3182ce;
+  border: 1px solid #90cdf4;
   font-size: 0.9rem;
 }
 
 .contador-resultados {
-  color: var(--texto-secundario);
-  font-size: 0.95rem;
+  color: #718096;
+  font-size: 0.9rem;
 }
 
 /* Estados de carga */
-.cargando {
+.cargando-resultados {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
   text-align: center;
+  width: 100%;
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  border: 4px solid var(--borde-suave);
-  border-left: 4px solid var(--acento-primario);
+  border: 4px solid #e2e8f0;
+  border-left: 4px solid #3182ce;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin-bottom: 20px;
@@ -70,68 +83,71 @@
   100% { transform: rotate(360deg); }
 }
 
-.cargando p {
-  color: var(--texto-secundario);
-  font-size: 1.1rem;
+.cargando-resultados p {
+  color: #718096;
+  font-size: 1rem;
 }
 
 /* Error */
 .error-busqueda {
-  background-color: var(--error-fondo);
-  border: 1px solid var(--error-borde);
+  width: 100%;
+  max-width: 600px;
+  background-color: #fed7d7;
+  border: 1px solid #feb2b2;
   border-radius: 12px;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
-  margin: 40px 0;
 }
 
 .error-busqueda p {
-  color: var(--error-texto);
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  color: #c53030;
+  margin-bottom: 15px;
+  font-size: 1rem;
 }
 
 .btn-reintentar {
-  background-color: var(--acento-primario);
+  background-color: #3182ce;
   color: white;
   border: none;
-  padding: 10px 24px;
-  border-radius: 8px;
-  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s;
 }
 
 .btn-reintentar:hover {
-  background-color: var(--acento-primario-hover);
-  transform: translateY(-1px);
+  background-color: #2c5aa0;
 }
 
 /* Sin resultados */
 .sin-resultados {
+  width: 100%;
+  max-width: 600px;
   text-align: center;
-  padding: 60px 20px;
-  background-color: var(--fondo-destacado);
-  border-radius: 16px;
-  margin: 40px 0;
+  padding: 40px 20px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e1e5e9;
 }
 
 .icono-sin-resultados {
-  font-size: 4rem;
-  margin-bottom: 20px;
-  opacity: 0.7;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  opacity: 0.6;
 }
 
 .sin-resultados h2 {
-  color: var(--texto-principal);
-  margin-bottom: 15px;
-  font-size: 1.5rem;
+  color: #2d3748;
+  margin-bottom: 10px;
+  font-size: 1.3rem;
 }
 
 .sin-resultados p {
-  color: var(--texto-secundario);
-  margin-bottom: 25px;
-  font-size: 1.1rem;
+  color: #718096;
+  margin-bottom: 20px;
+  font-size: 1rem;
 }
 
 .sugerencias {
@@ -143,79 +159,80 @@
 }
 
 .sugerencias li {
-  color: var(--texto-secundario);
-  margin-bottom: 8px;
-  padding-left: 20px;
+  color: #718096;
+  margin-bottom: 6px;
+  padding-left: 18px;
   position: relative;
+  font-size: 0.9rem;
 }
 
 .sugerencias li::before {
   content: "•";
-  color: var(--acento-primario);
+  color: #3182ce;
   position: absolute;
   left: 0;
 }
 
 /* Lista de resultados */
 .lista-resultados {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: center;
+  gap: 15px;
 }
 
-/* Efectos de hover para las cards */
+/* Asegurar que las cards tengan el mismo ancho */
 .lista-resultados .card {
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.lista-resultados .card:hover {
-  transform: translateY(-2px);
-  border-color: var(--acento-primario);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .ventana-resultados {
+  .contenedor-lista-foros {
     padding: 15px;
   }
   
+  .cabecera-resultados {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  
   .titulo-resultados {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
   
   .info-busqueda {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .cabecera-resultados {
-    margin-bottom: 20px;
+    gap: 8px;
   }
   
   .sin-resultados {
-    padding: 40px 15px;
+    padding: 30px 15px;
   }
   
   .icono-sin-resultados {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .ventana-resultados {
+  .contenedor-lista-foros {
     padding: 10px;
   }
   
+  .cabecera-resultados {
+    padding: 12px;
+  }
+  
   .titulo-resultados {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   
   .error-busqueda,
   .sin-resultados {
-    margin: 20px 0;
     padding: 20px 15px;
   }
 }

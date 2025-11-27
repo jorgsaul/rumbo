@@ -50,60 +50,64 @@ function VentanaResultados() {
 
   if (cargando) {
     return (
-      <div className="ventana-resultados">
-        <div className="cargando">
-          <div className="spinner"></div>
-          <p>Buscando "{busqueda}"...</p>
+      <div className="contenedor-ventana-foro">
+        <div className="contenedor-lista-foros">
+          <div className="cargando-resultados">
+            <div className="spinner"></div>
+            <p>Buscando "{busqueda}"...</p>
+          </div>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="ventana-resultados">
-      <div className="cabecera-resultados">
-        <h1 className="titulo-resultados">Resultados de búsqueda</h1>
-        <div className="info-busqueda">
-          <span className="termino-busqueda">"{busqueda}"</span>
-          <span className="contador-resultados">
-            {resultados.length}{" "}
-            {resultados.length === 1 ? "resultado" : "resultados"} encontrados
-          </span>
+    <div className="contenedor-ventana-foro">
+      <div className="contenedor-lista-foros">
+        <div className="cabecera-resultados">
+          <h1 className="titulo-resultados">Resultados de búsqueda</h1>
+          <div className="info-busqueda">
+            <span className="termino-busqueda">"{busqueda}"</span>
+            <span className="contador-resultados">
+              {resultados.length}{" "}
+              {resultados.length === 1 ? "resultado" : "resultados"} encontrados
+            </span>
+          </div>
         </div>
+
+        {error && (
+          <div className="error-busqueda">
+            <p>{error}</p>
+            <button onClick={buscarResultados} className="btn-reintentar">
+              Reintentar
+            </button>
+          </div>
+        )}
+
+        {!error && resultados.length === 0 ? (
+          <div className="sin-resultados">
+            <div className="icono-sin-resultados">🔍</div>
+            <h2>No se encontraron resultados</h2>
+            <p>No hay publicaciones que coincidan con "{busqueda}"</p>
+            <ul className="sugerencias">
+              <li>Revisa la ortografía</li>
+              <li>Prueba con términos más generales</li>
+              <li>Busca por autor, título o etiquetas</li>
+            </ul>
+          </div>
+        ) : (
+          <div className="lista-resultados">
+            {resultados.map((publicacion) => (
+              <CardPublicacion
+                key={publicacion.id}
+                objeto={publicacion}
+                publicacionPropia={publicacion.author_id === perfil.id}
+                recargarPublicaciones={recargarResultados}
+              />
+            ))}
+          </div>
+        )}
       </div>
-
-      {error && (
-        <div className="error-busqueda">
-          <p>{error}</p>
-          <button onClick={buscarResultados} className="btn-reintentar">
-            Reintentar
-          </button>
-        </div>
-      )}
-
-      {!error && resultados.length === 0 ? (
-        <div className="sin-resultados">
-          <div className="icono-sin-resultados">🔍</div>
-          <h2>No se encontraron resultados</h2>
-          <p>No hay publicaciones que coincidan con "{busqueda}"</p>
-          <ul className="sugerencias">
-            <li>Revisa la ortografía</li>
-            <li>Prueba con términos más generales</li>
-            <li>Busca por autor, título o etiquetas</li>
-          </ul>
-        </div>
-      ) : (
-        <div className="lista-resultados">
-          {resultados.map((publicacion) => (
-            <CardPublicacion
-              key={publicacion.id}
-              objeto={publicacion}
-              publicacionPropia={publicacion.author_id === perfil.id}
-              recargarPublicaciones={recargarResultados}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

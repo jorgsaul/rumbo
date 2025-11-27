@@ -8,6 +8,7 @@ import funcionSubirPost from '../controllers/uploadPost.js';
 import funcionFavoritos from '../controllers/userSaves.js';
 import { borrarPublicacion } from '../controllers/borrarPublicacion.js';
 import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
+import { buscarPublicaciones } from '../controllers/buscarPublicacion.js';
 
 const router = express.Router();
 
