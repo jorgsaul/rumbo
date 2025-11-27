@@ -1,64 +1,81 @@
-/* Card Nueva Publicación - Diseño Minimalista */
+/* Card Nueva Publicación - Estilo Facebook Limpio */
 .card-nueva-publicacion {
-  background: #FFFFFF;
-  border: 1px solid #E5E7EB;
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.2s ease;
+  background: var(--neutral-100);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--neutral-500);
 }
 
-.card-nueva-publicacion:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Avatar */
+/* Header con avatar y inputs alineados */
 .card-nueva-publicacion .avatar-container {
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
 }
 
 .card-nueva-publicacion .img-avatar-container {
   width: 40px;
   height: 40px;
+  flex-shrink: 0;
 }
 
-/* Inputs limpios */
+/* Contenedor de inputs */
+.card-nueva-publicacion .publicacion {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Inputs alineados correctamente */
 .card-nueva-publicacion .input-publicacion-nueva {
   width: 100%;
-  min-height: 2.5rem;
+  min-height: 24px;
   border: none;
   background: transparent;
-  padding: 0.5rem 0;
-  font-size: 1rem;
-  color: #111827;
+  padding: 4px 0;
+  font-size: 0.9375rem;
+  color: var(--neutral-900);
   resize: none;
   font-family: inherit;
-  line-height: 1.5;
+  line-height: 1.3333;
 }
 
 .card-nueva-publicacion .input-publicacion-nueva::placeholder {
-  color: #6B7280;
+  color: var(--neutral-700);
+  font-weight: 400;
 }
 
 .card-nueva-publicacion .input-publicacion-nueva:focus {
   outline: none;
 }
 
+/* Título más prominente pero alineado */
 .card-nueva-publicacion .input-titulo {
   font-size: 1.125rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  color: var(--neutral-900);
+  margin: 0;
 }
 
 .card-nueva-publicacion .input-titulo::placeholder {
-  font-weight: 500;
+  font-weight: 600;
+  color: var(--neutral-800);
+}
+
+/* Contenido normal */
+.card-nueva-publicacion .input-publicacion-nueva:not(.input-titulo) {
+  font-size: 0.9375rem;
+  font-weight: 400;
 }
 
 /* Contenedor multimedia */
 .card-nueva-publicacion .contenedor-multimedia {
-  margin: 1rem 0;
-  border-radius: 8px;
+  margin: 12px 0 8px 0;
+  border-radius: 6px;
   overflow: hidden;
 }
 
@@ -66,74 +83,76 @@
   width: 100%;
   max-height: 300px;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 6px;
 }
 
-/* Contenedor de opciones - Limpio */
+/* Contenedor de opciones - Footer */
 .card-nueva-publicacion .contenedor-opciones {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid #F3F4F6;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--neutral-400);
 }
 
 .card-nueva-publicacion .contenedor-recursos-extra {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 }
 
 /* Iconos discretos */
 .card-nueva-publicacion .contenedor-icono-imagen {
-  height: 2rem;
-  width: 2rem;
+  height: 36px;
+  width: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
+  border-radius: 18px;
+  transition: background-color 0.1s ease;
   cursor: pointer;
 }
 
 .card-nueva-publicacion .contenedor-icono-imagen:hover {
-  background: #F9FAFB;
+  background: var(--neutral-300);
 }
 
 .card-nueva-publicacion svg {
   cursor: pointer;
-  color: #6B7280;
-  transition: color 0.2s ease;
+  color: var(--neutral-700);
+  transition: color 0.1s ease;
 }
 
 .card-nueva-publicacion svg:hover {
-  color: #374151;
+  color: var(--neutral-800);
 }
 
-/* Botón moderno */
+/* Botones con tus colores específicos */
 .card-nueva-publicacion .boton-publicar {
   border-radius: 6px !important;
   font-size: 0.875rem !important;
-  font-weight: 500 !important;
-  min-width: 90px !important;
-  height: 2.25rem !important;
-  padding: 0 1.25rem !important;
-  background: #91235A !important; /* Tu primary-500 */
-  border: 1px solid #91235A !important;
+  font-weight: 600 !important;
+  min-width: 80px !important;
+  height: 36px !important;
+  padding: 0 16px !important;
+  border: none !important;
+  transition: all 0.1s ease !important;
+}
+
+/* Botón ACTIVADO - primary-600 */
+.card-nueva-publicacion .boton-publicar:not(.disabled-button) {
+  background: var(--primary-600) !important;
   color: white !important;
-  transition: all 0.2s ease !important;
 }
 
-.card-nueva-publicacion .boton-publicar:hover:not(.disabled-button) {
-  background: #7A1D4B !important;
-  border-color: #7A1D4B !important;
-  transform: none;
+.card-nueva-publicacion .boton-publicar:not(.disabled-button):hover {
+  background: var(--primary-700) !important;
 }
 
+/* Botón DESACTIVADO - primary-300 */
 .card-nueva-publicacion .boton-publicar.disabled-button {
-  background: #F3F4F6 !important;
-  border-color: #D1D5DB !important;
-  color: #9CA3AF !important;
+  background: var(--primary-300) !important;
+  color: var(--primary-100) !important;
   cursor: not-allowed !important;
 }
