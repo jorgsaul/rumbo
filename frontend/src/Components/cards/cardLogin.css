@@ -1,108 +1,22 @@
-.contenedor-login {
-  background-color: white;
+*{
+  font-size: medium;
+}
+body{
+  background-color: #e1e1e1;
+}
+
+.contenedor-login{
+  background-color: #f5f5f5;
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 2rem;
-}
-
-.parte-superior {
-  text-align: center;
-}
-
-.parte-inferior {
-  text-align: center;
-}
-
-/* Encabezado moderno */
-.encabezado {
-  margin-bottom: 2rem;
-}
-
-.encabezado h1 {
-  color: var(--primary-700);
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  background: linear-gradient(135deg, var(--primary-600) 0%, var(--primary-400) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.encabezado p {
-  color: var(--neutral-700);
-  font-size: 1rem;
   margin: 0;
-  font-weight: 400;
-}
-
-/* Formulario mejorado */
-.form-inicio {
-  padding: 1rem 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.Usuario, .Contraseña {
-  display: flex;
-  align-items: center;
   justify-content: center;
-  flex-direction: column;
 }
 
-.container-button {
-  margin: 1.5rem 0;
-}
-
-.container-button button {
-  width: 100%;
-  border-radius: 12px !important;
-  height: 3rem !important;
-  font-size: 1rem !important;
-  font-weight: 600 !important;
-}
-
-/* Opciones de enlace */
-.container-opciones {
-  font-size: 0.9rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.container-opciones a {
-  color: var(--primary-500);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s ease;
-  font-size: 0.9rem;
-}
-
-.container-opciones a:hover {
-  color: var(--primary-600);
-  text-decoration: underline;
-}
-
-/* Línea divisoria */
-hr {
-  width: 100%;
-  border: none;
-  height: 1px;
-  background: var(--neutral-400);
-  margin: 1.5rem 0;
-}
-
-/* Parte inferior con redes sociales */
-.parte-inferior p {
-  color: var(--neutral-700);
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-  font-weight: 500;
+.parte-superior, .parte-inferior{
+  text-align: center;
 }
 
 .contenedor-inicioRapido {
@@ -110,48 +24,91 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0;
+  gap: 0.5rem;
+  padding: 1rem 0 1rem 0;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .contenedor-login {
-    padding: 1.5rem;
-  }
-  
-  .encabezado h1 {
+.encabezado{
+  margin-bottom: 1rem;
+}
+
+/* TÍTULO IGUAL QUE TENÍAS */
+.encabezado h1{
+  color: black;
+  font-size: 4.5rem;
+  margin: 2rem 0 0 0;
+  font-weight: bold;
+}
+
+.Usuario, .Contraseña{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Usuario h4{
+  margin-left: 1rem;
+}
+.Contraseña h4{
+  margin-left: 4.6rem;
+}
+
+.form-inicio{
+  padding: 1rem 0 1rem 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.container-button{
+  margin: 1rem;
+}
+
+/* BOTÓN CON TU ESTILO ORIGINAL */
+.container-button .common-button {
+  background: #5A1236 !important;
+  border-radius: 0.25rem !important;
+  height: 3rem !important;
+  min-width: 10rem !important;
+  max-width: 15rem !important;
+}
+
+.container-button .common-button:hover {
+  background: #91235A !important;
+}
+
+.container-opciones{
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.container-opciones a:hover{
+  color: #91235a;
+}
+
+hr{
+  width: 20rem;
+  margin-bottom: 2rem;
+}
+
+a{
+  font-size: 0.8rem;
+}
+
+@media (max-width:600px){
+  .encabezado h1{
     font-size: 2rem;
   }
-  
-  .container-opciones {
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
-@media (max-width: 480px) {
-  .contenedor-login {
-    padding: 1rem;
-  }
-  
-  .encabezado h1 {
-    font-size: 1.75rem;
-  }
-}
-
-/* Animaciones suaves */
-.contenedor-login {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.izquierda {
+  background-image: url('../img/Logo-blancoL.png');
+  background-color: #1a1a1a;
+  background-position: center;
+  background-size: 40% auto;
+  background-repeat: no-repeat;
 }
