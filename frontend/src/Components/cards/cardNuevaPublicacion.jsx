@@ -87,7 +87,7 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
             <ButtonPrimary
               text="Publicar"
               enable={canPost}
-              className="boton-publicar"
+              className="boton-publicar compact"
               action={handeClickPublicar}
             />
           </div>
