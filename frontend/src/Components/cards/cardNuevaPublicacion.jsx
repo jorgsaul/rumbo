@@ -35,7 +35,6 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
   };
   return (
     <div className="card card-nueva-publicacion">
-      {" "}
       <div className="avatar-container">
         <div className="img-avatar-container">
           <AvatarPublicacion urlImagen={usuario.avatar_url} />
