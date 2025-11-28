@@ -1,8 +1,6 @@
 .contenedor-ventana-comentarios {
-  background: #ffffff; /* Blanco como tus cards */
-  border-radius: 8px;
+  background: #fafafa;
   padding: 1rem;
-  border: 1px solid #e1e1e1; 
   max-height: 70vh;
   display: flex;
   flex-direction: column;
