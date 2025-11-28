@@ -1,38 +1,59 @@
-.contenedor-card-comentario{
-  border-bottom: solid 1px rgb(211, 211, 211);
-  margin-top: 1rem;
+.contenedor-card-comentario {
   display: flex;
-  width: 90%;
+  gap: 12px;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
 }
 
-.contenedor-imagen-avatar-comentario{
-  height: 2.5rem;
-  width: 2.5rem;
-  margin-right: 0.6rem;
+.contenedor-card-comentario:hover {
+  background: var(--neutral-100);
+  border-color: var(--neutral-400);
 }
 
-.usuario-comentario{
+.contenedor-imagen-avatar-comentario {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.contenedor-datos-comentario {
+  flex: 1;
+}
+
+.usuario-comentario {
   display: flex;
   align-items: center;
-  height: 2.5rem;
+  gap: 8px;
+  margin-bottom: 4px;
 }
 
-.contenedor-avatar-comentario{
-  height: 100%;
-}
-
-.usuario-comentario b{
-  font-size: 0.6rem;
-}
-
-.usuario-comentario p{
+.usuario-comentario p {
   margin: 0;
-  margin-right: 0.2rem;
-  font-size: 0.9rem;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--neutral-900);
 }
 
-.texto-comentario{
-  text-align: justify;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+.usuario-comentario b {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--neutral-700);
+}
+
+.texto-comentario {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--neutral-800);
+  word-break: break-word;
+}
+
+/* Timestamp (si agregas fecha/hora) */
+.timestamp {
+  font-size: 11px;
+  color: var(--neutral-600);
+  margin-top: 4px;
 }
