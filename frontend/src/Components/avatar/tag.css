@@ -1,12 +1,8 @@
 .tag-container{
-  border-radius: 1rem;
-  padding: 0.25rem 0.6rem;
+  border-radius: 2rem;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem;
   width: fit-content;
   height: fit-content;
-  font-size: 0.7rem;
-  font-weight: 400;
+  font-size: small;
   user-select: none;
-  background: #f8f9fa;
-  border: 1px solid #e9ecef;
-  color: #495057;
 }
