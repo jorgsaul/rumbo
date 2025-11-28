@@ -1,5 +1,5 @@
 .contenedor-ventana-comentarios {
-  background: #e1e1e1; /* Igual que tu body background */
+  background: #ffffff; /* Blanco como tus cards */
   border-radius: 8px;
   padding: 1rem;
   border: 1px solid #e1e1e1; 
@@ -36,7 +36,7 @@
   align-items: center;
   gap: 8px;
   padding: 0.5rem;
-  background: white;
+  background: #fafafa; /* Fondo ligeramente diferente para destacar */
   border-radius: 6px;
   border: 1px solid #e1e1e1;
 }
