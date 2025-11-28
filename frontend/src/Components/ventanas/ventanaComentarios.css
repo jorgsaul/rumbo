@@ -1,8 +1,8 @@
 .contenedor-ventana-comentarios {
-  background: #f5f5f5; /* Igual que tu fondo general */
+  background: #e1e1e1; /* Igual que tu body background */
   border-radius: 8px;
   padding: 1rem;
-  border: 1px solid #e1e1e1; /* Igual que tus cards */
+  border: 1px solid #e1e1e1; 
   max-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@
   background-color: #cacaca;
 }
 
-/* Área de escribir comentario - MÁS SIMPLE */
+/* Área de escribir comentario */
 .contenedor-crear-comentario {
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@
   color: #8e8e8e;
 }
 
-/* ICONO COMO ESTABA ORIGINAL */
+/* Icono como estaba */
 .contenedor-icono-imagen {
   height: 1.4rem;
   width: 1.4rem;
