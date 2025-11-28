@@ -1,8 +1,8 @@
 .contenedor-ventana-comentarios {
-  background: #f8f9fa; /* Similar al fondo de tus publicaciones */
+  background: #f5f5f5; /* Igual que tu fondo general */
   border-radius: 8px;
   padding: 1rem;
-  border: 1px solid #e1e5e9; /* Borde similar a tus cards */
+  border: 1px solid #e1e1e1; /* Igual que tus cards */
   max-height: 70vh;
   display: flex;
   flex-direction: column;
@@ -13,7 +13,7 @@
   max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #cacaca transparent; /* Usando tu neutral-600 */
+  scrollbar-color: #cacaca transparent;
   padding-right: 4px;
   margin-bottom: 1rem;
 }
@@ -24,15 +24,13 @@
 
 .contenedor-comentarios::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 2px;
 }
 
 .contenedor-comentarios::-webkit-scrollbar-thumb {
-  background-color: #cacaca; /* Tu neutral-600 */
-  border-radius: 2px;
+  background-color: #cacaca;
 }
 
-/* Área de escribir comentario - más discreta */
+/* Área de escribir comentario - MÁS SIMPLE */
 .contenedor-crear-comentario {
   display: flex;
   align-items: center;
@@ -40,7 +38,7 @@
   padding: 0.5rem;
   background: white;
   border-radius: 6px;
-  border: 1px solid #e1e1e1; /* Tu neutral-500 */
+  border: 1px solid #e1e1e1;
 }
 
 .input-crear-comentario {
@@ -57,29 +55,26 @@
 }
 
 .input-crear-comentario::placeholder {
-  color: #8e8e8e; /* Tu neutral-700 */
+  color: #8e8e8e;
 }
 
+/* ICONO COMO ESTABA ORIGINAL */
 .contenedor-icono-imagen {
-  padding: 6px;
-  border-radius: 50%;
-  background: #91235a; /* Tu primary-500 */
+  height: 1.4rem;
+  width: 1.4rem;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: transform 0.2s ease;
 }
 
 .contenedor-icono-imagen:hover {
-  background: #5a1236; /* Tu primary-600 */
+  transform: scale(1.1);
 }
 
-/* Mensaje cuando no hay comentarios */
 .contenedor-comentarios:empty::before {
   content: "Se el primero en comentar";
   display: block;
   text-align: center;
-  color: #8e8e8e; /* Tu neutral-700 */
+  color: #8e8e8e;
   font-size: 0.9rem;
   margin-top: 1rem;
 }

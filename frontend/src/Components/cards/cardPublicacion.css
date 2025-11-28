@@ -15,10 +15,6 @@
   position: relative;
 }
 
-.card:hover {
-  background-color: #cacaca;
-}
-
 .profile-user a {
   text-decoration: none;
   color: inherit;
