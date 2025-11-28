@@ -1,64 +1,54 @@
 .contenedor-ventana-comentarios {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  max-height: 80vh;
+  background: #f8f9fa; /* Similar al fondo de tus publicaciones */
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e1e5e9; /* Borde similar a tus cards */
+  max-height: 70vh;
   display: flex;
   flex-direction: column;
 }
 
 .contenedor-comentarios {
   flex: 1;
-  max-height: 60vh;
+  max-height: 50vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-300) transparent;
-  padding-right: 8px;
-  margin-bottom: 1.5rem;
+  scrollbar-color: #cacaca transparent; /* Usando tu neutral-600 */
+  padding-right: 4px;
+  margin-bottom: 1rem;
 }
 
 .contenedor-comentarios::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 .contenedor-comentarios::-webkit-scrollbar-track {
-  background: var(--neutral-300);
-  border-radius: 10px;
+  background: #f1f1f1;
+  border-radius: 2px;
 }
 
 .contenedor-comentarios::-webkit-scrollbar-thumb {
-  background-color: var(--primary-400);
-  border-radius: 10px;
+  background-color: #cacaca; /* Tu neutral-600 */
+  border-radius: 2px;
 }
 
-.contenedor-comentarios::-webkit-scrollbar-thumb:hover {
-  background-color: var(--primary-500);
-}
-
-/* Área de escribir comentario */
+/* Área de escribir comentario - más discreta */
 .contenedor-crear-comentario {
   display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  padding: 1rem;
-  background: var(--neutral-200);
-  border-radius: 12px;
-  border: 2px solid transparent;
-  transition: all 0.2s ease;
-}
-
-.contenedor-crear-comentario:focus-within {
-  border-color: var(--primary-300);
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem;
   background: white;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1; /* Tu neutral-500 */
 }
 
 .input-crear-comentario {
   flex: 1;
-  min-height: 40px;
+  min-height: 32px;
   border: none;
   background: transparent;
-  padding: 8px 4px;
+  padding: 4px 8px;
   font-size: 14px;
   resize: none;
   outline: none;
@@ -67,35 +57,29 @@
 }
 
 .input-crear-comentario::placeholder {
-  color: var(--neutral-700);
+  color: #8e8e8e; /* Tu neutral-700 */
 }
 
 .contenedor-icono-imagen {
-  padding: 8px;
+  padding: 6px;
   border-radius: 50%;
-  background: var(--primary-500);
+  background: #91235a; /* Tu primary-500 */
   cursor: pointer;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .contenedor-icono-imagen:hover {
-  background: var(--primary-600);
-  transform: scale(1.05);
+  background: #5a1236; /* Tu primary-600 */
 }
 
-/* Estado vacío */
-.contenedor-ventana-comentarios:has(.contenedor-comentarios:empty) {
-  text-align: center;
-  padding: 2rem;
-}
-
-.contenedor-ventana-comentarios:has(.contenedor-comentarios:empty)::before {
-  content: "💬";
-  font-size: 3rem;
+/* Mensaje cuando no hay comentarios */
+.contenedor-comentarios:empty::before {
+  content: "Se el primero en comentar";
   display: block;
-  margin-bottom: 1rem;
-  opacity: 0.5;
+  text-align: center;
+  color: #8e8e8e; /* Tu neutral-700 */
+  font-size: 0.9rem;
+  margin-top: 1rem;
 }

@@ -1,21 +1,16 @@
 .contenedor-card-comentario {
   display: flex;
   gap: 12px;
-  padding: 1rem;
-  border-radius: 12px;
-  margin-bottom: 8px;
-  transition: all 0.2s ease;
-  border: 1px solid transparent;
-}
-
-.contenedor-card-comentario:hover {
-  background: var(--neutral-100);
-  border-color: var(--neutral-400);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1; /* Igual que tus publicaciones */
 }
 
 .contenedor-imagen-avatar-comentario {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
 }
 
@@ -26,34 +21,31 @@
 .usuario-comentario {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 6px;
+  margin-bottom: 2px;
 }
 
 .usuario-comentario p {
   margin: 0;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
-  color: var(--neutral-900);
+  color: #1f1f1f; /* Tu neutral-900 */
 }
 
 .usuario-comentario b {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--neutral-700);
+  font-size: 11px;
+  font-weight: 400;
+  color: #8e8e8e; /* Tu neutral-700 */
 }
 
 .texto-comentario {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  color: var(--neutral-800);
+  font-size: 13px;
+  line-height: 1.3;
+  color: #4b4b4b; /* Tu neutral-800 */
   word-break: break-word;
 }
 
-/* Timestamp (si agregas fecha/hora) */
-.timestamp {
-  font-size: 11px;
-  color: var(--neutral-600);
-  margin-top: 4px;
+.texto-comentario p {
+  margin: 0;
 }
