@@ -122,7 +122,8 @@ const TestVocacional = () => {
   if (
     !hasSavedProgress &&
     Object.keys(userAnswers).length === 0 &&
-    !testResults
+    !testResults &&
+    currentQuestionIndex === 0
   ) {
     return (
       <PantallaBienvenida
