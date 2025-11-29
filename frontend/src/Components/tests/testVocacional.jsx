@@ -11,6 +11,7 @@ const TestVocacional = () => {
   const [testResults, setTestResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(true); // NUEVO: control explícito
 
   useEffect(() => {
     const savedProgress = loadProgress();
@@ -18,6 +19,7 @@ const TestVocacional = () => {
       setUserAnswers(savedProgress.answers);
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
       setHasSavedProgress(true);
+      setShowWelcome(false); // Si hay progreso guardado, no mostrar bienvenida
     }
   }, []);
 
@@ -66,6 +68,8 @@ const TestVocacional = () => {
   };
 
   const startTest = (newTest = false) => {
+    console.log("startTest llamado con newTest:", newTest);
+
     if (newTest) {
       clearProgress();
       setCurrentQuestionIndex(0);
@@ -78,6 +82,8 @@ const TestVocacional = () => {
         setUserAnswers(savedProgress.answers);
       }
     }
+    setShowWelcome(false); // IMPORTANTE: Ocultar la pantalla de bienvenida
+    console.log("showWelcome cambiado a: false");
   };
 
   const selectAnswer = (value) => {
@@ -115,28 +121,24 @@ const TestVocacional = () => {
     }, 1500);
   };
 
+  // LÓGICA SIMPLIFICADA DE RENDERIZADO
   if (isLoading) {
     return <PantallaCarga />;
   }
 
-  if (
-    !hasSavedProgress &&
-    Object.keys(userAnswers).length === 0 &&
-    !testResults &&
-    currentQuestionIndex === 0
-  ) {
+  if (testResults) {
+    return (
+      <Resultados resultados={testResults} onRestart={() => startTest(true)} />
+    );
+  }
+
+  if (showWelcome) {
     return (
       <PantallaBienvenida
         onStart={() => startTest(true)}
         hasSavedProgress={hasSavedProgress}
         onContinue={() => startTest(false)}
       />
-    );
-  }
-
-  if (testResults) {
-    return (
-      <Resultados resultados={testResults} onRestart={() => startTest(true)} />
     );
   }
 
@@ -222,6 +224,7 @@ const PantallaBienvenida = ({ onStart, hasSavedProgress, onContinue }) => {
     </div>
   );
 };
+
 const PantallaTest = ({
   currentQuestionIndex,
   userAnswers,
@@ -376,6 +379,7 @@ const calcularResultadosCompletos = (userAnswers) => {
 
     if (questionCount > 0) {
       scores[carrera.id] = {
+        id: carrera.id,
         nombre: carrera.nombre,
         puntuacion: Math.round((totalScore / (questionCount * 5)) * 100),
       };
