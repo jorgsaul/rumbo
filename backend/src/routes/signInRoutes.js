@@ -6,6 +6,12 @@ const router = express.Router();
 
 router.post("/crearCuenta", async (req, res) => {
   const { tipoUsuario, correo, usuario, password } = req.body;
+  if(!tipoUsuario || !correo || !usuario || !password) return res.status(400).json({error: 'Faltan datos'});
+  if(typeof correo !== 'string') return res.status(400).json({error: 'Falta el correo'});
+  if(typeof usuario !== 'string') return res.status(400).json({error: 'Falta el usuario'});
+  if(typeof password !== 'string') return res.status(400).json({error: 'Falta la contraseña'});
+  if(typeof tipoUsuario !== 'string') return res.status(400).json({error: 'Falta el tipo de usuario'});
+
   try {
     await crearCuenta(tipoUsuario, correo, usuario, password);
     res.json({ message: "Cuenta creada exitosamente" });

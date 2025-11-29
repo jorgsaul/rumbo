@@ -16,6 +16,12 @@ router.get('/posts', authenticateUser, async (req, res) => {
   const filtro = req.query.filtro;
   const usuarioIdPerfil = req.query.usuario_id_perfil;
   const usuarioIdSesion = req.user.id;
+
+  if(!usuarioIdPerfil || !usuarioIdSesion) return res.status(400).json({error: 'Falta el usuario del perfil o el usuario de sesión'});
+  if(typeof filtro !== 'string') return res.status(400).json({error: 'Falta el filtro'});
+  if(typeof usuarioIdPerfil !== 'string') return res.status(400).json({error: 'Falta el usuario del perfil'});
+  if(typeof usuarioIdSesion !== 'string') return res.status(400).json({error: 'Falta el usuario de sesión'});
+
   try {
     const posts = await obtenerPosts(filtro, usuarioIdPerfil, usuarioIdSesion);
     res.json(posts);
@@ -28,6 +34,8 @@ router.post('/post_like', authenticateUser ,async(req, res)=>{
   const userID = req.user.id;
   const postID = req.body.post_id;
 
+  if(!userID || !postID) return res.status(400).json({error: 'Falta el id del usuario o el id del post'});
+
   try {
     const resultado = await funcionLikes(userID, postID);
     res.json(resultado)
@@ -39,7 +47,7 @@ router.post('/post_like', authenticateUser ,async(req, res)=>{
 router.post('/post_save', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const postID = req.body.post_id;
-
+  if(!userID || !postID) return res.status(400).json({error: 'Falta el id del usuario o el id del post'});
   try {
     const resultado = await funcionFavoritos(userID, postID)
     res.json(resultado);
@@ -50,6 +58,13 @@ router.post('/post_save', authenticateUser, async(req, res)=>{
 
 router.post('/post_upload', authenticateUser, async(req, res)=>{
   const {author_id, title, content, media_url, etiquetas} = req.body;
+
+  if(!author_id || !title || !content || !etiquetas) return res.status(400).json({error: 'Faltan datos'});
+
+  if(typeof author_id !== 'string') return res.status(400).json({error: 'Falta el id del autor'});
+  if(typeof title !== 'string') return res.status(400).json({error: 'Falta el título'});
+  if(typeof content !== 'string') return res.status(400).json({error: 'Falta el contenido'});
+
   try {
     const resultado = await funcionSubirPost(author_id, title, content, media_url, etiquetas);
     res.json(resultado);
@@ -61,6 +76,9 @@ router.post('/post_upload', authenticateUser, async(req, res)=>{
 router.post('/post-comment', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id, content} = req.body;
+
+  if(!post_id || !content) return res.status(400).json({error: 'Faltan datos'});
+
   try {
     const resultado = await crearComentario( post_id, userID, content);
     res.json(resultado);
@@ -71,6 +89,8 @@ router.post('/post-comment', authenticateUser, async(req, res)=>{
 
 router.get('/post-comments', async(req, res)=>{
   const {post_id} = req.query;
+  if(!post_id) res.status(400).json({error: 'Falta el post_id'});
+
   try {
     const resultado = await obtenerComentarios( post_id );
     res.json(resultado);
@@ -82,6 +102,7 @@ router.get('/post-comments', async(req, res)=>{
 router.delete('/delete-post', authenticateUser, async(req, res)=>{
   const userID = req.user.id;
   const {post_id} = req.query;
+  if(!userID) res.status(400).json({error: 'Falta el id del usuario'});
   if(!post_id) res.status(400).json({error: 'Falta el post_id'});
 
   try {

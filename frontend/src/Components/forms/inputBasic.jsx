@@ -1,7 +1,19 @@
-import './inputBasic.css'
-import { useState } from 'react';
+import "./inputBasic.css";
+import { useState } from "react";
 
-function InputBasic({holder, type, disabled, required, id, name, value, onChange, error, errorMessage}){
+function InputBasic({
+  holder,
+  type,
+  disabled,
+  required,
+  id,
+  name,
+  value,
+  onChange,
+  error,
+  errorMessage,
+  maxLength,
+}) {
   const [isTyping, setIsTyping] = useState(false);
 
   const handleFocus = () => {
@@ -9,23 +21,23 @@ function InputBasic({holder, type, disabled, required, id, name, value, onChange
   };
 
   const handleBlur = () => {
-    setIsTyping(false)
+    setIsTyping(false);
   };
 
   const inputStateClass = isTyping
-    ? 'typing'
-    : value && value.trim() !== ''
-    ? 'filled'
-    : 'unfilled';
+    ? "typing"
+    : value && value.trim() !== ""
+    ? "filled"
+    : "unfilled";
 
-  const errorClass = error ? 'error' : '';
+  const errorClass = error ? "error" : "";
 
   return (
     <>
       <input
         name={name}
         id={id}
-        autoComplete='off'
+        autoComplete="off"
         required={required}
         disabled={disabled}
         type={type}
@@ -35,16 +47,16 @@ function InputBasic({holder, type, disabled, required, id, name, value, onChange
         onBlur={handleBlur}
         className={`mi-input ${inputStateClass} ${errorClass}`}
         placeholder={holder}
-        maxLength={30}
+        maxLength={maxLength || 40}
       />
       {errorMessage && (
         <p
           className="mensaje-error"
           style={{
-            color: '#F64C4C',
-            minHeight: '1.2rem',
+            color: "#F64C4C",
+            minHeight: "1.2rem",
             margin: 0,
-            visibility: error ? 'visible' : 'hidden',
+            visibility: error ? "visible" : "hidden",
           }}
         >
           {errorMessage}

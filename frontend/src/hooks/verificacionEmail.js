@@ -16,6 +16,9 @@ export function useEmailVerification(initialEmail = '', esRegistro) {
       return 'Correo electrónico no válido';
     }
 
+    if(!emailToCheck) return 'El correo es requerido';
+    if(emailToCheck.length > 254) return 'El correo es demasiado largo';
+
     try {
       const correoExistente = await fetch(
         `${import.meta.env.VITE_APP_API_BASE_URL}/validarCorreoExistente?correo=${encodeURIComponent(emailToCheck)}`, 

@@ -35,6 +35,8 @@ router.put('/actualizar-perfil', authenticateUser, async (req, res) => {
   const userId = req.user.id;
   const { full_name, bio, avatar_url, banner_url } = req.body;
 
+  if(!userId || !full_name || !bio) return res.status(400).json({ error: 'Faltan datos' });
+
   try{
     await actualizarCuenta(userId, full_name, bio, avatar_url, banner_url);
     res.json({ message: 'Cuenta actualizada exitosamente' });
@@ -47,6 +49,8 @@ router.put('/actualizar-perfil', authenticateUser, async (req, res) => {
 router.post('/insertar-resultados', authenticateUser, async (req, res) => {
   const userId = req.user.id;
   const { testId, score } = req.body;
+  if(!userId || !testId || !score) return res.status(400).json({ error: 'Faltan datos' });
+
   try {
     const result = await insertarResultados(userId, testId, score);
     res.json(result);
