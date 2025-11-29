@@ -120,7 +120,7 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
             />
           </div>
           <div className="reaccion-reportar">
-            <IconoReport onClick={handleReport} yaReportado={yaReportado} />
+            <IconoReport onClick={funcionReportar} yaReportado={yaReportado} />
           </div>
           <div className="reaccion-comentar">
             <IconoComentario funcion={() => setComentario(!comentario)} />
