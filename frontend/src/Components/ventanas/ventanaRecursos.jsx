@@ -75,6 +75,15 @@ function VentanaRecursos() {
             "https://images.unsplash.com/photo-1604594849809-dfedbc827105?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWNvbm9taWF8ZW58MHx8MHx8fDA%3D"
           }
         />
+        <CardRecurso
+          titulo="Test Vocacional"
+          id={7}
+          tiempo={"10 min"}
+          descripcion="Responda unas preguntas de conocimientos vocacionales. Pon a prueba tus conocimientos vocacionales."
+          imagen={
+            "https://img.freepik.com/vector-gratis/alumno-mochila-rodeado-pulgares-arriba-nino-traje-oficial-siendo-respetado-ilustracion-vector-plano-sociedad-educacion-concepto-opinion-publica-banner-diseno-sitio-web-o-pagina-web-destino_74855-25270.jpg?semt=ais_hybrid&w=740&q=80"
+          }
+        />
       </div>
       <VentanaResultados />
     </div>

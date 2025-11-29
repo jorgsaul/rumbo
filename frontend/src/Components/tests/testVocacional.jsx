@@ -1,0 +1,412 @@
+import { useState, useEffect } from "react";
+import "./TestVocacional.css";
+
+import { questions, careers } from "./testData";
+
+const STORAGE_KEY = "test_vocacional_progress";
+
+const TestVocacional = () => {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userAnswers, setUserAnswers] = useState({});
+  const [testResults, setTestResults] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasSavedProgress, setHasSavedProgress] = useState(false);
+
+  useEffect(() => {
+    const savedProgress = loadProgress();
+    if (savedProgress) {
+      setUserAnswers(savedProgress.answers);
+      setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
+      setHasSavedProgress(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(userAnswers).length > 0) {
+      saveProgress();
+    }
+  }, [userAnswers, currentQuestionIndex]);
+
+  const loadProgress = () => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        const progress = JSON.parse(saved);
+        const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+        if (progress.timestamp > oneWeekAgo) {
+          return progress;
+        } else {
+          localStorage.removeItem(STORAGE_KEY);
+        }
+      }
+    } catch (error) {
+      console.error("Error cargando progreso:", error);
+    }
+    return null;
+  };
+
+  const saveProgress = () => {
+    try {
+      const progress = {
+        answers: userAnswers,
+        currentQuestionIndex,
+        timestamp: Date.now(),
+        totalQuestions: questions.length,
+        answeredCount: Object.keys(userAnswers).length,
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    } catch (error) {
+      console.error("Error guardando progreso:", error);
+    }
+  };
+
+  const clearProgress = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    setHasSavedProgress(false);
+  };
+
+  const startTest = (newTest = false) => {
+    if (newTest) {
+      clearProgress();
+      setCurrentQuestionIndex(0);
+      setUserAnswers({});
+      setTestResults(null);
+    } else {
+      const savedProgress = loadProgress();
+      if (savedProgress) {
+        setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
+        setUserAnswers(savedProgress.answers);
+      }
+    }
+  };
+
+  const selectAnswer = (value) => {
+    const question = questions[currentQuestionIndex];
+    setUserAnswers((prev) => ({
+      ...prev,
+      [question.id]: value,
+    }));
+  };
+
+  const nextQuestion = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex((prev) => prev + 1);
+    } else {
+      calculateResults();
+    }
+  };
+
+  const prevQuestion = () => {
+    setCurrentQuestionIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const goToQuestion = (index) => {
+    setCurrentQuestionIndex(Math.max(0, Math.min(index, questions.length - 1)));
+  };
+
+  const calculateResults = async () => {
+    setIsLoading(true);
+
+    setTimeout(() => {
+      const results = calcularResultadosCompletos(userAnswers);
+      setTestResults(results);
+      setIsLoading(false);
+      clearProgress();
+    }, 1500);
+  };
+
+  if (isLoading) {
+    return <PantallaCarga />;
+  }
+
+  if (
+    !hasSavedProgress &&
+    Object.keys(userAnswers).length === 0 &&
+    !testResults
+  ) {
+    return (
+      <PantallaBienvenida
+        onStart={() => startTest(true)}
+        hasSavedProgress={hasSavedProgress}
+        onContinue={() => startTest(false)}
+      />
+    );
+  }
+
+  if (testResults) {
+    return (
+      <Resultados resultados={testResults} onRestart={() => startTest(true)} />
+    );
+  }
+
+  return (
+    <div className="test-container">
+      <PantallaTest
+        currentQuestionIndex={currentQuestionIndex}
+        userAnswers={userAnswers}
+        totalQuestions={questions.length}
+        onSelectAnswer={selectAnswer}
+        onNext={nextQuestion}
+        onPrev={prevQuestion}
+        onGoToQuestion={goToQuestion}
+        onRestart={() => startTest(true)}
+      />
+    </div>
+  );
+};
+
+const PantallaBienvenida = ({ onStart, hasSavedProgress, onContinue }) => {
+  return (
+    <div className="welcome-screen">
+      <div className="welcome-container">
+        <div className="welcome-header">
+          <h1>🎯 Test Vocacional Ikigai IPN</h1>
+          <p className="welcome-subtitle">
+            Descubre las carreras que mejor se alinean con tu pasión, talento,
+            propósito y aspiraciones profesionales
+          </p>
+        </div>
+
+        <div className="welcome-features">
+          <div className="feature-card">
+            <div className="feature-icon">📊</div>
+            <h3>40 Preguntas Precisas</h3>
+            <p>Cuestionario basado en los 4 pilares del Ikigai japonés</p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">💾</div>
+            <h3>Progreso Guardado</h3>
+            <p>
+              Tu progreso se guarda automáticamente. Puedes continuar cuando
+              quieras
+            </p>
+          </div>
+
+          <div className="feature-card">
+            <div className="feature-icon">🎓</div>
+            <h3>70 Carreras IPN</h3>
+            <p>
+              Resultados personalizados para todas las carreras del Instituto
+              Politécnico Nacional
+            </p>
+          </div>
+        </div>
+
+        <div className="welcome-actions">
+          {hasSavedProgress && (
+            <button className="welcome-button continue" onClick={onContinue}>
+              ↻ Continuar Test Anterior
+            </button>
+          )}
+
+          <button className="welcome-button start" onClick={onStart}>
+            {hasSavedProgress ? "🔄 Empezar Test Nuevo" : "🚀 Comenzar Test"}
+          </button>
+        </div>
+
+        <div className="welcome-info">
+          <p>
+            <strong>⏱️ Tiempo estimado:</strong> 15-20 minutos
+          </p>
+          <p>
+            <strong>📝 Preguntas respondidas:</strong> Se guarda tu progreso
+            automáticamente
+          </p>
+          <p>
+            <strong>🎯 Resultados:</strong> Top 5 carreras + análisis detallado
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+};
+const PantallaTest = ({
+  currentQuestionIndex,
+  userAnswers,
+  totalQuestions,
+  onSelectAnswer,
+  onNext,
+  onPrev,
+  onGoToQuestion,
+  onRestart,
+}) => {
+  const question = questions[currentQuestionIndex];
+  const currentAnswer = userAnswers[question.id];
+
+  const answeredCount = Object.keys(userAnswers).length;
+  const progressPercentage = (answeredCount / totalQuestions) * 100;
+
+  return (
+    <div className="test-screen">
+      <div className="test-header">
+        <div className="header-left">
+          <div className="pilar-indicator">{question.pilar}</div>
+          <div className="progress-stats">
+            {answeredCount}/{totalQuestions} preguntas respondidas
+          </div>
+        </div>
+
+        <div className="header-right">
+          <button
+            className="restart-test-btn"
+            onClick={onRestart}
+            title="Reiniciar test"
+          >
+            🔄
+          </button>
+        </div>
+      </div>
+
+      <div className="overall-progress">
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${progressPercentage}%` }}
+          ></div>
+        </div>
+        <span className="progress-text">
+          {Math.round(progressPercentage)}% completado
+        </span>
+      </div>
+
+      <div className="question-navigation">
+        <div className="nav-title">Saltar a pregunta:</div>
+        <div className="question-dots">
+          {questions.map((_, index) => (
+            <button
+              key={index}
+              className={`question-dot ${
+                index === currentQuestionIndex ? "current" : ""
+              } ${userAnswers[questions[index].id] ? "answered" : ""}`}
+              onClick={() => onGoToQuestion(index)}
+              title={`Pregunta ${index + 1} - ${
+                userAnswers[questions[index].id]
+                  ? "Respondida"
+                  : "Sin responder"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="question-container">
+        <div className="question-meta">
+          <span className="question-number">
+            Pregunta {currentQuestionIndex + 1} de {totalQuestions}
+          </span>
+          <span className="question-pilar">{question.pilar}</span>
+        </div>
+
+        <h2 className="question-text">{question.texto}</h2>
+
+        <div className="likert-options">
+          {[1, 2, 3, 4, 5].map((value) => (
+            <button
+              key={value}
+              className={`likert-option ${
+                currentAnswer === value ? "selected" : ""
+              }`}
+              onClick={() => onSelectAnswer(value)}
+            >
+              <span className="option-number">{value}</span>
+              <span className="option-label">
+                {value === 1 && "Nada"}
+                {value === 2 && "Poco"}
+                {value === 3 && "Neutral"}
+                {value === 4 && "Bastante"}
+                {value === 5 && "Muchísimo"}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="navigation-buttons">
+        <button
+          className="nav-button prev"
+          onClick={onPrev}
+          disabled={currentQuestionIndex === 0}
+        >
+          ← Anterior
+        </button>
+
+        <div className="navigation-info">
+          <span className="answered-count">
+            {answeredCount}/{totalQuestions} respondidas
+          </span>
+        </div>
+
+        <button
+          className="nav-button next"
+          onClick={onNext}
+          disabled={!currentAnswer}
+        >
+          {currentQuestionIndex === totalQuestions - 1
+            ? "Ver Resultados"
+            : "Siguiente →"}
+        </button>
+      </div>
+
+      <div className="auto-save-indicator">
+        <span className="save-icon">💾</span>
+        Progreso guardado automáticamente
+      </div>
+    </div>
+  );
+};
+const ScoreCard = ({ titulo, valor, descripcion, color }) => (
+  <div className="score-card" style={{ borderTopColor: color }}>
+    <h4>{titulo}</h4>
+    <div className="score-value" style={{ color }}>
+      {valor}%
+    </div>
+    <p className="score-desc">{descripcion}</p>
+  </div>
+);
+
+const PillarScore = ({ label, value }) => (
+  <div className="pillar-score">
+    <span className="pillar-label">{label}</span>
+    <div className="score-bar">
+      <div
+        className="score-fill"
+        style={{
+          width: `${value}%`,
+          backgroundColor: `hsl(${value * 1.2}, 70%, 45%)`,
+        }}
+      ></div>
+    </div>
+    <span className="score-number">{value}%</span>
+  </div>
+);
+
+const PantallaCarga = () => (
+  <div className="loading-screen">
+    <div className="loading-spinner"></div>
+    <h2>Analizando tu Ikigai...</h2>
+    <p>
+      Estamos calculando las carreras que mejor se alinean con tu perfil único
+    </p>
+  </div>
+);
+
+const calcularPromediosPerfil = (topCarreras) => {
+  const promedios = { pasion: 0, vocacion: 0, profesion: 0, mision: 0 };
+
+  topCarreras.forEach(({ scores }) => {
+    Object.keys(promedios).forEach((pilar) => {
+      promedios[pilar] += scores[pilar];
+    });
+  });
+
+  Object.keys(promedios).forEach((pilar) => {
+    promedios[pilar] = Math.round(promedios[pilar] / topCarreras.length);
+  });
+
+  return promedios;
+};
+
+export default TestVocacional;

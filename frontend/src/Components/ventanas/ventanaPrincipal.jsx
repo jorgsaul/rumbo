@@ -7,6 +7,7 @@ import VentanaPerfil from "./ventanaPerfil";
 import VentanaTests from "../tests/ventanaTests";
 import AuthSuccess from "./auth-succes";
 import VentanaResultados from "../busquedas/ventanaResultados";
+import TestVocacional from "../tests/testVocacional";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 function Layout() {
@@ -39,6 +40,10 @@ function Layout() {
             <Route path="/perfil/:idUsuario" element={<VentanaPerfil />} />
             <Route path="auth-success" element={<AuthSuccess />} />
             <Route path="/busqueda/:busqueda" element={<VentanaResultados />} />
+            <Route
+              path="/recursos/testVocacional"
+              element={<TestVocacional />}
+            />
           </Routes>
         </div>
       </div>
