@@ -17,7 +17,7 @@ export default function VentanaTests() {
     return `/tests/test${testId}/${imageName}`;
   };
 
-  const handleFinalizar = () => {
+  const handleFinalizar = async () => {
     let respuestasCorrectas = 0;
     contenidoTest.preguntas.forEach((pregunta, index) => {
       if (pregunta.respuesta_correcta === respuestas[index]) {
@@ -30,14 +30,17 @@ export default function VentanaTests() {
     ).toFixed(2);
 
     try {
-      fetch(`${import.meta.env.VITE_APP_API_BASE_URL}/insertar-resultados`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ score: porcentaje, testId }),
-        credentials: "include",
-      });
+      awaitfetch(
+        `${import.meta.env.VITE_APP_API_BASE_URL}/insertar-resultados`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ score: porcentaje, testId }),
+          credentials: "include",
+        }
+      );
 
       window.location.href = "/recursos";
     } catch (error) {
