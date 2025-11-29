@@ -4,13 +4,11 @@ export const reportarPost = async (postId, userId) => {
   try {
     console.log('📝 Ejecutando SP para reportar post:', { postId, userId });
     
-    // Llamar al stored procedure
     await pool.query(
       'CALL sp_report_post($1, $2)',
       [postId, userId]
     );
 
-    // Obtener el estado actual del post
     const postStatus = await pool.query(
       `SELECT 
           COALESCE(report_count, 0) as report_count,

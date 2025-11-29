@@ -10,6 +10,7 @@ import { borrarPublicacion } from '../controllers/borrarPublicacion.js';
 import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
 import { buscarPublicaciones } from '../controllers/buscarPublicacion.js';
 import { reportarPost } from '../controllers/reportController.js';
+import { pool } from '../config/dataBase.js';
 
 const router = express.Router();
 
