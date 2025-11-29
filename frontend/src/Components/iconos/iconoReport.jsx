@@ -2,7 +2,10 @@ import { useState } from "react";
 
 function IconoReport({ onClick }) {
   const [reported, setReport] = useState(false);
-
+  const handleReport = () => {
+    onClick();
+    setReport(!reported);
+  };
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -12,7 +15,7 @@ function IconoReport({ onClick }) {
       stroke="currentColor"
       className="size-6"
       height={20}
-      onClick={onClick}
+      onClick={handleReport}
       style={{
         cursor: "pointer",
       }}
