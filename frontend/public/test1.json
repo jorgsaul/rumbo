@@ -5,12 +5,27 @@
     {
       "pregunta": "Relaciona cada enunciado con su expresión algebraica:",
       "tabla": {
-        "columnas": ["Enunciado", "Expresión"],
+        "columnas": [
+          "Enunciado",
+          "Expresión"
+        ],
         "filas": [
-          ["1. El cuadrado de la mitad de un número", "A. $\\frac{m^2}{2}$"],
-          ["2. La mitad del cuadrado de un número", "B. $(2m)^2$"],
-          ["3. El doble del cuadrado de un número", "C. $2m^2$"],
-          ["4. El cuadrado del doble de un número", "D. $(\\frac{m}{2})^2$"]
+          [
+            "1. El cuadrado de la mitad de un número",
+            "A. $\\frac{m^2}{2}$"
+          ],
+          [
+            "2. La mitad del cuadrado de un número",
+            "B. $(2m)^2$"
+          ],
+          [
+            "3. El doble del cuadrado de un número",
+            "C. $2m^2$"
+          ],
+          [
+            "4. El cuadrado del doble de un número",
+            "D. $(\\frac{m}{2})^2$"
+          ]
         ]
       },
       "opciones": {
@@ -25,7 +40,7 @@
       "pregunta": "Identifica cuáles de los siguientes enunciados sobre desigualdades son verdaderos:",
       "enunciados": [
         "1. Si $x < y$ y $y < z$, entonces $x < z$",
-        "2. Si $a < b$, entonces $a - c < b - c$", 
+        "2. Si $a < b$, entonces $a - c < b - c$",
         "3. Si $a > 0$ y $b < 0$, entonces $ab < 0$",
         "4. Si $x < y$ y $c < 0$, entonces $xc < yc$"
       ],
@@ -40,14 +55,14 @@
     {
       "pregunta": "Selecciona el orden correcto de los resultados de los siguientes logaritmos:",
       "enunciados": [
-        "$\\log_4 24 - \\log_4 6 + \\log_4 1$",
-        "$\\frac{1}{2}\\log_3 81 + \\log_{10} 100$", 
-        "$\\log_2 48 - \\log_2 3 \\times (\\log_2 8)^{-1}$",
-        "$\\log_{\\frac{1}{3}} \\frac{1}{27}$"
+        "1. $\\log_4 24 - \\log_4 6 + \\log_4 1$",
+        "2. $\\frac{1}{2}\\log_3 81 + \\log_{10} 100$",
+        "3. $\\log_2 48 - \\log_2 3 \\times (\\log_2 8)^{-1}$",
+        "4. $\\log_{\\frac{1}{3}} \\frac{1}{27}$"
       ],
       "opciones": {
         "a": "1, 3, 2, 4",
-        "b": "3, 1, 4, 2", 
+        "b": "3, 1, 4, 2",
         "c": "1, 4, 3, 2",
         "d": "4, 2, 1, 3"
       },
@@ -58,7 +73,7 @@
       "opciones": {
         "a": "primer",
         "b": "segundo",
-        "c": "tercero", 
+        "c": "tercero",
         "d": "cuarto"
       },
       "respuesta_correcta": "c"
@@ -67,7 +82,7 @@
       "pregunta": "La condición necesaria y suficiente para que dos rectas, con pendientes $m_1$ y $m_2$ definidas, sean paralelas entre sí es que _______________ de sus pendientes sea igual a cero.",
       "opciones": {
         "a": "la suma",
-        "b": "el producto", 
+        "b": "el producto",
         "c": "la diferencia",
         "d": "el cociente"
       },
@@ -78,7 +93,7 @@
       "opciones": {
         "a": "$3y^2 + x = 0$",
         "b": "$3y^2 - x = 0$",
-        "c": "$3x^2 + y = 0$", 
+        "c": "$3x^2 + y = 0$",
         "d": "$3x^2 - y = 0$"
       },
       "respuesta_correcta": "a"
@@ -87,7 +102,7 @@
       "pregunta": "Calcular el valor del límite: $\\lim_{x \\to 0}\\frac{\\tan(\\pi\\sin^2(x))}{x^2}$",
       "opciones": {
         "a": "0",
-        "b": "1", 
+        "b": "1",
         "c": "$\\pi$",
         "d": "$2\\pi$"
       },
@@ -137,7 +152,7 @@
       "pregunta": "Se suelta una pelota desde una altura de 20 m. ¿Cuánto tiempo tarda en caer al suelo? ($g = 10$ m/s²)",
       "opciones": {
         "a": "1.5 s",
-        "b": "2.0 s", 
+        "b": "2.0 s",
         "c": "3.0 s",
         "d": "4.0 s"
       },
@@ -146,12 +161,27 @@
     {
       "pregunta": "Relacionar el concepto de la física con la expresión matemática que lo representa:",
       "tabla": {
-        "columnas": ["Concepto", "Expresión matemática"],
+        "columnas": [
+          "Concepto",
+          "Expresión matemática"
+        ],
         "filas": [
-          ["1. Ley de Gravitación Universal", "A. $V = IR$"],
-          ["2. Fuerza centrípeta", "B. $F = G\\frac{m_1 m_2}{r^2}$"],
-          ["3. Segunda Ley de Newton", "C. $F = ma$"],
-          ["4. Ley de Ohm", "D. $F = m\\frac{v^2}{r}$"]
+          [
+            "1. Ley de Gravitación Universal",
+            "A. $V = IR$"
+          ],
+          [
+            "2. Fuerza centrípeta",
+            "B. $F = G\\frac{m_1 m_2}{r^2}$"
+          ],
+          [
+            "3. Segunda Ley de Newton",
+            "C. $F = ma$"
+          ],
+          [
+            "4. Ley de Ohm",
+            "D. $F = m\\frac{v^2}{r}$"
+          ]
         ]
       },
       "opciones": {
@@ -165,12 +195,27 @@
     {
       "pregunta": "Relacionar el concepto de ondas con su definición:",
       "tabla": {
-        "columnas": ["Concepto", "Definición"],
+        "columnas": [
+          "Concepto",
+          "Definición"
+        ],
         "filas": [
-          ["1. Refracción", "A. La propiedad de una onda de rodear obstáculos y desviarse después de pasar por una abertura."],
-          ["2. Reflexión", "B. El fenómeno que ocurre cuando una onda cambia de dirección y velocidad al pasar de un medio a otro."],
-          ["3. Difracción", "C. La magnitud de la energía que transporta una onda luminosa por unidad de área y por unidad de tiempo."],
-          ["4. Intensidad lumínica", "D. El cambio de dirección de una onda que, al incidir sobre la superficie de separación de dos medios, regresa al medio inicial."]
+          [
+            "1. Refracción",
+            "A. La propiedad de una onda de rodear obstáculos y desviarse después de pasar por una abertura."
+          ],
+          [
+            "2. Reflexión",
+            "B. El fenómeno que ocurre cuando una onda cambia de dirección y velocidad al pasar de un medio a otro."
+          ],
+          [
+            "3. Difracción",
+            "C. La magnitud de la energía que transporta una onda luminosa por unidad de área y por unidad de tiempo."
+          ],
+          [
+            "4. Intensidad lumínica",
+            "D. El cambio de dirección de una onda que, al incidir sobre la superficie de separación de dos medios, regresa al medio inicial."
+          ]
         ]
       },
       "opciones": {
@@ -185,7 +230,7 @@
       "pregunta": "Identificar el coeficiente de expansión volumétrica ($\\beta$) de un gas ideal si se expande de acuerdo a la expresión $\\frac{P}{T^2} =$ constante.",
       "opciones": {
         "a": "$1/T$",
-        "b": "$2/T$", 
+        "b": "$2/T$",
         "c": "$3/T$",
         "d": "$4/T$"
       },
