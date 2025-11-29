@@ -158,7 +158,7 @@ export default function VentanaTests() {
                 }}
               >
                 <div className="indicator-opcion">
-                  <div className="conentido-opcion">
+                  <div className="contenido-opcion">
                     <span className="letra-opcion">{opcion}.</span>
                     <img
                       src={getImagePath(
@@ -184,7 +184,7 @@ export default function VentanaTests() {
                 }}
               >
                 <div className="indicator-opcion">
-                  <div className="conentido-opcion">
+                  <div className="contenido-opcion">
                     <span className="letra-opcion">{opcion}.</span>
                     <span className="texto-opcion">
                       <TextoMatematico
