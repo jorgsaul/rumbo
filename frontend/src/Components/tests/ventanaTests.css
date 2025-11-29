@@ -7,16 +7,7 @@
   gap: 1.5rem;
 }
 
-/* Mejorar la legibilidad del texto */
-.ventana-test p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #333;
-  text-align: justify;
-  margin: 1rem 0;
-}
-
-/* Contenedor de opciones más accesible */
+/* Contenedor de opciones como botones grandes */
 .contenedor-opciones-tests {
   display: flex;
   flex-direction: column;
@@ -25,34 +16,36 @@
   margin: 1.5rem 0;
 }
 
-/* Radio buttons más grandes y fáciles de hacer clic */
-.radio-btn-container {
+/* CADA OPCIÓN ES UN BOTÓN COMPLETO */
+.opcion-boton {
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1rem;
+  padding: 1.25rem;
   border: 2px solid #e1e1e1;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.2s ease;
   background: white;
   width: 100%;
+  text-align: left;
 }
 
-.radio-btn-container:hover {
+.opcion-boton:hover {
   border-color: var(--primary-300);
   background: var(--primary-50);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(145, 35, 90, 0.1);
 }
 
-.radio-btn-container.selected {
+.opcion-boton.seleccionada {
   border-color: var(--primary-500);
   background: var(--primary-50);
-  box-shadow: 0 2px 8px rgba(145, 35, 90, 0.1);
+  box-shadow: 0 2px 8px rgba(145, 35, 90, 0.15);
 }
 
-/* Radio button personalizado más grande */
-.radio-btn-custom {
+/* Círculo indicador */
+.indicator-opcion {
   width: 1.5rem;
   height: 1.5rem;
   border: 2px solid #cacaca;
@@ -65,12 +58,12 @@
   transition: all 0.2s ease;
 }
 
-.radio-btn-container.selected .radio-btn-custom {
+.opcion-boton.seleccionada .indicator-opcion {
   border-color: var(--primary-500);
   background: var(--primary-500);
 }
 
-.radio-btn-custom::after {
+.indicator-opcion::after {
   content: '';
   width: 0.75rem;
   height: 0.75rem;
@@ -80,12 +73,12 @@
   transition: transform 0.2s ease;
 }
 
-.radio-btn-container.selected .radio-btn-custom::after {
+.opcion-boton.seleccionada .indicator-opcion::after {
   transform: scale(1);
 }
 
 /* Contenido de la opción */
-.radio-btn-content {
+.contenido-opcion {
   flex: 1;
   display: flex;
   align-items: flex-start;
@@ -93,24 +86,22 @@
 }
 
 .letra-opcion {
-  font-weight: 600;
+  font-weight: 700;
   color: var(--primary-600);
   min-width: 1.5rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
-.opcion-texto {
+.texto-opcion {
   flex: 1;
   line-height: 1.5;
   font-size: 1rem;
+  color: #333;
 }
 
-/* Imágenes de opciones */
-.contenedor-opcion-completa {
-  display: flex;
+/* Para opciones con imágenes */
+.opcion-con-imagen .contenido-opcion {
   align-items: center;
-  gap: 1rem;
-  width: 100%;
 }
 
 .imagen-opcion {
@@ -118,89 +109,30 @@
   height: 80px;
   border: 2px solid #e1e1e1;
   border-radius: 8px;
-  cursor: pointer;
-  transition: border-color 0.2s ease;
   object-fit: contain;
+  transition: border-color 0.2s ease;
 }
 
-.radio-btn-container:hover .imagen-opcion {
+.opcion-boton:hover .imagen-opcion {
   border-color: var(--primary-300);
 }
 
-.radio-btn-container.selected .imagen-opcion {
+.opcion-boton.seleccionada .imagen-opcion {
   border-color: var(--primary-500);
 }
 
-/* Tablas mejoradas */
-.tabla-test {
-  border-collapse: collapse;
-  width: 100%;
+/* Mejorar textos generales */
+.ventana-test p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
   margin: 1rem 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.tabla-test, .tabla-test th, .tabla-test td {
-  border: 1px solid #ddd;
-  padding: 12px;
-  text-align: left;
-}
-
-.tabla-test th {
-  background-color: var(--primary-50);
-  color: var(--primary-700);
-  font-weight: 600;
-}
-
-.tabla-test tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-/* Imágenes de secuencia */
-.contenedor-imagenes {
-  text-align: center;
-  margin: 1.5rem 0;
-}
-
-.imagen-secuencia {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Botones */
-.botones-test {
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #e1e1e1;
-}
-
-/* Enunciados */
-.contenedor-enunciado {
-  background: #f8f9fa;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid var(--primary-500);
-  margin: 1rem 0;
-}
-
-.contenedor-enunciado p {
-  margin: 0.5rem 0;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .ventana-test {
-    width: 95%;
-    gap: 1rem;
-  }
-  
-  .radio-btn-container {
-    padding: 0.75rem;
+  .opcion-boton {
+    padding: 1rem;
   }
   
   .imagen-opcion {
@@ -208,11 +140,11 @@
     height: 60px;
   }
   
-  .tabla-test {
-    font-size: 0.9rem;
+  .letra-opcion {
+    font-size: 1rem;
   }
   
-  .tabla-test, .tabla-test th, .tabla-test td {
-    padding: 8px;
+  .texto-opcion {
+    font-size: 0.95rem;
   }
 }

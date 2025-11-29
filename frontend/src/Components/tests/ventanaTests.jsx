@@ -146,49 +146,54 @@ export default function VentanaTests() {
       <div className="contenedor-opciones-tests">
         {preguntaActual.opciones_imagenes
           ? Object.keys(preguntaActual.opciones_imagenes).map((opcion) => (
-              <div key={opcion} className="opcion-con-imagen">
-                <RadioBtn
-                  input={
-                    <div className="contenedor-opcion-completa">
-                      <span className="letra-opcion">{opcion}.</span>
-                      <img
-                        src={getImagePath(
-                          preguntaActual.opciones_imagenes[opcion]
-                        )}
-                        alt={`Opción ${opcion}`}
-                        className="imagen-opcion"
-                      />
-                    </div>
-                  }
-                  name={`pregunta-${numeroPregunta}`}
-                  value={opcion}
-                  accion={(e) => {
-                    const newRespuestas = [...respuestas];
-                    newRespuestas[numeroPregunta] = e.target.value;
-                    setRespuestas(newRespuestas);
-                  }}
-                  checked={respuestas[numeroPregunta] === opcion}
-                />
+              <div
+                key={opcion}
+                className={`opcion-boton opcion-con-imagen ${
+                  respuestas[numeroPregunta] === opcion ? "seleccionada" : ""
+                }`}
+                onClick={() => {
+                  const newRespuestas = [...respuestas];
+                  newRespuestas[numeroPregunta] = opcion;
+                  setRespuestas(newRespuestas);
+                }}
+              >
+                <div className="indicator-opcion">
+                  <div className="conentido-opcion">
+                    <span className="letra-opcion">{opcion}.</span>
+                    <img
+                      src={getImagePath(
+                        preguntaActual.opciones_imagenes[opcion]
+                      )}
+                      alt={`Opción ${opcion}`}
+                      className="imagen-opcion"
+                    />
+                  </div>
+                </div>
               </div>
             ))
           : Object.keys(preguntaActual.opciones).map((opcion) => (
-              <RadioBtn
+              <div
                 key={opcion}
-                input={
-                  <span>
-                    {opcion}.{" "}
-                    <TextoMatematico texto={preguntaActual.opciones[opcion]} />
-                  </span>
-                }
-                name={`pregunta-${numeroPregunta}`}
-                value={opcion}
-                accion={(e) => {
+                className={`opcion-boton ${
+                  respuestas[numeroPregunta] === opcion ? "seleccionada" : ""
+                }`}
+                onClick={() => {
                   const newRespuestas = [...respuestas];
-                  newRespuestas[numeroPregunta] = e.target.value;
+                  newRespuestas[numeroPregunta] = opcion;
                   setRespuestas(newRespuestas);
                 }}
-                checked={respuestas[numeroPregunta] === opcion}
-              />
+              >
+                <div className="indicator-opcion">
+                  <div className="conentido-opcion">
+                    <span className="letra-opcion">{opcion}.</span>
+                    <span className="texto-opcion">
+                      <TextoMatematico
+                        texto={preguntaActual.opciones[opcion]}
+                      />
+                    </span>
+                  </div>
+                </div>
+              </div>
             ))}
       </div>
 
