@@ -88,7 +88,6 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
       const result = await response.json();
 
       if (result.success) {
-        alert(result.message || "Publicación eliminada exitosamente");
         recargarPublicaciones();
         setAviso(false);
       } else {

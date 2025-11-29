@@ -83,7 +83,7 @@ const TestVocacional = () => {
         setUserAnswers(savedProgress.answers);
       }
     }
-    setShowWelcome(false); // IMPORTANTE: Ocultar la pantalla de bienvenida
+    setShowWelcome(false);
     console.log("showWelcome cambiado a: false");
   };
 
