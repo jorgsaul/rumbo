@@ -1,6 +1,6 @@
-.common-button, .disabled-button{
+.common-button, .disabled-button {
   border: none;
-  padding: 0.7rem;
+  padding: 0.7rem 1.5rem;
   max-width: 15rem;
   min-width: 10rem;
   width: fit-content;
@@ -8,28 +8,42 @@
   background: #5A1236;
   border-radius: 0.25rem;
   color: white;
-}
-
-.common-button img{
-  filter: brightness(0) invert(1);
-}
-
-.common-button:hover{
-  background-color: #91235A;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.common-button:active{
-  background-color: #270415;
+.common-button img {
+  filter: brightness(0) invert(1);
 }
 
-.disabled-button{
+.common-button:hover {
+  background-color: #91235A;
+  cursor: pointer;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(90, 18, 54, 0.3);
+}
+
+.common-button:active {
+  background-color: #270415;
+  transform: translateY(0);
+}
+
+.disabled-button {
   background-color: #EE68A4;
   pointer-events: none;
   user-select: none;
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 
-button:disabled{
+button:disabled {
   cursor: not-allowed;
 }
 
@@ -56,4 +70,20 @@ button:disabled{
 
 .disabled-button.compact {
   background-color: #EE68A4;
+}
+
+.common-button.large, 
+.disabled-button.large {
+  padding: 1rem 2rem;
+  min-width: 12rem;
+  max-width: 20rem;
+  height: 3.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.button-icon {
+  font-size: 1.2em;
+  display: flex;
+  align-items: center;
 }

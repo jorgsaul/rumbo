@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./testVocacional.css";
+import Button from "../botones/buttonPrimary";
 
 import { questions, careers } from "./testData";
 
@@ -11,7 +12,7 @@ const TestVocacional = () => {
   const [testResults, setTestResults] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(true); // NUEVO: control explícito
+  const [showWelcome, setShowWelcome] = useState(true);
 
   useEffect(() => {
     const savedProgress = loadProgress();
@@ -19,7 +20,7 @@ const TestVocacional = () => {
       setUserAnswers(savedProgress.answers);
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
       setHasSavedProgress(true);
-      setShowWelcome(false); // Si hay progreso guardado, no mostrar bienvenida
+      setShowWelcome(false);
     }
   }, []);
 
@@ -198,14 +199,22 @@ const PantallaBienvenida = ({ onStart, hasSavedProgress, onContinue }) => {
 
         <div className="welcome-actions">
           {hasSavedProgress && (
-            <button className="welcome-button continue" onClick={onContinue}>
-              ↻ Continuar Test Anterior
-            </button>
+            <Button
+              text={"Continuar Test Anterior"}
+              action={onContinue}
+              enable={true}
+              icon={"↻"}
+              className={"large"}
+            />
           )}
 
-          <button className="welcome-button start" onClick={onStart}>
-            {hasSavedProgress ? "🔄 Empezar Test Nuevo" : "🚀 Comenzar Test"}
-          </button>
+          <Button
+            text={hasSavedProgress ? "Empezar Test Nuevo" : "Empezar Test"}
+            action={onStart}
+            enable={true}
+            icon={"🚀"}
+            className={"large"}
+          />
         </div>
 
         <div className="welcome-info">
