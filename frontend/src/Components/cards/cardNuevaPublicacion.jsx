@@ -31,7 +31,6 @@ function CardNuevaPublicacion({ usuario, onPostSuccess }) {
       limpiarCampos();
       onPostSuccess?.();
     }
-    console.log(selectedEtiquetas);
   };
   return (
     <div className="card card-nueva-publicacion">

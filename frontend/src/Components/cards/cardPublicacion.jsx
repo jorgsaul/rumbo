@@ -30,7 +30,6 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
         );
 
         const data = await response.json();
-        console.log(data.reported);
         setYaReportado(data.reported);
       } catch (error) {
         console.log(error);

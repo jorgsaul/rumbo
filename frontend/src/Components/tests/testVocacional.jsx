@@ -4,8 +4,6 @@ import Button from "../botones/buttonPrimary";
 
 import { questions, careers } from "./testData";
 
-const STORAGE_KEY = "test_vocacional_progress";
-
 const TestVocacional = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
@@ -13,9 +11,43 @@ const TestVocacional = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
+  const [storageKey, setStorageKey] = useState(null);
+
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+    return null;
+  };
+
+  const getStorageKey = () => {
+    const token = localStorage.getItem("google_token") || getCookie("token");
+    if (token) {
+      try {
+        const payload = JSON.parse(atob(token.split(".")[1]));
+        return `test_vocacional_progress_${payload.id}`;
+      } catch (error) {
+        console.error("Error al obtener el ID del usuario:", error);
+      }
+    }
+
+    let sessionId = localStorage.getItem("test_session_id");
+    if (!sessionId) {
+      sessionId =
+        `session_` +
+        Date.now() +
+        "_" +
+        Math.random().toString(36).substring(2, 9);
+      localStorage.setItem("test_session_id", sessionId);
+    }
+    return `test_vocacional_progress_${sessionId}`;
+  };
 
   useEffect(() => {
-    const savedProgress = loadProgress();
+    const key = getStorageKey();
+    setStorageKey(key);
+
+    const savedProgress = loadProgress(key);
     if (savedProgress) {
       setUserAnswers(savedProgress.answers);
       setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
@@ -28,18 +60,20 @@ const TestVocacional = () => {
     if (Object.keys(userAnswers).length > 0) {
       saveProgress();
     }
-  }, [userAnswers, currentQuestionIndex]);
+  }, [userAnswers, currentQuestionIndex, storageKey]);
 
-  const loadProgress = () => {
+  const loadProgress = (key = storageKey) => {
+    if (!key) return null;
+
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(key);
       if (saved) {
         const progress = JSON.parse(saved);
         const oneWeekAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
         if (progress.timestamp > oneWeekAgo) {
           return progress;
         } else {
-          localStorage.removeItem(STORAGE_KEY);
+          localStorage.removeItem(key);
         }
       }
     } catch (error) {
@@ -56,15 +90,16 @@ const TestVocacional = () => {
         timestamp: Date.now(),
         totalQuestions: questions.length,
         answeredCount: Object.keys(userAnswers).length,
+        userId: storageKey,
       };
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+      localStorage.setItem(storageKey, JSON.stringify(progress));
     } catch (error) {
       console.error("Error guardando progreso:", error);
     }
   };
 
   const clearProgress = () => {
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(storageKey);
     setHasSavedProgress(false);
   };
 
