@@ -30,7 +30,7 @@ export default function VentanaTests() {
     ).toFixed(2);
 
     try {
-      awaitfetch(
+      await fetch(
         `${import.meta.env.VITE_APP_API_BASE_URL}/insertar-resultados`,
         {
           method: "POST",
