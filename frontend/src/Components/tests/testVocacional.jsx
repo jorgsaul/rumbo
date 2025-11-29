@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./TestVocacional.css";
+import "./testVocacional.css";
 
 import { questions, careers } from "./testData";
 
@@ -357,31 +357,61 @@ const PantallaTest = ({
     </div>
   );
 };
-const ScoreCard = ({ titulo, valor, descripcion, color }) => (
-  <div className="score-card" style={{ borderTopColor: color }}>
-    <h4>{titulo}</h4>
-    <div className="score-value" style={{ color }}>
-      {valor}%
-    </div>
-    <p className="score-desc">{descripcion}</p>
-  </div>
-);
 
-const PillarScore = ({ label, value }) => (
-  <div className="pillar-score">
-    <span className="pillar-label">{label}</span>
-    <div className="score-bar">
-      <div
-        className="score-fill"
-        style={{
-          width: `${value}%`,
-          backgroundColor: `hsl(${value * 1.2}, 70%, 45%)`,
-        }}
-      ></div>
+const calcularResultadosCompletos = (userAnswers) => {
+  const scores = {};
+
+  careers.forEach((carrera) => {
+    let totalScore = 0;
+    let questionCount = 0;
+
+    questions.forEach((pregunta) => {
+      if (userAnswers[pregunta.id]) {
+        const respuesta = userAnswers[pregunta.id];
+        totalScore += respuesta * (carrera.pesos?.[pregunta.id] || 1);
+        questionCount++;
+      }
+    });
+
+    if (questionCount > 0) {
+      scores[carrera.id] = {
+        nombre: carrera.nombre,
+        puntuacion: Math.round((totalScore / (questionCount * 5)) * 100),
+      };
+    }
+  });
+
+  return Object.values(scores)
+    .sort((a, b) => b.puntuacion - a.puntuacion)
+    .slice(0, 5);
+};
+
+const Resultados = ({ resultados, onRestart }) => {
+  return (
+    <div className="results-screen">
+      <div className="results-header">
+        <h1>🎯 Tus Resultados Ikigai</h1>
+        <p>Estas son las carreras que mejor se alinean con tu perfil</p>
+      </div>
+
+      <div className="results-grid">
+        {resultados.map((carrera, index) => (
+          <div key={carrera.id} className="career-card">
+            <div className="career-rank">#{index + 1}</div>
+            <h3>{carrera.nombre}</h3>
+            <div className="career-score">
+              {carrera.puntuacion}% de compatibilidad
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <button className="restart-button" onClick={onRestart}>
+        🔄 Realizar otro test
+      </button>
     </div>
-    <span className="score-number">{value}%</span>
-  </div>
-);
+  );
+};
 
 const PantallaCarga = () => (
   <div className="loading-screen">
@@ -392,21 +422,5 @@ const PantallaCarga = () => (
     </p>
   </div>
 );
-
-const calcularPromediosPerfil = (topCarreras) => {
-  const promedios = { pasion: 0, vocacion: 0, profesion: 0, mision: 0 };
-
-  topCarreras.forEach(({ scores }) => {
-    Object.keys(promedios).forEach((pilar) => {
-      promedios[pilar] += scores[pilar];
-    });
-  });
-
-  Object.keys(promedios).forEach((pilar) => {
-    promedios[pilar] = Math.round(promedios[pilar] / topCarreras.length);
-  });
-
-  return promedios;
-};
 
 export default TestVocacional;
