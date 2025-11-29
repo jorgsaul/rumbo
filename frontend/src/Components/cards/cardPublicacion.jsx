@@ -69,6 +69,37 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
     }
   };
 
+  const funcionBorrar = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_API_BASE_URL}/delete-post?post_id=${
+          objeto.id
+        }`,
+        {
+          method: "DELETE",
+          credentials: "include",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Error al borrar la publicación");
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert(result.message || "Publicación eliminada exitosamente");
+        recargarPublicaciones();
+        setAviso(false);
+      } else {
+        alert("Error al borrar la publicación");
+      }
+    } catch (error) {
+      console.error("Error borrando publicación:", error);
+      alert("Error al borrar la publicación");
+    }
+  };
+
   return (
     <div className="card">
       {aviso && (
