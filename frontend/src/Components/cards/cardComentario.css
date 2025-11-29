@@ -5,6 +5,11 @@
   margin-bottom: 0.5rem;
   border-radius: 6px;
   border-bottom: 1px solid #dad7d7;
+  position: relative;
+}
+
+.contenedor-card-comentario.oculto {
+  display: none;
 }
 
 .contenedor-imagen-avatar-comentario {
@@ -47,4 +52,62 @@
 
 .texto-comentario p {
   margin: 0;
+}
+
+.btn-ocultar-comentario {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-card-comentario:hover .btn-ocultar-comentario {
+  opacity: 1;
+}
+
+.btn-ocultar-comentario:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-ocultar-comentario svg {
+  width: 16px;
+  height: 16px;
+  color: #8e8e8e;
+}
+
+.btn-ocultar-comentario:hover svg {
+  color: #5A1236;
+}
+
+.comentario-oculto {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #8e8e8e;
+  font-size: 12px;
+  font-style: italic;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px dashed #dad7d7;
+}
+
+.comentario-oculto:hover {
+  color: #5A1236;
+  border-color: #5A1236;
+}
+
+.comentario-oculto svg {
+  width: 14px;
+  height: 14px;
 }
