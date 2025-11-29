@@ -157,17 +157,13 @@ export default function VentanaTests() {
                   setRespuestas(newRespuestas);
                 }}
               >
-                <div className="indicator-opcion">
-                  <div className="contenido-opcion">
-                    <span className="letra-opcion">{opcion}.</span>
-                    <img
-                      src={getImagePath(
-                        preguntaActual.opciones_imagenes[opcion]
-                      )}
-                      alt={`Opción ${opcion}`}
-                      className="imagen-opcion"
-                    />
-                  </div>
+                <div className="contenido-opcion">
+                  <span className="letra-opcion">{opcion}.</span>
+                  <img
+                    src={getImagePath(preguntaActual.opciones_imagenes[opcion])}
+                    alt={`Opción ${opcion}`}
+                    className="imagen-opcion"
+                  />
                 </div>
               </div>
             ))
@@ -183,15 +179,11 @@ export default function VentanaTests() {
                   setRespuestas(newRespuestas);
                 }}
               >
-                <div className="indicator-opcion">
-                  <div className="contenido-opcion">
-                    <span className="letra-opcion">{opcion}.</span>
-                    <span className="texto-opcion">
-                      <TextoMatematico
-                        texto={preguntaActual.opciones[opcion]}
-                      />
-                    </span>
-                  </div>
+                <div className="contenido-opcion">
+                  <span className="letra-opcion">{opcion}.</span>
+                  <span className="texto-opcion">
+                    <TextoMatematico texto={preguntaActual.opciones[opcion]} />
+                  </span>
                 </div>
               </div>
             ))}
