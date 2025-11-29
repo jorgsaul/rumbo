@@ -8,31 +8,39 @@ import VentanaComentarios from "../ventanas/ventanaComentarios";
 import IconoBorrar from "../iconos/iconoBorrar";
 import Tag from "../avatar/tag";
 import VentanaAviso from "../ventanas/ventanaAviso";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
   const [comentario, setComentario] = useState(false);
   const [aviso, setAviso] = useState(false);
+  const [yaReportado, setYaReportado] = useState(false);
 
-  const funcionBorrar = async () => {
-    try {
-      await fetch(
-        `${import.meta.env.VITE_APP_API_BASE_URL}/delete-post?post_id=${
-          objeto.id
-        }`,
-        {
-          method: "DELETE",
-          credentials: "include",
-        }
-      );
-      recargarPublicaciones();
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  useEffect(() => {
+    const verificarReporte = async () => {
+      try {
+        const response = await fetch(
+          `${import.meta.env.VITE_APP_API_BASE_URL}/check-report?post_id=${
+            objeto.id
+          }`,
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
 
-  const handleReport = async () => {
+        const data = await response.json();
+        setYaReportado(data.reported);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    verificarReporte();
+  }, [objeto.id]);
+
+  const funcionReportar = async () => {
+    if (yaReportado) return alert("Ya has reportado esta publicacion");
     try {
       const response = await fetch(
         `${import.meta.env.VITE_APP_API_BASE_URL}/report-post`,
@@ -48,8 +56,13 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
 
       const result = await response.json();
 
-      if (result.success) alert(result.message);
-      if (result.hidden) recargarPublicaciones();
+      if (result.success) {
+        setYaReportado(true);
+        alert(result.message);
+        if (result.hidden) {
+          recargarPublicaciones();
+        }
+      }
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +120,7 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
             />
           </div>
           <div className="reaccion-reportar">
-            <IconoReport onClick={handleReport} />
+            <IconoReport onClick={handleReport} yaReportado={yaReportado} />
           </div>
           <div className="reaccion-comentar">
             <IconoComentario funcion={() => setComentario(!comentario)} />

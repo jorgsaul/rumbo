@@ -158,4 +158,21 @@ router.post('/report-post', authenticateUser, async (req, res) => {
   }
 });
 
+router.get('/check-report', authenticateUser, async (req, res) => {
+  const userID = req.user.id;
+  const { post_id } = req.query;
+
+  try {
+    const result = await pool.query(
+      'SELECT sp_check_user_reported($1, $2) as reported',
+      [post_id, userID]
+    );
+    
+    res.json({ reported: result.rows[0].reported });
+  } catch (error) {
+    console.error('Error verificando reporte:', error);
+    res.status(500).json({ error: 'Error verificando reporte' });
+  }
+});
+
 export default router;

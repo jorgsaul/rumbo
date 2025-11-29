@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-function IconoReport({ onClick }) {
-  const [reported, setReport] = useState(false);
+function IconoReport({ onClick, yaReportado }) {
+  const [reported, setReport] = useState(yaReportado);
   const handleReport = () => {
     onClick();
     setReport(!reported);
@@ -18,6 +18,7 @@ function IconoReport({ onClick }) {
       onClick={handleReport}
       style={{
         cursor: "pointer",
+        color: reported ? "#F64C4C" : "currentColor",
       }}
     >
       <path
