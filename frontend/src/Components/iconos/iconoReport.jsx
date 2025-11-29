@@ -11,7 +11,7 @@ function IconoReport({ onClick, yaReportado }) {
       onClick={onClick}
       style={{
         cursor: "pointer",
-        color: reported ? "#F64C4C" : "currentColor",
+        color: yaReportado ? "#F64C4C" : "currentColor",
       }}
     >
       <path
