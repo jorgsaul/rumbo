@@ -1,21 +1,14 @@
-import { useState } from "react";
-
 function IconoReport({ onClick, yaReportado }) {
-  const [reported, setReport] = useState(yaReportado);
-  const handleReport = () => {
-    onClick();
-    setReport(!reported);
-  };
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      fill={reported ? "#F64C4C" : "transparent"}
+      fill={yaReportado ? "#F64C4C" : "transparent"}
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
       className="size-6"
       height={20}
-      onClick={handleReport}
+      onClick={onClick}
       style={{
         cursor: "pointer",
         color: reported ? "#F64C4C" : "currentColor",
