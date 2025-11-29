@@ -9,6 +9,7 @@ import funcionFavoritos from '../controllers/userSaves.js';
 import { borrarPublicacion } from '../controllers/borrarPublicacion.js';
 import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
 import { buscarPublicaciones } from '../controllers/buscarPublicacion.js';
+import { reportarPost } from '../controllers/reportController.js';
 
 const router = express.Router();
 
@@ -137,6 +138,23 @@ router.get('/buscar-posts', authenticateUser, async (req, res) => {
   } catch (error) {
     console.error('Error en búsqueda:', error);
     res.status(500).json({ error: 'Error al buscar publicaciones' });
+  }
+});
+
+router.post('/report-post', authenticateUser, async (req, res) => {
+  const userID = req.user.id;
+  const { post_id } = req.body;
+
+  if (!post_id) {
+    return res.status(400).json({ error: 'post_id es requerido' });
+  }
+
+  try {
+    const resultado = await reportarPost(post_id, userID);
+    res.json(resultado);
+  } catch (error) {
+    console.error('Error al reportar el post:', error);
+    res.status(500).json({ error: 'Error al reportar el post' });
   }
 });
 
