@@ -69,6 +69,7 @@ function RegistroPaso2({ paso, setDatos, datos, esRegistro }) {
         error={error}
         errorMessage={mensaje}
         disabled={loading}
+        maxLength={254}
       />
       <div className="paso2-button-container">
         <div>

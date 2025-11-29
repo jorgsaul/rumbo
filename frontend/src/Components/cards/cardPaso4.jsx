@@ -13,8 +13,8 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
   const validacion = async () => {
     if (!/^(?=(?:.*[a-zA-ZñÑ]){3,}).*$/.test(usuario))
       return "El usuario debe de contener al menos 3 letras";
-    if (!/^.{4,15}$/.test(usuario))
-      return "El usuario debe de ser de al menos 4 caracteres y no mayor a 15";
+    if (!/^.{5,30}$/.test(usuario))
+      return "El usuario debe de ser de al menos 5 caracteres y no mayor a 30";
     if (!/^[a-zñA-ZÑ0-9_-]+$/.test(usuario))
       return "El usuario solo puede contener los simbolos _ o -";
     if (!/^.{8,30}$/.test(contraseña))
