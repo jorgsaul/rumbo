@@ -21,7 +21,11 @@ const TestVocacional = () => {
   };
 
   const getStorageKey = () => {
-    const token = localStorage.getItem("google_token") || getCookie("token");
+    const googleToken = localStorage.getItem("auth_token");
+    const cookieToken = getCookie("token");
+    console.log("googleToken:", googleToken);
+    console.log("cookieToken:", cookieToken);
+    const token = localStorage.getItem("auth_token") || getCookie("token");
     if (token) {
       try {
         const payload = JSON.parse(atob(token.split(".")[1]));
