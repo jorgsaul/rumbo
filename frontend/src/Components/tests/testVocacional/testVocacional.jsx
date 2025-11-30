@@ -182,9 +182,7 @@ const TestVocacional = () => {
 
       try {
         const response = await fetch(
-          `${
-            import.meta.env.VITE_APP_API_BASE_URL
-          }/test-vocacional/guardar-resultados`,
+          `${import.meta.env.VITE_APP_API_BASE_URL}/guardar-resultados`,
           {
             method: "POST",
             credentials: "include",

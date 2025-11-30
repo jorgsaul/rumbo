@@ -12,7 +12,7 @@ function VentanaRecursos() {
     const cargarResultadosVocacional = async () => {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_APP_API_BASE_URL}/test-vocacional/historial`,
+          `${import.meta.env.VITE_APP_API_BASE_URL}/historial`,
           {
             credentials: "include",
             method: "GET",
