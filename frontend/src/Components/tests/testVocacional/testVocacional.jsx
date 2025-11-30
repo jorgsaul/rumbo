@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./resultados/style.css";
+import "./testVocacional.css";
 import PantallaBienvenida from "./pantallaBienvenida";
 import PantallaCarga from "./pantallaCarga";
 import PantallaTest from "./pantallaTest";
