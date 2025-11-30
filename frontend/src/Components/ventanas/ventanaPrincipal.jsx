@@ -4,10 +4,10 @@ import Sider from "../NavBar/sider";
 import VentanaForo from "./ventanaForo";
 import VentanaRecursos from "./ventanaRecursos";
 import VentanaPerfil from "./ventanaPerfil";
-import VentanaTests from "../tests/testVocacional/testVocacional";
+import VentanaTests from "../tests/ventanaTests";
 import AuthSuccess from "./auth-succes";
 import VentanaResultados from "../busquedas/ventanaResultados";
-import TestVocacional from "../tests/testVocacional";
+import TestVocacional from "../tests/testVocacional/testVocacional";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 function Layout() {
