@@ -1,5 +1,6 @@
 import { questions, careers } from "./testData";
 import "./testVocacional.css";
+
 const PantallaTest = ({
   currentQuestionIndex,
   userAnswers,
