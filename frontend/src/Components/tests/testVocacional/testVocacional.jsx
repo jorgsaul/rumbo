@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import "./resultados/style.css";
 import PantallaBienvenida from "./pantallaBienvenida";
 import PantallaCarga from "./pantallaCarga";
@@ -16,6 +16,7 @@ const TestVocacional = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   const [storageKey, setStorageKey] = useState(null);
   const { calcularResultadosCompletos } = useIkigaiCalculator();
+  const { calcularPerfilVocacional } = useIkigaiCalculator();
   const getStorageKey = async () => {
     try {
       const response = await fetch(
@@ -171,11 +172,41 @@ const TestVocacional = () => {
   const calculateResults = async () => {
     setIsLoading(true);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       const results = calcularResultadosCompletos(userAnswers, 10);
+      const perfilVocacional = calcularPerfilVocacional(userAnswers);
+      const zonaIkigai = results[0]?.zonaIkigai || "EXPLORAR_MAS";
       setTestResults(results);
       setIsLoading(false);
       clearProgress();
+
+      try {
+        const response = await fetch(
+          `${
+            import.meta.env.VITE_APP_API_BASE_URL
+          }/test-vocacional/guardar-resultados`,
+          {
+            method: "POST",
+            credentials: "include",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              resultados: results,
+              perfilVocacional: perfilVocacional,
+              resultadosCompletos: userAnswers,
+              zonaIkigai: zonaIkigai,
+            }),
+          }
+        );
+
+        const data = await response.json();
+        if (data.success) {
+          console.log("Resultados guardados exitosamente");
+        } else {
+          console.warn("Resultados no guardados");
+        }
+      } catch (error) {
+        console.error("Error guardando resultados:", error);
+      }
     }, 1500);
   };
 
