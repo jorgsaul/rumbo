@@ -1,3 +1,4 @@
+import "./style.css";
 const CarreraCard = ({ carrera, ranking }) => {
   return (
     <div className="career-card">

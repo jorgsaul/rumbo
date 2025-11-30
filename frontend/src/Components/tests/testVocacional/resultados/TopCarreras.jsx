@@ -1,4 +1,5 @@
 import CarreraCard from "./CarreraCard";
+import "./style.css";
 
 const TopCarreras = ({ resultados }) => {
   const top10Carreras = resultados.slice(0, 10);

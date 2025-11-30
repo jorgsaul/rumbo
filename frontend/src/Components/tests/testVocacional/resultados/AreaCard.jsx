@@ -1,3 +1,4 @@
+import "./style.css";
 const AreaCard = ({ icono, label, valor }) => {
   return (
     <div className="area-card">

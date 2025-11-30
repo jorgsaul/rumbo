@@ -1,4 +1,5 @@
 import AreaCard from "./AreaCard";
+import "./style.css";
 
 const PerfilVocacional = ({ resultados }) => {
   const calcularAreasPerfil = () => {

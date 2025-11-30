@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./style.css";
 import PerfilVocacional from "./PerfilVocacional";
 import TopCarreras from "./TopCarreras";
 
