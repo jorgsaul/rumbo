@@ -1,6 +1,6 @@
 // hooks/useIkigaiCalculator.js
 import { useCallback } from 'react';
-import { questions, careers } from '../Components/tests/testData';
+import { questions, careers } from '../Components/tests/testVocacional/testData';
 
 export const useIkigaiCalculator = () => {
   const normalizarRespuesta = useCallback((valor) => {

@@ -1,0 +1,183 @@
+/* Estilos para la nueva sección de perfil */
+.profile-section {
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: var(--neutral-100);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-600);
+  font-size: 1.8rem;
+}
+
+.profile-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.area-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--neutral-50);
+  border-radius: 12px;
+  border: 2px solid var(--neutral-200);
+  transition: transform 0.2s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-300);
+}
+
+.area-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.area-card h3 {
+  margin-bottom: 1rem;
+  color: var(--neutral-800);
+  font-size: 1.1rem;
+}
+
+.area-score {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  min-width: 60px;
+}
+
+/* Top Carreras Section */
+.top-careers-section {
+  margin-bottom: 2rem;
+}
+
+.top-careers-section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-600);
+  font-size: 1.8rem;
+}
+
+/* Grid expandido para top 10 */
+.careers-grid.expanded {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Mejoras para las tarjetas de carrera */
+.career-card {
+  padding: 1.5rem;
+  background: var(--neutral-100);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--neutral-300);
+  transition: all 0.3s ease;
+}
+
+.career-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(90, 18, 54, 0.15);
+  border-color: var(--primary-300);
+}
+
+.career-rank {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.career-card h3 {
+  margin: 0.5rem 0;
+  color: var(--neutral-900);
+  font-size: 1.3rem;
+  line-height: 1.3;
+}
+
+.career-score {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 700;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Pilares Ikigai mejorados */
+.pillar-scores {
+  margin: 1.5rem 0;
+}
+
+.pillar-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--neutral-50);
+  border-radius: 6px;
+}
+
+.pillar-label {
+  font-weight: 600;
+  color: var(--neutral-700);
+  font-size: 0.9rem;
+}
+
+.pillar-value {
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  min-width: 50px;
+  text-align: center;
+}
+
+.zona-ikigai {
+  text-align: center;
+  padding: 0.75rem;
+  background: var(--primary-50);
+  border-radius: 8px;
+  color: var(--primary-700);
+  font-weight: 600;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.results-actions {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--neutral-300);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-areas {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .careers-grid.expanded {
+    grid-template-columns: 1fr;
+  }
+  
+  .area-card {
+    padding: 1rem;
+  }
+  
+  .career-card {
+    padding: 1.25rem;
+  }
+}
