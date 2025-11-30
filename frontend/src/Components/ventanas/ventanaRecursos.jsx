@@ -166,11 +166,10 @@ function VentanaRecursos() {
                 </div>
               </div>
 
-              {/* Top Carreras */}
               <div className="seccion-carreras">
                 <h3>🏆 Top 5 Carreras Recomendadas</h3>
                 <div className="lista-carreras">
-                  {JSON.parse(resultadosVocacional.top_carreras)
+                  {resultadosVocacional.top_carreras
                     .slice(0, 5)
                     .map((carrera, index) => (
                       <div key={carrera.id} className="carrera-item">
@@ -196,7 +195,6 @@ function VentanaRecursos() {
                 </div>
               </div>
 
-              {/* Zona Ikigai */}
               <div className="seccion-ikigai">
                 <h3>💡 Tu Zona Ikigai</h3>
                 <div className="zona-ikigai-info">
