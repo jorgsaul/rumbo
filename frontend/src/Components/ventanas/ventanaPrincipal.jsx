@@ -4,7 +4,7 @@ import Sider from "../NavBar/sider";
 import VentanaForo from "./ventanaForo";
 import VentanaRecursos from "./ventanaRecursos";
 import VentanaPerfil from "./ventanaPerfil";
-import VentanaTests from "../tests/ventanaTests";
+import VentanaTests from "../tests/testVocacional/testVocacional";
 import AuthSuccess from "./auth-succes";
 import VentanaResultados from "../busquedas/ventanaResultados";
 import TestVocacional from "../tests/testVocacional";
