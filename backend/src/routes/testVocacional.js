@@ -4,12 +4,12 @@ import {pool} from '../config/dataBase.js';
 
 const router = express.Router();
 
+// routes/testVocacional.js - versión simplificada
 router.post('/guardar-resultados', authenticateUser, async (req, res) => {
   try {
     const { 
       resultados, 
-      perfilVocacional, 
-      respuestasUsuario,
+      perfilVocacional,
       zonaIkigai 
     } = req.body;
     
@@ -23,9 +23,9 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
     const query = `
       INSERT INTO user_vocational_results 
         (user_id, perfil_tecnologico, perfil_cientifico, perfil_salud, 
-         perfil_administrativo, perfil_social, top_carreras, respuestas_usuario,
+         perfil_administrativo, perfil_social, top_carreras,
          resultados_completos, score_global, zona_ikigai)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
       RETURNING *
     `;
 
@@ -37,11 +37,18 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
       perfilVocacional.administrativo?.valor || 0,
       perfilVocacional.social?.valor || 0,
       JSON.stringify(resultados.slice(0, 10)),
-      JSON.stringify(respuestasUsuario),
       JSON.stringify(resultados),
       scoreGlobal.toFixed(2),
       zonaIkigai
     ];
+
+    console.log('🔍 Ejecutando query con perfiles:', {
+      tecnologico: values[1],
+      cientifico: values[2],
+      salud: values[3],
+      administrativo: values[4],
+      social: values[5]
+    });
 
     const result = await pool.query(query, values);
     
@@ -57,7 +64,7 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
     console.error('❌ Error guardando resultados vocacionales:', error);
     res.status(500).json({
       success: false,
-      error: 'Error interno del servidor'
+      error: 'Error interno del servidor: ' + error.message
     });
   }
 });

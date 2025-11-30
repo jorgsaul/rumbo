@@ -180,6 +180,14 @@ const TestVocacional = () => {
       setIsLoading(false);
       clearProgress();
 
+      console.log("🎯 Perfil vocacional a guardar:", perfilVocacional);
+      console.log("📊 Zona Ikigai:", zonaIkigai);
+      console.log(
+        "🏆 Top carrera:",
+        results[0]?.nombre,
+        "- Zona:",
+        results[0]?.zona_ikigai
+      );
       try {
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/guardar-resultados`,
@@ -190,7 +198,6 @@ const TestVocacional = () => {
             body: JSON.stringify({
               resultados: results,
               perfilVocacional: perfilVocacional,
-              resultadosCompletos: userAnswers,
               zonaIkigai: zonaIkigai,
             }),
           }
