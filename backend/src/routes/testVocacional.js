@@ -31,11 +31,11 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
 
     const values = [
       userId,
-      perfilVocacional.tecnologico?.valor || 0,
-      perfilVocacional.cientifico?.valor || 0,
-      perfilVocacional.salud?.valor || 0,
-      perfilVocacional.administrativo?.valor || 0,
-      perfilVocacional.social?.valor || 0,
+      perfilVocacional.tecnologico || 0,
+      perfilVocacional.cientifico || 0,
+      perfilVocacional.salud || 0,
+      perfilVocacional.administrativo || 0,
+      perfilVocacional.social || 0,
       JSON.stringify(resultados.slice(0, 10)),
       JSON.stringify(resultados),
       scoreGlobal.toFixed(2),
