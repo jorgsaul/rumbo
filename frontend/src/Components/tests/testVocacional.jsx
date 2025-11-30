@@ -20,25 +20,42 @@ const TestVocacional = () => {
     return null;
   };
 
-  const getStorageKey = () => {
-    console.log("📦 localStorage completo:");
-    Object.keys(localStorage).forEach((key) => {
-      console.log(
-        `  ${key}: ${localStorage.getItem(key)?.substring(0, 50)}...`
+  const getStorageKey = async () => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_APP_API_BASE_URL}/perfil`,
+        {
+          method: "GET",
+          credentials: "include",
+        }
       );
-    });
 
-    // Ver cookies
-    console.log("🍪 Cookies:", document.cookie);
-    const googleToken = localStorage.getItem("auth_token");
-    const cookieToken = getCookie("token");
-    console.log("googleToken:", googleToken);
-    console.log("cookieToken:", cookieToken);
-    const token = localStorage.getItem("auth_token") || getCookie("token");
+      if (!response.ok) throw new Error("Error en la respuesta de la red");
+      const userData = await response.json();
+      console.log("Usuario obtendio: ", userData);
+
+      if (userData && userData.id) {
+        return `test_vocacional_progress_${userData.id}`;
+      }
+    } catch (error) {
+      console.error("Error al obtener el ID del usuario:", error);
+    }
+
+    console.log("usando metodos de cookie");
+  };
+
+  const getStorageKeyFallback = () => {
+    const token = localStorage.getItem("auth_token");
+
     if (token) {
       try {
         const payload = JSON.parse(atob(token.split(".")[1]));
-        return `test_vocacional_progress_${payload.id}`;
+        const userId = payload.id;
+
+        if (userId) {
+          console.log("Usuario de google: ", userId);
+          return `test_vocacional_progress_${userId}`;
+        }
       } catch (error) {
         console.error("Error al obtener el ID del usuario:", error);
       }
@@ -46,27 +63,32 @@ const TestVocacional = () => {
 
     let sessionId = localStorage.getItem("test_session_id");
     if (!sessionId) {
-      sessionId =
-        `session_` +
-        Date.now() +
-        "_" +
-        Math.random().toString(36).substring(2, 9);
+      sessionId = `session_${Date.now()}_${Math.random()
+        .toString(36)
+        .substring(2, 9)}`;
       localStorage.setItem("test_session_id", sessionId);
     }
+    console.log("Sesion id para usuario no autenticado: ", sessionId);
     return `test_vocacional_progress_${sessionId}`;
   };
 
   useEffect(() => {
-    const key = getStorageKey();
-    setStorageKey(key);
+    const intializeTest = async () => {
+      const key = await getStorageKey();
+      setStorageKey(key);
 
-    const savedProgress = loadProgress(key);
-    if (savedProgress) {
-      setUserAnswers(savedProgress.answers);
-      setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
-      setHasSavedProgress(true);
-      setShowWelcome(false);
-    }
+      console.log("Storage key obtenido: ", key);
+      console.log("tipo: ", key.includes("session_") ? "session" : "user");
+
+      const savedProgress = loadProgress(key);
+      if (savedProgress) {
+        setCurrentQuestionIndex(savedProgress.currentQuestionIndex);
+        setUserAnswers(savedProgress.answers);
+        setHasSavedProgress(true);
+        setShowWelcome(false);
+      }
+    };
+    intializeTest();
   }, []);
 
   useEffect(() => {
