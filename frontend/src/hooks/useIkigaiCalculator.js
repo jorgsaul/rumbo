@@ -245,7 +245,7 @@ export const useIkigaiCalculator = () => {
     return "EXPLORAR_MAS";
   }, []);
 
-  const calcularResultadosCompletos = useCallback((userAnswers) => {
+  const calcularResultadosCompletos = useCallback((userAnswers, limit = 10) => {
     console.log("🎯 Ejecutando algoritmo IKIGAI...");
     
     const perfilUsuario = construirPerfilUsuario(userAnswers);
@@ -273,7 +273,7 @@ export const useIkigaiCalculator = () => {
 
     return resultados
       .sort((a, b) => b.puntuacion - a.puntuacion)
-      .slice(0, 5);
+      .slice(0, limit);
   }, [
     construirPerfilUsuario,
     calcularCompatibilidadPasion,

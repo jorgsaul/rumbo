@@ -172,7 +172,7 @@ const TestVocacional = () => {
     setIsLoading(true);
 
     setTimeout(() => {
-      const results = calcularResultadosCompletos(userAnswers);
+      const results = calcularResultadosCompletos(userAnswers, 10);
       setTestResults(results);
       setIsLoading(false);
       clearProgress();
