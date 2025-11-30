@@ -18,6 +18,7 @@ import signInRoutes from './src/routes/signInRoutes.js';
 import cambiarContrasena from './src/routes/routeCambioContraseña.js';
 import obtenerEtiquetas from './src/routes/etiquetasRoutes.js';
 import buscarPerfil from './src/routes/searchRoutes.js'
+import testVocacionalRoutes from './src/routes/testVocacional.js';
 
 dotenv.config();
 
@@ -94,6 +95,7 @@ app.use('/', cambiarContrasena);
 app.use('/', obtenerEtiquetas);
 app.use('/', googleAuthRoutes);
 app.use('/', buscarPerfil);
+app.use('/', testVocacionalRoutes);
 
 app.use((err, req, res, next) => {
   console.error('Error interno:', err);
