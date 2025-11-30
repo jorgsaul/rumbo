@@ -1,4 +1,3 @@
-// hooks/useIkigaiCalculator.js
 import { useCallback } from 'react';
 import { questions, careers } from '../Components/tests/testVocacional/testData';
 
@@ -205,6 +204,68 @@ export const useIkigaiCalculator = () => {
     return score;
   }, []);
 
+  const calcularPerfilVocacional = useCallback((userAnswers) => {
+  const perfil = {
+    tecnologico: 0,
+    cientifico: 0,
+    salud: 0,
+    administrativo: 0,
+    social: 0
+  };
+
+  // Analizar respuestas por categoría de preguntas
+  questions.forEach(pregunta => {
+    const respuesta = userAnswers[pregunta.id];
+    if (!respuesta) return;
+
+    const valor = (respuesta - 1) / 4 * 100; // Normalizar a 0-100
+
+    // Tecnológico
+    if (pregunta.palabras_clave?.some(palabra => 
+      ['Programación', 'Software', 'Algoritmos', 'Datos', 'Inteligencia Artificial'].includes(palabra)
+    )) {
+      perfil.tecnologico += valor;
+    }
+
+    // Científico
+    if (pregunta.palabras_clave?.some(palabra => 
+      ['Química', 'Farmacéutica', 'Biotecnología', 'Procesos químicos', 'Investigación'].includes(palabra)
+    )) {
+      perfil.cientifico += valor;
+    }
+
+    // Salud
+    if (pregunta.palabras_clave?.some(palabra => 
+      ['Salud', 'Medicina', 'Diagnóstico', 'Terapéutica', 'Biomedicina'].includes(palabra)
+    )) {
+      perfil.salud += valor;
+    }
+
+    // Administrativo
+    if (pregunta.palabras_clave?.some(palabra => 
+      ['Negocios', 'Finanzas', 'Emprendimiento', 'Marketing', 'Administración'].includes(palabra)
+    )) {
+      perfil.administrativo += valor;
+    }
+
+    // Social (por actividades y ambientes)
+    if (pregunta.actividad === 'Trabajar con personas' || 
+        pregunta.ambiente === 'Comunitario') {
+      perfil.social += valor;
+    }
+  });
+
+  // Calcular porcentajes
+  const total = Object.values(perfil).reduce((sum, val) => sum + val, 0);
+  if (total > 0) {
+    Object.keys(perfil).forEach(key => {
+      perfil[key] = Math.round((perfil[key] / total) * 100);
+    });
+  }
+
+  return perfil;
+}, []);
+
   const calcularIkigaiScore = useCallback((scores) => {
     const scoreBase = (
       scores.pasion * 0.25 +
@@ -228,10 +289,10 @@ export const useIkigaiCalculator = () => {
   }, []);
 
   const identificarZonaIkigai = useCallback((scores) => {
-    const P = scores.pasion >= 70;
-    const V = scores.vocacion >= 70;
-    const PR = scores.profesion >= 70;
-    const M = scores.mision >= 70;
+    const P = scores.pasion >= 60;
+    const V = scores.vocacion >= 60;
+    const PR = scores.profesion >= 60;
+    const M = scores.mision >= 60;
 
     if (P && V && PR && M) return "IKIGAI_PERFECTO";
     if (P && V && PR) return "PROFESION_IDEAL";

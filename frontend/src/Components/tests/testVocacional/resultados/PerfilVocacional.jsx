@@ -1,7 +1,10 @@
 import AreaCard from "./AreaCard";
+import { useIkigaiCalculator } from "../../../../hooks/useIkigaiCalculator";
 import "./style.css";
 
-const PerfilVocacional = ({ resultados }) => {
+const PerfilVocacional = ({ resultados, userAnswers }) => {
+  const { calcularPerfilVocacional } = useIkigaiCalculator();
+
   const calcularAreasPerfil = () => {
     const areas = {
       tecnologico: { valor: 0, icono: "💻", label: "Tecnológico", count: 0 },
@@ -138,7 +141,15 @@ const PerfilVocacional = ({ resultados }) => {
     return areas;
   };
 
-  const areasPerfil = calcularAreasPerfil();
+  const areasPerfil = userAnswers
+    ? calcularPerfilVocacional(userAnswers)
+    : {
+        tecnologico: 0,
+        cientifico: 0,
+        salud: 0,
+        administrativo: 0,
+        social: 0,
+      };
 
   return (
     <div className="profile-section">

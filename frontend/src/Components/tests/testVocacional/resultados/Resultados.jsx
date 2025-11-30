@@ -2,7 +2,7 @@ import "./style.css";
 import PerfilVocacional from "./PerfilVocacional";
 import TopCarreras from "./TopCarreras";
 
-const Resultados = ({ resultados, onRestart }) => {
+const Resultados = ({ resultados, onRestart, userAnswers }) => {
   return (
     <div className="results-screen">
       <div className="results-header">
@@ -10,7 +10,7 @@ const Resultados = ({ resultados, onRestart }) => {
         <p>Descubre tu perfil único y las carreras que mejor se adaptan a ti</p>
       </div>
 
-      <PerfilVocacional resultados={resultados} />
+      <PerfilVocacional resultados={resultados} userAnswers={userAnswers} />
       <TopCarreras resultados={resultados} />
 
       <div className="results-actions">

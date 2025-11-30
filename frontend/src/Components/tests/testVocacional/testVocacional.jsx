@@ -185,7 +185,11 @@ const TestVocacional = () => {
 
   if (testResults) {
     return (
-      <Resultados resultados={testResults} onRestart={() => startTest(true)} />
+      <Resultados
+        resultados={testResults}
+        onRestart={() => startTest(true)}
+        userAnswers={userAnswers}
+      />
     );
   }
 
