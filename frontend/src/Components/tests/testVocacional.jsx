@@ -42,6 +42,7 @@ const TestVocacional = () => {
     }
 
     console.log("usando metodos de cookie");
+    return getStorageKeyFallback();
   };
 
   const getStorageKeyFallback = () => {
