@@ -13,13 +13,6 @@ const TestVocacional = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   const [storageKey, setStorageKey] = useState(null);
 
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(";").shift();
-    return null;
-  };
-
   const getStorageKey = async () => {
     try {
       const response = await fetch(
@@ -32,7 +25,6 @@ const TestVocacional = () => {
 
       if (!response.ok) throw new Error("Error en la respuesta de la red");
       const userData = await response.json();
-      console.log("Usuario obtendio: ", userData);
 
       if (userData && userData.id) {
         return `test_vocacional_progress_${userData.id}`;
@@ -41,7 +33,6 @@ const TestVocacional = () => {
       console.error("Error al obtener el ID del usuario:", error);
     }
 
-    console.log("usando metodos de cookie");
     return getStorageKeyFallback();
   };
 
@@ -54,7 +45,6 @@ const TestVocacional = () => {
         const userId = payload.id;
 
         if (userId) {
-          console.log("Usuario de google: ", userId);
           return `test_vocacional_progress_${userId}`;
         }
       } catch (error) {
@@ -69,7 +59,6 @@ const TestVocacional = () => {
         .substring(2, 9)}`;
       localStorage.setItem("test_session_id", sessionId);
     }
-    console.log("Sesion id para usuario no autenticado: ", sessionId);
     return `test_vocacional_progress_${sessionId}`;
   };
 
@@ -77,9 +66,6 @@ const TestVocacional = () => {
     const intializeTest = async () => {
       const key = await getStorageKey();
       setStorageKey(key);
-
-      console.log("Storage key obtenido: ", key);
-      console.log("tipo: ", key.includes("session_") ? "session" : "user");
 
       const savedProgress = loadProgress(key);
       if (savedProgress) {
@@ -140,8 +126,6 @@ const TestVocacional = () => {
   };
 
   const startTest = (newTest = false) => {
-    console.log("startTest llamado con newTest:", newTest);
-
     if (newTest) {
       clearProgress();
       setCurrentQuestionIndex(0);
@@ -155,7 +139,6 @@ const TestVocacional = () => {
       }
     }
     setShowWelcome(false);
-    console.log("showWelcome cambiado a: false");
   };
 
   const selectAnswer = (value) => {
