@@ -213,44 +213,75 @@ export const useIkigaiCalculator = () => {
     social: 0
   };
 
-  // Analizar respuestas por categoría de preguntas
   questions.forEach(pregunta => {
     const respuesta = userAnswers[pregunta.id];
     if (!respuesta) return;
 
-    const valor = (respuesta - 1) / 4 * 100; // Normalizar a 0-100
+    const valor = (respuesta - 1) / 4 * 100;
 
-    // Tecnológico
-    if (pregunta.palabras_clave?.some(palabra => 
-      ['Programación', 'Software', 'Algoritmos', 'Datos', 'Inteligencia Artificial'].includes(palabra)
-    )) {
+    // TECNOLÓGICO
+    if (
+      pregunta.palabras_clave?.some(palabra => 
+        ['Programación', 'Software', 'Algoritmos', 'Datos', 'Inteligencia Artificial'].includes(palabra)
+      ) ||
+      pregunta.sector === 'Tecnología de la información' ||
+      pregunta.actividad === 'Analizar datos'
+    ) {
       perfil.tecnologico += valor;
     }
 
-    // Científico
-    if (pregunta.palabras_clave?.some(palabra => 
-      ['Química', 'Farmacéutica', 'Biotecnología', 'Procesos químicos', 'Investigación'].includes(palabra)
-    )) {
+    // CIENTÍFICO
+    if (
+      pregunta.palabras_clave?.some(palabra => 
+        ['Química', 'Farmacéutica', 'Biotecnología', 'Procesos químicos', 'Investigación'].includes(palabra)
+      ) ||
+      pregunta.actividad === 'Investigar y experimentar' ||
+      pregunta.problema === 'Investigación científica' ||
+      pregunta.materia === 'matematicas' ||
+      pregunta.materia === 'fisica' ||
+      pregunta.materia === 'quimica' ||
+      pregunta.materia === 'biologia'
+    ) {
       perfil.cientifico += valor;
     }
 
-    // Salud
-    if (pregunta.palabras_clave?.some(palabra => 
-      ['Salud', 'Medicina', 'Diagnóstico', 'Terapéutica', 'Biomedicina'].includes(palabra)
-    )) {
+    // SALUD
+    if (
+      pregunta.palabras_clave?.some(palabra => 
+        ['Salud', 'Medicina', 'Diagnóstico', 'Terapéutica', 'Biomedicina'].includes(palabra)
+      ) ||
+      pregunta.sector === 'Salud (hospitales, clínicas)' ||
+      pregunta.problema === 'Problemas de salud y enfermedades'
+    ) {
       perfil.salud += valor;
     }
 
-    // Administrativo
-    if (pregunta.palabras_clave?.some(palabra => 
-      ['Negocios', 'Finanzas', 'Emprendimiento', 'Marketing', 'Administración'].includes(palabra)
-    )) {
+    // ADMINISTRATIVO
+    if (
+      pregunta.palabras_clave?.some(palabra => 
+        ['Negocios', 'Finanzas', 'Emprendimiento', 'Marketing', 'Administración'].includes(palabra)
+      ) ||
+      pregunta.aspecto === 'salario_alto' ||
+      pregunta.aspecto === 'estabilidad' ||
+      pregunta.aspecto === 'emprendimiento' ||
+      pregunta.aspecto === 'demanda' ||
+      pregunta.aspecto === 'crecimiento' ||
+      pregunta.problema === 'Problemas financieros y económicos'
+    ) {
       perfil.administrativo += valor;
     }
 
-    // Social (por actividades y ambientes)
-    if (pregunta.actividad === 'Trabajar con personas' || 
-        pregunta.ambiente === 'Comunitario') {
+    // SOCIAL
+    if (
+      pregunta.competencia === 'Trabajo en equipo' ||
+      pregunta.competencia === 'Liderazgo' ||
+      pregunta.materia === 'expresion' ||
+      pregunta.problema === 'Desigualdad social' ||
+      pregunta.aspecto === 'impacto_social' ||
+      pregunta.sector === 'Gobierno y sector público' ||
+      pregunta.ambiente === 'Áreas naturales' ||
+      pregunta.atributo === 'creatividad'
+    ) {
       perfil.social += valor;
     }
   });
