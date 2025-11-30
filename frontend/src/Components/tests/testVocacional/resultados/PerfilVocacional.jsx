@@ -4,52 +4,137 @@ import "./style.css";
 const PerfilVocacional = ({ resultados }) => {
   const calcularAreasPerfil = () => {
     const areas = {
-      tecnologico: { valor: 0, icono: "💻", label: "Tecnológico" },
-      cientifico: { valor: 0, icono: "🔬", label: "Científico" },
-      salud: { valor: 0, icono: "🏥", label: "Salud" },
-      administrativo: { valor: 0, icono: "📈", label: "Administrativo" },
-      social: { valor: 0, icono: "🤝", label: "Social" },
+      tecnologico: { valor: 0, icono: "💻", label: "Tecnológico", count: 0 },
+      cientifico: { valor: 0, icono: "🔬", label: "Científico", count: 0 },
+      salud: { valor: 0, icono: "🏥", label: "Salud", count: 0 },
+      administrativo: {
+        valor: 0,
+        icono: "📈",
+        label: "Administrativo",
+        count: 0,
+      },
+      social: { valor: 0, icono: "🤝", label: "Social", count: 0 },
     };
 
+    console.log(
+      "🔍 Analizando",
+      resultados.length,
+      "carreras para perfil vocacional"
+    );
+
     resultados.forEach((carrera) => {
+      const nombre = carrera.nombre.toLowerCase();
+      let areaAsignada = null;
+
+      // 1. SALUD - Prioridad más alta (médicas, enfermería, odontología, etc.)
       if (
-        carrera.nombre.includes("Ingeniería") &&
-        !carrera.nombre.includes("Ambiental") &&
-        !carrera.nombre.includes("Alimentos")
+        nombre.includes("médico") ||
+        nombre.includes("enfermería") ||
+        nombre.includes("odontología") ||
+        nombre.includes("nutrición") ||
+        nombre.includes("optometría") ||
+        nombre.includes("psicología") ||
+        nombre.includes("trabajo social") ||
+        nombre.includes("homeópata") ||
+        nombre.includes("partero") ||
+        nombre.includes("bacteriólogo")
       ) {
-        areas.tecnologico.valor += carrera.puntuacion;
-      } else if (
-        carrera.nombre.includes("Químico") ||
-        carrera.nombre.includes("Bio") ||
-        carrera.nombre.includes("Física")
+        areaAsignada = "salud";
+      }
+      // 2. CIENTÍFICO - Ciencias puras y geológicas
+      else if (
+        nombre.includes("geológica") ||
+        nombre.includes("geofísica") ||
+        nombre.includes("biotecnológica") ||
+        nombre.includes("meteorología") ||
+        nombre.includes("física") ||
+        nombre.includes("matemática") ||
+        nombre.includes("biología") ||
+        nombre.includes("químico") ||
+        nombre.includes("farmacéutico") ||
+        nombre.includes("fotónica")
       ) {
-        areas.cientifico.valor += carrera.puntuacion;
-      } else if (
-        carrera.nombre.includes("Médico") ||
-        carrera.nombre.includes("Enfermería") ||
-        carrera.nombre.includes("Odontología") ||
-        carrera.nombre.includes("Nutrición")
+        areaAsignada = "cientifico";
+      }
+      // 3. ADMINISTRATIVO - Negocios, economía, administración
+      else if (
+        nombre.includes("economía") ||
+        nombre.includes("administración") ||
+        nombre.includes("contador") ||
+        nombre.includes("negocios") ||
+        nombre.includes("mercadotecnia") ||
+        nombre.includes("archivonomía") ||
+        nombre.includes("biblioteconomía") ||
+        nombre.includes("relaciones comerciales") ||
+        nombre.includes("turismo")
       ) {
-        areas.salud.valor += carrera.puntuacion;
-      } else if (
-        carrera.nombre.includes("Licenciatura") ||
-        carrera.nombre.includes("Administración") ||
-        carrera.nombre.includes("Negocios")
+        areaAsignada = "administrativo";
+      }
+      // 4. SOCIAL - Psicología, trabajo social (si no fue capturado en salud)
+      else if (
+        nombre.includes("psicología") ||
+        nombre.includes("trabajo social")
       ) {
-        areas.administrativo.valor += carrera.puntuacion;
-      } else {
-        areas.social.valor += carrera.puntuacion;
+        areaAsignada = "social";
+      }
+      // 5. TECNOLÓGICO - Por defecto para ingenierías
+      else if (
+        nombre.includes("ingeniería") ||
+        nombre.includes("sistemas") ||
+        nombre.includes("computación") ||
+        nombre.includes("informática") ||
+        nombre.includes("telemática") ||
+        nombre.includes("robótica") ||
+        nombre.includes("mecatrónica") ||
+        nombre.includes("inteligencia artificial")
+      ) {
+        areaAsignada = "tecnologico";
+      }
+      // 6. Por defecto - Si no coincide con nada
+      else {
+        areaAsignada = "social"; // Por defecto a social
+      }
+
+      if (areaAsignada && areas[areaAsignada]) {
+        areas[areaAsignada].valor += carrera.puntuacion;
+        areas[areaAsignada].count += 1;
+        console.log(`📌 ${carrera.nombre} → ${areas[areaAsignada].label}`);
       }
     });
 
+    // Calcular porcentajes
     const total = Object.values(areas).reduce(
       (sum, area) => sum + area.valor,
       0
     );
-    Object.keys(areas).forEach((key) => {
-      areas[key].valor = Math.round((areas[key].valor / total) * 100);
+
+    console.log("📊 Totales por área:", {
+      tecnologico: {
+        valor: areas.tecnologico.valor,
+        count: areas.tecnologico.count,
+      },
+      cientifico: {
+        valor: areas.cientifico.valor,
+        count: areas.cientifico.count,
+      },
+      salud: { valor: areas.salud.valor, count: areas.salud.count },
+      administrativo: {
+        valor: areas.administrativo.valor,
+        count: areas.administrativo.count,
+      },
+      social: { valor: areas.social.valor, count: areas.social.count },
     });
 
+    console.log("🧮 Total general:", total);
+
+    // Solo calcular porcentajes si hay valores
+    if (total > 0) {
+      Object.keys(areas).forEach((key) => {
+        areas[key].valor = Math.round((areas[key].valor / total) * 100);
+      });
+    }
+
+    console.log("🎯 Porcentajes finales:", areas);
     return areas;
   };
 
