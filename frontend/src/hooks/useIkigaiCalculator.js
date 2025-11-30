@@ -346,6 +346,7 @@ export const useIkigaiCalculator = () => {
   ]);
 
   return {
-    calcularResultadosCompletos
+    calcularResultadosCompletos,
+    calcularPerfilVocacional
   };
 };
