@@ -5,77 +5,64 @@ import "./style.css";
 const PerfilVocacional = ({ resultados, userAnswers }) => {
   const { calcularPerfilVocacional } = useIkigaiCalculator();
 
-  // USAR EL HOOK CORRECTAMENTE - calcular basado en las respuestas del usuario
-  const areasPerfil =
-    userAnswers && Object.keys(userAnswers).length > 0
-      ? calcularPerfilVocacional(userAnswers)
-      : calcularPerfilDesdeResultados(resultados); // Fallback si no hay userAnswers
-
-  // Función de respaldo por si no hay userAnswers (solo para compatibilidad)
-  const calcularPerfilDesdeResultados = (resultados) => {
-    const areasBase = {
-      tecnologico: { valor: 0, icono: "💻", label: "Tecnológico", count: 0 },
-      cientifico: { valor: 0, icono: "🔬", label: "Científico", count: 0 },
-      salud: { valor: 0, icono: "🏥", label: "Salud", count: 0 },
-      administrativo: {
-        valor: 0,
-        icono: "📈",
-        label: "Administrativo",
-        count: 0,
-      },
-      social: { valor: 0, icono: "🤝", label: "Social", count: 0 },
-    };
-
-    if (!resultados || resultados.length === 0) {
-      return areasBase;
+  // Función para formatear correctamente el perfil
+  const obtenerPerfilFormateado = () => {
+    if (!userAnswers || Object.keys(userAnswers).length === 0) {
+      return getPerfilDefault();
     }
 
-    resultados.forEach((carrera) => {
-      const nombre = carrera.nombre.toLowerCase();
-      let areaAsignada = "social"; // Por defecto
+    try {
+      const perfilCalculado = calcularPerfilVocacional(userAnswers);
 
-      if (
-        nombre.includes("médico") ||
-        nombre.includes("enfermería") ||
-        nombre.includes("salud")
-      ) {
-        areaAsignada = "salud";
-      } else if (
-        nombre.includes("física") ||
-        nombre.includes("matemática") ||
-        nombre.includes("químico")
-      ) {
-        areaAsignada = "cientifico";
-      } else if (
-        nombre.includes("administración") ||
-        nombre.includes("economía") ||
-        nombre.includes("negocios")
-      ) {
-        areaAsignada = "administrativo";
-      } else if (
-        nombre.includes("ingeniería") ||
-        nombre.includes("sistemas") ||
-        nombre.includes("computación")
-      ) {
-        areaAsignada = "tecnologico";
-      }
+      // Formatear la estructura para que coincida con lo que espera AreaCard
+      const perfilFormateado = {
+        tecnologico: {
+          valor: perfilCalculado.tecnologico || 0,
+          icono: "💻",
+          label: "Tecnológico",
+        },
+        cientifico: {
+          valor: perfilCalculado.cientifico || 0,
+          icono: "🔬",
+          label: "Científico",
+        },
+        salud: {
+          valor: perfilCalculado.salud || 0,
+          icono: "🏥",
+          label: "Salud",
+        },
+        administrativo: {
+          valor: perfilCalculado.administrativo || 0,
+          icono: "📈",
+          label: "Administrativo",
+        },
+        social: {
+          valor: perfilCalculado.social || 0,
+          icono: "🤝",
+          label: "Social",
+        },
+      };
 
-      if (areasBase[areaAsignada]) {
-        areasBase[areaAsignada].count += 1;
-      }
-    });
-
-    // Convertir counts a porcentajes
-    Object.keys(areasBase).forEach((key) => {
-      areasBase[key].valor = Math.round(
-        (areasBase[key].count / resultados.length) * 100
-      );
-    });
-
-    return areasBase;
+      console.log("🎯 Perfil formateado:", perfilFormateado);
+      return perfilFormateado;
+    } catch (error) {
+      console.error("Error calculando perfil:", error);
+      return getPerfilDefault();
+    }
   };
 
-  console.log("📊 Perfil vocacional calculado:", areasPerfil);
+  // Perfil por defecto (fallback)
+  const getPerfilDefault = () => {
+    return {
+      tecnologico: { valor: 20, icono: "💻", label: "Tecnológico" },
+      cientifico: { valor: 20, icono: "🔬", label: "Científico" },
+      salud: { valor: 20, icono: "🏥", label: "Salud" },
+      administrativo: { valor: 20, icono: "📈", label: "Administrativo" },
+      social: { valor: 20, icono: "🤝", label: "Social" },
+    };
+  };
+
+  const areasPerfil = obtenerPerfilFormateado();
 
   return (
     <div className="profile-section">
