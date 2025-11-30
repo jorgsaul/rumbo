@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import "./testVocacional.css";
 import Button from "../botones/buttonPrimary";
-
 import { questions, careers } from "./testData";
+import { useIkigaiCalculator } from "../../hooks/useIkigaiCalculator";
 
 const TestVocacional = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -12,7 +12,7 @@ const TestVocacional = () => {
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [storageKey, setStorageKey] = useState(null);
-
+  const { calcularResultadosCompletos } = useIkigaiCalculator();
   const getStorageKey = async () => {
     try {
       const response = await fetch(
@@ -63,7 +63,7 @@ const TestVocacional = () => {
   };
 
   useEffect(() => {
-    const intializeTest = async () => {
+    const initializeTest = async () => {
       const key = await getStorageKey();
       setStorageKey(key);
 
@@ -75,7 +75,7 @@ const TestVocacional = () => {
         setShowWelcome(false);
       }
     };
-    intializeTest();
+    initializeTest();
   }, []);
 
   useEffect(() => {
@@ -176,7 +176,6 @@ const TestVocacional = () => {
     }, 1500);
   };
 
-  // LÓGICA SIMPLIFICADA DE RENDERIZADO
   if (isLoading) {
     return <PantallaCarga />;
   }
@@ -423,35 +422,6 @@ const PantallaTest = ({
       </div>
     </div>
   );
-};
-
-const calcularResultadosCompletos = (userAnswers) => {
-  const scores = {};
-
-  careers.forEach((carrera) => {
-    let totalScore = 0;
-    let questionCount = 0;
-
-    questions.forEach((pregunta) => {
-      if (userAnswers[pregunta.id]) {
-        const respuesta = userAnswers[pregunta.id];
-        totalScore += respuesta * (carrera.pesos?.[pregunta.id] || 1);
-        questionCount++;
-      }
-    });
-
-    if (questionCount > 0) {
-      scores[carrera.id] = {
-        id: carrera.id,
-        nombre: carrera.nombre,
-        puntuacion: Math.round((totalScore / (questionCount * 5)) * 100),
-      };
-    }
-  });
-
-  return Object.values(scores)
-    .sort((a, b) => b.puntuacion - a.puntuacion)
-    .slice(0, 5);
 };
 
 const Resultados = ({ resultados, onRestart }) => {
