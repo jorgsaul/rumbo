@@ -15,8 +15,8 @@ const TestVocacional = () => {
   const [hasSavedProgress, setHasSavedProgress] = useState(false);
   const [showWelcome, setShowWelcome] = useState(true);
   const [storageKey, setStorageKey] = useState(null);
-  const { calcularResultadosCompletos } = useIkigaiCalculator();
-  const { calcularPerfilVocacional } = useIkigaiCalculator();
+  const { calcularResultadosCompletos, calcularPerfilVocacional } =
+    useIkigaiCalculator();
   const getStorageKey = async () => {
     try {
       const response = await fetch(
@@ -175,7 +175,7 @@ const TestVocacional = () => {
     setTimeout(async () => {
       const results = calcularResultadosCompletos(userAnswers, 10);
       const perfilVocacional = calcularPerfilVocacional(userAnswers);
-      const zonaIkigai = results[0]?.zonaIkigai || "EXPLORAR_MAS";
+      const zonaIkigai = results[0]?.zona_ikigai || "EXPLORAR_MAS";
       setTestResults(results);
       setIsLoading(false);
       clearProgress();
@@ -188,6 +188,7 @@ const TestVocacional = () => {
         "- Zona:",
         results[0]?.zona_ikigai
       );
+      console.log("📊 Resultados completos:", results);
       try {
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/guardar-resultados`,
