@@ -1,4 +1,4 @@
-import "../style.css";
+import "./resultados/style.css";
 const PantallaCarga = () => (
   <div className="loading-screen">
     <div className="loading-spinner"></div>

@@ -1,5 +1,5 @@
 import Button from "../../botones/buttonPrimary";
-import "../style.css";
+import "./resultados/style.css";
 const PantallaBienvenida = ({ onStart, hasSavedProgress, onContinue }) => {
   return (
     <div className="welcome-screen">

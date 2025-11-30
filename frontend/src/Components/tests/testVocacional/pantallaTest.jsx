@@ -1,5 +1,5 @@
 import { questions, careers } from "./testData";
-import "../style.css";
+import "./resultados/style.css";
 const PantallaTest = ({
   currentQuestionIndex,
   userAnswers,
