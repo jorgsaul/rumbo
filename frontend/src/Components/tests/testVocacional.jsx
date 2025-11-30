@@ -21,6 +21,15 @@ const TestVocacional = () => {
   };
 
   const getStorageKey = () => {
+    console.log("📦 localStorage completo:");
+    Object.keys(localStorage).forEach((key) => {
+      console.log(
+        `  ${key}: ${localStorage.getItem(key)?.substring(0, 50)}...`
+      );
+    });
+
+    // Ver cookies
+    console.log("🍪 Cookies:", document.cookie);
     const googleToken = localStorage.getItem("auth_token");
     const cookieToken = getCookie("token");
     console.log("googleToken:", googleToken);
