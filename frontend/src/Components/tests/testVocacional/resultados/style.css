@@ -37,6 +37,7 @@ body {
   background-color: var(--neutral-100);
 }
 
+/* Pantalla de Bienvenida */
 .welcome-screen {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-100) 100%);
@@ -148,6 +149,7 @@ body {
   color: var(--neutral-700);
 }
 
+/* Pantalla de Test */
 .test-container {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
@@ -432,6 +434,7 @@ body {
   font-size: 14px;
 }
 
+/* Pantalla de Carga */
 .loading-screen {
   display: flex;
   flex-direction: column;
@@ -456,104 +459,152 @@ body {
   100% { transform: rotate(360deg); }
 }
 
+/* Estilos para Resultados */
 .results-screen {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+  min-height: 100vh;
 }
 
 .results-header {
   text-align: center;
   margin-bottom: 48px;
+  padding: 40px 20px;
+  background: var(--neutral-100);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .results-header h1 {
-  font-size: 36px;
+  font-size: 2.5rem;
   color: var(--primary-600);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .results-header p {
-  font-size: 18px;
+  font-size: 1.2rem;
   color: var(--neutral-700);
+  line-height: 1.6;
 }
 
-.profile-summary {
-  margin-bottom: 48px;
-}
-
-.profile-summary h3 {
-  text-align: center;
-  margin-bottom: 24px;
-  color: var(--neutral-900);
-  font-size: 24px;
-}
-
-.ikigai-scores-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.score-card {
+/* Perfil Vocacional */
+.profile-section {
   background: var(--neutral-100);
-  padding: 24px;
-  border-radius: 12px;
-  border-top: 4px solid;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.profile-section h2 {
   text-align: center;
+  font-size: 2rem;
+  color: var(--primary-600);
+  margin-bottom: 32px;
+  font-weight: 600;
 }
 
-.score-card h4 {
+.profile-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.area-card {
+  background: var(--neutral-100);
+  border: 2px solid var(--neutral-300);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.area-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-400), var(--primary-300));
+}
+
+.area-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-300);
+  box-shadow: 0 12px 40px rgba(203, 53, 128, 0.15);
+}
+
+.area-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.area-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--neutral-900);
   margin-bottom: 12px;
-  color: var(--neutral-800);
+  display: block;
 }
 
-.score-card .score-value {
-  font-size: 32px;
+.area-value {
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  color: var(--primary-500);
+  display: block;
 }
 
-.score-desc {
-  font-size: 14px;
-  color: var(--neutral-700);
-}
-
+/* Top Carreras */
 .top-careers-section {
-  margin-bottom: 48px;
+  background: var(--neutral-100);
+  border-radius: 20px;
+  padding: 40px;
+  margin-bottom: 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .top-careers-section h2 {
   text-align: center;
+  font-size: 2rem;
+  color: var(--primary-600);
   margin-bottom: 32px;
-  color: var(--neutral-900);
-  font-size: 28px;
+  font-weight: 600;
 }
 
-.careers-grid {
+.careers-grid.expanded {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 24px;
 }
 
+/* Carrera Card */
 .career-card {
   background: var(--neutral-100);
+  border: 2px solid var(--neutral-300);
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--neutral-300);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.career-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+.career-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-300);
+  box-shadow: 0 12px 40px rgba(203, 53, 128, 0.15);
 }
 
-.ranking-badge {
+.career-rank {
+  position: absolute;
+  top: -12px;
+  left: 20px;
   background: var(--primary-500);
-  color: white;
+  color: var(--neutral-100);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -561,153 +612,113 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(90, 18, 54, 0.3);
+  z-index: 2;
 }
 
-.career-title h3 {
-  margin: 0 0 4px 0;
-  color: var(--neutral-900);
-  font-size: 20px;
+.career-card h3 {
+  font-size: 1.3rem;
+  color: var(--primary-700);
+  margin-bottom: 16px;
+  margin-top: 8px;
+  line-height: 1.4;
+  font-weight: 600;
 }
 
-.career-units {
-  margin: 0;
-  color: var(--neutral-700);
-  font-size: 14px;
-}
-
-.ikigai-score {
-  text-align: center;
-  margin-left: auto;
-}
-
-.score-value {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--primary-500);
-}
-
-.score-label {
-  font-size: 12px;
-  color: var(--neutral-700);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+.career-score {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 .pillar-scores {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 24px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-.pillar-score {
+.pillar-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--neutral-300);
+}
+
+.pillar-item:last-child {
+  border-bottom: none;
 }
 
 .pillar-label {
-  font-size: 14px;
+  font-size: 0.9rem;
+  color: var(--neutral-700);
   font-weight: 500;
-  color: var(--neutral-700);
-  min-width: 80px;
 }
 
-.score-bar {
-  flex: 1;
-  height: 8px;
-  background: var(--neutral-300);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.score-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-.score-number {
-  font-size: 14px;
+.pillar-value {
+  background: var(--primary-500);
+  color: var(--neutral-100);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--neutral-800);
-  min-width: 40px;
+  min-width: 50px;
+  text-align: center;
 }
 
-.career-explanation {
-  border-top: 1px solid var(--neutral-300);
-  padding-top: 20px;
-}
-
-.advice {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--neutral-800);
-  margin-bottom: 20px;
-  font-style: italic;
-}
-
-.strengths-weaknesses {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin-bottom: 20px;
-}
-
-.strengths h4, .weaknesses h4 {
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
-.strengths ul, .weaknesses ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.strengths li, .weaknesses li {
-  margin-bottom: 8px;
-  line-height: 1.4;
-  color: var(--neutral-700);
-}
-
-.career-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 12px;
+.zona-ikigai {
   background: var(--neutral-200);
-  padding: 16px;
-  border-radius: 8px;
-  font-size: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--neutral-800);
+  text-align: center;
+  border-left: 4px solid var(--primary-400);
 }
 
-.info-item {
-  display: flex;
-  justify-content: space-between;
+.zona-ikigai strong {
+  color: var(--primary-600);
 }
 
-.restart-section {
+/* Resultados Actions */
+.results-actions {
   text-align: center;
   margin-top: 48px;
+  padding: 40px;
+  background: var(--neutral-100);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
 .restart-button {
   background: var(--primary-500);
-  color: white;
+  color: var(--neutral-100);
   border: none;
   padding: 16px 32px;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .restart-button:hover {
   background: var(--primary-600);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(203, 53, 128, 0.3);
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .welcome-container {
     padding: 24px;
@@ -756,16 +767,55 @@ body {
     font-size: 11px;
   }
   
-  .careers-grid {
-    grid-template-columns: 1fr;
+  /* Responsive para Resultados */
+  .results-screen {
+    padding: 16px;
   }
   
-  .strengths-weaknesses {
-    grid-template-columns: 1fr;
+  .results-header {
+    padding: 30px 20px;
+    margin-bottom: 32px;
   }
   
-  .pillar-scores {
+  .results-header h1 {
+    font-size: 2rem;
+  }
+  
+  .results-header p {
+    font-size: 1.1rem;
+  }
+  
+  .profile-section,
+  .top-careers-section,
+  .results-actions {
+    padding: 24px;
+  }
+  
+  .profile-section h2,
+  .top-careers-section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .profile-areas {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  
+  .careers-grid.expanded {
     grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .area-card {
+    padding: 20px;
+  }
+  
+  .career-card {
+    padding: 20px;
+  }
+  
+  .career-card h3 {
+    font-size: 1.2rem;
   }
   
   .navigation-buttons {
@@ -814,5 +864,33 @@ body {
   
   .option-label {
     font-size: 10px;
+  }
+  
+  /* Responsive para Resultados */
+  .results-header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .profile-areas {
+    grid-template-columns: 1fr;
+  }
+  
+  .area-card {
+    padding: 16px;
+  }
+  
+  .career-card {
+    padding: 16px;
+  }
+  
+  .pillar-item {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  
+  .restart-button {
+    width: 100%;
+    justify-content: center;
   }
 }
