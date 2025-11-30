@@ -142,29 +142,6 @@
   font-weight: 500;
 }
 
-/* Zona Ikigai mejorada */
-.zona-ikigai-info {
-  text-align: center;
-  padding: 30px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-radius: 15px;
-}
-
-.zona-titulo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.zona-descripcion {
-  font-size: 1rem;
-  opacity: 0.9;
-  line-height: 1.5;
-}
-
 /* Score global */
 .score-global {
   font-size: 1.1rem;

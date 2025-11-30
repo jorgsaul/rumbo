@@ -4,18 +4,19 @@ import {pool} from '../config/dataBase.js';
 
 const router = express.Router();
 
-// routes/testVocacional.js - versión simplificada
+// En routes/testVocacional.js - guardar solo IDs
 router.post('/guardar-resultados', authenticateUser, async (req, res) => {
   try {
-    const { 
-      resultados, 
-      perfilVocacional,
-      zonaIkigai 
-    } = req.body;
-    
+    const { resultados, perfilVocacional, zonaIkigai } = req.body;
     const userId = req.user.id;
 
-    console.log('📥 Guardando resultados para usuario:', userId);
+    // Guardar solo los IDs de las top 10 carreras
+    const topCarrerasIds = resultados.slice(0, 10).map(carrera => ({
+      id: carrera.id,
+      puntuacion: carrera.puntuacion,
+      scores: carrera.scores,
+      zona_ikigai: carrera.zona_ikigai
+    }));
 
     const scoreGlobal = resultados.reduce((sum, carrera) => 
       sum + carrera.puntuacion, 0) / resultados.length;
@@ -36,23 +37,13 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
       perfilVocacional.salud || 0,
       perfilVocacional.administrativo || 0,
       perfilVocacional.social || 0,
-      JSON.stringify(resultados.slice(0, 10)),
-      JSON.stringify(resultados),
+      JSON.stringify(topCarrerasIds), // ← Solo IDs + info del test
+      JSON.stringify(resultados), // Todos los resultados
       scoreGlobal.toFixed(2),
       zonaIkigai
     ];
 
-    console.log('🔍 Ejecutando query con perfiles:', {
-      tecnologico: values[1],
-      cientifico: values[2],
-      salud: values[3],
-      administrativo: values[4],
-      social: values[5]
-    });
-
     const result = await pool.query(query, values);
-    
-    console.log('✅ Resultados guardados correctamente');
     
     res.status(201).json({
       success: true,
@@ -61,11 +52,8 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
     });
 
   } catch (error) {
-    console.error('❌ Error guardando resultados vocacionales:', error);
-    res.status(500).json({
-      success: false,
-      error: 'Error interno del servidor: ' + error.message
-    });
+    console.error('Error guardando resultados:', error);
+    res.status(500).json({ success: false, error: 'Error interno' });
   }
 });
 
