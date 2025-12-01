@@ -1,39 +1,187 @@
-.contenedor-opcion-menu{
+.contenedor-opcion-menu {
   width: 15rem;
   height: 3rem;
   display: flex;
   align-items: center;
   padding: 0.2rem;
   border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* Elimina highlight en móviles */
 }
 
-.contenedor-opcion-menu.activo{
-  background-color: #5A1236;
+/* Efecto hover con transform (salto hacia arriba) */
+.contenedor-opcion-menu:hover:not(.activo) {
+  background-color: #d9d9d9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Estado activo - más prominente */
+.contenedor-opcion-menu.activo {
+  background: linear-gradient(135deg, #5A1236, #91235A);
   color: white;
+  box-shadow: 0 4px 15px rgba(90, 18, 54, 0.25);
 }
 
 .contenedor-opcion-menu.activo p {
   color: white;
+  font-weight: 600;
 }
 
-.contenedor-opcion-menu.activo:hover{
-  background-color: #91235A;
+/* Hover sobre activo - efecto más sutil */
+.contenedor-opcion-menu.activo:hover {
+  background: linear-gradient(135deg, #6a1a46, #a12b6a);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(90, 18, 54, 0.35);
 }
 
-.contenedor-icono-menu{
-  margin: 0 0.5rem 0 0.3rem;
-}
-
-.contenedor-opcion-menu p{
+/* Contenedor de texto */
+.contenedor-opcion-menu p {
   margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: transform 0.3s ease;
 }
 
-.contenedor-opcion-menu:hover{
-  background-color: #b1b1b1;
-  cursor: pointer;
+/* Contenedor de icono */
+.contenedor-icono-menu {
+  margin: 0 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
 
-.contenedor-opcion-menu.logout{
+/* Efecto en el icono al hover */
+.contenedor-opcion-menu:hover .contenedor-icono-menu {
+  transform: scale(1.1);
+}
+
+/* Efecto de pulsación para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .contenedor-opcion-menu:active {
+    background-color: #d1d1d1;
+    transform: translateY(-1px) scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .contenedor-opcion-menu.activo:active {
+    background: linear-gradient(135deg, #7a2256, #b1337a);
+    transform: translateY(-1px) scale(0.98);
+  }
+}
+
+/* Para desktop - efectos sutiles */
+@media (hover: hover) {
+  .contenedor-opcion-menu:hover p {
+    transform: translateX(2px);
+  }
+}
+
+/* Botón de logout con estilo especial */
+.contenedor-opcion-menu.logout {
+  background-color: transparent;
+  border: 1px solid #e0e0e0;
+  margin-top: 1rem;
+}
+
+.contenedor-opcion-menu.logout:hover {
+  background-color: #f8f8f8;
+  border-color: #dc3545;
+  transform: translateY(-2px);
+}
+
+.contenedor-opcion-menu.logout p {
+  color: #666;
+}
+
+.contenedor-opcion-menu.logout:hover p {
+  color: #dc3545;
+}
+
+/* Media queries para móvil */
+@media (max-width: 900px) {
+  .contenedor-opcion-menu {
+    width: auto;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 50%;
+  }
+  
+  .contenedor-opcion-menu p {
+    display: none;
+  }
+  
+  .contenedor-icono-menu {
+    margin: 0;
+  }
+  
+  /* Ajustes específicos para Android */
+  @media (max-width: 600px) {
+    .contenedor-opcion-menu {
+      min-height: 44px; /* Tamaño mínimo para touch */
+      min-width: 44px;
+      margin: 0 4px;
+    }
+    
+    .contenedor-opcion-menu.logout {
+      position: static;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+    }
+    
+    /* Efecto táctil optimizado para Android */
+    .contenedor-opcion-menu:active {
+      transform: scale(0.95);
+      background-color: #e8e8e8;
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    
+    .contenedor-opcion-menu.activo:active {
+      transform: scale(0.95);
+      background: linear-gradient(135deg, #7a2256, #b1337a);
+    }
+  }
+}
+
+/* Optimización para rendimiento en móviles */
+.contenedor-opcion-menu {
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Efecto de ripple opcional (puedes añadir con JS si quieres) */
+.contenedor-opcion-menu::after {
+  content: '';
   position: absolute;
-  bottom: 2rem;;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.contenedor-opcion-menu:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
 }
