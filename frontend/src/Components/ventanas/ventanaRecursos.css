@@ -1,6 +1,5 @@
 .ventana-recursos-contenedor{
   overflow-y: auto;
-  padding: 2rem 6rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

@@ -204,7 +204,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 400px) {
   .contenedor-lista-foros {
     padding: 10px;
   }
