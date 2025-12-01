@@ -204,11 +204,6 @@
   margin-bottom: 2rem;
 }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .loading-screen h2 {
   font-size: 2rem;
   color: var(--color-primary-700);
@@ -221,7 +216,6 @@
   max-width: 400px;
 }
 
-/* Pantalla de Test */
 .test-screen {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--neutral-100) 100%);
