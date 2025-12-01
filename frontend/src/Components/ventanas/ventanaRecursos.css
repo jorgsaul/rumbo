@@ -15,7 +15,7 @@
   max-width: 900px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 740px) {
   .ventana-recursos-contenedor{
     padding: 0;
     display: flex;
