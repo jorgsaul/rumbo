@@ -61,9 +61,7 @@
   --neutral-100: #FFFFFF;
 }
 
-/* Estilos para Test Vocacional Ikigai */
 
-/* Pantalla de Bienvenida */
 .welcome-screen {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--neutral-100) 100%);

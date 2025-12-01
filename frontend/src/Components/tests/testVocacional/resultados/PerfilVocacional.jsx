@@ -5,7 +5,6 @@ import "./style.css";
 const PerfilVocacional = ({ resultados, userAnswers }) => {
   const { calcularPerfilVocacional } = useIkigaiCalculator();
 
-  // Función para formatear correctamente el perfil
   const obtenerPerfilFormateado = () => {
     if (!userAnswers || Object.keys(userAnswers).length === 0) {
       return getPerfilDefault();
@@ -14,7 +13,6 @@ const PerfilVocacional = ({ resultados, userAnswers }) => {
     try {
       const perfilCalculado = calcularPerfilVocacional(userAnswers);
 
-      // Formatear la estructura para que coincida con lo que espera AreaCard
       const perfilFormateado = {
         tecnologico: {
           valor: perfilCalculado.tecnologico || 0,
@@ -51,7 +49,6 @@ const PerfilVocacional = ({ resultados, userAnswers }) => {
     }
   };
 
-  // Perfil por defecto (fallback)
   const getPerfilDefault = () => {
     return {
       tecnologico: { valor: 20, icono: "💻", label: "Tecnológico" },

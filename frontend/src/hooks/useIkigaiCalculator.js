@@ -25,7 +25,6 @@ export const useIkigaiCalculator = () => {
 
       const valorNormalizado = normalizarRespuesta(respuesta);
 
-      // Procesar por categoría
       if (pregunta.categoria === 'pasion') {
         procesarPasion(perfil, pregunta, valorNormalizado, respuesta);
       } else if (pregunta.categoria === 'vocacion') {
@@ -219,7 +218,6 @@ export const useIkigaiCalculator = () => {
 
     const valor = (respuesta - 1) / 4 * 100;
 
-    // TECNOLÓGICO
     if (
       pregunta.palabras_clave?.some(palabra => 
         ['Programación', 'Software', 'Algoritmos', 'Datos', 'Inteligencia Artificial'].includes(palabra)
@@ -230,7 +228,6 @@ export const useIkigaiCalculator = () => {
       perfil.tecnologico += valor;
     }
 
-    // CIENTÍFICO
     if (
       pregunta.palabras_clave?.some(palabra => 
         ['Química', 'Farmacéutica', 'Biotecnología', 'Procesos químicos', 'Investigación'].includes(palabra)
@@ -245,7 +242,6 @@ export const useIkigaiCalculator = () => {
       perfil.cientifico += valor;
     }
 
-    // SALUD
     if (
       pregunta.palabras_clave?.some(palabra => 
         ['Salud', 'Medicina', 'Diagnóstico', 'Terapéutica', 'Biomedicina'].includes(palabra)
@@ -256,7 +252,6 @@ export const useIkigaiCalculator = () => {
       perfil.salud += valor;
     }
 
-    // ADMINISTRATIVO
     if (
       pregunta.palabras_clave?.some(palabra => 
         ['Negocios', 'Finanzas', 'Emprendimiento', 'Marketing', 'Administración'].includes(palabra)
@@ -271,7 +266,6 @@ export const useIkigaiCalculator = () => {
       perfil.administrativo += valor;
     }
 
-    // SOCIAL
     if (
       pregunta.competencia === 'Trabajo en equipo' ||
       pregunta.competencia === 'Liderazgo' ||
@@ -286,7 +280,6 @@ export const useIkigaiCalculator = () => {
     }
   });
 
-  // Calcular porcentajes
   const total = Object.values(perfil).reduce((sum, val) => sum + val, 0);
   if (total > 0) {
     Object.keys(perfil).forEach(key => {

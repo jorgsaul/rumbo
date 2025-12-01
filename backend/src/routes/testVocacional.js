@@ -4,13 +4,11 @@ import {pool} from '../config/dataBase.js';
 
 const router = express.Router();
 
-// En routes/testVocacional.js - guardar solo IDs
 router.post('/guardar-resultados', authenticateUser, async (req, res) => {
   try {
     const { resultados, perfilVocacional, zonaIkigai } = req.body;
     const userId = req.user.id;
 
-    // Guardar solo los IDs de las top 10 carreras
     const topCarrerasIds = resultados.slice(0, 10).map(carrera => ({
       id: carrera.id,
       puntuacion: carrera.puntuacion,
@@ -37,8 +35,8 @@ router.post('/guardar-resultados', authenticateUser, async (req, res) => {
       perfilVocacional.salud || 0,
       perfilVocacional.administrativo || 0,
       perfilVocacional.social || 0,
-      JSON.stringify(topCarrerasIds), // ← Solo IDs + info del test
-      JSON.stringify(resultados), // Todos los resultados
+      JSON.stringify(topCarrerasIds),
+      JSON.stringify(resultados),
       scoreGlobal.toFixed(2),
       zonaIkigai
     ];

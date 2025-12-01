@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 
 function CardRecurso({ titulo, descripcion, tiempo, imagen, id }) {
   return (
-    <Link
-      to={id === 7 ? `/recursos/testVocacional` : `/recursos/test/${id}`}
-      style={{ textDecoration: "none" }}
-    >
+    <Link to={`/recursos/test/${id}`} style={{ textDecoration: "none" }}>
       <div className="contenedor-card-recurso">
         <div className="contenedor-card-recurso-imagen">
           <img src={imagen} alt="" />

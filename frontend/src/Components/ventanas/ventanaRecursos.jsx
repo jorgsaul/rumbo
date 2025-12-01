@@ -2,6 +2,7 @@
 import "./ventanaRecursos.css";
 import CardRecurso from "../cards/cardRecurso";
 import VentanaResultados from "../tests/ventanaResultados";
+import Button from "../botones/buttonPrimary";
 import { useState, useEffect } from "react";
 import { careers } from "../tests/testVocacional/testData";
 
@@ -62,18 +63,16 @@ function VentanaRecursos() {
       <p>Elige un desafío y mide tus habilidades.</p>
 
       <div className="botones-vista">
-        <button
+        <Button
+          text="Tests de Conocimientos"
           className={`boton-vista ${!mostrandoVocacional ? "activo" : ""}`}
-          onClick={() => setMostrandoVocacional(false)}
-        >
-          📚 Tests de Conocimientos
-        </button>
-        <button
+          action={() => setMostrandoVocacional(false)}
+        />
+        <Button
+          text="Test Vocacional"
           className={`boton-vista ${mostrandoVocacional ? "activo" : ""}`}
-          onClick={() => setMostrandoVocacional(true)}
-        >
-          🎯 Test Vocacional
-        </button>
+          action={() => setMostrandoVocacional(true)}
+        />
       </div>
 
       {mostrandoVocacional ? (
@@ -270,7 +269,7 @@ function VentanaRecursos() {
 
               <button
                 className="boton-nuevo-test"
-                onClick={() => (window.location.href = "/test-vocacional")}
+                onClick={() => (window.location.href = "/testVocacional")}
               >
                 🔄 Realizar Nuevo Test Vocacional
               </button>
@@ -359,15 +358,6 @@ function VentanaRecursos() {
               }
               imagen={
                 "https://images.unsplash.com/photo-1604594849809-dfedbc827105?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWNvbm9taWF8ZW58MHx8MHx8fDA%3D"
-              }
-            />
-            <CardRecurso
-              titulo="Test Vocacional"
-              id={7}
-              tiempo={"10 min"}
-              descripcion="Responda unas preguntas de conocimientos vocacionales. Pon a prueba tus conocimientos vocacionales."
-              imagen={
-                "https://img.freepik.com/vector-gratis/alumno-mochila-rodeado-pulgares-arriba-nino-traje-oficial-siendo-respetado-ilustracion-vector-plano-sociedad-educacion-concepto-opinion-publica-banner-diseno-sitio-web-o-pagina-web-destino_74855-25270.jpg?semt=ais_hybrid&w=740&q=80"
               }
             />
           </div>

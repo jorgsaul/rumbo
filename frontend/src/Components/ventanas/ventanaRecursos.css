@@ -40,9 +40,6 @@
   }
 }
 
-/* Agregar al ventanaRecursos.css */
-
-/* Perfil vocacional - estilo de barras */
 .seccion-perfil {
   background: white;
   padding: 20px;
@@ -105,7 +102,6 @@
   text-align: right;
 }
 
-/* Mejoras para las carreras */
 .carrera-item {
   display: flex;
   align-items: center;
@@ -142,7 +138,6 @@
   font-weight: 500;
 }
 
-/* Score global */
 .score-global {
   font-size: 1.1rem;
   color: #28a745;

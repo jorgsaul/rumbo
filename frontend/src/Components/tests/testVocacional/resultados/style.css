@@ -37,7 +37,6 @@ body {
   background-color: var(--neutral-100);
 }
 
-/* Pantalla de Bienvenida */
 .welcome-screen {
   min-height: 100vh;
   background: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-100) 100%);
@@ -149,10 +148,8 @@ body {
   color: var(--neutral-700);
 }
 
-/* Pantalla de Test */
 .test-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
   padding: 20px;
 }
 
@@ -434,7 +431,6 @@ body {
   font-size: 14px;
 }
 
-/* Pantalla de Carga */
 .loading-screen {
   display: flex;
   flex-direction: column;
@@ -459,12 +455,10 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* Estilos para Resultados */
 .results-screen {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
   min-height: 100vh;
 }
 
@@ -490,7 +484,6 @@ body {
   line-height: 1.6;
 }
 
-/* Perfil Vocacional */
 .profile-section {
   background: var(--neutral-100);
   border-radius: 20px;
@@ -560,7 +553,6 @@ body {
   display: block;
 }
 
-/* Top Carreras */
 .top-careers-section {
   background: var(--neutral-100);
   border-radius: 20px;
@@ -583,7 +575,6 @@ body {
   gap: 24px;
 }
 
-/* Carrera Card */
 .career-card {
   background: var(--neutral-100);
   border: 2px solid var(--neutral-300);
@@ -687,7 +678,6 @@ body {
   color: var(--primary-600);
 }
 
-/* Resultados Actions */
 .results-actions {
   text-align: center;
   margin-top: 48px;
@@ -718,7 +708,6 @@ body {
   box-shadow: 0 8px 25px rgba(203, 53, 128, 0.3);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .welcome-container {
     padding: 24px;
@@ -767,7 +756,6 @@ body {
     font-size: 11px;
   }
   
-  /* Responsive para Resultados */
   .results-screen {
     padding: 16px;
   }
@@ -866,7 +854,6 @@ body {
     font-size: 10px;
   }
   
-  /* Responsive para Resultados */
   .results-header h1 {
     font-size: 1.75rem;
   }

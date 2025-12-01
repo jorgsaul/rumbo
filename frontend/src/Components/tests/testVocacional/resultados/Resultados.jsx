@@ -1,8 +1,10 @@
 import "./style.css";
 import PerfilVocacional from "./PerfilVocacional";
 import TopCarreras from "./TopCarreras";
+import { useNavigate } from "react-router-dom";
 
 const Resultados = ({ resultados, onRestart, userAnswers }) => {
+  const navigate = useNavigate();
   return (
     <div className="results-screen">
       <div className="results-header">
@@ -15,7 +17,13 @@ const Resultados = ({ resultados, onRestart, userAnswers }) => {
 
       <div className="results-actions">
         <button className="restart-button" onClick={onRestart}>
-          🔄 Realizar otro test
+          Realizar otro test
+        </button>
+        <button
+          className="restart-button"
+          onClick={() => navigate("/recursos")}
+        >
+          Continuar
         </button>
       </div>
     </div>

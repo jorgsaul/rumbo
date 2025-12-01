@@ -37,7 +37,7 @@ body{
   font-size: 3rem;
   margin: 2rem 0 0.5rem 0;
   font-weight: 600;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente más moderna */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: -1px;
 }
 
@@ -99,10 +99,9 @@ body{
   color: #91235a;
 }
 
-/* HR DENTRO DEL CONTENEDOR */
 hr{
-  width: 80%; /* Más estrecho y centrado */
-  margin: 1rem auto 2rem auto; /* Centrado */
+  width: 80%; 
+  margin: 1rem auto 2rem auto;
   border: none;
   height: 1px;
   background: #ccc;
@@ -114,7 +113,7 @@ a{
 
 @media (max-width:600px){
   .encabezado h1{
-    font-size: 2.5rem; /* Ajustado para mobile */
+    font-size: 2.5rem;
   }
   
   .container-opciones {
