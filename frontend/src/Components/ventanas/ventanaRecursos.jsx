@@ -59,8 +59,22 @@ function VentanaRecursos() {
 
   return (
     <div className="ventana-recursos-contenedor">
-      <h1 className="titulo-recursos">¡Ponte a prueba!</h1>
-      <p>Elige un desafío y mide tus habilidades.</p>
+      {!mostrandoVocacional && (
+        <div className="card-encabezado-recursos">
+          <h1 className="titulo-recursos">Tests de Conocimientos</h1>
+          <p>Elige un area y mide tus conocmientos en ella.</p>
+        </div>
+      )}
+
+      {mostrandoVocacional && (
+        <div className="card-encabezado-recursos">
+          <h1 className="titulo-recursos">Test Vocacional</h1>
+          <p>
+            Descubre tu perfil ideal y carreras recomendadas, asi como
+            informacion sobre tu ikigai
+          </p>
+        </div>
+      )}
 
       <div className="botones-vista">
         <Button

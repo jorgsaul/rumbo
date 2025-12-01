@@ -171,10 +171,7 @@
 .ventana-resultados {
   padding: 40px 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
 
 .card-grafica-resultados {
