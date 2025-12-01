@@ -167,7 +167,6 @@
   margin-bottom: 1rem;
 }
 
-/* Reutilizamos la misma card para ambos encabezados */
 .card-encabezado-recursos {
   background: white;
   border-radius: 20px;
@@ -178,7 +177,6 @@
   width: 100%;
   text-align: center;
   position: relative;
-  overflow: hidden;
 }
 
 .card-encabezado-recursos::before {
@@ -188,7 +186,7 @@
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  background: linear-gradient(135deg, #5A1236, #91235A);
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }
