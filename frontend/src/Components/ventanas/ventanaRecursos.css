@@ -1,6 +1,6 @@
 .ventana-recursos-contenedor{
   overflow-y: auto;
-  padding-left: 6rem;
+  padding: 2rem 6rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -38,6 +38,13 @@
   .titulo-recursos{
     font-size: 2rem;
   }
+}
+
+.botones-vista{
+  display: flex;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  gap: 1rem;
 }
 
 .seccion-perfil {

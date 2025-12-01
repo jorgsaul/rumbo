@@ -60,21 +60,23 @@ function VentanaResultados() {
   };
 
   return (
-    <div>
-      <h1 className="titulo-recursos">Tus resultados</h1>
+    <div className="ventana-resultados">
+      <div className="card-grafica-resultados">
+        <h1 className="titulo-recursos">Tus resultados</h1>
 
-      {datos === null || datos.length === 0 ? (
-        <p>Realiza un test para ver tus resultados</p>
-      ) : (
-        <>
-          <p>
-            Continua haciendo tests para mejorar la grafica de tus resultados.
-          </p>
-          <div className="contenedor-grafica">
-            <GraficaRadar datos={datosGrafica} />
-          </div>
-        </>
-      )}
+        {datos === null || datos.length === 0 ? (
+          <p>Realiza un test para ver tus resultados</p>
+        ) : (
+          <>
+            <p>
+              Continua haciendo tests para mejorar la grafica de tus resultados.
+            </p>
+            <div className="contenedor-grafica">
+              <GraficaRadar datos={datosGrafica} />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

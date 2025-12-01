@@ -269,9 +269,11 @@ function VentanaRecursos() {
 
               <button
                 className="boton-nuevo-test"
-                onClick={() => (window.location.href = "/testVocacional")}
+                onClick={() =>
+                  (window.location.href = "/recursos/testVocacional")
+                }
               >
-                🔄 Realizar Nuevo Test Vocacional
+                Realizar Nuevo Test Vocacional
               </button>
             </>
           ) : (

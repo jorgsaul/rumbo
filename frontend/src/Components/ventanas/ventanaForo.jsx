@@ -163,6 +163,7 @@ function VentanaForo({ ventanaActual }) {
                 showButton={false}
                 selectedEtiquetas={selectedEtiquetas}
                 handleCheckboxChange={handleCheckboxChange}
+                filtro={true}
               />
             )}
           </div>
