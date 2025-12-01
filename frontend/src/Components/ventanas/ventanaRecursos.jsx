@@ -281,12 +281,14 @@ function VentanaRecursos() {
                 </div>
               </div>
 
-              <Button
-                text="Realizar Nuevo Test Vocacional"
-                action={() =>
-                  (window.location.href = "/recursos/testVocacional")
-                }
-              />
+              <div style={{ marginTop: "2rem" }}>
+                <Button
+                  text="Realizar Nuevo Test Vocacional"
+                  action={() =>
+                    (window.location.href = "/recursos/testVocacional")
+                  }
+                />
+              </div>
             </>
           ) : (
             <div className="sin-resultados">
@@ -298,7 +300,9 @@ function VentanaRecursos() {
               </p>
               <button
                 className="boton-primario"
-                onClick={() => (window.location.href = "/test-vocacional")}
+                onClick={() =>
+                  (window.location.href = "/recursos/testVocacional")
+                }
               >
                 Realizar Test Vocacional
               </button>
