@@ -67,7 +67,7 @@
 
 /* Botón de filtros */
 .btn-filtros {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgb(255, 255, 255);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 20px;
@@ -146,6 +146,7 @@
   margin: 0;
   font-size: 1rem;
   font-weight: 600;
+  color: white;
 }
 
 .btn-cerrar-filtros {
