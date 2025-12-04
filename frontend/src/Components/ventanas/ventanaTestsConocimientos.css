@@ -1,4 +1,3 @@
-/* ventanaTestsConocimientos.css */
 .ventana-tests-contenedor {
   display: flex;
   flex-direction: column;
@@ -6,7 +5,6 @@
   width: 100%;
   gap: 2.5rem;
   padding: 1.5rem 2rem;
-  overflow-y: auto;
   background: #f8f9fa;
   min-height: 100vh;
 }
