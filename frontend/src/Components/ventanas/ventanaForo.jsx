@@ -6,15 +6,16 @@ import CascadeMenu from "../forms/cascadeMenu.jsx";
 import { useEffect, useState } from "react";
 import { useObtencionUsuario } from "../../hooks/obtencionUsuario.js";
 import { useParams } from "react-router-dom";
+import { useFiltro } from "../context/FiltroContext.jsx";
 
 function VentanaForo({ ventanaActual }) {
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState("");
   const [toggle, setToggle] = useState(false);
-  const [selectedEtiquetas, setSelectedEtiquetas] = useState({});
   const [busqueda, setBusqueda] = useState("normal");
   const { perfil } = useObtencionUsuario();
   const { idUsuario } = useParams();
+  const { selectedEtiquetas, handleCheckboxChange } = useFiltro();
 
   function cambioFiltro(ventana) {
     switch (ventana) {
@@ -35,31 +36,6 @@ function VentanaForo({ ventanaActual }) {
         break;
     }
   }
-
-  const handleCheckboxChange = (category_id, tagId) => {
-    setSelectedEtiquetas((prev) => {
-      const currentCategory = prev[category_id] || [];
-      const isSelected = currentCategory.includes(tagId);
-
-      if (isSelected) {
-        const updatedCategory = currentCategory.filter((id) => id !== tagId);
-        const newState = {
-          ...prev,
-          [category_id]: updatedCategory,
-        };
-        if (updatedCategory.length === 0) {
-          delete newState[category_id];
-        }
-        return newState;
-      } else {
-        const newState = {
-          ...prev,
-          [category_id]: [...currentCategory, tagId],
-        };
-        return newState;
-      }
-    });
-  };
 
   const obtenerIdsEtiquetas = () => {
     return Object.values(selectedEtiquetas).flat();
@@ -155,21 +131,6 @@ function VentanaForo({ ventanaActual }) {
           <p>Sin publicaciones</p>
         )}
       </div>
-      {filtro === "todos" && (
-        <div className="contenedor-filtros">
-          <div className="contenedor-filtros-cascade-menu">
-            {toggle && (
-              <CascadeMenu
-                showButton={false}
-                selectedEtiquetas={selectedEtiquetas}
-                handleCheckboxChange={handleCheckboxChange}
-                filtro={true}
-              />
-            )}
-          </div>
-          <IconoFiltro funcion={() => setToggle(!toggle)} />
-        </div>
-      )}
     </div>
   );
 }

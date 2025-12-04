@@ -4,6 +4,7 @@ import VentanaInicio from "./Components/ventanas/ventanaInicio";
 import VentanaPrincipal from "./Components/ventanas/ventanaPrincipal";
 import AuthSuccess from "./Components/ventanas/auth-succes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { FiltroProvider } from "./Components/context/FiltroContext";
 
 function App() {
   const [ventana, cambiarVentana] = useState("inicio");
@@ -65,24 +66,26 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route
-            path="/auth-success"
-            element={<AuthSuccess cambiarVentana={cambiarVentana} />}
-          />
-
-          {ventana === "inicio" && (
+      <FiltroProvider>
+        <Router>
+          <Routes>
             <Route
-              path="*"
-              element={<VentanaInicio cambiarVentana={cambiarVentana} />}
+              path="/auth-success"
+              element={<AuthSuccess cambiarVentana={cambiarVentana} />}
             />
-          )}
-          {ventana === "principal" && (
-            <Route path="*" element={<VentanaPrincipal />} />
-          )}
-        </Routes>
-      </Router>
+
+            {ventana === "inicio" && (
+              <Route
+                path="*"
+                element={<VentanaInicio cambiarVentana={cambiarVentana} />}
+              />
+            )}
+            {ventana === "principal" && (
+              <Route path="*" element={<VentanaPrincipal />} />
+            )}
+          </Routes>
+        </Router>
+      </FiltroProvider>
     </div>
   );
 }

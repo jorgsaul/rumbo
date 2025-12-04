@@ -3,11 +3,14 @@ import logoImageHeader from "../img/Logo-blancoL-header.png";
 import IconoBuscar from "../iconos/iconoBuscar";
 import PopUpSearch from "../busquedas/popUp";
 import { useEffect, useState } from "react";
+import { useFiltro } from "../context/FiltroContext";
 
 function Header() {
   const [popUp, setPopUp] = useState(false);
   const [busqueda, setBusqueda] = useState("");
   const [focus, setFocus] = useState(false);
+  const [toggleFiltros, setToggleFiltros] = useState(false);
+  const { selectedEtiquetas, handleCheckboxChange } = useFiltro();
 
   const handleChange = (e) => {
     setBusqueda(e.target.value);
@@ -46,6 +49,25 @@ function Header() {
           />
           {popUp && focus ? <PopUpSearch busqueda={busqueda} /> : null}
         </div>
+      </div>
+      <div className="filtros-header">
+        <button
+          className="btn-filtros"
+          onClick={() => setToggleFiltros(!toggleFiltros)}
+        >
+          Filtros
+        </button>
+
+        {toggleFiltros && (
+          <div className="menu-filtros-header">
+            <CascadeMenu
+              showButton={false}
+              selectedEtiquetas={selectedEtiquetas}
+              handleCheckboxChange={handleCheckboxChange}
+              filtro={true}
+            />
+          </div>
+        )}
       </div>
     </header>
   );
