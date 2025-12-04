@@ -1,62 +1,180 @@
-.contenedor-card-recurso{
+.contenedor-card-recurso {
   background-color: #fff;
-  width: 13rem;
+  width: 100%; /* Ahora ocupa todo el ancho de la columna */
   min-height: 18rem;
   border-radius: 1rem;
-  padding: 0.5rem;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem;
-  margin-right: 2rem;
-  transition: background-color 0.3s ease;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e9ecef;
 }
 
-.contenedor-card-recurso:hover{
-  background-color: #cacaca;
+.contenedor-card-recurso:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(90, 18, 54, 0.15);
+  border-color: rgba(90, 18, 54, 0.2);
   cursor: pointer;
 }
 
-.contenedor-card-recurso-imagen{
-  background-color: red;
-  border-radius: 1rem;
-  height: 8rem;
+.contenedor-card-recurso-imagen {
+  background-color: #f0f2f5;
+  border-radius: 0.8rem;
+  height: 9rem;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 1.2rem;
+  position: relative;
 }
 
-.contenedor-card-recurso-imagen img{
+.contenedor-card-recurso-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.contenedor-lista-cards-recursos{
+.contenedor-card-recurso:hover .contenedor-card-recurso-imagen img {
+  transform: scale(1.05);
+}
+
+/* Etiqueta de categoría opcional */
+.categoria-card-recursos {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(90, 18, 54, 0.9);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.contenedor-card-info {
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
 }
 
-.descripcion-card-recursos{
-  font-size: 0.8rem;
+.titulo-card-recursos {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d1b2e;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.descripcion-card-recursos {
+  font-size: 0.9rem;
+  color: #666;
   text-align: justify;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limita a 3 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.titulo-card-recursos{
-  margin-bottom: 0.5rem;
+.contenedor-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #f0f0f0;
 }
 
-.tiempo-card-recursos{
+.tiempo-card-recursos {
   font-style: italic;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
+  color: #91235A;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-@media (max-width: 600px) {
- .contenedor-card-recurso{
-    width:70%;
-    margin: 0;
-    margin-top: 2rem;
-    text-align: center;
+.tiempo-card-recursos::before {
+  content: "⏱️";
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+/* Botón de acción opcional */
+.btn-card-recursos {
+  background: #5A1236;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-card-recursos:hover {
+  background: #91235A;
+}
+
+/* Responsive para las cards */
+@media (max-width: 1024px) {
+  .contenedor-card-recurso {
+    min-height: 17rem;
+    padding: 1.25rem;
+  }
+  
+  .contenedor-card-recurso-imagen {
+    height: 8rem;
+  }
+  
+  .titulo-card-recursos {
+    font-size: 1.2rem;
+  }
+  
+  .descripcion-card-recursos {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-card-recurso {
+    min-height: 16rem;
+    padding: 1.25rem;
+  }
+  
+  .contenedor-card-recurso-imagen {
+    height: 7rem;
+  }
+  
+  .titulo-card-recursos {
+    font-size: 1.1rem;
+  }
+  
+  .descripcion-card-recursos {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+  }
+  
+  .contenedor-card-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 1400px) {
+  .contenedor-card-recurso {
+    min-height: 19rem;
+  }
+  
+  .contenedor-card-recurso-imagen {
+    height: 10rem;
   }
 }
