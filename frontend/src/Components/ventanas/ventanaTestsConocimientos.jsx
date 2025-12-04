@@ -1,6 +1,6 @@
 import "./ventanaTestsConocimientos.css";
 import CardRecurso from "../cards/cardRecurso";
-import { Resultados } from "../tests/testVocacional/resultados";
+import VentanaResultados from "../tests/ventanaResultados";
 
 function VentanaTestsConocimientos() {
   const tests = [
@@ -82,7 +82,7 @@ function VentanaTestsConocimientos() {
         ))}
       </div>
 
-      <Resultados />
+      <VentanaResultados />
     </div>
   );
 }
