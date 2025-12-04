@@ -58,19 +58,19 @@ function Sider({ cambioVentana, ventana }) {
       <MenuOption
         texto={"Test Vocacional"}
         icono={
-          <SparklesIcon color={ventana == "testVocacional" ? "white" : ""} />
+          <SparklesIcon color={ventana == "test-vocacional" ? "white" : ""} />
         }
-        funcion={() => cambioVentana("testVocacional")}
+        funcion={() => cambioVentana("test-vocacional")}
         activo={ventana == "test-vocacional" ? "activo" : ""}
       />
       <MenuOption
         texto={"Tests de Conocimientos"}
         icono={
           <ClipboardDocumentListIcon
-            color={ventana == "testConocimientos" ? "white" : ""}
+            color={ventana == "test-conocimientos" ? "white" : ""}
           />
         }
-        funcion={() => cambioVentana("testConocimientos")}
+        funcion={() => cambioVentana("test-conocimientos")}
         activo={ventana == "test-conocimientos" ? "activo" : ""}
       />
       <MenuOption
