@@ -21,8 +21,6 @@
   width: 100%;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  
 }
 
 .card-header-tests::before {
@@ -41,20 +39,6 @@
   margin-bottom: 0.75rem;
   color: #2d1b2e;
   font-weight: 700;
-
-  background: linear-gradient(135deg, #5A1236 0%, #91235A 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
-  
-
-  position: relative;
-  z-index: 1;
-  padding: 0 1rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
 }
 
 .card-header-tests p {

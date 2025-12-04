@@ -1,23 +1,217 @@
+/* ventanaRecursosExternos.css */
+.ventana-recursos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2.5rem;
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.ventana-recursos > h1 {
+  background: white;
+  border-radius: 20px;
+  padding: 35px 45px;
+  box-shadow: 0 10px 30px rgba(90, 18, 54, 0.1);
+  border: 1px solid rgba(90, 18, 54, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  font-size: 2.8rem;
+  margin-bottom: 0.75rem;
+  color: #2d1b2e;
+  font-weight: 700;
+}
+
+.ventana-recursos > h1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #5A1236 0%, #91235A 100%);
+  border-radius: 20px 20px 0 0;
+}
+
+.ventana-recursos > p {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 1200px;
+}
+
+.lista-recursos-externos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
 .recurso-externo-card {
-  border: 1px solid #ddd;
-  padding: 1rem;
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.recurso-externo-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #5A1236 0%, #91235A 100%);
+  border-radius: 16px 0 0 16px;
+}
+
+.recurso-externo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(90, 18, 54, 0.12);
+  border-color: rgba(90, 18, 54, 0.2);
+}
+
+.recurso-externo-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #2d1b2e;
   margin-bottom: 1rem;
-  border-radius: 8px;
-  background-color: #fff;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .icono-link-externo {
-  font-size: 0.9rem;
-  margin-left: 0.3rem;
-  color: #555;
+  font-size: 1.2rem;
+  color: #91235A;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
+}
+
+.recurso-externo-card:hover .icono-link-externo {
+  transform: translate(3px, -3px);
+}
+
+.recurso-externo-card p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  flex: 1;
 }
 
 .recurso-externo-card button {
-  margin-top: 0.5rem;
-  background-color: #1f2937;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  margin-top: auto;
+  background: linear-gradient(135deg, #5A1236 0%, #91235A 100%);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+}
+
+.recurso-externo-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(90, 18, 54, 0.2);
+}
+
+.recurso-externo-card button::after {
+  content: "↗";
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.recurso-externo-card button:hover::after {
+  transform: translate(3px, -3px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .lista-recursos-externos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  
+  .recurso-externo-card {
+    padding: 1.75rem;
+  }
+  
+  .recurso-externo-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ventana-recursos {
+    padding: 1rem;
+    gap: 2rem;
+  }
+  
+  .ventana-recursos > h1 {
+    padding: 25px 20px;
+    font-size: 2rem;
+  }
+  
+  .ventana-recursos > p {
+    font-size: 1rem;
+    padding: 1.25rem;
+  }
+  
+  .lista-recursos-externos {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .recurso-externo-card {
+    padding: 1.5rem;
+  }
+  
+  .recurso-externo-card h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Efecto de pulso sutil para destacar recursos */
+@keyframes pulse-subtle {
+  0% { box-shadow: 0 5px 20px rgba(90, 18, 54, 0.08); }
+  50% { box-shadow: 0 5px 20px rgba(90, 18, 54, 0.15); }
+  100% { box-shadow: 0 5px 20px rgba(90, 18, 54, 0.08); }
+}
+
+.recurso-externo-card:nth-child(1) {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.recurso-externo-card:nth-child(2) {
+  animation: pulse-subtle 3s ease-in-out infinite 1.5s;
 }
