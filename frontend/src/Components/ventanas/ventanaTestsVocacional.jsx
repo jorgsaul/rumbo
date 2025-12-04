@@ -56,144 +56,107 @@ function VentanaTestVocacional() {
     cargarResultadosVocacional();
   }, []);
 
+  const areas = [
+    { label: "Tecnológico", key: "perfil_tecnologico", icon: "💻" },
+    { label: "Científico", key: "perfil_cientifico", icon: "🔬" },
+    { label: "Salud", key: "perfil_salud", icon: "🏥" },
+    { label: "Administrativo", key: "perfil_administrativo", icon: "📈" },
+    { label: "Social", key: "perfil_social", icon: "🤝" },
+  ];
+
   return (
-    <div className="ventana-recursos-contenedor">
-      <div className="card-encabezado-recursos">
-        <h1 className="titulo-recursos">Test Vocacional</h1>
+    <div className="vtv-contenedor">
+      <div className="vtv-header">
+        <h1>Test Vocacional</h1>
         <p>
-          Descubre tu perfil ideal y carreras recomendadas, así como información
-          sobre tu Ikigai.
+          Descubre tu perfil ideal y carreras recomendadas, así como tu Ikigai.
         </p>
       </div>
 
       {resultadosVocacional ? (
-        <div className="vista-vocacional">
-          <div className="resultados-vocacional-header">
-            <h2>🎯 Tu Perfil Vocacional</h2>
-            <p className="fecha-resultado">
-              Test realizado:{" "}
-              {new Date(resultadosVocacional.created_at).toLocaleDateString(
-                "es-ES"
-              )}
-            </p>
-            <p className="score-global">
-              Score Global:{" "}
-              <strong>{resultadosVocacional.score_global}%</strong>
-            </p>
+        <div className="vtv-vista">
+          {/* Perfil de áreas */}
+          <div className="vtv-perfil-areas">
+            {areas.map((area) => (
+              <div className="vtv-area" key={area.key}>
+                <div className="vtv-area-icon">{area.icon}</div>
+                <div className="vtv-area-info">
+                  <span className="vtv-area-label">{area.label}</span>
+                  <div className="vtv-area-bar">
+                    <div
+                      className="vtv-area-fill"
+                      style={{ width: `${resultadosVocacional[area.key]}%` }}
+                    ></div>
+                  </div>
+                </div>
+                <span className="vtv-area-porcentaje">
+                  {resultadosVocacional[area.key]}%
+                </span>
+              </div>
+            ))}
           </div>
 
-          <div className="seccion-perfil">
-            <h3>📊 Tu Perfil de Áreas</h3>
-
-            <div className="perfil-areas">
-              {[
-                { label: "Tecnológico", key: "perfil_tecnologico", icon: "💻" },
-                { label: "Científico", key: "perfil_cientifico", icon: "🔬" },
-                { label: "Salud", key: "perfil_salud", icon: "🏥" },
-                {
-                  label: "Administrativo",
-                  key: "perfil_administrativo",
-                  icon: "📈",
-                },
-                { label: "Social", key: "perfil_social", icon: "🤝" },
-              ].map((area) => (
-                <div className="area-vocacional" key={area.key}>
-                  <div className="area-icon">{area.icon}</div>
-                  <div className="area-info">
-                    <span className="area-label">{area.label}</span>
-                    <div className="area-bar">
-                      <div
-                        className="area-fill"
-                        style={{
-                          width: `${resultadosVocacional[area.key]}%`,
-                        }}
-                      ></div>
-                    </div>
-                  </div>
-                  <span className="area-porcentaje">
-                    {resultadosVocacional[area.key]}%
+          {/* Lista de top carreras */}
+          <div className="vtv-lista-carreras">
+            {carrerasCompletas?.slice(0, 5).map((carrera, index) => (
+              <div key={carrera.id} className="vtv-carrera">
+                <div className="vtv-carrera-header">
+                  <span className="vtv-ranking">#{index + 1}</span>
+                  <h4 className="vtv-carrera-nombre">{carrera.nombre}</h4>
+                  <span className="vtv-compatibilidad">
+                    {carrera.puntuacion}%
                   </span>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* TOP CARRERAS */}
-          <div className="seccion-carreras">
-            <h3>🏆 Top 5 Carreras Recomendadas</h3>
-
-            <div className="lista-carreras-detalladas">
-              {carrerasCompletas.slice(0, 5).map((carrera, index) => (
-                <div key={carrera.id} className="carrera-detalle">
-                  <div className="carrera-header">
-                    <span className="ranking">#{index + 1}</span>
-                    <h4 className="carrera-nombre">{carrera.nombre}</h4>
-                    <span className="compatibilidad">
-                      {carrera.puntuacion}%
-                    </span>
+                <div className="vtv-carrera-info">
+                  <div className="vtv-info-row">
+                    <strong>🏫 Unidades:</strong> {carrera.unidades?.join(", ")}
                   </div>
-
-                  <div className="carrera-info-completa">
-                    <div className="info-row">
-                      <strong>🏫 Unidades:</strong>
-                      <span>{carrera.unidades?.join(", ")}</span>
-                    </div>
-
-                    <div className="info-row">
-                      <strong>📚 Área:</strong>
-                      <span>{carrera.area}</span>
-                    </div>
-
-                    <div className="info-row">
-                      <strong>💼 Empleabilidad:</strong>
-                      <span>{carrera.profesion?.empleabilidad}%</span>
-                    </div>
-
-                    <div className="info-row">
-                      <strong>💰 Salario inicial:</strong>
-                      <span>
-                        ${carrera.profesion?.salario_inicial?.toLocaleString()}
-                      </span>
-                    </div>
-
-                    <div className="info-row">
-                      <strong>📈 Demanda:</strong>
-                      <span>{carrera.profesion?.demanda}</span>
-                    </div>
-
-                    <div className="info-row">
-                      <strong>🎯 Habilidades principales:</strong>
-                      <div className="habilidades">
-                        {carrera.vocacion?.habilidades_tecnicas
-                          ?.slice(0, 3)
-                          .map((hab, i) => (
-                            <span key={i} className="habilidad-tag">
-                              {hab}
-                            </span>
-                          ))}
-                      </div>
-                    </div>
-
-                    <div className="scores-ikigai">
-                      <div className="score-item">
-                        <span>❤️ Pasión: {carrera.scores?.pasion}%</span>
-                      </div>
-                      <div className="score-item">
-                        <span>🎓 Vocación: {carrera.scores?.vocacion}%</span>
-                      </div>
-                      <div className="score-item">
-                        <span>💼 Profesión: {carrera.scores?.profesion}%</span>
-                      </div>
-                      <div className="score-item">
-                        <span>🌍 Misión: {carrera.scores?.mision}%</span>
-                      </div>
-                    </div>
+                  <div className="vtv-info-row">
+                    <strong>📚 Área:</strong> {carrera.area}
+                  </div>
+                  <div className="vtv-info-row">
+                    <strong>💼 Empleabilidad:</strong>{" "}
+                    {carrera.profesion?.empleabilidad}%
+                  </div>
+                  <div className="vtv-info-row">
+                    <strong>💰 Salario inicial:</strong> $
+                    {carrera.profesion?.salario_inicial?.toLocaleString()}
+                  </div>
+                  <div className="vtv-info-row">
+                    <strong>📈 Demanda:</strong> {carrera.profesion?.demanda}
                   </div>
                 </div>
-              ))}
-            </div>
+
+                <div className="vtv-habilidades">
+                  {carrera.vocacion?.habilidades_tecnicas
+                    ?.slice(0, 3)
+                    .map((hab, i) => (
+                      <span key={i} className="vtv-habilidad-tag">
+                        {hab}
+                      </span>
+                    ))}
+                </div>
+
+                <div className="vtv-scores-ikigai">
+                  <div className="vtv-score-item">
+                    ❤️ Pasión: {carrera.scores?.pasion}%
+                  </div>
+                  <div className="vtv-score-item">
+                    🎓 Vocación: {carrera.scores?.vocacion}%
+                  </div>
+                  <div className="vtv-score-item">
+                    💼 Profesión: {carrera.scores?.profesion}%
+                  </div>
+                  <div className="vtv-score-item">
+                    🌍 Misión: {carrera.scores?.mision}%
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
+          {/* Botón de nuevo test */}
           <div style={{ marginTop: "2rem" }}>
             <Button
               text="Realizar Nuevo Test Vocacional"
@@ -204,14 +167,13 @@ function VentanaTestVocacional() {
           </div>
         </div>
       ) : (
-        <div className="sin-resultados">
+        <div className="vtv-sin-resultados">
           <div className="icono-sin-resultados">🎯</div>
           <h3>No hay resultados de test vocacional</h3>
           <p>
             Realiza el test vocacional para descubrir tu perfil y carreras
             ideales
           </p>
-
           <button
             className="boton-primario"
             onClick={() =>
