@@ -1,7 +1,7 @@
 import "./ventanaRecursos.css";
 import { useState, useEffect } from "react";
 import { careers } from "../tests/testVocacional/testData";
-import "./VentanaTestVocacional.css";
+import "./ventanaTestVocacional.css";
 import Button from "../botones/buttonPrimary";
 
 function VentanaTestVocacional() {
