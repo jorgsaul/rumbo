@@ -61,7 +61,7 @@ function Sider({ cambioVentana, ventana }) {
           <SparklesIcon color={ventana == "testVocacional" ? "white" : ""} />
         }
         funcion={() => cambioVentana("testVocacional")}
-        activo={ventana == "testVocacional" ? "activo" : ""}
+        activo={ventana == "test-vocacional" ? "activo" : ""}
       />
       <MenuOption
         texto={"Tests de Conocimientos"}
@@ -71,7 +71,7 @@ function Sider({ cambioVentana, ventana }) {
           />
         }
         funcion={() => cambioVentana("testConocimientos")}
-        activo={ventana == "testConocimientos" ? "activo" : ""}
+        activo={ventana == "test-conocimientos" ? "activo" : ""}
       />
       <MenuOption
         texto={"Recursos Externos"}
