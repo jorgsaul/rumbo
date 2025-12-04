@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CardRecurso({ titulo, descripcion, tiempo, imagen, id }) {
   return (
     <Link
-      to={`/recursos/test/${id}`}
+      to={`/tests-conocimientos/test/${id}`}
       style={{
         textDecoration: "none",
         justifyContent: "center",
