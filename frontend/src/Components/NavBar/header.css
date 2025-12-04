@@ -6,11 +6,14 @@
   z-index: 100000;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  gap: 1rem;
 }
 
 .logo-image-header {
   height: 100%;
-  margin: 0 1rem;
+  margin: 0;
   flex-shrink: 0;
 }
 
@@ -21,24 +24,26 @@
   width: 100%;
   border: solid 1px #b1b1b1;
   padding-left: 2rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.buscador-header input:focus {
+  border-color: #8a2a5a;
+  box-shadow: 0 0 0 2px rgba(90, 18, 54, 0.1);
 }
 
 .buscador-header {
   display: flex;
   flex: 1;
   justify-content: center;
+  max-width: 35rem;
 }
 
 .buscador-contenedor {
   position: relative;
   width: 100%;
-  max-width: 35rem;
-}
-
-@media (max-width: 800px) {
-  .buscador-header{
-    display: none;
-  }
 }
 
 .icono-buscar-buscador {
@@ -50,4 +55,167 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  color: #666;
+  z-index: 1;
+}
+
+/* Contenedor de filtros */
+.contenedor-filtros-header {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Botón de filtros */
+.btn-filtros {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  height: 2rem;
+}
+
+.btn-filtros:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-filtros.con-filtros-activos {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ff9ec0;
+}
+
+.icono-filtro {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.texto-filtro {
+  font-weight: 500;
+}
+
+.contador-filtros {
+  background: #ff3366;
+  color: white;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: bold;
+  margin-left: 0.25rem;
+}
+
+/* Menú de filtros desplegable */
+.menu-filtros-header {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 0;
+  min-width: 320px;
+  max-width: 400px;
+  z-index: 100001;
+  max-height: 70vh;
+  overflow: hidden;
+  border: 1px solid #eaeaea;
+}
+
+.cabecera-filtros {
+  background: #5A1236;
+  color: white;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cabecera-filtros h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.btn-cerrar-filtros {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  border-radius: 50%;
+}
+
+.btn-cerrar-filtros:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ajustar CascadeMenu dentro del header */
+.menu-filtros-header .cascade-menu {
+  position: static !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  height: auto !important;
+  max-height: 60vh !important;
+  padding: 1.5rem !important;
+  overflow-y: auto;
+  background: white;
+}
+
+.menu-filtros-header .contenedor-cascade-menu {
+  position: static !important;
+}
+
+@media (max-width: 800px) {
+  .buscador-header {
+    display: none;
+  }
+  
+  .rumbo-header {
+    padding: 0 0.5rem;
+  }
+  
+  .menu-filtros-header {
+    min-width: 280px;
+    right: -0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .texto-filtro {
+    display: none;
+  }
+  
+  .btn-filtros {
+    padding: 0.4rem 0.8rem;
+  }
+  
+  .menu-filtros-header {
+    min-width: 260px;
+    max-width: 90vw;
+    right: 0;
+    left: 0;
+    margin: 0.5rem auto;
+  }
 }

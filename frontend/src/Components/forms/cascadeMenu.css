@@ -1,18 +1,68 @@
-.cascade-menu{
+.cascade-menu {
   border: solid 1px rgb(235, 235, 235);
   background-color: rgb(255, 255, 255);
   position: absolute;
-  padding: 0.7rem;
-  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
   width: 15rem;
-  height: 20rem;
+  max-height: 20rem;
   overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-.contenedor-cascade-menu{
+.cascade-menu > div {
+  margin-bottom: 1.5rem;
+}
+
+.cascade-menu > div:last-child {
+  margin-bottom: 0;
+}
+
+.cascade-menu p {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.contenedor-cascade-menu {
   position: relative;
-  transform: translateZ(0);
   z-index: 3;
+}
+
+/* Mejoras para checkboxes dentro del menú */
+.cascade-menu .checkbox-contenedor {
+  padding: 0.5rem 0.25rem;
+  margin: 0;
+}
+
+.cascade-menu .checkbox-contenedor:hover {
+  background: #f8f9fa;
+  border-radius: 4px;
+}
+
+.cascade-menu input[type="checkbox"] {
+  margin-right: 0.75rem;
+}
+
+/* Scrollbar personalizado */
+.cascade-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cascade-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.cascade-menu::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.cascade-menu::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
 }

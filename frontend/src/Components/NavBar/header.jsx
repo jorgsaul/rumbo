@@ -11,11 +11,15 @@ function Header() {
   const [busqueda, setBusqueda] = useState("");
   const [focus, setFocus] = useState(false);
   const [toggleFiltros, setToggleFiltros] = useState(false);
-  const { selectedEtiquetas, handleCheckboxChange } = useFiltro();
+  const { selectedEtiquetas, handleCheckboxChange, obtenerIdsEtiquetas } =
+    useFiltro();
+
+  const filtrosActivos = obtenerIdsEtiquetas().length;
 
   const handleChange = (e) => {
-    setBusqueda(e.target.value);
-    if (busqueda.length > 0) setPopUp(true);
+    const value = e.target.value;
+    setBusqueda(value);
+    if (value.length > 0) setPopUp(true);
     else setPopUp(false);
   };
 
@@ -23,13 +27,12 @@ function Header() {
     setTimeout(() => {
       setPopUp(false);
       setFocus(false);
-      setBusqueda("");
     }, 200);
   };
+
   useEffect(() => {
     if (!focus) {
       setPopUp(false);
-      setBusqueda("");
     }
   }, [focus]);
 
@@ -44,6 +47,7 @@ function Header() {
           <input
             type="text"
             placeholder="Prueba buscando algo"
+            value={busqueda}
             onChange={handleChange}
             onFocus={() => setFocus(true)}
             onBlur={handeBlur}
@@ -51,16 +55,31 @@ function Header() {
           {popUp && focus ? <PopUpSearch busqueda={busqueda} /> : null}
         </div>
       </div>
-      <div className="filtros-header">
+      <div className="contenedor-filtros-header">
         <button
-          className="btn-filtros"
+          className={`btn-filtros ${
+            filtrosActivos > 0 ? "con-filtros-activos" : ""
+          }`}
           onClick={() => setToggleFiltros(!toggleFiltros)}
         >
-          Filtros
+          <span className="icono-filtro">⚙</span>
+          <span className="texto-filtro">Filtros</span>
+          {filtrosActivos > 0 && (
+            <span className="contador-filtros">{filtrosActivos}</span>
+          )}
         </button>
 
         {toggleFiltros && (
           <div className="menu-filtros-header">
+            <div className="cabecera-filtros">
+              <h3>Filtrar por etiquetas</h3>
+              <button
+                className="btn-cerrar-filtros"
+                onClick={() => setToggleFiltros(false)}
+              >
+                ×
+              </button>
+            </div>
             <CascadeMenu
               showButton={false}
               selectedEtiquetas={selectedEtiquetas}
