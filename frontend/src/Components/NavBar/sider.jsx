@@ -2,10 +2,10 @@ import "./sider.css";
 import MenuOption from "./menuOption";
 import IconoHome from "../iconos/iconoHome";
 import IconoInformacion from "../iconos/iconoInformacion";
-import IconoEscuela from "../iconos/iconoEscuela";
 import AvatarPublicacion from "../avatar/avatarPublicacion";
-import IconoComparar from "../iconos/iconoComparar";
 import IconoLogout from "../iconos/iconoLogout";
+import { SparklesIcon } from "../iconos/iconoSparkles";
+import { ClipboardDocumentListIcon } from "../iconos/iconoClipBoardDocument";
 import { useObtencionUsuario } from "../../hooks/obtencionUsuario";
 
 function Sider({ cambioVentana, ventana }) {
@@ -55,35 +55,32 @@ function Sider({ cambioVentana, ventana }) {
         funcion={() => cambioVentana("foro")}
         activo={ventana == "foro" ? "activo" : ""}
       />
-
       <MenuOption
-        texto={"Recursos"}
+        texto={"Test Vocacional"}
+        icono={
+          <SparklesIcon color={ventana == "testVocacional" ? "white" : ""} />
+        }
+        funcion={() => cambioVentana("testVocacional")}
+        activo={ventana == "testVocacional" ? "activo" : ""}
+      />
+      <MenuOption
+        texto={"Tests de Conocimientos"}
+        icono={
+          <ClipboardDocumentListIcon
+            color={ventana == "testConocimientos" ? "white" : ""}
+          />
+        }
+        funcion={() => cambioVentana("testConocimientos")}
+        activo={ventana == "testConocimientos" ? "activo" : ""}
+      />
+      <MenuOption
+        texto={"Recursos Externos"}
         icono={
           <IconoInformacion color={ventana == "recursos" ? "white" : ""} />
         }
         funcion={() => cambioVentana("recursos")}
         activo={ventana == "recursos" ? "activo" : ""}
       />
-
-      <MenuOption
-        texto={"Oferta Educativa"}
-        icono={<IconoEscuela color={ventana == "informacion" ? "white" : ""} />}
-        funcion={() =>
-          window.open("https://www.ipn.mx/oferta-educativa/educacion-superior/")
-        }
-        activo={ventana == "informacion" ? "activo" : ""}
-      />
-
-      <MenuOption
-        texto={"Compara tus carreras"}
-        icono={<IconoComparar color={ventana == "comparar" ? "white" : ""} />}
-        funcion={() =>
-          window.open(
-            "https://comparacarreras.imco.org.mx/?gad_campaignid=1463017670"
-          )
-        }
-      />
-
       <MenuOption
         texto={"Cerrar sesión"}
         icono={<IconoLogout />}
