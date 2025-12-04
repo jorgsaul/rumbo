@@ -1,5 +1,6 @@
 import "./ventanaTestsConocimientos.css";
 import CardRecurso from "../cards/cardRecurso";
+import { Resultados } from "../tests/testVocacional/resultados";
 
 function VentanaTestsConocimientos() {
   const tests = [
@@ -80,6 +81,8 @@ function VentanaTestsConocimientos() {
           />
         ))}
       </div>
+
+      <Resultados />
     </div>
   );
 }

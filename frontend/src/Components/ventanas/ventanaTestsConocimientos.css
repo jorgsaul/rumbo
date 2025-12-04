@@ -6,7 +6,7 @@
   gap: 2.5rem;
   padding: 1.5rem 2rem;
   background: #f8f9fa;
-  min-height: 100vh;
+  height: fit-content;
 }
 
 .card-header-tests {
