@@ -151,7 +151,9 @@ router.post('/report-post', authenticateUser, async (req, res) => {
   }
 
   try {
-    const resultado = await reportarPost(post_id, userID);
+    const postIdInt = parseInt(post_id);
+    if(isNaN(postIdInt)) return res.status(400).json({ error: 'post_id debe ser un número entero' });
+    const resultado = await reportarPost(postIdInt, userID);
     res.json(resultado);
   } catch (error) {
     console.error('Error al reportar el post:', error);
