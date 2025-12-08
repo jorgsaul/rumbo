@@ -19,7 +19,6 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
   useEffect(() => {
     const verificarReporte = async () => {
       try {
-        console.log("Id de la publicación:", objeto.id);
         const response = await fetch(
           `${import.meta.env.VITE_APP_API_BASE_URL}/check-report?post_id=${
             objeto.id
@@ -43,6 +42,7 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
   const funcionReportar = async () => {
     if (yaReportado) return alert("Ya has reportado esta publicacion");
     try {
+      console.log("Id de la publicación:", objeto.id);
       const response = await fetch(
         `${import.meta.env.VITE_APP_API_BASE_URL}/report-post`,
         {
