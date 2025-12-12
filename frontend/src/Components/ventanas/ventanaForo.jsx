@@ -1,8 +1,6 @@
 import "./ventanaForo.css";
 import CardPublicacion from "../cards/cardPublicacion";
 import CardNuevaPublicacion from "../cards/cardNuevaPublicacion.jsx";
-import IconoFiltro from "../iconos/iconoFiltro.jsx";
-import CascadeMenu from "../forms/cascadeMenu.jsx";
 import { useEffect, useState } from "react";
 import { useObtencionUsuario } from "../../hooks/obtencionUsuario.js";
 import { useParams } from "react-router-dom";
@@ -11,7 +9,6 @@ import { useFiltro } from "../context/FiltroContext.jsx";
 function VentanaForo({ ventanaActual }) {
   const [posts, setPosts] = useState([]);
   const [filtro, setFiltro] = useState("");
-  const [toggle, setToggle] = useState(false);
   const [busqueda, setBusqueda] = useState("normal");
   const { perfil } = useObtencionUsuario();
   const { idUsuario } = useParams();

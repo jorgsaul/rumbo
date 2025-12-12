@@ -10,6 +10,7 @@ import { borrarPublicacion } from '../controllers/borrarPublicacion.js';
 import obtenerPostsEtiquetas from '../controllers/obtenerPostsEtiquetas.js';
 import { buscarPublicaciones } from '../controllers/buscarPublicacion.js';
 import { reportarPost } from '../controllers/reportController.js';
+import { eliminarMiReporte } from '../controllers/deleteReport.js';
 import { pool } from '../config/dataBase.js';
 
 const router = express.Router();
@@ -177,5 +178,26 @@ router.get('/check-report', authenticateUser, async (req, res) => {
     res.status(500).json({ error: 'Error verificando reporte' });
   }
 });
+
+router.delete('/remove-my-report', authenticateUser, async (req, res) => {
+  const userId = req.user.id;
+  const { post_id } = req.query;
+
+  if (!post_id) {
+    return res.status(400).json({ error: 'post_id es requerido' });
+  }
+
+  try {
+    const postIdInt = parseInt(post_id);
+    if(isNaN(postIdInt)) return res.status(400).json({ error: 'post_id debe ser un número entero' });
+    
+    const resultado = await eliminarMiReporte(postIdInt, userId);
+    res.json(resultado);
+  } catch (error) {
+    console.error('Error al eliminar reporte:', error);
+    res.status(500).json({ error: error.message || 'Error al eliminar reporte' });
+  }
+});
+
 
 export default router;

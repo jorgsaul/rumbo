@@ -40,7 +40,31 @@ function CardPublicacion({ objeto, publicacionPropia, recargarPublicaciones }) {
   }, [objeto.id]);
 
   const funcionReportar = async () => {
-    if (yaReportado) return alert("Ya has reportado esta publicacion");
+    if (yaReportado) {
+      if (window.confirm("¿Deseas eliminar tu reporte?")) {
+        try {
+          const response = await fetch(
+            `${
+              import.meta.env.VITE_APP_API_BASE_URL
+            }/remove-my-report?post_id=${objeto.id}`,
+            {
+              method: "DELETE",
+              credentials: "include",
+            }
+          );
+          const result = await response.json();
+          if (result.success) {
+            setYaReportado(false);
+            alert("Se a eliminado tu reporte");
+            recargarPublicaciones();
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      return;
+    }
+
     try {
       console.log("Id de la publicación:", objeto.id);
       const response = await fetch(
