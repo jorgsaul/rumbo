@@ -166,7 +166,7 @@ export const questions = [
     {
         id: 21,
         pilar: 'PROFESIÓN',
-        texto: '¿Qué tan importante es para ti tener un salario inicial alto (arriba de $20,000)?',
+        texto: '¿Qué tan importante es para ti tener un salario inicial alto arriba de $20,000?',
         tipo: 'likert_5',
         categoria: 'profesion',
         aspecto: 'salario_alto'
@@ -353,9 +353,7 @@ export const careers = [
             dificultad_academica: 9
         },
         profesion: {
-            empleabilidad: 90,
-            salario_inicial: 21500,
-            salario_experiencia: 52500,
+            empleabilidad: 'Muy Alta',
             sectores: ["Aeroespacial", "Industria manufacturera", "Logística y transporte", "Gobierno y sector público"],
             demanda: "Alta",
             emprendimiento: 6
@@ -393,9 +391,7 @@ export const careers = [
             dificultad_academica: 7
         },
         profesion: {
-            empleabilidad: 80,
-            salario_inicial: 16500,
-            salario_experiencia: 34000,
+            empleabilidad: 'Alta',
             sectores: ["Medio ambiente y sustentabilidad", "Gobierno y sector público", "Consultoría", "Construcción", "Energía y petróleo"],
             demanda: "Media",
             emprendimiento: 7
@@ -433,9 +429,7 @@ export const careers = [
             dificultad_academica: 8
         },
         profesion: {
-            empleabilidad: 88,
-            salario_inicial: 19000,
-            salario_experiencia: 45000,
+            empleabilidad: 'Alta',
             sectores: ["Salud (hospitales, clínicas)", "Industria manufacturera", "Biotecnología", "Consultoría", "Educación e investigación"],
             demanda: "Alta",
             emprendimiento: 8
@@ -473,9 +467,7 @@ export const careers = [
             dificultad_academica: 9
         },
         profesion: {
-            empleabilidad: 85,
-            salario_inicial: 20000,
-            salario_experiencia: 48000,
+            empleabilidad: 'Alta',
             sectores: ["Biotecnología", "Tecnología de la información", "Educación e investigación", "Emprendimiento/startups", "Salud (hospitales, clínicas)"],
             demanda: "Alta",
             emprendimiento: 9
@@ -513,9 +505,7 @@ export const careers = [
             dificultad_academica: 7
         },
         profesion: {
-            empleabilidad: 82,
-            salario_inicial: 17000,
-            salario_experiencia: 37500,
+            empleabilidad: 'Alta',
             sectores: ["Farmacéutico", "Alimentario", "Químico", "Biotecnología", "Educación e investigación"],
             demanda: "Alta",
             emprendimiento: 6
@@ -553,9 +543,7 @@ export const careers = [
             dificultad_academica: 7
         },
         profesion: {
-            empleabilidad: 85,
-            salario_inicial: 18500,
-            salario_experiencia: 40000,
+            empleabilidad: 'Alta',
             sectores: ["Biotecnología", "Farmacéutico", "Alimentario", "Educación e investigación", "Emprendimiento/startups"],
             demanda: "Muy Alta",
             emprendimiento: 9
@@ -593,9 +581,7 @@ export const careers = [
             dificultad_academica: 8
         },
         profesion: {
-            empleabilidad: 89,
-            salario_inicial: 17500,
-            salario_experiencia: 45000,
+            empleabilidad: 'Alta',
             sectores: ["Construcción", "Gobierno y sector público", "Consultoría", "Energía y petróleo", "Servicios financieros"],
             demanda: "Muy Alta",
             emprendimiento: 7
@@ -633,9 +619,7 @@ export const careers = [
             dificultad_academica: 9
         },
         profesion: {
-            empleabilidad: 92,
-            salario_inicial: 20500,
-            salario_experiencia: 50000,
+            empleabilidad: 'Muy Alta',
             sectores: ["Energía y petróleo", "Industria manufacturera", "Telecomunicaciones", "Gobierno y sector público", "Construcción"],
             demanda: "Muy Alta",
             emprendimiento: 7
@@ -673,9 +657,7 @@ export const careers = [
             dificultad_academica: 6
         },
         profesion: {
-            empleabilidad: 80,
-            salario_inicial: 15500,
-            salario_experiencia: 31500,
+            empleabilidad: 'Alta',
             sectores: ["Alimentario", "Farmacéutico", "Industria manufacturera", "Emprendimiento/startups", "Comercio y retail"],
             demanda: "Alta",
             emprendimiento: 8
@@ -713,9 +695,7 @@ export const careers = [
             dificultad_academica: 8
         },
         profesion: {
-            empleabilidad: 95,
-            salario_inicial: 21500,
-            salario_experiencia: 50000,
+            empleabilidad: 'Muy Alta',
             sectores: ["Tecnología de la información", "Telecomunicaciones", "Industria manufacturera", "Emprendimiento/startups", "Servicios financieros"],
             demanda: "Muy Alta",
             emprendimiento: 9
@@ -753,9 +733,7 @@ export const careers = [
             dificultad_academica: 8
         },
         profesion: {
-            empleabilidad: 90,
-            salario_inicial: 19000,
-            salario_experiencia: 42500,
+        empleabilidad: 'Muy Alta',
             sectores: ["Telecomunicaciones", "Tecnología de la información", "Aeroespacial", "Industria manufacturera", "Gobierno y sector público"],
             demanda: "Muy Alta",
             emprendimiento: 7
@@ -793,9 +771,7 @@ export const careers = [
             dificultad_academica: 7
         },
         profesion: {
-            empleabilidad: 88,
-            salario_inicial: 20000,
-            salario_experiencia: 46500,
+            empleabilidad: 'Alta',
             sectores: ["Industria manufacturera", "Automotriz", "Energía y petróleo", "Tecnología de la información", "Emprendimiento/startups"],
             demanda: "Muy Alta",
             emprendimiento: 8
@@ -833,9 +809,7 @@ export const careers = [
             dificultad_academica: 7
         },
         profesion: {
-            empleabilidad: 85,
-            salario_inicial: 19000,
-            salario_experiencia: 42500,
+            empleabilidad: 'Alta',
             sectores: ["Energía y petróleo", "Gobierno y sector público", "Consultoría", "Industria manufacturera", "Servicios financieros"],
             demanda: "Alta",
             emprendimiento: 7
@@ -873,9 +847,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 85,
-        salario_inicial: 15000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Gobierno y sector público", "Consultoría", "Comercio y retail"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -913,9 +885,7 @@ export const careers = [
         dificultad_academica: 9
     },
     profesion: {
-        empleabilidad: 95,
-        salario_inicial: 20000,
-        salario_experiencia: 50000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Emprendimiento/startups", "Educación e investigación", "Consultoría"],
         demanda: "Muy Alta",
         emprendimiento: 10
@@ -953,9 +923,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 78,
-        salario_inicial: 14000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Alta',
         sectores: ["Industria manufacturera", "Automotriz", "Minería", "Aeroespacial", "Educación e investigación"],
         demanda: "Media",
         emprendimiento: 5
@@ -993,9 +961,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 65,
-        salario_inicial: 12000,
-        salario_experiencia: 25000,
+        empleabilidad: 'Media',
         sectores: ["Gobierno y sector público", "Educación e investigación", "Energía y petróleo", "Logística y transporte"],
         demanda: "Baja",
         emprendimiento: 4
@@ -1033,9 +999,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 70,
-        salario_inicial: 15000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Media',
         sectores: ["Gobierno y sector público", "Consultoría", "Logística y transporte", "Construcción"],
         demanda: "Media",
         emprendimiento: 6
@@ -1073,9 +1037,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 75,
-        salario_inicial: 16000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Energía y petróleo", "Servicios financieros", "Consultoría", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 8
@@ -1113,9 +1075,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 90,
-        salario_inicial: 18000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Industria manufacturera", "Automotriz", "Tecnología de la información", "Emprendimiento/startups"],
         demanda: "Muy Alta",
         emprendimiento: 9
@@ -1153,9 +1113,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 78,
-        salario_inicial: 14000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Alta',
         sectores: ["Medio ambiente y sustentabilidad", "Gobierno y sector público", "Consultoría", "Construcción"],
         demanda: "Media",
         emprendimiento: 7
@@ -1193,9 +1151,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 87,
-        salario_inicial: 16000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Automotriz", "Industria manufacturera", "Logística y transporte", "Emprendimiento/startups"],
         demanda: "Alta",
         emprendimiento: 7
@@ -1233,9 +1189,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 95,
-        salario_inicial: 18000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Emprendimiento/startups", "Telecomunicaciones", "Comercio y retail"],
         demanda: "Muy Alta",
         emprendimiento: 9
@@ -1273,9 +1227,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 85,
-        salario_inicial: 16000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Energía y petróleo", "Telecomunicaciones", "Tecnología de la información", "Consultoría", "Gobierno y sector público"],
         demanda: "Alta",
         emprendimiento: 7
@@ -1313,9 +1265,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 80,
-        salario_inicial: 14000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Alta',
         sectores: ["Logística y transporte", "Gobierno y sector público", "Industria manufacturera", "Comercio y retail", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 6
@@ -1353,9 +1303,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 85,
-        salario_inicial: 15000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Farmacéutico", "Químico", "Salud (hospitales, clínicas)", "Biotecnología", "Gobierno y sector público"],
         demanda: "Alta",
         emprendimiento: 6
@@ -1393,9 +1341,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 75,
-        salario_inicial: 15000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Logística y transporte", "Construcción", "Industria manufacturera", "Gobierno y sector público"],
         demanda: "Media",
         emprendimiento: 5
@@ -1433,9 +1379,7 @@ export const careers = [
         dificultad_academica: 9
     },
     profesion: {
-        empleabilidad: 70,
-        salario_inicial: 17000,
-        salario_experiencia: 38000,
+        empleabilidad: 'Media',
         sectores: ["Telecomunicaciones", "Tecnología de la información", "Educación e investigación", "Industria manufacturera", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 8
@@ -1473,9 +1417,7 @@ export const careers = [
         dificultad_academica: 9
     },
     profesion: {
-        empleabilidad: 80,
-        salario_inicial: 18000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Energía y petróleo", "Minería", "Gobierno y sector público", "Consultoría", "Educación e investigación"],
         demanda: "Alta",
         emprendimiento: 5
@@ -1513,9 +1455,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 80,
-        salario_inicial: 15000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Minería", "Construcción", "Energía y petróleo", "Gobierno y sector público", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 5
@@ -1553,9 +1493,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 85,
-        salario_inicial: 15000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Industria manufacturera", "Consultoría", "Servicios financieros", "Logística y transporte", "Gobierno y sector público"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -1593,9 +1531,7 @@ export const careers = [
         dificultad_academica: 10
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 18000,
-        salario_experiencia: 65000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Servicios financieros", "Tecnología de la información", "Educación e investigación", "Consultoría", "Gobierno y sector público"],
         demanda: "Alta",
         emprendimiento: 8
@@ -1633,9 +1569,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 16000,
-        salario_experiencia: 50000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Industria manufacturera", "Automotriz", "Energía y petróleo", "Construcción", "Emprendimiento/startups"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -1673,9 +1607,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.92,
-        salario_inicial: 17000,
-        salario_experiencia: 60000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Industria manufacturera", "Automotriz", "Tecnología de la información", "Emprendimiento/startups"],
         demanda: "Muy Alta",
         emprendimiento: 8
@@ -1713,9 +1645,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 0.78,
-        salario_inicial: 14000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Alta',
         sectores: ["Minería", "Industria manufacturera", "Automotriz", "Educación e investigación"],
         demanda: "Media",
         emprendimiento: 5
@@ -1753,9 +1683,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 20000,
-        salario_experiencia: 80000,
+        empleabilidad: 'Alta',
         sectores: ["Energía y petróleo", "Gobierno y sector público", "Consultoría", "Educación e investigación"],
         demanda: "Alta",
         emprendimiento: 4
@@ -1793,9 +1721,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 16000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Industria manufacturera", "Químico", "Farmacéutico", "Alimentario", "Gobierno y sector público"],
         demanda: "Alta",
         emprendimiento: 6
@@ -1833,9 +1759,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 16000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Energía y petróleo", "Industria manufacturera", "Gobierno y sector público", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 6
@@ -1873,9 +1797,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 17000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Telecomunicaciones", "Tecnología de la información", "Gobierno y sector público", "Consultoría"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -1913,9 +1835,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 14000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Industria manufacturera", "Moda y diseño", "Comercio y retail", "Consultoría"],
         demanda: "Media",
         emprendimiento: 7
@@ -1953,9 +1873,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 15000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Construcción", "Gobierno y sector público", "Consultoría", "Logística y transporte"],
         demanda: "Alta",
         emprendimiento: 6
@@ -1993,9 +1911,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 15000,
-        salario_experiencia: 50000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Construcción", "Gobierno y sector público", "Consultoría", "Servicios inmobiliarios"],
         demanda: "Alta",
         emprendimiento: 8
@@ -2033,9 +1949,7 @@ export const careers = [
         dificultad_academica: 9
     },
     profesion: {
-        empleabilidad: 0.95,
-        salario_inicial: 20000,
-        salario_experiencia: 60000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Consultoría", "Educación e investigación"],
         demanda: "Muy Alta",
         emprendimiento: 9
@@ -2073,9 +1987,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 15000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Gobierno y sector público", "Consultoría"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -2113,9 +2025,7 @@ export const careers = [
         dificultad_academica: 10
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 16000,
-        salario_experiencia: 50000,
+        empleabilidad: 'Alta',
         sectores: ["Educación e investigación", "Gobierno y sector público", "Servicios financieros", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 7
@@ -2153,9 +2063,7 @@ export const careers = [
         dificultad_academica: 9
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 18000,
-        salario_experiencia: 60000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Tecnología de la información", "Servicios financieros", "Educación e investigación", "Consultoría"],
         demanda: "Muy Alta",
         emprendimiento: 8
@@ -2193,9 +2101,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 14000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Medio ambiente y sustentabilidad", "Salud", "Educación e investigación", "Biotecnología"],
         demanda: "Alta",
         emprendimiento: 6
@@ -2233,9 +2139,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 12000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Salud (hospitales, clínicas)", "Educación e investigación", "Gobierno y sector público"],
         demanda: "Muy Alta",
         emprendimiento: 6
@@ -2273,9 +2177,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.9,
-        salario_inicial: 13000,
-        salario_experiencia: 32000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Salud (hospitales, clínicas)", "Educación e investigación", "Gobierno y sector público"],
         demanda: "Muy Alta",
         emprendimiento: 6
@@ -2313,9 +2215,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.88,
-        salario_inicial: 12000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Salud (hospitales, clínicas)", "Educación e investigación", "Gobierno y sector público", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 7
@@ -2353,9 +2253,7 @@ export const careers = [
         dificultad_academica: 4
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 12000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Alta',
         sectores: ["Salud (hospitales, clínicas)", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 9
@@ -2393,9 +2291,7 @@ export const careers = [
         dificultad_academica: 4
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 11000,
-        salario_experiencia: 30000,
+        empleabilidad: 'Alta',
         sectores: ["Salud (hospitales, clínicas)", "Comercio y retail", "Emprendimiento/startups"],
         demanda: "Alta",
         emprendimiento: 8
@@ -2433,9 +2329,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 0.7,
-        salario_inicial: 10000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Media',
         sectores: ["Consultoría", "Salud (hospitales, clínicas)", "Gobierno y sector público", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 7
@@ -2473,9 +2367,7 @@ export const careers = [
         dificultad_academica: 4
     },
     profesion: {
-        empleabilidad: 0.75,
-        salario_inicial: 9000,
-        salario_experiencia: 25000,
+        empleabilidad: 'Alta',
         sectores: ["Gobierno y sector público", "ONGs", "Salud (hospitales, clínicas)", "Educación e investigación"],
         demanda: "Media",
         emprendimiento: 3
@@ -2513,9 +2405,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 12000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Alta',
         sectores: ["Salud (hospitales, clínicas)", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 8
@@ -2553,9 +2443,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.95,
-        salario_inicial: 15000,
-        salario_experiencia: 55000,
+        empleabilidad: 'Muy Alta',
         sectores: ["Salud (hospitales, clínicas)", "Gobierno y sector público", "Emprendimiento/startups"],
         demanda: "Muy Alta",
         emprendimiento: 7
@@ -2593,9 +2481,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 13000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Salud (hospitales, clínicas)", "Químico", "Farmacéutico", "Gobierno y sector público", "Educación e investigación"],
         demanda: "Alta",
         emprendimiento: 5
@@ -2633,9 +2519,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 15000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Farmacéutico", "Químico", "Industria manufacturera", "Salud (hospitales, clínicas)"],
         demanda: "Alta",
         emprendimiento: 6
@@ -2673,9 +2557,7 @@ export const careers = [
         dificultad_academica: 5
     },
     profesion: {
-        empleabilidad: 0.88,
-        salario_inicial: 14000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Alta',
         sectores: ["Servicios financieros", "Gobierno y sector público", "Consultoría", "Comercio y retail", "Emprendimiento/startups"],
         demanda: "Muy Alta",
         emprendimiento: 8
@@ -2713,9 +2595,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 14000,
-        salario_experiencia: 40000,
+        empleabilidad: 'Alta',
         sectores: ["Industria manufacturera", "Logística y transporte", "Servicios financieros", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 7
@@ -2753,9 +2633,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.75,
-        salario_inicial: 12000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Emprendimiento/startups", "Servicios financieros", "Comercio y retail", "Consultoría", "Tecnología de la información"],
         demanda: "Alta",
         emprendimiento: 10
@@ -2793,9 +2671,7 @@ export const careers = [
         dificultad_academica: 4
     },
     profesion: {
-        empleabilidad: 0.6,
-        salario_inicial: 10000,
-        salario_experiencia: 25000,
+        empleabilidad: 'Media',
         sectores: ["Gobierno y sector público", "Servicios financieros", "Educación e investigación", "Consultoría"],
         demanda: "Baja",
         emprendimiento: 3
@@ -2833,9 +2709,7 @@ export const careers = [
         dificultad_academica: 4
     },
     profesion: {
-        empleabilidad: 0.6,
-        salario_inicial: 10000,
-        salario_experiencia: 25000,
+        empleabilidad: 'Media',
         sectores: ["Educación e investigación", "Gobierno y sector público", "Tecnología de la información"],
         demanda: "Baja",
         emprendimiento: 3
@@ -2873,9 +2747,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.78,
-        salario_inicial: 15000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Servicios financieros", "Gobierno y sector público", "Consultoría", "Banca", "Educación e investigación"],
         demanda: "Alta",
         emprendimiento: 6
@@ -2913,9 +2785,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.85,
-        salario_inicial: 14000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Emprendimiento/startups", "Tecnología de la información", "Comercio y retail", "Consultoría", "Entretenimiento y medios"],
         demanda: "Muy Alta",
         emprendimiento: 9
@@ -2953,9 +2823,7 @@ export const careers = [
         dificultad_academica: 7
     },
     profesion: {
-        empleabilidad: 0.88,
-        salario_inicial: 16000,
-        salario_experiencia: 50000,
+        empleabilidad: 'Alta',
         sectores: ["Emprendimiento/startups", "Tecnología de la información", "Comercio y retail", "Servicios financieros", "Consultoría"],
         demanda: "Muy Alta",
         emprendimiento: 10
@@ -2993,9 +2861,7 @@ export const careers = [
         dificultad_academica: 8
     },
     profesion: {
-        empleabilidad: 0.82,
-        salario_inicial: 15000,
-        salario_experiencia: 45000,
+        empleabilidad: 'Alta',
         sectores: ["Comercio y retail", "Logística y transporte", "Servicios financieros", "Gobierno y sector público", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 7
@@ -3033,9 +2899,7 @@ export const careers = [
         dificultad_academica: 6
     },
     profesion: {
-        empleabilidad: 0.8,
-        salario_inicial: 13000,
-        salario_experiencia: 35000,
+        empleabilidad: 'Alta',
         sectores: ["Comercio y retail", "Logística y transporte", "Servicios financieros", "Consultoría"],
         demanda: "Alta",
         emprendimiento: 6
@@ -3073,9 +2937,7 @@ export const careers = [
         dificultad_academica: 5
     },
     profesion: {
-        empleabilidad: 0.65,
-        salario_inicial: 10000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Media',
         sectores: ["Turismo y hotelería", "Medio ambiente y sustentabilidad", "Gobierno y sector público", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 8
@@ -3113,9 +2975,7 @@ export const careers = [
         dificultad_academica: 5
     },
     profesion: {
-        empleabilidad: 0.7,
-        salario_inicial: 10000,
-        salario_experiencia: 28000,
+        empleabilidad: 'Media',
         sectores: ["Turismo y hotelería", "Comercio y retail", "Logística y transporte", "Emprendimiento/startups"],
         demanda: "Media",
         emprendimiento: 7

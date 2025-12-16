@@ -76,6 +76,7 @@ function VentanaTestVocacional() {
 
       {resultadosVocacional ? (
         <div className="vtv-vista">
+          {/* Perfil de áreas */}
           <div className="vtv-perfil-areas">
             {areas.map((area) => (
               <div className="vtv-area" key={area.key}>
@@ -96,6 +97,7 @@ function VentanaTestVocacional() {
             ))}
           </div>
 
+          {/* Lista de top carreras */}
           <div className="vtv-lista-carreras">
             {carrerasCompletas?.slice(0, 5).map((carrera, index) => (
               <div key={carrera.id} className="vtv-carrera">
@@ -116,7 +118,11 @@ function VentanaTestVocacional() {
                   </div>
                   <div className="vtv-info-row">
                     <strong>💼 Empleabilidad:</strong>{" "}
-                    {carrera.profesion?.empleabilidad}
+                    {carrera.profesion?.empleabilidad}%
+                  </div>
+                  <div className="vtv-info-row">
+                    <strong>💰 Salario inicial:</strong> $
+                    {carrera.profesion?.salario_inicial?.toLocaleString()}
                   </div>
                   <div className="vtv-info-row">
                     <strong>📈 Demanda:</strong> {carrera.profesion?.demanda}
@@ -151,6 +157,7 @@ function VentanaTestVocacional() {
             ))}
           </div>
 
+          {/* Botón de nuevo test */}
           <div style={{ marginTop: "2rem" }}>
             <Button
               text="Realizar Nuevo Test Vocacional"
