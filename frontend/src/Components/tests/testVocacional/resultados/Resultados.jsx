@@ -21,7 +21,7 @@ const Resultados = ({ resultados, onRestart, userAnswers }) => {
         </button>
         <button
           className="restart-button"
-          onClick={() => navigate("/recursos")}
+          onClick={() => navigate("/test-vocacional")}
         >
           Continuar
         </button>

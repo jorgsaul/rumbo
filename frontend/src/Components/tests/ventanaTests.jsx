@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import Button from "../botones/buttonPrimary";
 import ButtonGhost from "../botones/buttonGhost";
-import RadioBtn from "../forms/radiobtn";
 import "./ventanaTests.css";
 
 export default function VentanaTests() {
@@ -42,7 +41,7 @@ export default function VentanaTests() {
         }
       );
 
-      window.location.href = "/recursos";
+      window.location.href = "/test-conocimientos";
     } catch (error) {
       console.log(error);
     }
@@ -189,7 +188,10 @@ export default function VentanaTests() {
             ))}
       </div>
 
-      <div className="botones-test">
+      <div
+        className="botones-test"
+        style={{ display: "flex", justifyContent: "space-between" }}
+      >
         {numeroPregunta > 0 && (
           <ButtonGhost
             text={"Anterior"}
