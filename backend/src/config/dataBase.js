@@ -10,7 +10,10 @@ const pool = new pkg.Pool({
   port: process.env.DATABASE_PORT || 5432,
   max: 20,
   idleTimeoutMillis: 30000,
-  connectionTimeoutMillis: 20000
+  connectionTimeoutMillis: 20000,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 export { pool };
