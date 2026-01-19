@@ -20,7 +20,7 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
     if (!/^.{8,30}$/.test(contraseña))
       return "La contraseña debe ser de entre 8 a 30 caracteres";
     if (!/^[a-zñA-ZÑ0-9_\-\*\+.,]+$/.test(contraseña))
-      return "La contraseña tiene caracteres no validos";
+      return "La contraseña contiene caracteres no permitidos. Usa solo letras, números y los símbolos: _ - * + . ,";
     if (!/^\S+$/.test(contraseña)) return "La contraseña contiene espacios";
     if (contraseña !== confContraseña) return "Las contraseñas no coinciden";
 
@@ -32,7 +32,7 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
-        }
+        },
       );
 
       const data = await usuarioExistente.json();
@@ -90,7 +90,7 @@ function RegistroPaso4({ terminarRegistro, setDatos, datos }) {
               identificador: usuario,
             }),
             credentials: "include",
-          }
+          },
         );
 
         if (!respuesta.ok) throw new Error("Error en la respuesta de la red");
