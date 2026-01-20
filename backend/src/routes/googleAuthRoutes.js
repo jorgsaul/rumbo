@@ -52,9 +52,7 @@ router.get('/auth/google/callback', async (req, res) => {
     });
 
     const googleUser = await userResponse.json();
-    
-    console.log('👤 Usuario de Google:', googleUser.email);
-    
+        
     const user = await crearOActualizarUsuarioAuth0({
       email: googleUser.email,
       name: googleUser.name,
