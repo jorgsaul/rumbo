@@ -10,7 +10,7 @@ import VentanaResultados from "../busquedas/ventanaResultados";
 import TestVocacional from "../tests/testVocacional/testVocacional";
 import VentanaTestVocacional from "./ventanaTestsVocacional";
 import VentanaTestsConocimientos from "./ventanaTestsConocimientos";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
 
 function Layout() {
   const navigate = useNavigate();
@@ -57,6 +57,8 @@ function Layout() {
               path="/test-vocacional/realizar-test"
               element={<TestVocacional />}
             />
+            
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </div>
